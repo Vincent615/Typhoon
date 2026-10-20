@@ -264,6 +264,7 @@ export class App {
     const wasPlaying = this.playing;
     if (this.animationStarted) this.lastTs = performance.now();
     this.playing = Boolean(on && n > 1);
+    if (wasPlaying !== this.playing) this.frameBudget.reset();
     if (this.playing) {
       this.targetStep = null;
       if (this.floatStep >= n - 1 - 1e-3) this.floatStep = 0;

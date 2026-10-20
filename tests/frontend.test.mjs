@@ -150,6 +150,21 @@ test('ultra: playback repeats across multiple cycles and respects a manual pause
 for (const [name, AppClass, Renderer] of [
   ['standard', App, TyphoonMapRenderer], ['ultra', UltraApp, UltraTyphoonRenderer]
 ]) {
+  test(`${name}: resuming a long pause does not advance effects by the idle interval`, () => {
+    const { app } = setup(AppClass, Renderer);
+    app.setPlaying(true);
+    app.loop(50);
+    app.setPlaying(false);
+    app.loop(100);
+    let effectDelta = null;
+    app.map.render = (dt) => { effectDelta = dt; };
+    app.setPlaying(true);
+    app.lastTs = 49950;
+    app.loop(50000);
+    assert.equal(effectDelta, 0, 'the first resumed draw starts a new effects clock');
+    assert.equal(app.playing, true);
+  });
+
   test(`${name}: high-refresh displays cap map work at 30 fps and statistics at 8 Hz without slowing playback`, () => {
     for (const refreshRate of [60, 120, 144]) {
       const { app } = setup(AppClass, Renderer);
