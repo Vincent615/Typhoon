@@ -1,0 +1,21 @@
+{
+  "name": "taiwan-typhoon-ai-platform",
+  "version": "1.0.0",
+  "description": "台灣 22 縣市颱風假 AI 機率預測與颱風動態雷達展示平台 (GitHub Pages + GitHub Actions 定時 AI 更新)",
+  "type": "module",
+  "scripts": {
+    "update-data": "node scripts/update_typhoon_data.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "start": "python3 -m http.server 4173 --bind 127.0.0.1"
+  },
+  "keywords": [
+    "taiwan",
+    "typhoon",
+    "cwa",
+    "dgpa",
+    "github-pages",
+    "weather-radar",
+    "ai-forecast"
+  ],
+  "license": "MIT"
+}

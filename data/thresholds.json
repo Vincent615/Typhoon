@@ -1,0 +1,256 @@
+{
+  "metadata": {
+    "regulationName": "天然災害停止上班及上課作業辦法",
+    "authority": "行政院人事行政總處 (DGPA) & 交通部中央氣象署 (CWA)",
+    "windStandard": {
+      "avgBeaufortThreshold": 7,
+      "gustBeaufortThreshold": 10,
+      "description": "依據氣象預報，颱風暴風半徑於四小時內可能經過之地區，其平均風力可達七級以上或陣風可達十級以上時"
+    },
+    "rainStandardNote": "依據氣象預報或實際觀測，降雨量達各通報權責機關停止上班上課雨量參考基準（24小時累積雨量毫米），且已致災或有致災之虞時"
+  },
+  "counties": [
+    {
+      "id": "KEE",
+      "name": "基隆市",
+      "region": "北部",
+      "commuterZone": "北北基桃",
+      "lat": 25.1276,
+      "lon": 121.7392,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": []
+    },
+    {
+      "id": "TPE",
+      "name": "臺北市",
+      "region": "北部",
+      "commuterZone": "北北基桃",
+      "lat": 25.0330,
+      "lon": 121.5654,
+      "coastal": false,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": ["士林區山區", "北投區山區"]
+    },
+    {
+      "id": "NTP",
+      "name": "新北市",
+      "region": "北部",
+      "commuterZone": "北北基桃",
+      "lat": 25.0120,
+      "lon": 121.4657,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": ["烏來區", "平溪區", "雙溪區", "貢寮區", "石碇區", "坪林區"]
+    },
+    {
+      "id": "TYN",
+      "name": "桃園市",
+      "region": "北部",
+      "commuterZone": "北北基桃",
+      "lat": 24.9936,
+      "lon": 121.3010,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["復興區"]
+    },
+    {
+      "id": "HSZ",
+      "name": "新竹市",
+      "region": "北部",
+      "commuterZone": "竹竹苗",
+      "lat": 24.8138,
+      "lon": 120.9675,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": []
+    },
+    {
+      "id": "HSQ",
+      "name": "新竹縣",
+      "region": "北部",
+      "commuterZone": "竹竹苗",
+      "lat": 24.7032,
+      "lon": 121.1252,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["尖石鄉", "五峰鄉"]
+    },
+    {
+      "id": "MIA",
+      "name": "苗栗縣",
+      "region": "中部",
+      "commuterZone": "竹竹苗",
+      "lat": 24.5602,
+      "lon": 120.8214,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["泰安鄉", "南庄鄉", "獅潭鄉"]
+    },
+    {
+      "id": "TXG",
+      "name": "臺中市",
+      "region": "中部",
+      "commuterZone": "中彰投",
+      "lat": 24.1477,
+      "lon": 120.6736,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["和平區"]
+    },
+    {
+      "id": "CHA",
+      "name": "彰化縣",
+      "region": "中部",
+      "commuterZone": "中彰投",
+      "lat": 24.0518,
+      "lon": 120.5161,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": []
+    },
+    {
+      "id": "NAN",
+      "name": "南投縣",
+      "region": "中部",
+      "commuterZone": "中彰投",
+      "lat": 23.9157,
+      "lon": 120.9605,
+      "coastal": false,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["仁愛鄉", "信義鄉"]
+    },
+    {
+      "id": "YUN",
+      "name": "雲林縣",
+      "region": "中部",
+      "commuterZone": "雲嘉嘉",
+      "lat": 23.7092,
+      "lon": 120.4313,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["古坑鄉山區"]
+    },
+    {
+      "id": "CYI",
+      "name": "嘉義市",
+      "region": "南部",
+      "commuterZone": "雲嘉嘉",
+      "lat": 23.4801,
+      "lon": 120.4491,
+      "coastal": false,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": []
+    },
+    {
+      "id": "CYQ",
+      "name": "嘉義縣",
+      "region": "南部",
+      "commuterZone": "雲嘉嘉",
+      "lat": 23.4518,
+      "lon": 120.5740,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["阿里山鄉", "梅山鄉", "竹崎鄉", "番路鄉", "大埔鄉"]
+    },
+    {
+      "id": "TNN",
+      "name": "臺南市",
+      "region": "南部",
+      "commuterZone": "南高屏",
+      "lat": 22.9997,
+      "lon": 120.2270,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": ["南化區", "楠西區", "白河區", "東山區"]
+    },
+    {
+      "id": "KHH",
+      "name": "高雄市",
+      "region": "南部",
+      "commuterZone": "南高屏",
+      "lat": 22.6273,
+      "lon": 120.3014,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["那瑪夏區", "桃源區", "茂林區", "六龜區", "甲仙區"]
+    },
+    {
+      "id": "PIF",
+      "name": "屏東縣",
+      "region": "南部",
+      "commuterZone": "南高屏",
+      "lat": 22.5519,
+      "lon": 120.5487,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": ["霧臺鄉", "三地門鄉", "瑪家鄉", "泰武鄉", "來義鄉", "春日鄉", "獅子鄉", "牡丹鄉"]
+    },
+    {
+      "id": "ILA",
+      "name": "宜蘭縣",
+      "region": "東部",
+      "commuterZone": "宜花東",
+      "lat": 24.7021,
+      "lon": 121.7378,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["大同鄉", "南澳鄉"]
+    },
+    {
+      "id": "HUA",
+      "name": "花蓮縣",
+      "region": "東部",
+      "commuterZone": "宜花東",
+      "lat": 23.8310,
+      "lon": 121.4514,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["秀林鄉", "萬榮鄉", "卓溪鄉"]
+    },
+    {
+      "id": "TTT",
+      "name": "臺東縣",
+      "region": "東部",
+      "commuterZone": "宜花東",
+      "lat": 22.7972,
+      "lon": 121.0714,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 200 },
+      "mountainDistricts": ["海端鄉", "延平鄉", "金峰鄉", "達仁鄉", "蘭嶼鄉", "綠島鄉"]
+    },
+    {
+      "id": "PEN",
+      "name": "澎湖縣",
+      "region": "外島",
+      "commuterZone": "離島地區",
+      "lat": 23.5711,
+      "lon": 119.5793,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": []
+    },
+    {
+      "id": "KIN",
+      "name": "金門縣",
+      "region": "外島",
+      "commuterZone": "離島地區",
+      "lat": 24.4493,
+      "lon": 118.3767,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": []
+    },
+    {
+      "id": "LIE",
+      "name": "連江縣",
+      "region": "外島",
+      "commuterZone": "離島地區",
+      "lat": 26.1505,
+      "lon": 119.9265,
+      "coastal": true,
+      "rainThreshold": { "flatland": 350, "mountain": 350 },
+      "mountainDistricts": []
+    }
+  ]
+}
