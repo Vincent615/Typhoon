@@ -32,6 +32,9 @@ npm run update-data
 # 獨立更新新聞連結至 data/news.json
 npm run update-news
 
+# 建置正式網站至 _site，替前端資源與相依模組加入一致版本號
+npm run build
+
 # 本機預覽：http://127.0.0.1:4173
 npm start
 ```
@@ -52,7 +55,9 @@ npm start
 4. 直接呼叫共用部署 workflow，部署該 SHA 的網站。
 5. 回報來源更新結果；若任一更新命令失敗，即使可用資料已部署，整個 workflow 仍標為失敗，避免把更新失敗當成完全成功。
 
-更新流程不依賴機器人 push 觸發另一個 workflow。部署流程也會在一般 `main`／`master` push 或手動執行時運作，只上傳 HTML、`src/` 與 `data/`。
+更新流程不依賴機器人 push 觸發另一個 workflow。部署流程也會在一般 `main`／`master` push 或手動執行時運作，只發布公開 HTML、`src/`、`data/` 與建置版本資訊。
+
+部署前會執行 `npm run build`：HTML、樣式與整個 JavaScript 模組圖使用相同的內容版本號，避免瀏覽器把新版頁面與舊版 CSS／JS 混用。天氣或新聞資料單獨更新時不會使前端快取失效。`_site/build.json` 記錄資源版本與實際建置的 commit，方便核對正式網站。
 
 ## 動畫效能
 

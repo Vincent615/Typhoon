@@ -228,8 +228,14 @@ export class App {
         el: li, geo, region: c.region, bar: li.querySelector('i'), pct: li.querySelector('.p')
       });
     });
-    if (cSelect) cSelect.value = this.selectedId;
-    if (mapSelect) mapSelect.value = this.selectedId;
+    if (cSelect) {
+      cSelect.value = this.selectedId;
+      cSelect.disabled = this.rows.size === 0;
+    }
+    if (mapSelect) {
+      mapSelect.value = this.selectedId;
+      mapSelect.disabled = this.rows.size === 0;
+    }
     this.applyFilter();
   }
 

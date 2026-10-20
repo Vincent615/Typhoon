@@ -114,7 +114,7 @@
         <div class="map-controls">
           <label class="map-county-picker">
             <span class="sr-only">查看縣市</span>
-            <select id="map-county-select" aria-label="選擇地圖縣市"></select>
+            <select id="map-county-select" aria-label="選擇地圖縣市" disabled><option value="">載入縣市…</option></select>
           </label>
           <div class="layer-matrix" role="group" aria-label="視覺圖層控制">
             <button type="button" class="q-chip on" aria-pressed="true" data-layer="cloud">
@@ -165,13 +165,12 @@
           <div class="detail-head">
             <div class="target-meta">
               <div class="zone-pill">
-                <span class="target-tag">查看縣市</span>
                 <span id="d-zone">—</span>
               </div>
-              <label class="county-picker" title="點擊快速切換縣市">
-                <h2 id="d-name">—</h2>
-                <span class="picker-caret" aria-hidden="true">▾</span>
-                <select id="county-select" aria-label="快速切換縣市"></select>
+              <h2 id="d-name">—</h2>
+              <label class="county-picker">
+                <span class="county-picker-label">查看縣市</span>
+                <select id="county-select" aria-label="查看縣市" disabled><option value="">載入縣市…</option></select>
               </label>
               <div class="status-badge" id="d-status-wrap">
                 <i class="status-led" id="d-dot"></i>

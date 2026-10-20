@@ -20,6 +20,8 @@ html, body {
   font-family: "Inter", "Noto Sans TC", system-ui, -apple-system, sans-serif;
   font-feature-settings: "tnum" 1;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 button { font: inherit; color: inherit; }
@@ -243,21 +245,31 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
 .detail-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .zone { display: block; font-size: 12px; color: var(--ink-3); }
 .county-picker {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  width: 100%;
+  max-width: 12rem;
+  min-width: 0;
+  margin-top: 4px;
 }
 .county-picker select {
-  position: absolute;
-  inset: 0;
+  position: static;
   width: 100%;
-  height: 100%;
-  opacity: 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  color-scheme: light;
+  opacity: 1;
   cursor: pointer;
 }
+.county-picker-label { font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+.county-picker option, .map-county-picker option { background: var(--surface); color: var(--ink); }
 .picker-caret { font-size: 12px; color: var(--ink-3); }
 .detail h2 { font-size: 22px; font-weight: 600; letter-spacing: 0.01em; }
 .status { display: flex; align-items: center; gap: 7px; margin-top: 8px; font-size: 13px; color: var(--ink-2); }
@@ -366,8 +378,9 @@ a:focus-visible, .county-picker:focus-within, .storm:focus-within { outline: 2px
 .map-card { position: relative; }
 .map-controls { display: contents; }
 .map-county-picker { display: none; }
-.play { width: auto; min-height: 44px; height: 44px; padding: 0 12px; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 7px; }
-#play-label { font-size: 14px; font-weight: 500; }
+.play { flex: 0 0 auto; width: max-content; min-width: 80px; min-height: 44px; height: auto; padding: 11px 12px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; white-space: nowrap; line-height: 1.2; }
+.play svg { flex: 0 0 14px; width: 14px; height: 14px; }
+#play-label { flex: 0 0 auto; font-size: 14px; font-weight: 500; white-space: nowrap; line-height: 1.2; }
 input[type="range"] { height: 44px; }
 input[type="range"]::-webkit-slider-thumb { width: 22px; height: 22px; margin-top: -9.5px; }
 input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; }
@@ -408,7 +421,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; }
   #typhoon-canvas { touch-action: pan-y; }
   .map-controls { order: 1; display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-top: 1px solid var(--line); }
   .map-county-picker { display: block; flex-shrink: 0; }
-  .map-county-picker select { min-height: 44px; max-width: 110px; border: 1px solid var(--line-strong); border-radius: 7px; padding: 0 6px; background: var(--surface); color: var(--ink); font-size: 16px; }
+  .map-county-picker select { min-height: 44px; max-width: 110px; border: 1px solid var(--line-strong); border-radius: 7px; padding: 0 6px; background: var(--surface); color: var(--ink); color-scheme: light; font-size: 16px; }
   .tools { position: static; display: flex; flex: 1; min-width: 0; gap: 2px; padding: 0; border: 0; background: none; backdrop-filter: none; }
   .tool { flex: 1; min-width: 44px; min-height: 44px; padding: 0 4px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
   .stats { order: 3; position: static; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 8px 6px 10px; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: var(--surface-2); backdrop-filter: none; }

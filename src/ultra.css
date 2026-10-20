@@ -51,6 +51,8 @@ body {
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 button,
@@ -733,23 +735,33 @@ input {
 }
 
 .county-picker {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  width: 100%;
+  max-width: 12rem;
+  min-width: 0;
+  margin-top: 4px;
 }
 
 .county-picker select {
-  position: absolute;
-  inset: 0;
+  position: static;
   width: 100%;
-  height: 100%;
-  opacity: 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-bright);
+  border-radius: 8px;
+  background: var(--bg-abyss);
+  color: var(--text-hi);
+  color-scheme: dark;
+  opacity: 1;
   cursor: pointer;
 }
 
+.county-picker-label { font-size: 12px; line-height: 1.5; color: var(--text-md); }
+.county-picker option, .map-county-picker option { background: var(--bg-abyss); color: var(--text-hi); }
 .picker-caret {
   font-size: 13px;
   color: var(--neon-cyan);
@@ -1173,8 +1185,9 @@ button:disabled { cursor: default; }
 #storm-map, #county-weather, #latest-news { scroll-margin-top: 12px; }
 .map-controls { display: contents; }
 .map-county-picker { display: none; }
-.warp-play { width: auto; min-height: 44px; height: 44px; padding: 0 12px; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 7px; }
-#play-label { font-size: 14px; font-weight: 600; white-space: nowrap; }
+.warp-play { flex: 0 0 auto; width: max-content; min-width: 80px; min-height: 44px; height: auto; padding: 11px 12px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; white-space: nowrap; line-height: 1.2; }
+.warp-play svg { flex: 0 0 15px; width: 15px; height: 15px; }
+#play-label { flex: 0 0 auto; font-size: 14px; font-weight: 600; white-space: nowrap; line-height: 1.2; }
 .speed-pill { min-width: 44px; min-height: 44px; font-size: 13px; }
 .warp-track { min-width: 0; gap: 0; padding-top: 0; }
 #timeline-slider { height: 44px; border-radius: 0; box-shadow: none; background: transparent; }
@@ -1224,7 +1237,7 @@ button:disabled { cursor: default; }
   #typhoon-canvas { touch-action: pan-y; }
   .map-controls { order: 1; display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(4, 10, 22, 0.92); border-top: 1px solid var(--border-dim); }
   .map-county-picker { display: block; min-width: 84px; flex-shrink: 0; }
-  .map-county-picker select { min-height: 44px; width: 100%; max-width: 98px; border: 1px solid var(--border-bright); border-radius: 7px; padding: 0 4px; background: var(--bg-abyss); font-size: 16px; }
+  .map-county-picker select { min-height: 44px; width: 100%; max-width: 98px; border: 1px solid var(--border-bright); border-radius: 7px; padding: 0 4px; background: var(--bg-abyss); color: var(--text-hi); color-scheme: dark; font-size: 16px; }
   .layer-matrix { position: static; display: flex; flex: 1; min-width: 0; padding: 0; gap: 2px; border: 0; border-radius: 0; background: none; backdrop-filter: none; }
   .q-chip { flex: 1; min-width: 44px; min-height: 44px; padding: 0 3px; justify-content: center; font-size: 12px; border-radius: 6px; white-space: nowrap; }
   .q-led { display: none; }

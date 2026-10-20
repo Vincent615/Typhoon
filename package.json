@@ -4,6 +4,7 @@
   "description": "台灣 22 縣市颱風假 AI 機率預測與颱風動態雷達展示平台 (GitHub Pages + GitHub Actions 定時 AI 更新)",
   "type": "module",
   "scripts": {
+    "build": "node scripts/build_site.mjs",
     "update-data": "node scripts/update_typhoon_data.mjs",
     "update-news": "node scripts/update_news.mjs",
     "test": "node --test tests/*.test.mjs",

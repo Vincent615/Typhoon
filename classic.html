@@ -66,7 +66,7 @@
         <div class="map-controls">
           <label class="map-county-picker">
             <span class="sr-only">查看縣市</span>
-            <select id="map-county-select" aria-label="選擇地圖縣市"></select>
+            <select id="map-county-select" aria-label="選擇地圖縣市" disabled><option value="">載入縣市…</option></select>
           </label>
           <div class="tools" role="group" aria-label="圖層">
             <button type="button" class="tool on" aria-pressed="true" data-layer="cloud">雲系</button>
@@ -97,10 +97,10 @@
           <div class="detail-head">
             <div>
               <span class="zone" id="d-zone">—</span>
-              <label class="county-picker" title="點擊快速切換縣市">
-                <h2 id="d-name">—</h2>
-                <span class="picker-caret" aria-hidden="true">▾</span>
-                <select id="county-select" aria-label="快速切換縣市"></select>
+              <h2 id="d-name">—</h2>
+              <label class="county-picker">
+                <span class="county-picker-label">查看縣市</span>
+                <select id="county-select" aria-label="查看縣市" disabled><option value="">載入縣市…</option></select>
               </label>
               <div class="status"><i id="d-dot"></i><span id="d-status">—</span></div>
             </div>
