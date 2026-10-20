@@ -1,4 +1,4 @@
-name: Scheduled AI Typhoon Data Update
+name: Scheduled Typhoon and News Update
 
 on:
   schedule:
@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       data-ref: ${{ steps.commit.outputs.ref }}
+      forecast-result: ${{ steps.forecast.outcome }}
+      news-result: ${{ steps.news.outcome }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,20 +35,30 @@ jobs:
         run: npm test
 
       - name: Fetch Official CWA/DGPA Data & Run Probability Engine
+        id: forecast
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/update_typhoon_data.mjs
 
-      - name: Commit and Push Updated Forecast Data
+      - name: Fetch Recent Typhoon News
+        id: news
+        continue-on-error: true
+        run: npm run update-news
+
+      - name: Commit and Push Updated Data
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/typhoon-data.json
+          if [ -f data/news.json ]; then
+            git add data/news.json
+          fi
           if git diff --staged --quiet; then
-            echo "No changes in typhoon-data.json"
+            echo "No data changes"
           else
-            git commit -m "chore(data): auto-update typhoon AI probability forecast"
+            git commit -m "chore(data): update typhoon forecast and news"
             git push
           fi
           echo "ref=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -56,3 +68,19 @@ jobs:
     uses: ./.github/workflows/deploy-pages.yml
     with:
       ref: ${{ needs.update-forecast.outputs.data-ref }}
+
+  check-source-results:
+    needs: [update-forecast, deploy]
+    if: ${{ always() && needs.update-forecast.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report source update results
+        env:
+          FORECAST_RESULT: ${{ needs.update-forecast.outputs.forecast-result }}
+          NEWS_RESULT: ${{ needs.update-forecast.outputs.news-result }}
+        run: |
+          if [ "$FORECAST_RESULT" != "success" ] || [ "$NEWS_RESULT" != "success" ]; then
+            echo "::error::Source update failed (forecast=$FORECAST_RESULT, news=$NEWS_RESULT). Available data and source status were retained for deployment."
+            exit 1
+          fi
+          echo "Forecast and news update commands completed."

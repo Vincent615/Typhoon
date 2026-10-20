@@ -56,6 +56,7 @@ export class UltraApp {
     this.lastSyncStep = null;
     this.lastMetaCheck = 0;
     this.lastOrderKey = null;
+    this.mapVisible = true;
   }
 
   async init() {
@@ -67,6 +68,13 @@ export class UltraApp {
       onSelectCounty: (id) => this.selectCounty(id),
       onSelectStep: (i) => this.goToStep(i)
     });
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      this.mapObserver = new IntersectionObserver(([entry]) => {
+        this.mapVisible = entry.isIntersecting;
+      });
+      this.mapObserver.observe($('typhoon-canvas'));
+    }
 
     this.renderMeta();
     this.bindControls();
@@ -101,10 +109,12 @@ export class UltraApp {
   bindControls() {
     $('scenario-select').addEventListener('change', (e) => this.selectScenario(e.target.value));
     $('county-select')?.addEventListener('change', (e) => this.selectCounty(e.target.value));
+    $('map-county-select')?.addEventListener('change', (e) => this.selectCounty(e.target.value));
 
     document.querySelectorAll('.q-chip').forEach((btn) => {
       btn.addEventListener('click', () => {
         const on = btn.classList.toggle('on');
+        btn.setAttribute('aria-pressed', String(on));
         this.map.setLayerVisibility(btn.dataset.layer, on);
       });
     });
@@ -114,6 +124,7 @@ export class UltraApp {
     $('btn-speed').addEventListener('click', () => {
       this.speedIdx = (this.speedIdx + 1) % SPEED_OPTIONS.length;
       $('btn-speed').textContent = `${SPEED_OPTIONS[this.speedIdx]}×`;
+      $('btn-speed').setAttribute('aria-label', `播放速度 ${SPEED_OPTIONS[this.speedIdx]} 倍，點擊切換`);
     });
 
     $('timeline-slider').addEventListener('input', (e) => {
@@ -125,8 +136,12 @@ export class UltraApp {
     });
 
     document.querySelectorAll('#region-tabs button').forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.region === this.region));
       btn.addEventListener('click', () => {
-        document.querySelectorAll('#region-tabs button').forEach((b) => b.classList.toggle('on', b === btn));
+        document.querySelectorAll('#region-tabs button').forEach((b) => {
+          b.classList.toggle('on', b === btn);
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
         this.region = btn.dataset.region;
         this.applyFilter();
       });
@@ -141,6 +156,7 @@ export class UltraApp {
     $('brief-toggle').addEventListener('click', () => {
       const open = $('brief').classList.toggle('open');
       $('brief-toggle').textContent = open ? '收合' : '展開';
+      $('brief-toggle').setAttribute('aria-expanded', String(open));
     });
 
     document.addEventListener('keydown', (e) => {
@@ -156,6 +172,8 @@ export class UltraApp {
 
   /** Cursor-tracking specular spotlight & 3D perspective card tilt */
   bindHoloEffects() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     document.querySelectorAll('[data-spotlight]').forEach((card) => {
       const hasTilt = card.hasAttribute('data-tilt');
       card.addEventListener('pointermove', (e) => {
@@ -213,12 +231,11 @@ export class UltraApp {
     const tl = this.scenario.timeline;
     if (tl.length < 2) return;
     tl.forEach((s, i) => {
-      const pct = (i / (tl.length - 1)) * 100;
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'tick';
       b.textContent = shortOffset(s.offsetLabel);
-      b.style.left = `calc(${pct}% + ${8 - (16 * pct) / 100}px)`;
+      b.setAttribute('aria-label', `${shortOffset(s.offsetLabel)}，${fmtTime(s.timeDisplay)}`);
       b.addEventListener('click', () => this.goToStep(i));
       box.appendChild(b);
     });
@@ -227,8 +244,10 @@ export class UltraApp {
   buildRows() {
     const list = $('county-list');
     const cSelect = $('county-select');
+    const mapSelect = $('map-county-select');
     list.innerHTML = '';
     if (cSelect) cSelect.innerHTML = '';
+    if (mapSelect) mapSelect.innerHTML = '';
     this.rows.clear();
     this.scenario.timeline[0].counties.forEach((c, geo) => {
       if (cSelect) {
@@ -236,6 +255,12 @@ export class UltraApp {
         opt.value = c.id;
         opt.textContent = c.name;
         cSelect.appendChild(opt);
+      }
+      if (mapSelect) {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.name;
+        mapSelect.appendChild(opt);
       }
       const li = document.createElement('li');
       li.innerHTML = `
@@ -257,6 +282,7 @@ export class UltraApp {
       });
     });
     if (cSelect) cSelect.value = this.selectedId;
+    if (mapSelect) mapSelect.value = this.selectedId;
     this.applyFilter();
   }
 
@@ -269,11 +295,15 @@ export class UltraApp {
   selectCounty(id) {
     this.selectedId = id;
     if ($('county-select')) $('county-select').value = id;
+    if ($('map-county-select')) $('map-county-select').value = id;
     this.map.setSelectedCounty(id);
     this.sync(true);
     this.renderGauge();
     const row = this.rows.get(id);
-    if (row && !row.el.hidden) row.el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    // Mobile uses the page scroll; selecting a county must not pull readers down to its ranking.
+    if (typeof window !== 'undefined' && window.matchMedia('(min-width: 681px)').matches && row && !row.el.hidden) {
+      row.el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
   }
 
   goToStep(i) {
@@ -291,9 +321,11 @@ export class UltraApp {
       this.holdUntil = 0;
     }
     if (wasPlaying && !this.playing && this.map?.scenario === this.scenario) this.syncPosition(true);
-    $('icon-play').hidden = this.playing;
-    $('icon-pause').hidden = !this.playing;
+    $('icon-play').toggleAttribute('hidden', this.playing);
+    $('icon-pause').toggleAttribute('hidden', !this.playing);
     $('btn-play').setAttribute('aria-label', this.playing ? '暫停時間軸' : '播放時間軸');
+    $('btn-play').setAttribute('aria-pressed', String(this.playing));
+    if ($('play-label')) $('play-label').textContent = this.playing ? '暫停' : '播放';
   }
 
   loop(ts) {
@@ -325,7 +357,8 @@ export class UltraApp {
     slider.value = String(this.floatStep);
     slider.style.setProperty('--fill', `${(this.floatStep / Math.max(1, n - 1)) * 100}%`);
 
-    this.map.render(dt);
+    // Keep the requested timeline looping, but skip invisible canvas effects while reading below it.
+    if (this.mapVisible && !document.hidden) this.map.render(dt);
 
     if (this.floatStep !== this.lastSyncStep) {
       this.lastSyncStep = this.floatStep;
@@ -372,7 +405,11 @@ export class UltraApp {
     $('time-offset').textContent = shortOffset(s.offsetLabel);
     $('time-display').textContent = fmtTime(s.timeDisplay);
     const cur = Math.round(this.floatStep);
-    document.querySelectorAll('#timeline-ticks .tick').forEach((b, i) => b.classList.toggle('on', i === cur));
+    document.querySelectorAll('#timeline-ticks .tick').forEach((b, i) => {
+      b.classList.toggle('on', i === cur);
+      b.setAttribute('aria-pressed', String(i === cur));
+    });
+    $('timeline-slider').setAttribute('aria-valuetext', `${shortOffset(s.offsetLabel)}，${fmtTime(s.timeDisplay)}`);
 
     const knownProbabilities = s.counties.map((x) => x.probability).filter(Number.isFinite);
     const maxProb = knownProbabilities.length ? Math.max(...knownProbabilities) : null;

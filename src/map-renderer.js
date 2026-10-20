@@ -185,7 +185,7 @@ export class TyphoonMapRenderer {
 
   resize() {
     const rect = this.canvas.parentElement.getBoundingClientRect();
-    const w = Math.max(300, Math.round(rect.width));
+    const w = Math.max(1, Math.floor(rect.width));
     const h = Math.max(300, Math.round(rect.height));
     if (w === this.width && h === this.height) return;
     this.width = w;

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "update-data": "node scripts/update_typhoon_data.mjs",
+    "update-news": "node scripts/update_news.mjs",
     "test": "node --test tests/*.test.mjs",
     "start": "python3 -m http.server 4173 --bind 127.0.0.1"
   },

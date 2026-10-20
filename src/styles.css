@@ -366,73 +366,95 @@ li.on .row .b { background: #E5E0D8; }
 
 footer { font-size: 11.5px; color: var(--ink-3); text-align: center; padding-top: 2px; }
 
+/* Accessible controls and complete forecast navigation. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+a:focus-visible, .county-picker:focus-within, .storm:focus-within { outline: 2px solid var(--rose); outline-offset: 3px; }
+.page-nav { display: none; }
+#storm-map, #county-weather, #latest-news { scroll-margin-top: 12px; }
+.map-card { position: relative; }
+.map-controls { display: contents; }
+.map-county-picker { display: none; }
+.play { width: auto; min-height: 44px; height: 44px; padding: 0 12px; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 7px; }
+#play-label { font-size: 14px; font-weight: 500; }
+input[type="range"] { height: 44px; }
+input[type="range"]::-webkit-slider-thumb { width: 22px; height: 22px; margin-top: -9.5px; }
+input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; }
+.ticks { display: flex; gap: 4px; height: auto; overflow-x: auto; padding: 3px 2px 6px; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+.ticks .tick { position: static; transform: none; flex: 1 0 48px; min-width: 48px; min-height: 44px; padding: 0 6px; font-size: 12px; border: 1px solid var(--line); border-radius: 5px; color: var(--ink-2); }
+.tick::before { display: none; }
+.tick.on { background: var(--surface-2); border-color: var(--line-strong); }
+.county-picker { min-height: 44px; }
+.county-picker select { font-size: 16px; }
+.brief button { min-height: 44px; min-width: 44px; font-size: 13px; }
+.bar-right { min-width: 0; }
+.updated { overflow-wrap: anywhere; }
+.mode-link { flex-shrink: 0; }
+
 @media (max-width: 1080px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .map-wrap { height: 520px; }
 }
 @media (max-width: 680px) {
-  html, body { overflow-x: hidden; width: 100%; }
-  .shell { width: 100%; max-width: 100%; padding: 10px 12px 18px; gap: 10px; overflow-x: hidden; }
+  .shell { width: 100%; max-width: 100%; padding: 10px 10px 20px; gap: 10px; }
   .card, .side, .map-card, .map-wrap, .bar { min-width: 0; max-width: 100%; }
-  .bar { gap: 8px; }
-  .brand { width: 100%; justify-content: space-between; gap: 8px; }
-  .brand h1 { font-size: 16px; }
-  .storm { padding: 4px 10px; }
-  .storm select { font-size: 13px; }
-  .bar-right { width: 100%; justify-content: space-between; }
-
-  .map-wrap { height: 360px; }
-  .stats {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    border-radius: 10px;
-  }
-  .stat { padding: 5px 7px; min-width: 0; }
-  .stat + .stat { border-left: 1px solid var(--line); }
-  .stat span { font-size: 10px; white-space: nowrap; }
-  .stat b { font-size: 12.5px; white-space: nowrap; }
-  .stat b small { font-size: 9.5px; margin-left: 1px; }
-
-  .tools { top: auto; bottom: 8px; right: auto; left: 8px; padding: 3px; }
-  .tool { padding: 4px 9px; font-size: 11.5px; }
-  .legend { display: none; }
-
-  .timeline {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 8px 10px;
-    padding: 10px 12px 12px;
-  }
-  .play { width: 32px; height: 32px; order: 1; }
-  .readout {
-    order: 2;
-    justify-self: end;
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    min-width: 0;
-  }
+  .bar { gap: 6px; }
+  .brand { width: 100%; gap: 6px 10px; }
+  .brand h1 { width: 100%; font-size: 16px; }
+  .storm { padding: 0 10px; min-height: 44px; }
+  .storm select { min-height: 44px; font-size: 16px; max-width: 100%; }
+  .storm:has(select:disabled), .storm select:disabled { min-height: 30px; }
+  .storm select:disabled { font-size: 14px; }
+  .bar-right { width: 100%; align-items: flex-start; gap: 8px; }
+  .updated { flex: 1; font-size: 12px; line-height: 1.6; color: var(--ink-2); }
+  .mode-link { display: grid; place-items: center; min-height: 44px; max-width: 94px; padding: 5px 9px; font-size: 12px; }
+  .page-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .page-nav a { display: grid; place-items: center; min-height: 44px; color: var(--ink); text-decoration: none; font-size: 14px; border-bottom: 2px solid var(--line); }
+  .page-nav a:hover, .page-nav a:focus-visible { border-color: var(--rose); }
+  .layout, .side { gap: 12px; }
+  .map-card { display: flex; flex-direction: column; }
+  .map-wrap { order: 0; height: 340px; }
+  #typhoon-canvas { touch-action: pan-y; }
+  .map-controls { order: 1; display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-top: 1px solid var(--line); }
+  .map-county-picker { display: block; flex-shrink: 0; }
+  .map-county-picker select { min-height: 44px; max-width: 110px; border: 1px solid var(--line-strong); border-radius: 7px; padding: 0 6px; background: var(--surface); color: var(--ink); font-size: 16px; }
+  .tools { position: static; display: flex; flex: 1; min-width: 0; gap: 2px; padding: 0; border: 0; background: none; backdrop-filter: none; }
+  .tool { flex: 1; min-width: 44px; min-height: 44px; padding: 0 4px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+  .stats { order: 3; position: static; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 8px 6px 10px; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: var(--surface-2); backdrop-filter: none; }
+  .stat { min-width: 0; padding: 0 6px; }
+  .stat span { font-size: 12px; color: var(--ink-2); margin-bottom: 4px; white-space: nowrap; }
+  .stat b { display: block; font-size: 17px; line-height: 1.35; white-space: normal; }
+  .stat b small { display: block; margin: 2px 0 0; font-size: 11px; }
+  .legend { right: 10px; bottom: 10px; width: 165px; }
+  .timeline { order: 2; display: grid; grid-template-columns: 1fr auto; gap: 0 8px; padding: 10px 10px 6px; }
+  .play { order: 1; justify-self: start; }
+  .readout { order: 2; min-width: 0; }
+  .readout span { color: var(--ink-2); font-size: 12px; }
   .readout b { font-size: 13px; }
-  .track {
-    order: 3;
-    grid-column: 1 / -1;
-    padding-top: 2px;
-  }
-  .ticks .tick:nth-child(2),
-  .ticks .tick:nth-child(4),
-  .ticks .tick:nth-child(6) {
-    display: none;
-  }
-
-  .detail { padding: 14px 16px; gap: 12px; }
-  .detail h2 { font-size: 20px; }
-  .ring, .ring svg { width: 76px; height: 76px; }
-  .ring .val span { font-size: 21px; }
-
-  .list-card { padding: 12px 14px; }
-  .county-list { max-height: 260px; }
-  .row { padding: 8px 6px; }
+  .track { order: 3; grid-column: 1 / -1; }
+  .detail { padding: 16px 14px; }
+  .detail h2 { font-size: 24px; }
+  .zone, .meter-foot { font-size: 12px; color: var(--ink-2); line-height: 1.6; }
+  .meter-top { flex-wrap: wrap; gap: 4px 8px; font-size: 13px; color: var(--ink-2); }
+  .meter-top b { font-size: 13px; }
+  .ring, .ring svg { width: 80px; height: 80px; }
+  .ring .val span { font-size: 23px; }
+  .note { font-size: 14px; line-height: 1.7; }
+  .list-card { padding: 12px; }
+  .list-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 0 0 8px; }
+  .seg { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; padding: 1px; }
+  .seg button { min-width: 44px; min-height: 44px; padding: 0; font-size: 13px; }
+  .sort { justify-self: end; min-height: 44px; padding: 0 12px; color: var(--ink-2); font-size: 13px; }
+  .county-list { max-height: none; overflow: visible; padding: 0; }
+  .county-list li { will-change: auto; }
+  .row { min-height: 48px; padding: 8px; }
+  .row .n, .row .p { font-size: 14px; }
+  .brief h3 { font-size: 14px; color: var(--ink-2); }
+  .brief p { font-size: 15px; line-height: 1.8; }
+  footer { font-size: 12px; line-height: 1.7; color: var(--ink-2); }
 }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media (max-width: 359px) { .map-wrap { height: 300px; } }
+@media (min-width: 420px) and (max-width: 680px) { .map-wrap { height: 360px; } }

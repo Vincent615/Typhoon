@@ -1194,255 +1194,124 @@ input {
   font-style: normal;
 }
 
-/* ── Responsive Breakpoints (Mobile-First Optimization) ───────────────── */
+/* Controls remain readable and reachable across pointer types. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 2px solid var(--neon-cyan); outline-offset: 3px;
+}
+.county-picker:focus-within, .storm-selector:focus-within { outline: 2px solid var(--neon-cyan); outline-offset: 3px; }
+button:disabled { cursor: default; }
+.page-nav { display: none; }
+#storm-map, #county-weather, #latest-news { scroll-margin-top: 12px; }
+.map-controls { display: contents; }
+.map-county-picker { display: none; }
+.warp-play { width: auto; min-height: 44px; height: 44px; padding: 0 12px; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 7px; }
+#play-label { font-size: 14px; font-weight: 600; white-space: nowrap; }
+.speed-pill { min-width: 44px; min-height: 44px; font-size: 13px; }
+.warp-track { min-width: 0; gap: 0; padding-top: 0; }
+#timeline-slider { height: 44px; border-radius: 0; box-shadow: none; background: transparent; }
+#timeline-slider::-webkit-slider-runnable-track { height: 5px; border-radius: 999px; background: linear-gradient(90deg, var(--neon-cyan) var(--fill, 0%), #334155 var(--fill, 0%)); }
+#timeline-slider::-webkit-slider-thumb { margin-top: -8.5px; width: 22px; height: 22px; }
+#timeline-slider::-moz-range-track { height: 5px; border-radius: 999px; background: #334155; }
+#timeline-slider::-moz-range-progress { height: 5px; background: var(--neon-cyan); }
+#timeline-slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 2px solid var(--neon-cyan); }
+.warp-ticks { display: flex; gap: 4px; height: auto; overflow-x: auto; padding: 3px 2px 6px; scrollbar-width: thin; scrollbar-color: #367183 transparent; }
+.warp-ticks .tick { position: static; transform: none; flex: 1 0 48px; min-width: 48px; min-height: 44px; padding: 0 6px; white-space: nowrap; font-size: 12px; border: 1px solid var(--border-dim); }
+.warp-ticks .tick.on { box-shadow: none; }
+.county-picker { min-height: 44px; }
+.county-picker select { font-size: 16px; }
+.brief-head button { min-height: 44px; min-width: 44px; font-size: 13px; }
+.hud-actions, .telemetry-stamp { min-width: 0; }
+.telemetry-stamp { overflow-wrap: anywhere; }
+.edition-switch { flex-shrink: 0; }
+
 @media (max-width: 1120px) {
-  .layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .map-card {
-    min-height: 500px;
-  }
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .map-card { min-height: 500px; }
 }
 
 @media (max-width: 680px) {
-  .en-sub {
-    display: none;
-  }
-
-  .holo-card,
-  .side-stack,
-  .map-card,
-  .map-wrap,
-  .hud-bar {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  .shell {
-    padding: 8px 10px 16px;
-    gap: 10px;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
-  .hud-bar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 12px;
-    gap: 8px;
-  }
-
-  .brand-cluster {
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .core-emblem {
-    width: 24px;
-    height: 24px;
-  }
-
-  .brand-titles h1 {
-    font-size: 15px;
-  }
-
-  .storm-selector {
-    margin-left: 0;
-    padding: 4px 10px;
-  }
-
-  .storm-selector select {
-    font-size: 12px;
-  }
-
-  .hud-actions {
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .telemetry-stamp {
-    font-size: 10.5px;
-    padding: 4px 8px;
-  }
-
-  .edition-switch {
-    font-size: 11.5px;
-    padding: 4px 10px;
-  }
-
-  .map-card {
-    min-height: 0;
-  }
-
-  .map-wrap {
-    height: 360px;
-    min-height: 360px;
-  }
-
-  .telemetry-pods {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 5px;
-  }
-
-  .pod {
-    padding: 5px 7px;
-    border-left-width: 2px;
-  }
-
-  .pod-k {
-    font-size: 9px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .pod-v {
-    font-size: 12.5px;
-    display: block;
-    white-space: nowrap;
-  }
-
-  .pod-v small {
-    font-size: 9.5px;
-    margin-left: 2px;
-  }
-
-  .layer-matrix {
-    top: auto;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
-    justify-content: space-between;
-    padding: 3px 5px;
-    gap: 2px;
-  }
-
-  .q-chip {
-    flex: 1;
-    justify-content: center;
-    padding: 4px 4px;
-    font-size: 11px;
-    gap: 4px;
-    white-space: nowrap;
-  }
-
-  .spectrum-legend {
-    display: none;
-  }
-
-  .warp-timeline {
-    grid-template-columns: 1fr auto;
-    gap: 8px 10px;
-    padding: 10px 12px 12px;
-  }
-
-  .transport-cluster {
-    order: 1;
-  }
-
-  .warp-play {
-    width: 34px;
-    height: 34px;
-  }
-
-  .chrono-readout {
-    order: 2;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 6px;
-    min-width: 0;
-  }
-
-  .chrono-clock {
-    font-size: 13px;
-  }
-
-  .warp-track {
-    order: 3;
-    grid-column: 1 / -1;
-    padding-top: 2px;
-  }
-
-  .warp-ticks .tick:nth-child(2),
-  .warp-ticks .tick:nth-child(4),
-  .warp-ticks .tick:nth-child(6) {
-    display: none;
-  }
-
-  .holo-card[data-tilt] {
-    transform: none !important;
-  }
-
-  .detail-card {
-    padding: 14px;
-    gap: 11px;
-  }
-
-  .target-meta h2 {
-    font-size: 22px;
-  }
-
-  .plasma-gauge {
-    width: 88px;
-    height: 88px;
-  }
-
-  .plasma-gauge svg {
-    width: 88px;
-    height: 88px;
-  }
-
-  .gauge-val span {
-    font-size: 23px;
-  }
-
-  .n-meter {
-    padding: 8px 10px;
-  }
-
-  .n-meter-top {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .n-meter-foot {
-    font-size: 10.5px;
-    gap: 6px;
-  }
-
-  .matrix-card {
-    padding: 12px;
-  }
-
-  .matrix-head {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .region-seg {
-    flex: 1;
-    justify-content: space-between;
-  }
-
-  .region-seg button {
-    flex: 1;
-    padding: 4px 5px;
-    font-size: 11px;
-  }
-
-  .county-matrix {
-    max-height: 280px;
-  }
-
-  .m-row {
-    padding: 8px 10px;
-  }
-
-  .hud-footer {
-    font-size: 10px;
-    line-height: 1.5;
-  }
+  html, body { height: auto; overflow-x: visible; width: 100%; }
+  .shell { display: flex; flex-direction: column; padding: 8px 10px 20px; gap: 10px; }
+  .holo-card, .side-stack, .map-card, .map-wrap, .hud-bar { min-width: 0; max-width: 100%; }
+  .hud-bar { padding: 10px 12px; flex-direction: column; align-items: stretch; gap: 6px; }
+  .brand-cluster { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 6px 10px; }
+  .core-emblem { width: 24px; height: 24px; }
+  .brand-titles h1 { font-size: 16px; }
+  .storm-selector { grid-column: 1 / -1; justify-self: start; margin: 0; padding: 0 10px; min-height: 44px; }
+  .storm-selector select { font-size: 16px; min-height: 44px; max-width: 100%; }
+  .storm-selector:has(select:disabled) { min-height: 30px; }
+  .storm-selector select:disabled { min-height: 30px; font-size: 14px; }
+  .hud-actions { align-items: flex-start; gap: 8px; }
+  .telemetry-stamp { flex: 1; border: 0; background: none; padding: 0; font-family: var(--font-sans); font-size: 12px; line-height: 1.6; }
+  .stamp-label { display: none; }
+  .edition-switch { min-height: 44px; max-width: 92px; padding: 5px 9px; font-size: 12px; }
+  .switch-dot { display: none; }
+  .page-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .page-nav a { min-height: 44px; display: grid; place-items: center; color: var(--text-hi); text-decoration: none; font-size: 14px; border-bottom: 2px solid var(--border-dim); }
+  .page-nav a:hover, .page-nav a:focus-visible { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+  .layout { gap: 12px; }
+  .map-card { display: flex; flex-direction: column; min-height: 0; }
+  .map-wrap { order: 0; height: 340px; min-height: 0; flex: none; }
+  #typhoon-canvas { touch-action: pan-y; }
+  .map-controls { order: 1; display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(4, 10, 22, 0.92); border-top: 1px solid var(--border-dim); }
+  .map-county-picker { display: block; min-width: 84px; flex-shrink: 0; }
+  .map-county-picker select { min-height: 44px; width: 100%; max-width: 98px; border: 1px solid var(--border-bright); border-radius: 7px; padding: 0 4px; background: var(--bg-abyss); font-size: 16px; }
+  .layer-matrix { position: static; display: flex; flex: 1; min-width: 0; padding: 0; gap: 2px; border: 0; border-radius: 0; background: none; backdrop-filter: none; }
+  .q-chip { flex: 1; min-width: 44px; min-height: 44px; padding: 0 3px; justify-content: center; font-size: 12px; border-radius: 6px; white-space: nowrap; }
+  .q-led { display: none; }
+  .telemetry-pods { order: 3; position: static; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; padding: 8px 6px 10px; background: rgba(4, 10, 22, 0.65); border-top: 1px solid var(--border-dim); }
+  .pod { padding: 0 6px; border: 0; border-right: 1px solid var(--border-dim); border-radius: 0; background: none; box-shadow: none; backdrop-filter: none; }
+  .pod:last-child { border-right: 0; }
+  .en-sub { display: none; }
+  .pod-k { font-family: var(--font-sans); font-size: 12px; white-space: nowrap; letter-spacing: 0; margin-bottom: 4px; }
+  .pod-v { display: block; font-size: 17px; line-height: 1.35; white-space: normal; text-shadow: none; }
+  .pod-v small { display: block; font-size: 11px; margin: 2px 0 0; }
+  .spectrum-legend { left: 10px; bottom: 10px; width: 190px; padding: 7px 9px 18px; }
+  .spectrum-head { font-size: 10px; }
+  .spectrum-head b { display: none; }
+  .warp-timeline { order: 2; grid-template-columns: 1fr auto; gap: 0 8px; padding: 10px 10px 6px; }
+  .transport-cluster { order: 1; gap: 6px; }
+  .chrono-readout { order: 2; min-width: 0; }
+  .chrono-offset { font-size: 12px; }
+  .chrono-clock { font-size: 13px; }
+  .warp-track { order: 3; grid-column: 1 / -1; }
+  .holo-card[data-tilt] { transform: none !important; will-change: auto; }
+  .holo-card { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .holo-card::before, .corner-bracket { display: none; }
+  .detail-card { padding: 16px 14px; gap: 14px; }
+  .target-meta { min-width: 0; }
+  .zone-pill { font-family: var(--font-sans); font-size: 12px; line-height: 1.6; }
+  .target-tag { display: none; }
+  .target-meta h2 { font-size: 24px; }
+  .plasma-gauge, .plasma-gauge svg { width: 88px; height: 88px; }
+  .gauge-val span { font-size: 23px; }
+  .n-meter { padding: 12px 10px; }
+  .n-meter-top { flex-wrap: wrap; gap: 4px 8px; }
+  .n-meter-top span { font-family: var(--font-sans); font-size: 13px; }
+  .n-meter-top b { font-size: 13px; }
+  .n-meter-foot { font-size: 12px; gap: 8px; align-items: flex-start; line-height: 1.6; }
+  .n-meter-foot b { flex-shrink: 0; font-size: 11px; }
+  .hazard-alert { font-size: 14px; line-height: 1.7; }
+  .matrix-card { padding: 12px; min-height: 0; }
+  .matrix-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .region-seg { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; padding: 1px; }
+  .region-seg button { min-width: 44px; min-height: 44px; padding: 0; font-size: 13px; }
+  .sort-chip { justify-self: end; min-height: 44px; padding: 0 12px; font-size: 13px; }
+  .county-matrix { max-height: none; overflow: visible; padding: 0; }
+  .m-row { min-height: 48px; padding: 8px; gap: 6px; grid-template-columns: 22px 62px 1fr 44px; }
+  .m-name, .m-pct { font-size: 14px; }
+  .m-rank { color: var(--text-md); }
+  .brief-tag { font-family: var(--font-sans); font-size: 14px; letter-spacing: 0; }
+  .brief-card p { font-size: 15px; line-height: 1.8; }
+  .hud-footer { font-family: var(--font-sans); font-size: 12px; line-height: 1.7; }
+  .aurora, .core-ring, .gauge-reticle { animation: none; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .holo-card[data-tilt] { transform: none !important; }
+}
+
+@media (max-width: 359px) { .map-wrap { height: 300px; } }
+@media (min-width: 420px) and (max-width: 680px) { .map-wrap { height: 360px; } }

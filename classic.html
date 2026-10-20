@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/styles.css" />
+  <link rel="stylesheet" href="./src/news.css" />
 </head>
 <body>
   <div class="shell">
@@ -28,23 +29,20 @@
       </div>
     </header>
 
+    <nav class="page-nav" aria-label="頁面導覽">
+      <a href="#storm-map">颱風地圖</a>
+      <a href="#county-weather">縣市風雨</a>
+      <a href="#latest-news">最新消息</a>
+    </nav>
+
     <main class="layout">
-      <section class="card map-card">
+      <section class="card map-card" id="storm-map" aria-label="颱風地圖與預報時間軸">
         <div class="map-wrap">
           <canvas id="typhoon-canvas" aria-label="颱風動態與各縣市機率地圖"></canvas>
 
-          <div class="stats" id="stats">
-            <div class="stat"><span>中心氣壓</span><b id="s-pressure">—</b></div>
-            <div class="stat"><span>最大風速</span><b id="s-wind">—</b></div>
-            <div class="stat"><span>七級半徑</span><b id="s-radius">—</b></div>
-            <div class="stat"><span>移動</span><b id="s-move">—</b></div>
-          </div>
 
-          <div class="tools" role="group" aria-label="圖層">
-            <button type="button" class="tool on" data-layer="cloud">雲系</button>
-            <button type="button" class="tool on" data-layer="wind">風場</button>
-            <button type="button" class="tool on" data-layer="radius">暴風圈</button>
-          </div>
+
+
 
           <div class="legend" aria-hidden="true">
             <div class="legend-bar"></div>
@@ -58,14 +56,34 @@
           </div>
         </div>
 
+          <div class="stats" id="stats">
+            <div class="stat"><span>中心氣壓</span><b id="s-pressure">—</b></div>
+            <div class="stat"><span>最大風速</span><b id="s-wind">—</b></div>
+            <div class="stat"><span>七級半徑</span><b id="s-radius">—</b></div>
+            <div class="stat"><span>移動</span><b id="s-move">—</b></div>
+          </div>
+
+        <div class="map-controls">
+          <label class="map-county-picker">
+            <span class="sr-only">查看縣市</span>
+            <select id="map-county-select" aria-label="選擇地圖縣市"></select>
+          </label>
+          <div class="tools" role="group" aria-label="圖層">
+            <button type="button" class="tool on" aria-pressed="true" data-layer="cloud">雲系</button>
+            <button type="button" class="tool on" aria-pressed="true" data-layer="wind">風場</button>
+            <button type="button" class="tool on" aria-pressed="true" data-layer="radius">暴風圈</button>
+          </div>
+        </div>
+
         <div class="timeline">
           <button type="button" class="play" id="btn-play" aria-label="播放">
             <svg id="icon-play" viewBox="0 0 16 16" width="14" height="14"><path d="M4.5 2.8v10.4L13 8z" fill="currentColor"/></svg>
             <svg id="icon-pause" viewBox="0 0 16 16" width="14" height="14" hidden><rect x="3.5" y="2.8" width="3" height="10.4" rx="1" fill="currentColor"/><rect x="9.5" y="2.8" width="3" height="10.4" rx="1" fill="currentColor"/></svg>
+            <span id="play-label">播放</span>
           </button>
           <div class="track">
             <input type="range" id="timeline-slider" min="0" max="1" step="0.001" value="0" aria-label="時間軸" />
-            <div class="ticks" id="timeline-ticks"></div>
+            <div class="ticks" id="timeline-ticks" role="group" aria-label="選擇預報時次"></div>
           </div>
           <div class="readout">
             <span id="time-offset">—</span>
@@ -75,7 +93,7 @@
       </section>
 
       <aside class="side">
-        <section class="card detail">
+        <section class="card detail" id="county-weather" aria-label="縣市風雨估算">
           <div class="detail-head">
             <div>
               <span class="zone" id="d-zone">—</span>
@@ -129,14 +147,31 @@
         <section class="card brief" id="brief" hidden>
           <h3>概況</h3>
           <p id="brief-text"></p>
-          <button type="button" id="brief-toggle">展開</button>
+          <button type="button" id="brief-toggle" aria-controls="brief-text" aria-expanded="false">展開</button>
         </section>
       </aside>
+      <section class="news-section" id="latest-news" aria-labelledby="news-heading">
+        <div class="news-head">
+          <h2 id="news-heading">颱風最新消息</h2>
+          <button class="news-button" type="button" data-news-refresh>重新載入</button>
+        </div>
+        <p class="news-description">近 7 天相關報導，每 3 小時整理。點選標題可開啟媒體原文。</p>
+        <p class="news-status" data-news-status role="status">正在載入新聞…</p>
+        <ul class="news-list" data-news-list></ul>
+        <p class="news-empty" data-news-empty hidden>近 7 天暫無符合條件的颱風新聞，可前往下方媒體網站查看。</p>
+        <button class="news-button" type="button" data-news-more aria-expanded="false" hidden>顯示更多消息</button>
+        <div class="news-footer">
+          <span>新聞來源</span>
+          <a href="https://www.cna.com.tw/list/ahel.aspx" target="_blank" rel="noopener noreferrer">中央通訊社</a>
+          <a href="https://news.pts.org.tw/" target="_blank" rel="noopener noreferrer">公視新聞網</a>
+        </div>
+      </section>
     </main>
 
     <footer>資料來源：中央氣象署、行政院人事行政總處。機率為模型推估，實際請以各縣市政府公告為準。</footer>
   </div>
 
   <script type="module" src="./src/app.js"></script>
+  <script type="module" src="./src/news.js"></script>
 </body>
 </html>

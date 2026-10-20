@@ -34,6 +34,10 @@ class Element {
   }
   addEventListener(name, handler) { this.listeners.set(name, handler); }
   setAttribute(name, value) { this[name] = value; }
+  toggleAttribute(name, force) {
+    if (force) this[name] = '';
+    else delete this[name];
+  }
   getBoundingClientRect() { return { top: (this.parent?.children.indexOf(this) ?? 0) * 20 }; }
   scrollIntoView() {}
   closest(selector) {
@@ -130,16 +134,66 @@ test('ultra: playback repeats across multiple cycles and respects a manual pause
   assert.ok(wraps >= 2, 'playback should repeat without another play action');
   assert.equal(app.playing, true);
   assert.equal(node('btn-play')['aria-label'], '暫停時間軸');
+  assert.equal(node('play-label').textContent, '暫停');
+  assert.ok(Object.hasOwn(node('icon-play'), 'hidden'));
+  assert.equal(Object.hasOwn(node('icon-pause'), 'hidden'), false);
   app.setPlaying(false);
   const paused = app.floatStep;
   for (let frame = 301; frame <= 350; frame++) app.loop(frame * 50);
   assert.equal(app.floatStep, paused);
   assert.equal(node('btn-play')['aria-label'], '播放時間軸');
+  assert.equal(node('play-label').textContent, '播放');
+  assert.equal(Object.hasOwn(node('icon-play'), 'hidden'), false);
+  assert.ok(Object.hasOwn(node('icon-pause'), 'hidden'));
 });
 
 for (const [name, AppClass, Renderer] of [
   ['standard', App, TyphoonMapRenderer], ['ultra', UltraApp, UltraTyphoonRenderer]
 ]) {
+  test(`${name}: map county selection updates the detail without scrolling the page`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    let scrolls = 0;
+    app.rows.get('ILA').el.scrollIntoView = () => scrolls++;
+    node('map-county-select').listeners.get('change')({ target: { value: 'ILA' } });
+    assert.equal(app.selectedId, 'ILA');
+    assert.equal(node('county-select').value, 'ILA');
+    assert.equal(node('map-county-select').value, 'ILA');
+    assert.equal(node('d-name').textContent, 'ILA');
+    assert.equal(scrolls, 0);
+  });
+
+  test(`${name}: all forecast times remain selectable and expose their dates`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    const ticks = node('timeline-ticks').children;
+    assert.equal(ticks.length, app.scenario.timeline.length);
+    assert.match(ticks.at(-1)['aria-label'], /10\/20 20:00/);
+    ticks.at(-1).listeners.get('click')();
+    for (let frame = 1; frame <= 80; frame++) app.loop(frame * 50);
+    assert.equal(app.floatStep, app.scenario.timeline.length - 1);
+    assert.equal(ticks.at(-1)['aria-pressed'], 'true');
+    assert.match(node('timeline-slider')['aria-valuetext'], /10\/20 20:00/);
+  });
+
+  test(`${name}: offscreen canvas work stops while timeline playback still loops`, () => {
+    const { app } = setup(AppClass, Renderer);
+    let rendered = 0;
+    app.map.render = () => rendered++;
+    app.mapVisible = false;
+    app.setPlaying(true);
+    let wraps = 0;
+    let previous = app.floatStep;
+    for (let frame = 1; frame <= 300; frame++) {
+      app.loop(frame * 50);
+      if (app.floatStep < previous) wraps++;
+      previous = app.floatStep;
+    }
+    assert.equal(rendered, 0);
+    assert.ok(wraps >= 2);
+    app.mapVisible = true;
+    app.loop(15050);
+    assert.equal(rendered, 1);
+  });
+
   test(`${name}: reaching a target synchronizes exact final values and ranking`, () => {
     const { app, node } = setup(AppClass, Renderer);
     app.floatStep = 0.96;

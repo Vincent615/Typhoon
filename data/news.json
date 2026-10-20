@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "status": "ok",
+  "lastCheckedAt": "2026-10-20T16:24:58.047Z",
+  "lastSuccessfulAt": "2026-10-20T16:24:58.047Z",
+  "windowDays": 7,
+  "articles": [
+    {
+      "id": "e9123efb9f3b55ed9b42",
+      "title": "薔琵颱風北轉角度成關鍵 氣象署：最快週三晚發布海警",
+      "url": "https://news.pts.org.tw/article/832221",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-20T12:27:05.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "0ac980fcba4bf42b0c22",
+      "title": "颱風薔琵靠近 海運基隆馬祖等航線21日停航",
+      "url": "https://www.cna.com.tw/news/ahel/202610200282.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-20T10:04:33.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "789cdc05b33667f4b996",
+      "title": "颱風薔琵持續增強長胖 估最快21日深夜發海警",
+      "url": "https://www.cna.com.tw/news/ahel/202610200273.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-20T09:48:13.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "d0d409c1640d8ce3a86e",
+      "title": "颱風薔琵最快明深夜海警 週五、六最接近台灣",
+      "url": "https://news.pts.org.tw/article/832118",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-20T06:39:24.000Z",
+      "dateKind": "updated",
+      "cached": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "cna",
+      "name": "中央通訊社",
+      "url": "https://feeds.feedburner.com/rsscna/lifehealth",
+      "siteUrl": "https://www.cna.com.tw/",
+      "status": "ok",
+      "lastCheckedAt": "2026-10-20T16:24:58.047Z",
+      "lastSuccessfulAt": "2026-10-20T16:24:58.047Z",
+      "articleCount": 2
+    },
+    {
+      "id": "pts",
+      "name": "公視新聞網",
+      "url": "https://news.pts.org.tw/xml/newsfeed.xml",
+      "siteUrl": "https://news.pts.org.tw/",
+      "status": "ok",
+      "lastCheckedAt": "2026-10-20T16:24:58.047Z",
+      "lastSuccessfulAt": "2026-10-20T16:24:58.047Z",
+      "articleCount": 2
+    }
+  ]
+}
