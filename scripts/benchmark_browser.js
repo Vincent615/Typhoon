@@ -24,8 +24,13 @@ async (page) => {
       if(config.mode==='news')await testPage.locator('#latest-news').scrollIntoViewIfNeeded();
       await testPage.waitForTimeout(1200);
       await testPage.evaluate(async classic=>{
-        const module=await import(classic?'./src/map-renderer.js':'./src/ultra-renderer.js');
-        const appModule=await import(classic?'./src/app.js':'./src/ultra-app.js');
+        const entry=Array.from(document.scripts).find(script=>new URL(script.src||location.href).pathname.endsWith(classic?'/src/app.js':'/src/ultra-app.js'));
+        if(!entry)throw new Error('Missing app entry for benchmark');
+        const rendererUrl=new URL(classic?'./map-renderer.js':'./ultra-renderer.js',entry.src);
+        const version=new URL(entry.src).searchParams.get('v');
+        if(version)rendererUrl.searchParams.set('v',version);
+        const module=await import(rendererUrl.href);
+        const appModule=await import(entry.src);
         const Renderer=classic?module.TyphoonMapRenderer:module.UltraTyphoonRenderer;
         const App=classic?appModule.App:appModule.UltraApp;
         const stats=window.__perf={renders:0,syncs:0,renderMs:0,canvasPixels:0,particles:0,errors:[]};

@@ -377,6 +377,7 @@ a:focus-visible, .county-picker:focus-within, .storm:focus-within { outline: 2px
 #storm-map, #county-weather, #latest-news { scroll-margin-top: 12px; }
 .map-card { position: relative; }
 .map-controls { display: contents; }
+.map-visual { position: relative; min-width: 0; }
 .map-county-picker { display: none; }
 .play { flex: 0 0 auto; width: max-content; min-width: 80px; min-height: 44px; height: auto; padding: 11px 12px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; white-space: nowrap; line-height: 1.2; }
 .play svg { flex: 0 0 14px; width: 14px; height: 14px; }
@@ -399,7 +400,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; }
   .layout { grid-template-columns: minmax(0, 1fr); }
   .map-wrap { height: 520px; }
 }
-@media (max-width: 680px) {
+@media (max-width: 680px), (max-width: 1024px) and (pointer: coarse) {
   .shell { width: 100%; max-width: 100%; padding: 10px 10px 20px; gap: 10px; }
   .card, .side, .map-card, .map-wrap, .bar { min-width: 0; max-width: 100%; }
   .bar { gap: 6px; }
@@ -417,25 +418,28 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; }
   .page-nav a:hover, .page-nav a:focus-visible { border-color: var(--rose); }
   .layout, .side { gap: 12px; }
   .map-card { display: flex; flex-direction: column; }
+  .map-visual { order: 0; }
   .map-wrap { order: 0; height: 340px; }
   #typhoon-canvas { touch-action: pan-y; }
-  .map-controls { order: 1; display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-top: 1px solid var(--line); }
+  .map-controls { order: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 6px 8px; border-top: 1px solid var(--line); }
   .map-county-picker { display: block; flex-shrink: 0; }
-  .map-county-picker select { min-height: 44px; max-width: 110px; border: 1px solid var(--line-strong); border-radius: 7px; padding: 0 6px; background: var(--surface); color: var(--ink); color-scheme: light; font-size: 16px; }
-  .tools { position: static; display: flex; flex: 1; min-width: 0; gap: 2px; padding: 0; border: 0; background: none; backdrop-filter: none; }
-  .tool { flex: 1; min-width: 44px; min-height: 44px; padding: 0 4px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+  .map-county-picker select { height: 2.75em; min-height: 44px; max-width: 6.875em; border: 1px solid var(--line-strong); border-radius: 7px; padding: 0 6px; background: var(--surface); color: var(--ink); color-scheme: light; font-size: 16px; }
+  .county-picker select { height: 2.75em; }
+  .tools { position: static; display: flex; flex-wrap: wrap; flex: 1 1 auto; min-width: 0; gap: 2px; padding: 0; border: 0; background: none; backdrop-filter: none; }
+  .tool { flex: 1 0 auto; min-width: 44px; min-height: 44px; padding: 0 4px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
   .stats { order: 3; position: static; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 8px 6px 10px; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: var(--surface-2); backdrop-filter: none; }
   .stat { min-width: 0; padding: 0 6px; }
-  .stat span { font-size: 12px; color: var(--ink-2); margin-bottom: 4px; white-space: nowrap; }
+  .stat span { font-size: 12px; color: var(--ink-2); margin-bottom: 4px; white-space: normal; }
   .stat b { display: block; font-size: 17px; line-height: 1.35; white-space: normal; }
   .stat b small { display: block; margin: 2px 0 0; font-size: 11px; }
-  .legend { right: 10px; bottom: 10px; width: 165px; }
+  .legend { position: static; width: auto; margin: 0; padding: 10px 12px; border: 0; border-top: 1px solid var(--line); border-radius: 0; }
   .timeline { order: 2; display: grid; grid-template-columns: 1fr auto; gap: 0 8px; padding: 10px 10px 6px; }
   .play { order: 1; justify-self: start; }
   .readout { order: 2; min-width: 0; }
   .readout span { color: var(--ink-2); font-size: 12px; }
   .readout b { font-size: 13px; }
   .track { order: 3; grid-column: 1 / -1; }
+  .ticks .tick { min-width: max(48px, 4.5em); }
   .detail { padding: 16px 14px; }
   .detail h2 { font-size: 24px; }
   .zone, .meter-foot { font-size: 12px; color: var(--ink-2); line-height: 1.6; }
@@ -463,3 +467,6 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; }
 
 @media (max-width: 359px) { .map-wrap { height: 300px; } }
 @media (min-width: 420px) and (max-width: 680px) { .map-wrap { height: 360px; } }
+@media (max-width: 1024px) and (pointer: coarse) and (orientation: landscape) {
+  .map-wrap { height: 300px; }
+}

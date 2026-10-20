@@ -1,4 +1,5 @@
-import { canvasPixelRatio, streamlineCount, advanceStreamlines, drawStreamlineBatches } from './render-quality.js';
+import { canvasPixelRatio, observeCanvasDisplay, boundedTextPosition, canvasTooltipLayout,
+  streamlineCount, advanceStreamlines, drawStreamlineBatches } from './render-quality.js';
 import { interpolateNullable, roundNullable, probabilityText } from './ui-state.js';
 /**
  * ULTRA EDITION — Hyper-Visual Atmospheric Command OS Renderer (HTML5 Canvas)
@@ -163,25 +164,29 @@ export class UltraTyphoonRenderer {
 
     this._bindEvents();
     this.resize();
-    new ResizeObserver(() => this.resize()).observe(canvas.parentElement);
+    observeCanvasDisplay(this);
   }
 
   resize() {
     const rect = this.canvas.parentElement.getBoundingClientRect();
     const w = Math.max(1, Math.floor(rect.width));
     const h = Math.max(300, Math.round(rect.height));
-    const dpr = canvasPixelRatio(w, h, window.devicePixelRatio || 1);
+    const dpr = canvasPixelRatio(w, h, window.devicePixelRatio || 1,
+      window.matchMedia?.('(pointer: coarse)')?.matches);
     if (w === this.width && h === this.height && dpr === this.dpr) return;
+    const geometryChanged = w !== this.width || h !== this.height;
     this.width = w;
     this.height = h;
     this.dpr = dpr;
     this._backgroundGradient = null;
-    this.canvas.width = Math.round(w * this.dpr);
-    this.canvas.height = Math.round(h * this.dpr);
+    this.canvas.width = Math.floor(w * this.dpr);
+    this.canvas.height = Math.floor(h * this.dpr);
     this.canvas.style.width = `${w}px`;
     this.canvas.style.height = `${h}px`;
-    this._recompute();
-    this._initStreamlines(streamlineCount(w, h, true));
+    if (geometryChanged) {
+      this._recompute();
+      this._initStreamlines(streamlineCount(w, h, true));
+    }
     this.invalidate();
   }
 
@@ -474,7 +479,7 @@ export class UltraTyphoonRenderer {
     this._updateBounds(state, dt);
 
     const ctx = this.ctx;
-    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    ctx.setTransform(this.canvas.width / this.width, 0, 0, this.canvas.height / this.height, 0, 0);
     const hasTy = Boolean(this.scenario?.hasTyphoon && state);
 
     this._drawAbyssalBase(ctx);
@@ -885,9 +890,12 @@ export class UltraTyphoonRenderer {
       const a = -Math.PI / 4;
       ctx.font = `600 10.5px ${FONT}`;
       ctx.textAlign = 'left';
-      ctx.textBaseline = 'alphabetic';
+      ctx.textBaseline = 'middle';
       ctx.fillStyle = '#fde68a';
-      ctx.fillText(`7級暴風圈 · ${s.radius7km} KM`, x + Math.cos(a) * r7 + 7, y + Math.sin(a) * r7 - 6);
+      const text = `7級暴風圈 · ${s.radius7km} KM`;
+      const label = boundedTextPosition(ctx, text, x + Math.cos(a) * r7 + 7,
+        y + Math.sin(a) * r7 - 10, this.width, this.height, { fontSize: 10.5 });
+      ctx.fillText(text, label.x, label.y);
       ctx.restore();
     }
 
@@ -904,8 +912,12 @@ export class UltraTyphoonRenderer {
       const a = (-3 * Math.PI) / 4;
       ctx.font = `600 10.5px ${FONT}`;
       ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
       ctx.fillStyle = '#fda4af';
-      ctx.fillText(`10級暴風圈 · ${s.radius10km} KM`, x + Math.cos(a) * r10 - 7, y + Math.sin(a) * r10 - 6);
+      const text = `10級暴風圈 · ${s.radius10km} KM`;
+      const label = boundedTextPosition(ctx, text, x + Math.cos(a) * r10 - 7,
+        y + Math.sin(a) * r10 - 10, this.width, this.height, { align: 'right', fontSize: 10.5 });
+      ctx.fillText(text, label.x, label.y);
       ctx.restore();
     }
   }
@@ -959,9 +971,13 @@ export class UltraTyphoonRenderer {
       const label = (tl[i].offsetLabel || '').replace(/\s*\(.*?\)\s*/g, '').trim();
       ctx.font = `${active ? 700 : 500} 10.5px ${FONT}`;
       ctx.textAlign = 'left';
-      ctx.textBaseline = 'alphabetic';
+      ctx.textBaseline = 'middle';
       ctx.fillStyle = active ? '#ffffff' : 'rgba(203, 213, 225, 0.8)';
-      ctx.fillText(label, p.x + 9, p.y + 3.5);
+      if (p.x >= 0 && p.x <= this.width && p.y >= 0 && p.y <= this.height) {
+        const position = boundedTextPosition(ctx, label, p.x + 9, p.y,
+          this.width, this.height, { fontSize: 10.5 });
+        ctx.fillText(label, position.x, position.y);
+      }
       ctx.restore();
     });
 
@@ -1110,24 +1126,21 @@ export class UltraTyphoonRenderer {
 
   _drawTooltipHUD(ctx, state) {
     if (!this.mouse || !state) return;
-    let text = null;
+    let textLines = null;
     if (this.hoveredCountyId) {
       const c = state.counties.find((d) => d.id === this.hoveredCountyId);
-      if (c) text = `[TARGET] ${c.name} · 機率 ${probabilityText(c.probability)} · 陣風 ${c.wind.gustBeaufort ?? '—'}級`;
+      if (c) textLines = [`${c.name} · 機率 ${probabilityText(c.probability)}`, `陣風 ${c.wind.gustBeaufort ?? '—'} 級`];
     } else if (this.hoveredTrackIdx >= 0) {
       const s = this.scenario.timeline[this.hoveredTrackIdx];
       if (!s) return;
-      text = `${(s.offsetLabel || '').replace(/\s*\(.*?\)\s*/g, '')} · ${s.pressureHpa} hPa · ${s.maxWindMs} m/s`;
+      textLines = [(s.offsetLabel || '').replace(/\s*\(.*?\)\s*/g, ''),
+        `${s.pressureHpa} hPa · ${s.maxWindMs} m/s`];
     }
-    if (!text) return;
+    if (!textLines) return;
 
     ctx.font = `600 12px ${FONT}`;
-    const w = ctx.measureText(text).width + 22;
-    const h = 28;
-    let x = this.mouse.x + 14;
-    let y = this.mouse.y - h - 8;
-    if (x + w > this.width - 8) x = this.mouse.x - w - 14;
-    if (y < 8) y = this.mouse.y + 16;
+    const { x, y, w, h, lines, padding, lineHeight } = canvasTooltipLayout(ctx,
+      textLines, this.mouse, this.width, this.height);
 
     ctx.save();
     ctx.shadowColor = 'rgba(0, 242, 254, 0.25)';
@@ -1142,7 +1155,8 @@ export class UltraTyphoonRenderer {
     ctx.fillStyle = '#f8fafc';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, x + 11, y + h / 2 + 0.5);
+    lines.forEach((line, i) => ctx.fillText(line, x + padding,
+      y + padding + lineHeight * (i + 0.5)));
     ctx.restore();
   }
 }

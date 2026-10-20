@@ -1,4 +1,5 @@
-import { canvasPixelRatio, streamlineCount, advanceStreamlines, drawStreamlineBatches } from './render-quality.js';
+import { canvasPixelRatio, observeCanvasDisplay, boundedTextPosition, canvasTooltipLayout,
+  streamlineCount, advanceStreamlines, drawStreamlineBatches } from './render-quality.js';
 import { interpolateNullable, roundNullable, probabilityText } from './ui-state.js';
 /**
  * Typhoon Map Renderer (HTML5 Canvas — Editorial Morandi Cartography)
@@ -71,6 +72,10 @@ function mulberry32(seed) {
 function haloText(ctx, text, x, y, opts = {}) {
   const { size = 11, weight = 500, color = INK, align = 'left', halo = HALO } = opts;
   ctx.font = `${weight} ${size}px ${FONT}`;
+  if (opts.bounds) {
+    ({ x, y } = boundedTextPosition(ctx, text, x, y, opts.bounds.width,
+      opts.bounds.height, { align, fontSize: size }));
+  }
   ctx.textAlign = align;
   ctx.textBaseline = 'middle';
   ctx.lineJoin = 'round';
@@ -181,7 +186,7 @@ export class TyphoonMapRenderer {
 
     this._bindEvents();
     this.resize();
-    new ResizeObserver(() => this.resize()).observe(canvas.parentElement);
+    observeCanvasDisplay(this);
   }
 
   /* ----- Sizing & projection ----- */
@@ -190,20 +195,24 @@ export class TyphoonMapRenderer {
     const rect = this.canvas.parentElement.getBoundingClientRect();
     const w = Math.max(1, Math.floor(rect.width));
     const h = Math.max(300, Math.round(rect.height));
-    const dpr = canvasPixelRatio(w, h, window.devicePixelRatio || 1);
+    const dpr = canvasPixelRatio(w, h, window.devicePixelRatio || 1,
+      window.matchMedia?.('(pointer: coarse)')?.matches);
     if (w === this.width && h === this.height && dpr === this.dpr) return;
+    const geometryChanged = w !== this.width || h !== this.height;
     this.width = w;
     this.height = h;
     this.dpr = dpr;
     this._backgroundGradient = null;
     for (const cv of [this.canvas, this.coneCanvas]) {
-      cv.width = Math.round(w * this.dpr);
-      cv.height = Math.round(h * this.dpr);
+      cv.width = Math.floor(w * this.dpr);
+      cv.height = Math.floor(h * this.dpr);
     }
     this.canvas.style.width = `${w}px`;
     this.canvas.style.height = `${h}px`;
-    this._recompute();
-    this._initStreamlines(streamlineCount(w, h, false));
+    if (geometryChanged) {
+      this._recompute();
+      this._initStreamlines(streamlineCount(w, h, false));
+    }
     this.invalidate();
   }
 
@@ -518,7 +527,7 @@ export class TyphoonMapRenderer {
     this._updateBounds(state, dt);
 
     const ctx = this.ctx;
-    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    ctx.setTransform(this.canvas.width / this.width, 0, 0, this.canvas.height / this.height, 0, 0);
     const hasTy = Boolean(this.scenario?.hasTyphoon && state);
 
     this._drawSea(ctx);
@@ -688,7 +697,7 @@ export class TyphoonMapRenderer {
     const c = this.cctx;
     c.setTransform(1, 0, 0, 1, 0, 0);
     c.clearRect(0, 0, this.coneCanvas.width, this.coneCanvas.height);
-    c.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    c.setTransform(this.coneCanvas.width / this.width, 0, 0, this.coneCanvas.height / this.height, 0, 0);
     c.fillStyle = '#000';
 
     const pts = tl.map((s) => {
@@ -821,7 +830,7 @@ export class TyphoonMapRenderer {
 
       const a = -Math.PI / 4;
       haloText(ctx, `七級風 ${s.radius7km} km`, x + Math.cos(a) * r7 + 6, y + Math.sin(a) * r7 - 6, {
-        size: 10.5, color: 'rgb(128, 100, 60)'
+        size: 10.5, color: 'rgb(128, 100, 60)', bounds: this
       });
     }
     if (r10 > 3) {
@@ -834,7 +843,7 @@ export class TyphoonMapRenderer {
       ctx.stroke();
       const a = (-3 * Math.PI) / 4;
       haloText(ctx, `十級風 ${s.radius10km} km`, x + Math.cos(a) * r10 - 6, y + Math.sin(a) * r10 - 6, {
-        size: 10.5, color: 'rgb(130, 78, 74)', align: 'right'
+        size: 10.5, color: 'rgb(130, 78, 74)', align: 'right', bounds: this
       });
     }
   }
@@ -878,11 +887,14 @@ export class TyphoonMapRenderer {
       ctx.lineWidth = 1.2;
       ctx.stroke();
       const label = (tl[i].offsetLabel || '').replace(/\s*\(.*?\)\s*/g, '').trim();
-      haloText(ctx, label, p.x + 8, p.y, {
-        size: 10.5,
-        weight: active ? 600 : 400,
-        color: active ? INK : INK_2
-      });
+      if (p.x >= 0 && p.x <= this.width && p.y >= 0 && p.y <= this.height) {
+        haloText(ctx, label, p.x + 8, p.y, {
+          size: 10.5,
+          weight: active ? 600 : 400,
+          color: active ? INK : INK_2,
+          bounds: this
+        });
+      }
     });
   }
 
@@ -982,7 +994,7 @@ export class TyphoonMapRenderer {
 
       ctx.beginPath();
       ctx.moveTo(x, y);
-      ctx.lineTo(lx, ly);
+      ctx.lineTo(tx, by + th / 2);
       ctx.strokeStyle = isSel ? 'rgba(58, 55, 52, 0.72)' : 'rgba(58, 55, 52, 0.28)';
       ctx.lineWidth = 0.85;
       ctx.stroke();
@@ -992,7 +1004,7 @@ export class TyphoonMapRenderer {
       ctx.fillStyle = INK;
       ctx.fill();
 
-      haloText(ctx, labelText, tx, ly, {
+      haloText(ctx, labelText, tx, by + th / 2, {
         size,
         weight: isSel ? 600 : 500,
         color: isSel ? INK : INK_2,
@@ -1020,24 +1032,20 @@ export class TyphoonMapRenderer {
 
   _drawTooltip(ctx, state) {
     if (!this.mouse || !state) return;
-    let text = null;
+    let textLines = null;
     if (this.hoveredCountyId) {
       const c = state.counties.find((d) => d.id === this.hoveredCountyId);
-      if (c) text = `${c.name}  ${probabilityText(c.probability)}  ·  陣風 ${c.wind.gustBeaufort ?? '—'} 級`;
+      if (c) textLines = [`${c.name} · 機率 ${probabilityText(c.probability)}`, `陣風 ${c.wind.gustBeaufort ?? '—'} 級`];
     } else if (this.hoveredTrackIdx >= 0) {
       const s = this.scenario.timeline[this.hoveredTrackIdx];
       if (!s) return;
-      text = `${(s.offsetLabel || '').replace(/\s*\(.*?\)\s*/g, '')}  ·  ${s.pressureHpa} hPa`;
+      textLines = [(s.offsetLabel || '').replace(/\s*\(.*?\)\s*/g, ''), `${s.pressureHpa} hPa`];
     }
-    if (!text) return;
+    if (!textLines) return;
 
     ctx.font = `500 12px ${FONT}`;
-    const w = ctx.measureText(text).width + 20;
-    const h = 26;
-    let x = this.mouse.x + 14;
-    let y = this.mouse.y - h - 8;
-    if (x + w > this.width - 8) x = this.mouse.x - w - 14;
-    if (y < 8) y = this.mouse.y + 16;
+    const { x, y, w, h, lines, padding, lineHeight } = canvasTooltipLayout(ctx,
+      textLines, this.mouse, this.width, this.height);
 
     ctx.save();
     ctx.shadowColor = 'rgba(40, 36, 32, 0.12)';
@@ -1054,6 +1062,7 @@ export class TyphoonMapRenderer {
     ctx.fillStyle = INK;
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, x + 10, y + h / 2 + 0.5);
+    lines.forEach((line, i) => ctx.fillText(line, x + padding,
+      y + padding + lineHeight * (i + 0.5)));
   }
 }

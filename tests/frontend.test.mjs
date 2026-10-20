@@ -266,6 +266,29 @@ for (const [name, AppClass, Renderer] of [
     assert.equal(scrolls, 0);
   });
 
+  test(`${name}: landscape touch selection preserves the reader position, while desktop can reveal its row`, (t) => {
+    const previousWindow = globalThis.window;
+    t.after(() => {
+      if (previousWindow === undefined) delete globalThis.window;
+      else globalThis.window = previousWindow;
+    });
+    const { app, node } = setup(AppClass, Renderer);
+    let scrolls = 0;
+    app.rows.get('ILA').el.scrollIntoView = () => scrolls++;
+    let finePointer = false;
+    globalThis.window = {
+      matchMedia: (query) => ({
+        matches: query.includes('hover: hover') && query.includes('pointer: fine') ? finePointer : true
+      })
+    };
+    node('county-select').listeners.get('change')({ target: { value: 'ILA' } });
+    assert.equal(node('d-name').textContent, 'ILA');
+    assert.equal(scrolls, 0, 'wide iPhones still use touch and must not jump to the ranking');
+    finePointer = true;
+    app.selectCounty('ILA');
+    assert.equal(scrolls, 1);
+  });
+
   test(`${name}: all forecast times remain selectable and expose their dates`, () => {
     const { app, node } = setup(AppClass, Renderer);
     const ticks = node('timeline-ticks').children;

@@ -133,8 +133,10 @@ export async function mountNews(root, {
     if (refresh.disabled) return;
     refresh.disabled = true;
     root.setAttribute('aria-busy', 'true');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
     try {
-      const response = await fetchImpl(`./data/news.json?t=${now()}`, { signal: AbortSignal.timeout(10000) });
+      const response = await fetchImpl(`./data/news.json?t=${now()}`, { signal: controller.signal });
       if (!response.ok) throw new Error('News request failed');
       const next = await response.json();
       newsViewModel(next, now());
@@ -150,6 +152,7 @@ export async function mountNews(root, {
         root.querySelector('[data-news-empty]').hidden = true;
       }
     } finally {
+      clearTimeout(timeout);
       refresh.disabled = false;
       root.setAttribute('aria-busy', 'false');
     }

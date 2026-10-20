@@ -311,6 +311,49 @@ test('initial fetch failure displays an error, clears busy state and allows a su
   assert.equal(node('refresh').disabled, false);
 });
 
+test('news still loads on Safari versions without AbortSignal.timeout and retains an abortable request', async (t) => {
+  const { root, node } = createRoot(t);
+  const timeout = Object.getOwnPropertyDescriptor(AbortSignal, 'timeout');
+  Object.defineProperty(AbortSignal, 'timeout', { configurable: true, value: undefined });
+  t.after(() => Object.defineProperty(AbortSignal, 'timeout', timeout));
+  let calls = 0;
+  await mountNews(root, {
+    now: () => NOW,
+    fetchImpl: async (_url, { signal }) => {
+      calls++;
+      assert.ok(signal instanceof AbortSignal);
+      assert.equal(signal.aborted, false);
+      return { ok: true, json: async () => dataset([article(1)]) };
+    }
+  });
+  assert.equal(calls, 1);
+  assert.equal(node('list').children.length, 1);
+  assert.match(node('status').textContent, /最近檢查/);
+  assert.equal(node('refresh').disabled, false);
+});
+
+test('a stalled news request aborts after ten seconds and enables retry', async (t) => {
+  const { root, node } = createRoot(t);
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  let signal;
+  const mounting = mountNews(root, {
+    now: () => NOW,
+    fetchImpl: (_url, options) => {
+      signal = options.signal;
+      return new Promise((_resolve, reject) => signal.addEventListener('abort', () => reject(new Error('Aborted'))));
+    }
+  });
+  assert.equal(node('refresh').disabled, true);
+  t.mock.timers.tick(9999);
+  assert.equal(signal.aborted, false);
+  t.mock.timers.tick(1);
+  await mounting;
+  assert.equal(signal.aborted, true);
+  assert.equal(node('refresh').disabled, false);
+  assert.equal(root.attributes.get('aria-busy'), 'false');
+  assert.match(node('status').textContent, /暫時無法載入新聞/);
+});
+
 test('empty messages distinguish complete checks from stale or incomplete source coverage', (t) => {
   const { root, node } = createRoot(t);
   const complete = newsViewModel(dataset(), NOW);

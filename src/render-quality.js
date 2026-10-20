@@ -1,10 +1,85 @@
 // Bound the backing buffer independently from CSS dimensions and hit testing.
 export const MAX_CANVAS_PIXELS = 3_000_000;
 
-export function canvasPixelRatio(width, height, deviceRatio = 1) {
-  const cap = width < 600 ? 1.5 : 2;
+export function canvasPixelRatio(width, height, deviceRatio = 1, coarsePointer = false) {
+  // Small Retina canvases can retain native detail without exceeding the same
+  // total raster budget as the desktop map. CSS coordinates remain unchanged.
+  const cap = width < 600 || coarsePointer ? 3 : 2;
   const requested = Number.isFinite(deviceRatio) && deviceRatio > 0 ? deviceRatio : 1;
   return Math.min(requested, cap, Math.sqrt(MAX_CANVAS_PIXELS / Math.max(1, width * height)));
+}
+
+export function observeCanvasDisplay(renderer) {
+  const resize = () => renderer.resize();
+  new ResizeObserver(resize).observe(renderer.canvas.parentElement);
+  window.addEventListener?.('resize', resize, { passive: true });
+
+  // A monitor or browser zoom change may change DPR without changing the
+  // parent element's CSS dimensions, so ResizeObserver alone is insufficient.
+  let resolution;
+  const onResolutionChange = () => {
+    resize();
+    watchResolution();
+  };
+  const watchResolution = () => {
+    resolution?.removeEventListener?.('change', onResolutionChange);
+    resolution = window.matchMedia?.(`(resolution: ${window.devicePixelRatio || 1}dppx)`);
+    resolution?.addEventListener?.('change', onResolutionChange, { once: true });
+  };
+  watchResolution();
+
+  // Paused maps have no recurring frame to replace fallback-font text.
+  const redrawText = () => renderer.invalidate();
+  document.fonts?.ready?.then(redrawText);
+  document.fonts?.addEventListener?.('loadingdone', redrawText);
+}
+
+// Keep labels in CSS coordinates; backing-buffer resolution must not affect
+// label placement or the clickable county/forecast geometry.
+export function boundedTextPosition(ctx, text, x, y, width, height, {
+  align = 'left', fontSize = 11, padding = 8
+} = {}) {
+  const textWidth = ctx.measureText(text).width;
+  const leftWidth = align === 'right' ? textWidth : align === 'center' ? textWidth / 2 : 0;
+  const rightWidth = textWidth - leftWidth;
+  return {
+    x: Math.max(padding + leftWidth, Math.min(width - padding - rightWidth, x)),
+    y: Math.max(padding + fontSize / 2, Math.min(height - padding - fontSize / 2, y))
+  };
+}
+
+export function canvasTooltipLayout(ctx, textLines, pointer, width, height) {
+  const edge = 8;
+  const padding = 11;
+  const lineHeight = 17;
+  const available = Math.max(1, width - (edge + padding) * 2);
+  const lines = [];
+  for (const text of textLines) {
+    if (ctx.measureText(text).width <= available) {
+      lines.push(text);
+      continue;
+    }
+    // This path is only needed for an unusually long forecast label. Normal
+    // county/tooltips stay on two lines and require only a few measurements.
+    let line = '';
+    for (const character of text) {
+      if (line && ctx.measureText(line + character).width > available) {
+        lines.push(line);
+        line = '';
+      }
+      line += character;
+    }
+    if (line) lines.push(line);
+  }
+  const w = Math.min(width - edge * 2, Math.max(...lines.map((line) => ctx.measureText(line).width), 0) + padding * 2);
+  const h = lines.length * lineHeight + padding * 2;
+  let x = pointer.x + 14;
+  let y = pointer.y - h - 8;
+  if (x + w > width - edge) x = pointer.x - w - 14;
+  if (y < edge) y = pointer.y + 16;
+  x = Math.max(edge, Math.min(width - edge - w, x));
+  y = Math.max(edge, Math.min(height - edge - h, y));
+  return { x, y, w, h, lines, padding, lineHeight };
 }
 
 export function streamlineCount(width, height, ultra = false) {

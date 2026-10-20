@@ -253,7 +253,7 @@ export class App {
     this.syncPosition(true);
     const row = this.rows.get(id);
     // Mobile uses the page scroll; selecting a county must not pull readers down to its ranking.
-    if (typeof window !== 'undefined' && window.matchMedia('(min-width: 681px)').matches && row && !row.el.hidden) {
+    if (typeof window !== 'undefined' && window.matchMedia('(min-width: 681px) and (hover: hover) and (pointer: fine)').matches && row && !row.el.hidden) {
       row.el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
   }
