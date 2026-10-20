@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-20T20:59:12.093Z",
-  "lastSuccessfulAt": "2026-10-20T20:59:12.093Z",
+  "lastCheckedAt": "2026-10-20T22:52:56.273Z",
+  "lastSuccessfulAt": "2026-10-20T22:52:56.273Z",
   "windowDays": 7,
   "articles": [
     {
@@ -53,8 +53,8 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-20T20:59:12.093Z",
-      "lastSuccessfulAt": "2026-10-20T20:59:12.093Z",
+      "lastCheckedAt": "2026-10-20T22:52:56.273Z",
+      "lastSuccessfulAt": "2026-10-20T22:52:56.273Z",
       "articleCount": 2
     },
     {
@@ -63,8 +63,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-20T20:59:12.093Z",
-      "lastSuccessfulAt": "2026-10-20T20:59:12.093Z",
+      "lastCheckedAt": "2026-10-20T22:52:56.273Z",
+      "lastSuccessfulAt": "2026-10-20T22:52:56.273Z",
       "articleCount": 2
     }
   ]
