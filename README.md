@@ -54,6 +54,35 @@ npm start
 
 更新流程不依賴機器人 push 觸發另一個 workflow。部署流程也會在一般 `main`／`master` push 或手動執行時運作，只上傳 HTML、`src/` 與 `data/`。
 
+## 動畫效能
+
+- 地圖動畫最多約 30 fps，縣市數值與排名最多約每秒 8 次；手動拖曳、點選與播放終點仍立即同步精確值。
+- 暫停後僅在選取、圖層、hover 或尺寸改變時重畫；閱讀新聞與摘要時停止看不到的畫面更新，背景分頁停止動畫工作。
+- 手機畫布像素密度上限為 1.5，桌面為 2，另有約 300 萬像素上限；不改變 CSS 尺寸或縣市點選座標。
+- 風場依畫布大小調整數量並批次繪製，物理步進仍依時間計算；背景光暈採靜態漸層，避免大面積動態模糊。
+
+`scripts/benchmark_browser.js` 是選用的本機量測工具，不參與網站執行或部署。先執行 `npm start`，再透過 Playwright CLI：
+
+```bash
+npx --yes --package @playwright/cli playwright-cli --session typhoon-bench open http://127.0.0.1:4173/
+npx --yes --package @playwright/cli playwright-cli --session typhoon-bench run-code --filename scripts/benchmark_browser.js
+npx --yes --package @playwright/cli playwright-cli --session typhoon-bench close
+```
+
+腳本使用獨立 Chromium context，以桌面 1440×1000／DPR 2、手機 390×844／DPR 3 測量播放、暫停與閱讀新聞，每種情境觀察 6 秒。數值是同一瀏覽器的主執行緒工作時間與繪製次數，不代表實體手機的電量、溫度或 GPU 使用率。
+
+2026-10-21 在 Chromium 155 的本機對照（基準版本 `19391e4`，相同天氣資料）：
+
+| 情境 | 原版主執行緒毫秒／秒 | 優化後毫秒／秒 | 地圖繪製次數／秒 |
+| --- | ---: | ---: | --- |
+| 極致版桌面播放 | 211.0 | 124.7 | 60 → 29 |
+| 極致版手機尺寸播放 | 197.6 | 103.8 | 60 → 29 |
+| 極致版桌面暫停 | 147.7 | 0.1 | 60 → 0 |
+| 極致版手機尺寸閱讀新聞 | 172.4 | 0.6 | 0 → 0，停止離屏資料更新 |
+| 極簡版桌面播放 | 217.6 | 159.8 | 60 → 29 |
+
+手機尺寸的畫布由 1,126,080 降為 281,520 像素。這是短時間同機量測，絕對耗時會受裝置與背景負載影響，可使用上述腳本重新比較。
+
 ## 專案結構
 
 ```text
@@ -64,6 +93,8 @@ src/app.js / src/ultra-app.js       互動、時間軸與側欄
 src/map-renderer.js                 極簡版 Canvas 地圖
 src/ultra-renderer.js               全息版 Canvas 地圖
 src/taiwan-geo.js                   縣市地圖座標
+src/animation-clock.js              動畫／數值更新排程與 DOM 寫入快取
+src/render-quality.js               畫布像素預算與風場批次繪製
 data/thresholds.json               模型使用的風雨門檻
 data/typhoon-data.json             最近一次成功產生的資料
 data/news.json                     新聞標題、連結與各來源更新狀態

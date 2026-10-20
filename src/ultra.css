@@ -6,8 +6,8 @@
 :root {
   --bg-void: #03060c;
   --bg-abyss: #060d1b;
-  --glass-surface: rgba(7, 15, 30, 0.76);
-  --glass-elevated: rgba(11, 23, 46, 0.86);
+  --glass-surface: rgba(7, 15, 30, 0.93);
+  --glass-elevated: rgba(11, 23, 46, 0.95);
   --border-dim: rgba(56, 189, 248, 0.16);
   --border-bright: rgba(0, 242, 254, 0.45);
 
@@ -79,9 +79,7 @@ input {
   width: 56vw;
   height: 56vw;
   border-radius: 50%;
-  filter: blur(110px);
-  opacity: 0.22;
-  animation: auroraFloat 18s ease-in-out infinite alternate;
+  opacity: 0.12;
 }
 
 .aurora-cyan {
@@ -94,12 +92,6 @@ input {
   bottom: -22vw;
   right: -10vw;
   background: radial-gradient(circle, var(--neon-crimson), var(--neon-violet), transparent 70%);
-  animation-delay: -9s;
-}
-
-@keyframes auroraFloat {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(4vw, 3vw, 0) scale(1.08); }
 }
 
 .scanline-overlay {
@@ -136,8 +128,6 @@ input {
   gap: 16px;
   padding: 10px 16px;
   background: var(--glass-surface);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-dim);
   border-radius: var(--radius-md);
   box-shadow:
@@ -166,7 +156,6 @@ input {
   border-radius: 50%;
   border: 1.5px dashed var(--neon-cyan);
   box-shadow: 0 0 12px rgba(0, 242, 254, 0.35);
-  animation: spinSlow 10s linear infinite;
 }
 
 .core-dot {
@@ -175,10 +164,6 @@ input {
   border-radius: 50%;
   background: var(--neon-crimson);
   box-shadow: 0 0 12px var(--neon-crimson), 0 0 22px var(--neon-crimson);
-}
-
-@keyframes spinSlow {
-  to { transform: rotate(360deg); }
 }
 
 .brand-titles {
@@ -229,12 +214,6 @@ input {
   border-radius: 50%;
   background: var(--neon-crimson);
   box-shadow: 0 0 10px var(--neon-crimson);
-  animation: pulseBeacon 1.6s ease-in-out infinite;
-}
-
-@keyframes pulseBeacon {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.55; }
 }
 
 .storm-selector select {
@@ -331,15 +310,13 @@ input {
 .holo-card {
   position: relative;
   background: var(--glass-surface);
-  backdrop-filter: blur(22px) saturate(180%);
-  -webkit-backdrop-filter: blur(22px) saturate(180%);
   border: 1px solid var(--border-dim);
   border-radius: var(--radius-lg);
   box-shadow:
     0 20px 50px -20px rgba(0, 0, 0, 0.85),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  transition: border-color 0.25s ease, transform 0.18s ease-out;
+  transition: border-color 0.25s ease;
 }
 
 .holo-card::before {
@@ -348,8 +325,8 @@ input {
   inset: 0;
   pointer-events: none;
   background: radial-gradient(
-    460px circle at var(--mx, -999px) var(--my, -999px),
-    rgba(0, 242, 254, 0.11),
+    460px circle at 0 0,
+    rgba(0, 242, 254, 0.035),
     transparent 55%
   );
   z-index: 1;
@@ -357,11 +334,6 @@ input {
 
 .holo-card:hover {
   border-color: rgba(0, 242, 254, 0.34);
-}
-
-.holo-card[data-tilt] {
-  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  will-change: transform;
 }
 
 /* Corner Tactical Brackets */
@@ -415,8 +387,7 @@ input {
 
 .pod {
   padding: 8px 12px;
-  background: rgba(5, 12, 26, 0.82);
-  backdrop-filter: blur(12px);
+  background: rgba(5, 12, 26, 0.95);
   border: 1px solid rgba(0, 242, 254, 0.22);
   border-left: 2.5px solid var(--neon-cyan);
   border-radius: var(--radius-sm);
@@ -457,8 +428,7 @@ input {
   display: flex;
   gap: 6px;
   padding: 5px;
-  background: rgba(5, 12, 26, 0.84);
-  backdrop-filter: blur(12px);
+  background: rgba(5, 12, 26, 0.95);
   border: 1px solid rgba(56, 189, 248, 0.24);
   border-radius: 999px;
 }
@@ -510,8 +480,7 @@ input {
   z-index: 3;
   width: 264px;
   padding: 9px 12px 18px;
-  background: rgba(5, 12, 26, 0.84);
-  backdrop-filter: blur(12px);
+  background: rgba(5, 12, 26, 0.95);
   border: 1px solid rgba(56, 189, 248, 0.22);
   border-radius: var(--radius-sm);
   pointer-events: none;
@@ -837,7 +806,6 @@ input {
   stroke-width: 1.2;
   stroke-dasharray: 3 6;
   transform-origin: 54px 54px;
-  animation: spinSlow 18s linear infinite reverse;
 }
 
 .gauge-bg {

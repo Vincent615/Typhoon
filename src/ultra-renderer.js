@@ -1,3 +1,4 @@
+import { canvasPixelRatio, streamlineCount, advanceStreamlines, drawStreamlineBatches } from './render-quality.js';
 import { interpolateNullable, roundNullable, probabilityText } from './ui-state.js';
 /**
  * ULTRA EDITION — Hyper-Visual Atmospheric Command OS Renderer (HTML5 Canvas)
@@ -6,7 +7,7 @@ import { interpolateNullable, roundNullable, probabilityText } from './ui-state.
  * 1. Abyssal Bathymetric Grid + Taiwan Polar Radar Range Rings & Rotating Sweep Beam
  * 2. HDR Additive-Blended Multi-Octave Cyclone Cloud Vortex (Cyan / Violet / Crimson layers)
  * 3. Procedural Eyewall Lightning Bolts & Convective Flash Blooms
- * 4. 320 Pre-Warmed Bioluminescent Wind Streamline Ribbons (Rankine Vortex Physics)
+ * 4. Adaptive Pre-Warmed Bioluminescent Wind Streamline Ribbons (Rankine Vortex Physics)
  * 5. 3D-Extruded Neon Taiwan 22 Counties Choropleth + Tactical Target Reticle
  * 6. 360° Rotating Compass Storm Radii (7級 / 10級暴風圈) + Holographic 70% Forecast Cone
  */
@@ -134,6 +135,8 @@ export class UltraTyphoonRenderer {
     this.ctx = canvas.getContext('2d');
     this.onSelectCounty = options.onSelectCounty || (() => {});
     this.onSelectStep = options.onSelectStep || (() => {});
+    this.onInvalidate = options.onInvalidate;
+    this.needsRender = true;
 
     this.scenario = null;
     this.floatStep = 0;
@@ -167,16 +170,19 @@ export class UltraTyphoonRenderer {
     const rect = this.canvas.parentElement.getBoundingClientRect();
     const w = Math.max(1, Math.floor(rect.width));
     const h = Math.max(300, Math.round(rect.height));
-    if (w === this.width && h === this.height) return;
+    const dpr = canvasPixelRatio(w, h, window.devicePixelRatio || 1);
+    if (w === this.width && h === this.height && dpr === this.dpr) return;
     this.width = w;
     this.height = h;
-    this.dpr = window.devicePixelRatio || 1;
+    this.dpr = dpr;
+    this._backgroundGradient = null;
     this.canvas.width = Math.round(w * this.dpr);
     this.canvas.height = Math.round(h * this.dpr);
     this.canvas.style.width = `${w}px`;
     this.canvas.style.height = `${h}px`;
     this._recompute();
-    this._initStreamlines(320);
+    this._initStreamlines(streamlineCount(w, h, true));
+    this.invalidate();
   }
 
   _recompute() {
@@ -188,6 +194,12 @@ export class UltraTyphoonRenderer {
     this.pxPerKm = this.pxPerDeg / 111.2;
     this.cLat = (b.minLat + b.maxLat) / 2;
     this.cLon = (b.minLon + b.maxLon) / 2;
+    const key = `${this.width}:${this.height}:${this.pxPerDeg}:${this.cLat}:${this.cLon}`;
+    if (key !== this._projectionKey) {
+      this._projectionKey = key;
+      this._coastCache = null;
+      this._countyPaths = new Map();
+    }
   }
 
   latLonToXY(lat, lon) {
@@ -218,12 +230,15 @@ export class UltraTyphoonRenderer {
 
   _updateBounds(state, dt) {
     const t = this._computeTargetBounds(state);
-    if (!this.boundsInitialized) {
+    if (!this.boundsInitialized || dt === 0) {
       this.bounds = { ...t };
       this.boundsInitialized = true;
     } else {
       const k = 1 - Math.exp(-dt * 5);
-      for (const key of Object.keys(t)) this.bounds[key] += (t[key] - this.bounds[key]) * k;
+      for (const key of Object.keys(t)) {
+        const delta = t[key] - this.bounds[key];
+        this.bounds[key] = Math.abs(delta) < 0.0001 ? t[key] : this.bounds[key] + delta * k;
+      }
     }
     this._recompute();
   }
@@ -239,20 +254,34 @@ export class UltraTyphoonRenderer {
     this.boundsInitialized = false;
     const state = this.getInterpolatedState();
     this._updateBounds(state, 1);
-    this._initStreamlines(320, state);
+    this._initStreamlines(streamlineCount(this.width || 800, this.height || 600, true), state);
+    this._windRemainder = 0;
+    this.invalidate();
   }
 
   setFloatStep(v) {
     if (!this.scenario) return;
-    this.floatStep = Number.isFinite(v) ? Math.max(0, Math.min(this.scenario.timeline.length - 1, v)) : 0;
+    const next = Number.isFinite(v) ? Math.max(0, Math.min(this.scenario.timeline.length - 1, v)) : 0;
+    if (next === this.floatStep) return;
+    this.floatStep = next;
+    this.invalidate();
+  }
+
+  invalidate() {
+    this.needsRender = true;
+    this.onInvalidate?.();
   }
 
   setSelectedCounty(id) {
+    if (id === this.selectedCountyId) return;
     this.selectedCountyId = id;
+    this.invalidate();
   }
 
   setLayerVisibility(key, visible) {
+    if (this.layers[key] === visible) return;
     this.layers[key] = visible;
+    this.invalidate();
   }
 
   getInterpolatedState() {
@@ -321,12 +350,14 @@ export class UltraTyphoonRenderer {
       }
       this.hoveredCountyId = this.hoveredTrackIdx >= 0 ? null : this._countyAt(x, y);
       this.canvas.style.cursor = this.hoveredCountyId || this.hoveredTrackIdx >= 0 ? 'pointer' : 'crosshair';
+      this.invalidate();
     });
 
     this.canvas.addEventListener('mouseleave', () => {
       this.mouse = null;
       this.hoveredCountyId = null;
       this.hoveredTrackIdx = -1;
+      this.invalidate();
     });
 
     this.canvas.addEventListener('click', (e) => {
@@ -339,7 +370,7 @@ export class UltraTyphoonRenderer {
       }
       const id = this._countyAt(x, y);
       if (id) {
-        this.selectedCountyId = id;
+        this.setSelectedCounty(id);
         this.onSelectCounty(id);
       }
     });
@@ -411,7 +442,7 @@ export class UltraTyphoonRenderer {
 
     const pts = [{ lat, lon }];
     let mag = 0.3;
-    const steps = prewarm ? 15 : 3;
+    const steps = prewarm ? 11 : 3;
     for (let k = 0; k < steps; k++) {
       const v = this._velocityAt(lat, lon, state);
       lon += v.dLon;
@@ -436,6 +467,8 @@ export class UltraTyphoonRenderer {
   /* ----- Render Loop ----- */
 
   render(dt = 1 / 60) {
+    dt = Number.isFinite(dt) ? Math.max(0, Math.min(dt, 0.1)) : 0;
+    this._frameDt = dt;
     this.time += dt;
     const state = this.getInterpolatedState();
     this._updateBounds(state, dt);
@@ -454,22 +487,26 @@ export class UltraTyphoonRenderer {
     if (hasTy) this._drawTrackAndVortexEye(ctx, state);
     this._drawHolographicCallouts(ctx, state);
     this._drawTooltipHUD(ctx, state);
+    this.needsRender = false;
     return state;
   }
 
   _drawAbyssalBase(ctx) {
-    const g = ctx.createRadialGradient(
-      this.width * 0.45,
-      this.height * 0.48,
-      20,
-      this.width * 0.5,
-      this.height * 0.5,
-      Math.max(this.width, this.height) * 0.85
-    );
-    g.addColorStop(0, '#07162c');
-    g.addColorStop(0.55, '#040b18');
-    g.addColorStop(1, '#02050b');
-    ctx.fillStyle = g;
+    if (!this._backgroundGradient) {
+      const g = ctx.createRadialGradient(
+        this.width * 0.45,
+        this.height * 0.48,
+        20,
+        this.width * 0.5,
+        this.height * 0.5,
+        Math.max(this.width, this.height) * 0.85
+      );
+      g.addColorStop(0, '#07162c');
+      g.addColorStop(0.55, '#040b18');
+      g.addColorStop(1, '#02050b');
+      this._backgroundGradient = g;
+    }
+    ctx.fillStyle = this._backgroundGradient;
     ctx.fillRect(0, 0, this.width, this.height);
   }
 
@@ -631,7 +668,7 @@ export class UltraTyphoonRenderer {
     }
 
     // Procedural eyewall lightning flashes
-    if (Math.random() < 0.16 && r10Px > 12) {
+    if (Math.random() < 1 - Math.pow(0.84, this._frameDt * 60) && r10Px > 12) {
       const a = Math.random() * Math.PI * 2;
       const r = r10Px * (0.25 + Math.random() * 0.65);
       this.lightningBolts.push({
@@ -645,7 +682,7 @@ export class UltraTyphoonRenderer {
 
     for (let i = this.lightningBolts.length - 1; i >= 0; i--) {
       const b = this.lightningBolts[i];
-      b.life -= 0.14;
+      b.life -= 0.14 * this._frameDt * 60;
       if (b.life <= 0) {
         this.lightningBolts.splice(i, 1);
         continue;
@@ -683,54 +720,17 @@ export class UltraTyphoonRenderer {
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
 
-    for (let i = 0; i < this.streamlines.length; i++) {
-      const s = this.streamlines[i];
-      const head = s.pts[s.pts.length - 1];
-      const v = this._velocityAt(head.lat, head.lon, state);
-      const nextLat = head.lat + v.dLat;
-      const nextLon = head.lon + v.dLon;
-      s.pts.push({ lat: nextLat, lon: nextLon });
-      if (s.pts.length > 15) s.pts.shift();
-      s.mag = v.mag;
-      s.age++;
-
-      if (
-        s.age > s.maxAge ||
-        nextLon < this.bounds.minLon - 1.5 ||
-        nextLon > this.bounds.maxLon + 1.5 ||
-        nextLat < this.bounds.minLat - 1.5 ||
-        nextLat > this.bounds.maxLat + 1.5
-      ) {
-        this.streamlines[i] = this._spawnStreamline(state, false);
-        continue;
-      }
-
-      if (s.pts.length < 3) continue;
-      const lifeAlpha = Math.sin((s.age / s.maxAge) * Math.PI);
-
-      ctx.beginPath();
-      for (let k = 0; k < s.pts.length; k++) {
-        const p = this.latLonToXY(s.pts[k].lat, s.pts[k].lon);
-        if (k === 0) ctx.moveTo(p.x, p.y);
-        else ctx.lineTo(p.x, p.y);
-      }
-
-      if (s.mag > 0.65) {
-        ctx.strokeStyle = `rgba(255, 42, 95, ${0.68 * lifeAlpha})`;
-        ctx.lineWidth = 1.65;
-      } else if (s.mag > 0.42) {
-        ctx.strokeStyle = `rgba(251, 191, 36, ${0.56 * lifeAlpha})`;
-        ctx.lineWidth = 1.3;
-      } else {
-        ctx.strokeStyle = `rgba(0, 242, 254, ${0.42 * lifeAlpha})`;
-        ctx.lineWidth = 1.05;
-      }
-      ctx.stroke();
-    }
+    advanceStreamlines(this, state, this._frameDt ?? 1 / 60);
+    drawStreamlineBatches(ctx, this, [
+      { min: 0.65, color: 'rgba(255, 42, 95, 0.68)', width: 1.65 },
+      { min: 0.42, color: 'rgba(251, 191, 36, 0.56)', width: 1.3 },
+      { min: -Infinity, color: 'rgba(0, 242, 254, 0.42)', width: 1.05 }
+    ]);
     ctx.restore();
   }
 
   _coastPath() {
+    if (this._coastCache) return this._coastCache;
     const p = new Path2D();
     TAIWAN_MAIN_COASTLINE.forEach(([la, lo], i) => {
       const { x, y } = this.latLonToXY(la, lo);
@@ -738,10 +738,13 @@ export class UltraTyphoonRenderer {
       else p.lineTo(x, y);
     });
     p.closePath();
+    this._coastCache = p;
     return p;
   }
 
   _buildCountyPath(id) {
+    this._countyPaths ||= new Map();
+    if (this._countyPaths.has(id)) return this._countyPaths.get(id);
     const rawRings = COUNTY_RINGS?.[id] || (COUNTY_POLYGONS[id] ? [COUNTY_POLYGONS[id]] : []);
     const path = new Path2D();
     const screenRings = [];
@@ -751,7 +754,9 @@ export class UltraTyphoonRenderer {
       pts.forEach((pt, i) => (i === 0 ? path.moveTo(pt.x, pt.y) : path.lineTo(pt.x, pt.y)));
       path.closePath();
     }
-    return { path, screenRings };
+    const geometry = { path, screenRings };
+    this._countyPaths.set(id, geometry);
+    return geometry;
   }
 
   _drawNeonTaiwan(ctx, state) {
@@ -867,14 +872,14 @@ export class UltraTyphoonRenderer {
       ctx.rotate(-this.time * 0.08);
       ctx.strokeStyle = 'rgba(251, 191, 36, 0.48)';
       ctx.lineWidth = 1;
+      ctx.beginPath();
       for (let i = 0; i < 48; i++) {
         const a = (i * Math.PI * 2) / 48;
         const len = i % 4 === 0 ? 6 : 3;
-        ctx.beginPath();
         ctx.moveTo(Math.cos(a) * (r7 - len), Math.sin(a) * (r7 - len));
         ctx.lineTo(Math.cos(a) * r7, Math.sin(a) * r7);
-        ctx.stroke();
       }
+      ctx.stroke();
       ctx.restore();
 
       const a = -Math.PI / 4;

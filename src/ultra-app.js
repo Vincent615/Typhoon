@@ -1,3 +1,4 @@
+import { initializeAnimation, observeAnimation, requestFrame, runAnimationFrame, updateTimeline, setText, setHTML, setStyle, setAttribute, setProperty, setClass } from './animation-clock.js';
 import { ownsKeyboardInput, compareCounties, sourcePresentation, probabilityText } from './ui-state.js';
 import { UltraTyphoonRenderer, getUltraProbColor } from './ultra-renderer.js';
 
@@ -56,7 +57,7 @@ export class UltraApp {
     this.lastSyncStep = null;
     this.lastMetaCheck = 0;
     this.lastOrderKey = null;
-    this.mapVisible = true;
+    initializeAnimation(this);
   }
 
   async init() {
@@ -66,22 +67,18 @@ export class UltraApp {
 
     this.map = new UltraTyphoonRenderer($('typhoon-canvas'), {
       onSelectCounty: (id) => this.selectCounty(id),
-      onSelectStep: (i) => this.goToStep(i)
+      onSelectStep: (i) => this.goToStep(i),
+      onInvalidate: () => this.requestFrame()
     });
 
-    if (typeof IntersectionObserver !== 'undefined') {
-      this.mapObserver = new IntersectionObserver(([entry]) => {
-        this.mapVisible = entry.isIntersecting;
-      });
-      this.mapObserver.observe($('typhoon-canvas'));
-    }
+    observeAnimation(this);
 
     this.renderMeta();
     this.bindControls();
-    this.bindHoloEffects();
     this.selectScenario(this.data.defaultScenarioId || this.data.scenarios[0].id);
     this.setPlaying(true);
-    requestAnimationFrame((ts) => this.loop(ts));
+    this.animationStarted = true;
+    this.requestFrame();
   }
 
   renderMeta() {
@@ -167,36 +164,6 @@ export class UltraApp {
       else if (e.key === ' ') this.setPlaying(!this.playing);
       else return;
       e.preventDefault();
-    });
-  }
-
-  /** Cursor-tracking specular spotlight & 3D perspective card tilt */
-  bindHoloEffects() {
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    document.querySelectorAll('[data-spotlight]').forEach((card) => {
-      const hasTilt = card.hasAttribute('data-tilt');
-      card.addEventListener('pointermove', (e) => {
-        const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
-        card.style.setProperty('--mx', `${x}px`);
-        card.style.setProperty('--my', `${y}px`);
-        if (hasTilt) {
-          const nx = (x / r.width - 0.5) * 2;
-          const ny = (y / r.height - 0.5) * 2;
-          card.style.setProperty('--rx', `${(-ny * 3.8).toFixed(2)}deg`);
-          card.style.setProperty('--ry', `${(nx * 4.5).toFixed(2)}deg`);
-        }
-      });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--mx', '-999px');
-        card.style.setProperty('--my', '-999px');
-        if (hasTilt) {
-          card.style.setProperty('--rx', '0deg');
-          card.style.setProperty('--ry', '0deg');
-        }
-      });
     });
   }
 
@@ -297,8 +264,7 @@ export class UltraApp {
     if ($('county-select')) $('county-select').value = id;
     if ($('map-county-select')) $('map-county-select').value = id;
     this.map.setSelectedCounty(id);
-    this.sync(true);
-    this.renderGauge();
+    this.syncPosition(true);
     const row = this.rows.get(id);
     // Mobile uses the page scroll; selecting a county must not pull readers down to its ranking.
     if (typeof window !== 'undefined' && window.matchMedia('(min-width: 681px)').matches && row && !row.el.hidden) {
@@ -309,11 +275,14 @@ export class UltraApp {
   goToStep(i) {
     this.setPlaying(false);
     this.targetStep = Math.max(0, Math.min(this.scenario.timeline.length - 1, i));
+    if (this.animationStarted) this.lastTs = performance.now();
+    this.requestFrame();
   }
 
   setPlaying(on) {
     const n = this.scenario?.timeline.length || 0;
     const wasPlaying = this.playing;
+    if (this.animationStarted) this.lastTs = performance.now();
     this.playing = Boolean(on && n > 1);
     if (this.playing) {
       this.targetStep = null;
@@ -326,70 +295,34 @@ export class UltraApp {
     $('btn-play').setAttribute('aria-label', this.playing ? '暫停時間軸' : '播放時間軸');
     $('btn-play').setAttribute('aria-pressed', String(this.playing));
     if ($('play-label')) $('play-label').textContent = this.playing ? '暫停' : '播放';
+    this.requestFrame();
+  }
+
+  requestFrame() {
+    requestFrame(this);
   }
 
   loop(ts) {
-    const dt = Math.min(0.05, (ts - this.lastTs) / 1000);
-    this.lastTs = ts;
-    const n = this.scenario.timeline.length;
-    const speed = SPEED_OPTIONS[this.speedIdx];
-
-    if (this.targetStep !== null) {
-      const d = this.targetStep - this.floatStep;
-      if (Math.abs(d) < 0.002) {
-        this.floatStep = this.targetStep;
-        this.targetStep = null;
-      } else {
-        this.floatStep += d * Math.min(1, dt * 6);
-      }
-    } else if (this.playing && ts >= this.holdUntil) {
-      if (this.floatStep >= n - 1) {
-        this.floatStep = 0;
-        this.holdUntil = ts + 450;
-      } else {
-        this.floatStep = Math.min(n - 1, this.floatStep + dt * BASE_PLAY_RATE * speed);
-        if (this.floatStep >= n - 1) this.holdUntil = ts + 1400;
-      }
-    }
-
-    this.map.setFloatStep(this.floatStep);
-    const slider = $('timeline-slider');
-    slider.value = String(this.floatStep);
-    slider.style.setProperty('--fill', `${(this.floatStep / Math.max(1, n - 1)) * 100}%`);
-
-    // Keep the requested timeline looping, but skip invisible canvas effects while reading below it.
-    if (this.mapVisible && !document.hidden) this.map.render(dt);
-
-    if (this.floatStep !== this.lastSyncStep) {
-      this.lastSyncStep = this.floatStep;
-      this.sync(false);
-    }
-    if (ts - this.lastMetaCheck >= 60000) {
-      this.lastMetaCheck = ts;
-      this.renderSourceMeta();
-    }
-
-    // Damped spring interpolation for plasma gauge
-    this.displayProb += (this.targetProb - this.displayProb) * Math.min(1, dt * 8);
-    this.renderGauge();
-
-    requestAnimationFrame((t) => this.loop(t));
+    runAnimationFrame(this, ts, { rate: BASE_PLAY_RATE * SPEED_OPTIONS[this.speedIdx], easing: 6, startHold: 450, endHold: 1400 });
   }
 
   syncPosition(force = false) {
     this.map.setFloatStep(this.floatStep);
     this.lastSyncStep = this.floatStep;
-    $('timeline-slider').value = String(this.floatStep);
+    updateTimeline(this);
     this.sync(force);
+    this.displayProb = Number.isFinite(this.targetProb) ? this.targetProb : 0;
     this.renderGauge();
+    this.positionDirty = false;
+    this.requestFrame();
   }
 
   renderGauge() {
     const known = Number.isFinite(this.targetProb);
-    $('d-prob').textContent = known ? String(Math.round(this.displayProb)) : '—';
+    setText($('d-prob'), known ? String(Math.round(this.displayProb)) : '—');
     const ring = $('d-ring');
-    ring.style.strokeDashoffset = String(RING_C * (1 - (known ? this.displayProb : 0) / 100));
-    ring.style.stroke = getUltraProbColor(known ? this.displayProb : null, 1);
+    setStyle(ring, 'strokeDashoffset', String(RING_C * (1 - (known ? this.displayProb : 0) / 100)));
+    setStyle(ring, 'stroke', getUltraProbColor(known ? this.displayProb : null, 1));
   }
 
   sync(force) {
@@ -397,24 +330,24 @@ export class UltraApp {
     if (!s) return;
     const hasTy = this.scenario.hasTyphoon;
 
-    $('s-pressure').innerHTML = hasTy && Number.isFinite(s.pressureHpa) ? `${s.pressureHpa}<small>hPa</small>` : '—';
-    $('s-wind').innerHTML = hasTy && Number.isFinite(s.maxWindMs) ? `${s.maxWindMs}<small>m/s</small>` : '—';
-    $('s-radius').innerHTML = hasTy && s.radius7km ? `${s.radius7km}<small>km</small>` : '—';
-    $('s-move').innerHTML = hasTy ? `${DIR[s.moveDir] || s.moveDir}<small>${s.moveSpeedKmh} km/h</small>` : '—';
+    setHTML($('s-pressure'), hasTy && Number.isFinite(s.pressureHpa) ? `${s.pressureHpa}<small>hPa</small>` : '—');
+    setHTML($('s-wind'), hasTy && Number.isFinite(s.maxWindMs) ? `${s.maxWindMs}<small>m/s</small>` : '—');
+    setHTML($('s-radius'), hasTy && s.radius7km ? `${s.radius7km}<small>km</small>` : '—');
+    setHTML($('s-move'), hasTy ? `${DIR[s.moveDir] || s.moveDir}<small>${s.moveSpeedKmh} km/h</small>` : '—');
 
-    $('time-offset').textContent = shortOffset(s.offsetLabel);
-    $('time-display').textContent = fmtTime(s.timeDisplay);
+    setText($('time-offset'), shortOffset(s.offsetLabel));
+    setText($('time-display'), fmtTime(s.timeDisplay));
     const cur = Math.round(this.floatStep);
     document.querySelectorAll('#timeline-ticks .tick').forEach((b, i) => {
-      b.classList.toggle('on', i === cur);
-      b.setAttribute('aria-pressed', String(i === cur));
+      setClass(b, 'on', i === cur);
+      setAttribute(b, 'aria-pressed', String(i === cur));
     });
-    $('timeline-slider').setAttribute('aria-valuetext', `${shortOffset(s.offsetLabel)}，${fmtTime(s.timeDisplay)}`);
+    setAttribute($('timeline-slider'), 'aria-valuetext', `${shortOffset(s.offsetLabel)}，${fmtTime(s.timeDisplay)}`);
 
     const knownProbabilities = s.counties.map((x) => x.probability).filter(Number.isFinite);
     const maxProb = knownProbabilities.length ? Math.max(...knownProbabilities) : null;
-    $('peak-alert').textContent = `MAX ${probabilityText(maxProb)}`;
-    $('peak-alert').style.color = getUltraProbColor(maxProb, 1);
+    setText($('peak-alert'), `MAX ${probabilityText(maxProb)}`);
+    setStyle($('peak-alert'), 'color', getUltraProbColor(maxProb, 1));
 
     const c = s.counties.find((x) => x.id === this.selectedId) || s.counties[0];
     this.renderDetail(c, hasTy);
@@ -423,18 +356,15 @@ export class UltraApp {
       const r = this.rows.get(d.id);
       if (!r) return;
       const col = getUltraProbColor(d.probability, 1);
-      r.pct.textContent = probabilityText(d.probability);
-      r.pct.style.color = col;
-      r.bar.style.width = `${d.probability ?? 0}%`;
-      r.bar.style.backgroundColor = col;
-      r.bar.style.boxShadow = `0 0 8px ${col}`;
-      r.el.classList.toggle('on', d.id === this.selectedId);
+      setText(r.pct, probabilityText(d.probability));
+      setStyle(r.pct, 'color', col);
+      setStyle(r.bar, 'width', `${d.probability ?? 0}%`);
+      setStyle(r.bar, 'backgroundColor', col);
+      setStyle(r.bar, 'boxShadow', `0 0 8px ${col}`);
+      setClass(r.el, 'on', d.id === this.selectedId);
     });
 
-    const orderKey = [...s.counties]
-      .sort((a, b) => compareCounties(a, b, this.rows, this.sort))
-      .map((county) => county.id).join(',');
-    if (force || orderKey !== this.lastOrderKey) this.reorder(!force);
+    this.reorder(false, s.counties);
     if (this.targetStep === null && (!this.playing || Number.isInteger(this.floatStep))) {
       this.displayProb = this.targetProb ?? 0;
     }
@@ -444,40 +374,40 @@ export class UltraApp {
     this.targetProb = c.probability;
     const col = getUltraProbColor(c.probability, 1);
 
-    $('d-name').textContent = c.name;
-    $('d-zone').textContent = hasTy ? `${c.commuterZone} · 距颱風眼 ${c.distanceKm} KM` : c.commuterZone;
-    $('d-status').textContent = statusOf(c.probability);
-    $('d-dot').style.backgroundColor = col;
-    $('d-dot').style.color = col;
+    setText($('d-name'), c.name);
+    setText($('d-zone'), hasTy ? `${c.commuterZone} · 距颱風眼 ${c.distanceKm} KM` : c.commuterZone);
+    setText($('d-status'), statusOf(c.probability));
+    setStyle($('d-dot'), 'backgroundColor', col);
+    setStyle($('d-dot'), 'color', col);
 
     if (!Number.isFinite(c.probability)) {
-      $('m-wind').textContent = '—';
-      $('m-rain').textContent = '—';
-      $('m-wind-bar').style.width = '0%';
-      $('m-rain-bar').style.width = '0%';
-      $('m-rain-foot').textContent = '此資料未提供縣市風雨估算';
-      $('d-note').textContent = '目前無颱風機率估算；天氣及停班停課情形請查官方公告。';
-      $('d-note').hidden = false;
-      $('m-wind-tag').textContent = '未估算';
-      $('m-rain-tag').textContent = '未估算';
-      $('m-wind-tag').className = 'tag-safe';
-      $('m-rain-tag').className = 'tag-safe';
+      setText($('m-wind'), '—');
+      setText($('m-rain'), '—');
+      setStyle($('m-wind-bar'), 'width', '0%');
+      setStyle($('m-rain-bar'), 'width', '0%');
+      setText($('m-rain-foot'), '此資料未提供縣市風雨估算');
+      setText($('d-note'), '目前無颱風機率估算；天氣及停班停課情形請查官方公告。');
+      setProperty($('d-note'), 'hidden', false);
+      setText($('m-wind-tag'), '未估算');
+      setText($('m-rain-tag'), '未估算');
+      setProperty($('m-wind-tag'), 'className', 'tag-safe');
+      setProperty($('m-rain-tag'), 'className', 'tag-safe');
       return;
     }
 
     // Wind meter: 0–12 Beaufort, threshold at gust 10
     const windPass = c.wind.avgBeaufort >= 7 || c.wind.gustBeaufort >= 10;
-    $('m-wind').textContent = `平均 ${c.wind.avgBeaufort} 級 · 陣風 ${c.wind.gustBeaufort} 級`;
+    setText($('m-wind'), `平均 ${c.wind.avgBeaufort} 級 · 陣風 ${c.wind.gustBeaufort} 級`);
     const wBar = $('m-wind-bar');
     const wCol = windPass ? '#ff2a5f' : '#00f2fe';
-    wBar.style.width = `${Math.min(100, (c.wind.gustBeaufort / 12) * 100)}%`;
-    wBar.style.backgroundColor = wCol;
-    wBar.style.color = wCol;
-    $('m-wind-mark').style.left = `${(10 / 12) * 100}%`;
+    setStyle(wBar, 'width', `${Math.min(100, (c.wind.gustBeaufort / 12) * 100)}%`);
+    setStyle(wBar, 'backgroundColor', wCol);
+    setStyle(wBar, 'color', wCol);
+    setStyle($('m-wind-mark'), 'left', `${(10 / 12) * 100}%`);
 
     const wTag = $('m-wind-tag');
-    wTag.textContent = windPass ? '已達標' : '未達標';
-    wTag.className = windPass ? 'tag-pass' : 'tag-safe';
+    setText(wTag, windPass ? '已達標' : '未達標');
+    setProperty(wTag, 'className', windPass ? 'tag-pass' : 'tag-safe');
 
     // Rain meter: 0–1.5× threshold
     const hasMtn = c.rain.mountain24h !== c.rain.flatland24h;
@@ -486,46 +416,47 @@ export class UltraApp {
       hasMtn ? c.rain.mountain24h / c.rain.mountainThreshold : 0
     );
     const rainPass = ratio >= 1;
-    $('m-rain').textContent = hasMtn
+    setText($('m-rain'), hasMtn
       ? `平地 ${c.rain.flatland24h} · 山區 ${c.rain.mountain24h} mm`
-      : `${c.rain.flatland24h} mm`;
+      : `${c.rain.flatland24h} mm`);
     const rBar = $('m-rain-bar');
     const rCol = rainPass ? '#ff2a5f' : '#00f2fe';
-    rBar.style.width = `${Math.min(100, (ratio / 1.5) * 100)}%`;
-    rBar.style.backgroundColor = rCol;
-    rBar.style.color = rCol;
-    $('m-rain-mark').style.left = `${(1 / 1.5) * 100}%`;
-    $('m-rain-foot').textContent = hasMtn
+    setStyle(rBar, 'width', `${Math.min(100, (ratio / 1.5) * 100)}%`);
+    setStyle(rBar, 'backgroundColor', rCol);
+    setStyle(rBar, 'color', rCol);
+    setStyle($('m-rain-mark'), 'left', `${(1 / 1.5) * 100}%`);
+    setText($('m-rain-foot'), hasMtn
       ? `門檻：平地 ${c.rain.flatlandThreshold} / 山區 ${c.rain.mountainThreshold} mm`
-      : `門檻：${c.rain.flatlandThreshold} mm`;
+      : `門檻：${c.rain.flatlandThreshold} mm`);
 
     const rTag = $('m-rain-tag');
-    rTag.textContent = rainPass ? '已達標' : '未達標';
-    rTag.className = rainPass ? 'tag-pass' : 'tag-safe';
+    setText(rTag, rainPass ? '已達標' : '未達標');
+    setProperty(rTag, 'className', rainPass ? 'tag-pass' : 'tag-safe');
 
     const note = $('d-note');
     if (c.mountainAlert) {
       const areas = c.mountainAlert.split('預估')[0].trim();
-      note.textContent = `⚠ 山區致災預警：${areas} 山區雨量可能優先達標，留意鄉鎮區獨立停班課公告。`;
-      note.hidden = false;
+      setText(note, `⚠ 山區致災預警：${areas} 山區雨量可能優先達標，留意鄉鎮區獨立停班課公告。`);
+      setProperty(note, 'hidden', false);
     } else {
-      note.hidden = true;
+      setProperty(note, 'hidden', true);
     }
   }
 
   /** FLIP animated rank reordering */
-  reorder(animate) {
-    const s = this.map.getInterpolatedState();
-    if (!s) return;
+  reorder(animate, counties = this.map.getInterpolatedState()?.counties) {
+    if (!counties) return;
+    const sorted = [...counties].sort((a, b) => compareCounties(a, b, this.rows, this.sort));
+    const orderKey = sorted.map((county) => county.id).join(',');
+    if (orderKey === this.lastOrderKey) return;
+    this.lastOrderKey = orderKey;
     const list = $('county-list');
     const before = new Map();
     if (animate) this.rows.forEach((r, id) => !r.el.hidden && before.set(id, r.el.getBoundingClientRect().top));
 
-    const sorted = [...s.counties].sort((a, b) => compareCounties(a, b, this.rows, this.sort));
-    this.lastOrderKey = sorted.map((county) => county.id).join(',');
     sorted.forEach((c, idx) => {
       const r = this.rows.get(c.id);
-      r.rank.textContent = String(idx + 1).padStart(2, '0');
+      setText(r.rank, String(idx + 1).padStart(2, '0'));
       list.appendChild(r.el);
     });
 
@@ -534,11 +465,11 @@ export class UltraApp {
       const el = this.rows.get(id).el;
       const dy = top - el.getBoundingClientRect().top;
       if (!dy) return;
-      el.style.transition = 'none';
-      el.style.transform = `translateY(${dy}px)`;
+      setStyle(el, 'transition', 'none');
+      setStyle(el, 'transform', `translateY(${dy}px)`);
       requestAnimationFrame(() => {
-        el.style.transition = 'transform 0.52s cubic-bezier(0.2, 0.7, 0.2, 1)';
-        el.style.transform = '';
+        setStyle(el, 'transition', 'transform 0.52s cubic-bezier(0.2, 0.7, 0.2, 1)');
+        setStyle(el, 'transform', '');
       });
     });
   }

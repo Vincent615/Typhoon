@@ -1,3 +1,4 @@
+import { canvasPixelRatio, streamlineCount, advanceStreamlines, drawStreamlineBatches } from './render-quality.js';
 import { interpolateNullable, roundNullable, probabilityText } from './ui-state.js';
 /**
  * Typhoon Map Renderer (HTML5 Canvas — Editorial Morandi Cartography)
@@ -149,6 +150,8 @@ export class TyphoonMapRenderer {
     this.ctx = canvas.getContext('2d');
     this.onSelectCounty = options.onSelectCounty || (() => {});
     this.onSelectStep = options.onSelectStep || (() => {});
+    this.onInvalidate = options.onInvalidate;
+    this.needsRender = true;
 
     this.scenario = null;
     this.floatStep = 0;
@@ -187,10 +190,12 @@ export class TyphoonMapRenderer {
     const rect = this.canvas.parentElement.getBoundingClientRect();
     const w = Math.max(1, Math.floor(rect.width));
     const h = Math.max(300, Math.round(rect.height));
-    if (w === this.width && h === this.height) return;
+    const dpr = canvasPixelRatio(w, h, window.devicePixelRatio || 1);
+    if (w === this.width && h === this.height && dpr === this.dpr) return;
     this.width = w;
     this.height = h;
-    this.dpr = window.devicePixelRatio || 1;
+    this.dpr = dpr;
+    this._backgroundGradient = null;
     for (const cv of [this.canvas, this.coneCanvas]) {
       cv.width = Math.round(w * this.dpr);
       cv.height = Math.round(h * this.dpr);
@@ -198,7 +203,8 @@ export class TyphoonMapRenderer {
     this.canvas.style.width = `${w}px`;
     this.canvas.style.height = `${h}px`;
     this._recompute();
-    this._initStreamlines(260);
+    this._initStreamlines(streamlineCount(w, h, false));
+    this.invalidate();
   }
 
   _recompute() {
@@ -210,6 +216,12 @@ export class TyphoonMapRenderer {
     this.pxPerKm = this.pxPerDeg / 111.2;
     this.cLat = (b.minLat + b.maxLat) / 2;
     this.cLon = (b.minLon + b.maxLon) / 2;
+    const key = `${this.width}:${this.height}:${this.pxPerDeg}:${this.cLat}:${this.cLon}`;
+    if (key !== this._projectionKey) {
+      this._projectionKey = key;
+      this._coastCache = null;
+      this._countyPaths = new Map();
+    }
   }
 
   latLonToXY(lat, lon) {
@@ -240,12 +252,15 @@ export class TyphoonMapRenderer {
 
   _updateBounds(state, dt) {
     const t = this._computeTargetBounds(state);
-    if (!this.boundsInitialized) {
+    if (!this.boundsInitialized || dt === 0) {
       this.bounds = { ...t };
       this.boundsInitialized = true;
     } else {
       const k = 1 - Math.exp(-dt * 5);
-      for (const key of Object.keys(t)) this.bounds[key] += (t[key] - this.bounds[key]) * k;
+      for (const key of Object.keys(t)) {
+        const delta = t[key] - this.bounds[key];
+        this.bounds[key] = Math.abs(delta) < 0.0001 ? t[key] : this.bounds[key] + delta * k;
+      }
     }
     this._recompute();
   }
@@ -263,20 +278,34 @@ export class TyphoonMapRenderer {
     this.boundsInitialized = false;
     const state = this.getInterpolatedState();
     this._updateBounds(state, 1);
-    this._initStreamlines(260, state);
+    this._initStreamlines(streamlineCount(this.width || 800, this.height || 600, false), state);
+    this._windRemainder = 0;
+    this.invalidate();
   }
 
   setFloatStep(v) {
     if (!this.scenario) return;
-    this.floatStep = Number.isFinite(v) ? Math.max(0, Math.min(this.scenario.timeline.length - 1, v)) : 0;
+    const next = Number.isFinite(v) ? Math.max(0, Math.min(this.scenario.timeline.length - 1, v)) : 0;
+    if (next === this.floatStep) return;
+    this.floatStep = next;
+    this.invalidate();
+  }
+
+  invalidate() {
+    this.needsRender = true;
+    this.onInvalidate?.();
   }
 
   setSelectedCounty(id) {
+    if (id === this.selectedCountyId) return;
     this.selectedCountyId = id;
+    this.invalidate();
   }
 
   setLayerVisibility(key, visible) {
+    if (this.layers[key] === visible) return;
     this.layers[key] = visible;
+    this.invalidate();
   }
 
   getInterpolatedState() {
@@ -347,12 +376,14 @@ export class TyphoonMapRenderer {
       }
       this.hoveredCountyId = this.hoveredTrackIdx >= 0 ? null : this._countyAt(x, y);
       this.canvas.style.cursor = this.hoveredCountyId || this.hoveredTrackIdx >= 0 ? 'pointer' : 'default';
+      this.invalidate();
     });
 
     this.canvas.addEventListener('mouseleave', () => {
       this.mouse = null;
       this.hoveredCountyId = null;
       this.hoveredTrackIdx = -1;
+      this.invalidate();
     });
 
     this.canvas.addEventListener('click', (e) => {
@@ -365,7 +396,7 @@ export class TyphoonMapRenderer {
       }
       const id = this._countyAt(x, y);
       if (id) {
-        this.selectedCountyId = id;
+        this.setSelectedCounty(id);
         this.onSelectCounty(id);
       }
     });
@@ -439,7 +470,7 @@ export class TyphoonMapRenderer {
 
     const pts = [{ lat, lon }];
     let mag = 0.3;
-    const steps = prewarm ? 14 : 2;
+    const steps = prewarm ? 11 : 2;
     for (let k = 0; k < steps; k++) {
       const v = this._velocityAt(lat, lon, state);
       lon += v.dLon;
@@ -468,56 +499,20 @@ export class TyphoonMapRenderer {
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
 
-    for (let i = 0; i < this.streamlines.length; i++) {
-      const s = this.streamlines[i];
-      const head = s.pts[s.pts.length - 1];
-      const v = this._velocityAt(head.lat, head.lon, state);
-      const nextLat = head.lat + v.dLat;
-      const nextLon = head.lon + v.dLon;
-      s.pts.push({ lat: nextLat, lon: nextLon });
-      if (s.pts.length > 15) s.pts.shift();
-      s.mag = v.mag;
-      s.age++;
-
-      if (
-        s.age > s.maxAge ||
-        nextLon < this.bounds.minLon - 1.5 ||
-        nextLon > this.bounds.maxLon + 1.5 ||
-        nextLat < this.bounds.minLat - 1.5 ||
-        nextLat > this.bounds.maxLat + 1.5
-      ) {
-        this.streamlines[i] = this._spawnStreamline(state, false);
-        continue;
-      }
-
-      if (s.pts.length < 3) continue;
-      const lifeAlpha = Math.sin((s.age / s.maxAge) * Math.PI);
-
-      ctx.beginPath();
-      for (let k = 0; k < s.pts.length; k++) {
-        const p = this.latLonToXY(s.pts[k].lat, s.pts[k].lon);
-        if (k === 0) ctx.moveTo(p.x, p.y);
-        else ctx.lineTo(p.x, p.y);
-      }
-
-      if (s.mag > 0.62) {
-        ctx.strokeStyle = `rgba(148, 92, 88, ${0.46 * lifeAlpha})`;
-        ctx.lineWidth = 1.45;
-      } else if (s.mag > 0.36) {
-        ctx.strokeStyle = `rgba(116, 128, 134, ${0.42 * lifeAlpha})`;
-        ctx.lineWidth = 1.15;
-      } else {
-        ctx.strokeStyle = `rgba(124, 138, 142, ${0.30 * lifeAlpha})`;
-        ctx.lineWidth = 0.9;
-      }
-      ctx.stroke();
-    }
+    advanceStreamlines(this, state, this._frameDt ?? 1 / 60);
+    drawStreamlineBatches(ctx, this, [
+      { min: 0.62, color: 'rgba(148, 92, 88, 0.46)', width: 1.45 },
+      { min: 0.36, color: 'rgba(116, 128, 134, 0.42)', width: 1.15 },
+      { min: -Infinity, color: 'rgba(124, 138, 142, 0.30)', width: 0.9 }
+    ]);
     ctx.restore();
   }
 
   /* ----- Rendering ----- */
 
   render(dt = 1 / 60) {
+    dt = Number.isFinite(dt) ? Math.max(0, Math.min(dt, 0.1)) : 0;
+    this._frameDt = dt;
     this.time += dt;
     const state = this.getInterpolatedState();
     this._updateBounds(state, dt);
@@ -538,14 +533,18 @@ export class TyphoonMapRenderer {
     this._drawLabels(ctx, state);
     this._drawScaleBar(ctx);
     this._drawTooltip(ctx, state);
+    this.needsRender = false;
     return state;
   }
 
   _drawSea(ctx) {
-    const g = ctx.createLinearGradient(0, 0, 0, this.height);
-    g.addColorStop(0, '#E7ECEB');
-    g.addColorStop(1, '#DAE1E0');
-    ctx.fillStyle = g;
+    if (!this._backgroundGradient) {
+      const g = ctx.createLinearGradient(0, 0, 0, this.height);
+      g.addColorStop(0, '#E7ECEB');
+      g.addColorStop(1, '#DAE1E0');
+      this._backgroundGradient = g;
+    }
+    ctx.fillStyle = this._backgroundGradient;
     ctx.fillRect(0, 0, this.width, this.height);
   }
 
@@ -585,6 +584,7 @@ export class TyphoonMapRenderer {
   }
 
   _coastPath() {
+    if (this._coastCache) return this._coastCache;
     const p = new Path2D();
     TAIWAN_MAIN_COASTLINE.forEach(([la, lo], i) => {
       const { x, y } = this.latLonToXY(la, lo);
@@ -592,10 +592,13 @@ export class TyphoonMapRenderer {
       else p.lineTo(x, y);
     });
     p.closePath();
+    this._coastCache = p;
     return p;
   }
 
   _buildCountyPath(id) {
+    this._countyPaths ||= new Map();
+    if (this._countyPaths.has(id)) return this._countyPaths.get(id);
     const rawRings = COUNTY_RINGS?.[id] || (COUNTY_POLYGONS[id] ? [COUNTY_POLYGONS[id]] : []);
     const path = new Path2D();
     const screenRings = [];
@@ -605,7 +608,9 @@ export class TyphoonMapRenderer {
       pts.forEach((pt, i) => (i === 0 ? path.moveTo(pt.x, pt.y) : path.lineTo(pt.x, pt.y)));
       path.closePath();
     }
-    return { path, screenRings };
+    const geometry = { path, screenRings };
+    this._countyPaths.set(id, geometry);
+    return geometry;
   }
 
   _drawLand(ctx, state) {
@@ -804,14 +809,14 @@ export class TyphoonMapRenderer {
       ctx.rotate(-this.time * 0.06);
       ctx.strokeStyle = 'rgba(150, 120, 74, 0.38)';
       ctx.lineWidth = 1;
+      ctx.beginPath();
       for (let i = 0; i < 36; i++) {
         const a = (i * Math.PI * 2) / 36;
         const len = i % 3 === 0 ? 5 : 2.5;
-        ctx.beginPath();
         ctx.moveTo(Math.cos(a) * (r7 - len), Math.sin(a) * (r7 - len));
         ctx.lineTo(Math.cos(a) * r7, Math.sin(a) * r7);
-        ctx.stroke();
       }
+      ctx.stroke();
       ctx.restore();
 
       const a = -Math.PI / 4;

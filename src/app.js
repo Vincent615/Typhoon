@@ -1,3 +1,4 @@
+import { initializeAnimation, observeAnimation, requestFrame, runAnimationFrame, updateTimeline, setText, setHTML, setStyle, setAttribute, setProperty, setClass } from './animation-clock.js';
 import { ownsKeyboardInput, compareCounties, sourcePresentation, probabilityText } from './ui-state.js';
 import { TyphoonMapRenderer, getProbabilityColor } from './map-renderer.js';
 
@@ -54,7 +55,7 @@ export class App {
     this.lastSyncStep = null;
     this.lastMetaCheck = 0;
     this.lastOrderKey = null;
-    this.mapVisible = true;
+    initializeAnimation(this);
   }
 
   async init() {
@@ -64,20 +65,17 @@ export class App {
 
     this.map = new TyphoonMapRenderer($('typhoon-canvas'), {
       onSelectCounty: (id) => this.selectCounty(id),
-      onSelectStep: (i) => this.goToStep(i)
+      onSelectStep: (i) => this.goToStep(i),
+      onInvalidate: () => this.requestFrame()
     });
 
-    if (typeof IntersectionObserver !== 'undefined') {
-      this.mapObserver = new IntersectionObserver(([entry]) => {
-        this.mapVisible = entry.isIntersecting;
-      });
-      this.mapObserver.observe($('typhoon-canvas'));
-    }
+    observeAnimation(this);
 
     this.renderMeta();
     this.bindControls();
     this.selectScenario(this.data.defaultScenarioId || this.data.scenarios[0].id);
-    requestAnimationFrame((ts) => this.loop(ts));
+    this.animationStarted = true;
+    this.requestFrame();
   }
 
   renderMeta() {
@@ -246,8 +244,7 @@ export class App {
     if ($('county-select')) $('county-select').value = id;
     if ($('map-county-select')) $('map-county-select').value = id;
     this.map.setSelectedCounty(id);
-    this.sync(true);
-    this.renderGauge();
+    this.syncPosition(true);
     const row = this.rows.get(id);
     // Mobile uses the page scroll; selecting a county must not pull readers down to its ranking.
     if (typeof window !== 'undefined' && window.matchMedia('(min-width: 681px)').matches && row && !row.el.hidden) {
@@ -258,11 +255,14 @@ export class App {
   goToStep(i) {
     this.setPlaying(false);
     this.targetStep = Math.max(0, Math.min(this.scenario.timeline.length - 1, i));
+    if (this.animationStarted) this.lastTs = performance.now();
+    this.requestFrame();
   }
 
   setPlaying(on) {
     const n = this.scenario?.timeline.length || 0;
     const wasPlaying = this.playing;
+    if (this.animationStarted) this.lastTs = performance.now();
     this.playing = Boolean(on && n > 1);
     if (this.playing) {
       this.targetStep = null;
@@ -275,69 +275,34 @@ export class App {
     $('btn-play').setAttribute('aria-label', this.playing ? '暫停' : '播放');
     $('btn-play').setAttribute('aria-pressed', String(this.playing));
     if ($('play-label')) $('play-label').textContent = this.playing ? '暫停' : '播放';
+    this.requestFrame();
+  }
+
+  requestFrame() {
+    requestFrame(this);
   }
 
   loop(ts) {
-    const dt = Math.min(0.05, (ts - this.lastTs) / 1000);
-    this.lastTs = ts;
-    const n = this.scenario.timeline.length;
-
-    if (this.targetStep !== null) {
-      const d = this.targetStep - this.floatStep;
-      if (Math.abs(d) < 0.002) {
-        this.floatStep = this.targetStep;
-        this.targetStep = null;
-      } else {
-        this.floatStep += d * Math.min(1, dt * 5.5);
-      }
-    } else if (this.playing && ts >= this.holdUntil) {
-      if (this.floatStep >= n - 1) {
-        this.floatStep = 0;
-        this.holdUntil = ts + 500;
-      } else {
-        this.floatStep = Math.min(n - 1, this.floatStep + dt * PLAY_RATE);
-        if (this.floatStep >= n - 1) this.holdUntil = ts + 1600;
-      }
-    }
-
-    this.map.setFloatStep(this.floatStep);
-    const slider = $('timeline-slider');
-    slider.value = String(this.floatStep);
-    slider.style.setProperty('--fill', `${(this.floatStep / Math.max(1, n - 1)) * 100}%`);
-
-    // Keep the requested timeline looping, but skip invisible canvas effects while reading below it.
-    if (this.mapVisible && !document.hidden) this.map.render(dt);
-
-    if (this.floatStep !== this.lastSyncStep) {
-      this.lastSyncStep = this.floatStep;
-      this.sync(false);
-    }
-    if (ts - this.lastMetaCheck >= 60000) {
-      this.lastMetaCheck = ts;
-      this.renderSourceMeta();
-    }
-
-    // Tween the headline number + ring
-    this.displayProb += (this.targetProb - this.displayProb) * Math.min(1, dt * 7);
-    this.renderGauge();
-
-    requestAnimationFrame((t) => this.loop(t));
+    runAnimationFrame(this, ts, { rate: PLAY_RATE, easing: 5.5, startHold: 500, endHold: 1600 });
   }
 
   syncPosition(force = false) {
     this.map.setFloatStep(this.floatStep);
     this.lastSyncStep = this.floatStep;
-    $('timeline-slider').value = String(this.floatStep);
+    updateTimeline(this);
     this.sync(force);
+    this.displayProb = Number.isFinite(this.targetProb) ? this.targetProb : 0;
     this.renderGauge();
+    this.positionDirty = false;
+    this.requestFrame();
   }
 
   renderGauge() {
     const known = Number.isFinite(this.targetProb);
-    $('d-prob').textContent = known ? String(Math.round(this.displayProb)) : '—';
+    setText($('d-prob'), known ? String(Math.round(this.displayProb)) : '—');
     const ring = $('d-ring');
-    ring.style.strokeDashoffset = String(RING_C * (1 - (known ? this.displayProb : 0) / 100));
-    ring.style.stroke = getProbabilityColor(known ? this.displayProb : null);
+    setStyle(ring, 'strokeDashoffset', String(RING_C * (1 - (known ? this.displayProb : 0) / 100)));
+    setStyle(ring, 'stroke', getProbabilityColor(known ? this.displayProb : null));
   }
 
   sync(force) {
@@ -345,19 +310,19 @@ export class App {
     if (!s) return;
     const hasTy = this.scenario.hasTyphoon;
 
-    $('s-pressure').innerHTML = hasTy && Number.isFinite(s.pressureHpa) ? `${s.pressureHpa}<small>hPa</small>` : '—';
-    $('s-wind').innerHTML = hasTy && Number.isFinite(s.maxWindMs) ? `${s.maxWindMs}<small>m/s</small>` : '—';
-    $('s-radius').innerHTML = hasTy && s.radius7km ? `${s.radius7km}<small>km</small>` : '—';
-    $('s-move').innerHTML = hasTy ? `${DIR[s.moveDir] || s.moveDir}<small>${s.moveSpeedKmh} km/h</small>` : '—';
+    setHTML($('s-pressure'), hasTy && Number.isFinite(s.pressureHpa) ? `${s.pressureHpa}<small>hPa</small>` : '—');
+    setHTML($('s-wind'), hasTy && Number.isFinite(s.maxWindMs) ? `${s.maxWindMs}<small>m/s</small>` : '—');
+    setHTML($('s-radius'), hasTy && s.radius7km ? `${s.radius7km}<small>km</small>` : '—');
+    setHTML($('s-move'), hasTy ? `${DIR[s.moveDir] || s.moveDir}<small>${s.moveSpeedKmh} km/h</small>` : '—');
 
-    $('time-offset').textContent = shortOffset(s.offsetLabel);
-    $('time-display').textContent = fmtTime(s.timeDisplay);
+    setText($('time-offset'), shortOffset(s.offsetLabel));
+    setText($('time-display'), fmtTime(s.timeDisplay));
     const cur = Math.round(this.floatStep);
     document.querySelectorAll('#timeline-ticks .tick').forEach((b, i) => {
-      b.classList.toggle('on', i === cur);
-      b.setAttribute('aria-pressed', String(i === cur));
+      setClass(b, 'on', i === cur);
+      setAttribute(b, 'aria-pressed', String(i === cur));
     });
-    $('timeline-slider').setAttribute('aria-valuetext', `${shortOffset(s.offsetLabel)}，${fmtTime(s.timeDisplay)}`);
+    setAttribute($('timeline-slider'), 'aria-valuetext', `${shortOffset(s.offsetLabel)}，${fmtTime(s.timeDisplay)}`);
 
     const c = s.counties.find((x) => x.id === this.selectedId) || s.counties[0];
     this.renderDetail(c, hasTy);
@@ -365,16 +330,13 @@ export class App {
     s.counties.forEach((d) => {
       const r = this.rows.get(d.id);
       if (!r) return;
-      r.pct.textContent = Number.isFinite(d.probability) ? d.probability : '—';
-      r.bar.style.width = `${d.probability ?? 0}%`;
-      r.bar.style.backgroundColor = getProbabilityColor(d.probability);
-      r.el.classList.toggle('on', d.id === this.selectedId);
+      setText(r.pct, Number.isFinite(d.probability) ? d.probability : '—');
+      setStyle(r.bar, 'width', `${d.probability ?? 0}%`);
+      setStyle(r.bar, 'backgroundColor', getProbabilityColor(d.probability));
+      setClass(r.el, 'on', d.id === this.selectedId);
     });
 
-    const orderKey = [...s.counties]
-      .sort((a, b) => compareCounties(a, b, this.rows, this.sort))
-      .map((county) => county.id).join(',');
-    if (force || orderKey !== this.lastOrderKey) this.reorder(!force);
+    this.reorder(false, s.counties);
     if (this.targetStep === null && (!this.playing || Number.isInteger(this.floatStep))) {
       this.displayProb = this.targetProb ?? 0;
     }
@@ -382,29 +344,29 @@ export class App {
 
   renderDetail(c, hasTy) {
     this.targetProb = c.probability;
-    $('d-name').textContent = c.name;
-    $('d-zone').textContent = hasTy ? `${c.commuterZone} · 距中心 ${c.distanceKm} km` : c.commuterZone;
-    $('d-status').textContent = statusOf(c.probability);
-    $('d-dot').style.backgroundColor = getProbabilityColor(c.probability);
+    setText($('d-name'), c.name);
+    setText($('d-zone'), hasTy ? `${c.commuterZone} · 距中心 ${c.distanceKm} km` : c.commuterZone);
+    setText($('d-status'), statusOf(c.probability));
+    setStyle($('d-dot'), 'backgroundColor', getProbabilityColor(c.probability));
 
     if (!Number.isFinite(c.probability)) {
-      $('m-wind').textContent = '—';
-      $('m-rain').textContent = '—';
-      $('m-wind-bar').style.width = '0%';
-      $('m-rain-bar').style.width = '0%';
-      $('m-rain-foot').textContent = '此資料未提供縣市風雨估算';
-      $('d-note').textContent = '目前無颱風機率估算；天氣及停班停課情形請查官方公告。';
-      $('d-note').hidden = false;
+      setText($('m-wind'), '—');
+      setText($('m-rain'), '—');
+      setStyle($('m-wind-bar'), 'width', '0%');
+      setStyle($('m-rain-bar'), 'width', '0%');
+      setText($('m-rain-foot'), '此資料未提供縣市風雨估算');
+      setText($('d-note'), '目前無颱風機率估算；天氣及停班停課情形請查官方公告。');
+      setProperty($('d-note'), 'hidden', false);
       return;
     }
 
     // Wind: scale 0–12 級, threshold at gust 10
     const windPass = c.wind.avgBeaufort >= 7 || c.wind.gustBeaufort >= 10;
-    $('m-wind').textContent = `平均 ${c.wind.avgBeaufort} 級 · 陣風 ${c.wind.gustBeaufort} 級`;
+    setText($('m-wind'), `平均 ${c.wind.avgBeaufort} 級 · 陣風 ${c.wind.gustBeaufort} 級`);
     const wBar = $('m-wind-bar');
-    wBar.style.width = `${Math.min(100, (c.wind.gustBeaufort / 12) * 100)}%`;
-    wBar.style.backgroundColor = windPass ? getProbabilityColor(88) : '#9AA8AC';
-    $('m-wind-mark').style.left = `${(10 / 12) * 100}%`;
+    setStyle(wBar, 'width', `${Math.min(100, (c.wind.gustBeaufort / 12) * 100)}%`);
+    setStyle(wBar, 'backgroundColor', windPass ? getProbabilityColor(88) : '#9AA8AC');
+    setStyle($('m-wind-mark'), 'left', `${(10 / 12) * 100}%`);
 
     // Rain: scale to 1.5× threshold
     const hasMtn = c.rain.mountain24h !== c.rain.flatland24h;
@@ -413,37 +375,38 @@ export class App {
       hasMtn ? c.rain.mountain24h / c.rain.mountainThreshold : 0
     );
     const rainPass = ratio >= 1;
-    $('m-rain').textContent = hasMtn
+    setText($('m-rain'), hasMtn
       ? `平地 ${c.rain.flatland24h} · 山區 ${c.rain.mountain24h} mm`
-      : `${c.rain.flatland24h} mm`;
+      : `${c.rain.flatland24h} mm`);
     const rBar = $('m-rain-bar');
-    rBar.style.width = `${Math.min(100, (ratio / 1.5) * 100)}%`;
-    rBar.style.backgroundColor = rainPass ? getProbabilityColor(88) : '#9AA8AC';
-    $('m-rain-mark').style.left = `${(1 / 1.5) * 100}%`;
-    $('m-rain-foot').textContent = hasMtn
+    setStyle(rBar, 'width', `${Math.min(100, (ratio / 1.5) * 100)}%`);
+    setStyle(rBar, 'backgroundColor', rainPass ? getProbabilityColor(88) : '#9AA8AC');
+    setStyle($('m-rain-mark'), 'left', `${(1 / 1.5) * 100}%`);
+    setText($('m-rain-foot'), hasMtn
       ? `標準：平地 ${c.rain.flatlandThreshold} · 山區 ${c.rain.mountainThreshold} mm`
-      : `標準：${c.rain.flatlandThreshold} mm`;
+      : `標準：${c.rain.flatlandThreshold} mm`);
 
     const note = $('d-note');
     if (c.mountainAlert) {
       const areas = c.mountainAlert.split('預估')[0].trim();
-      note.textContent = `${areas} 山區雨量可能先達標，留意獨立停班課公告。`;
-      note.hidden = false;
+      setText(note, `${areas} 山區雨量可能先達標，留意獨立停班課公告。`);
+      setProperty(note, 'hidden', false);
     } else {
-      note.hidden = true;
+      setProperty(note, 'hidden', true);
     }
   }
 
   /** Reorder rows; animate with FLIP so ranks glide instead of jumping. */
-  reorder(animate) {
-    const s = this.map.getInterpolatedState();
-    if (!s) return;
+  reorder(animate, counties = this.map.getInterpolatedState()?.counties) {
+    if (!counties) return;
+    const sorted = [...counties].sort((a, b) => compareCounties(a, b, this.rows, this.sort));
+    const orderKey = sorted.map((county) => county.id).join(',');
+    if (orderKey === this.lastOrderKey) return;
+    this.lastOrderKey = orderKey;
     const list = $('county-list');
     const before = new Map();
     if (animate) this.rows.forEach((r, id) => !r.el.hidden && before.set(id, r.el.getBoundingClientRect().top));
 
-    const sorted = [...s.counties].sort((a, b) => compareCounties(a, b, this.rows, this.sort));
-    this.lastOrderKey = sorted.map((county) => county.id).join(',');
     sorted.forEach((c) => list.appendChild(this.rows.get(c.id).el));
 
     if (!animate) return;
@@ -451,11 +414,11 @@ export class App {
       const el = this.rows.get(id).el;
       const dy = top - el.getBoundingClientRect().top;
       if (!dy) return;
-      el.style.transition = 'none';
-      el.style.transform = `translateY(${dy}px)`;
+      setStyle(el, 'transition', 'none');
+      setStyle(el, 'transform', `translateY(${dy}px)`);
       requestAnimationFrame(() => {
-        el.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1)';
-        el.style.transform = '';
+        setStyle(el, 'transition', 'transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1)');
+        setStyle(el, 'transform', '');
       });
     });
   }

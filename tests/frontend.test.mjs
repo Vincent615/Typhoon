@@ -150,6 +150,95 @@ test('ultra: playback repeats across multiple cycles and respects a manual pause
 for (const [name, AppClass, Renderer] of [
   ['standard', App, TyphoonMapRenderer], ['ultra', UltraApp, UltraTyphoonRenderer]
 ]) {
+  test(`${name}: high-refresh displays cap map work at 30 fps and statistics at 8 Hz without slowing playback`, () => {
+    for (const refreshRate of [60, 120, 144]) {
+      const { app } = setup(AppClass, Renderer);
+      let rendered = 0;
+      let synchronized = 0;
+      app.map.render = () => { rendered++; app.map.needsRender = false; };
+      const originalSync = app.sync.bind(app);
+      app.sync = (...args) => { synchronized++; originalSync(...args); };
+      app.setPlaying(true);
+      for (let frame = 1; frame <= refreshRate; frame++) app.loop(frame * 1000 / refreshRate);
+      assert.ok(rendered >= 25 && rendered <= 31, `${refreshRate} Hz display rendered ${rendered} frames`);
+      assert.ok(synchronized <= 9, `statistics synchronized ${synchronized} times`);
+      const expectedStep = name === 'standard' ? 0.32 : 0.34;
+      assert.ok(Math.abs(app.floatStep - expectedStep) < 1e-9, 'playback must follow elapsed seconds');
+    }
+  });
+
+  test(`${name}: pausing stops repeated canvas and DOM work but invalidation still paints immediately`, () => {
+    const { app } = setup(AppClass, Renderer);
+    const paintedDeltas = [];
+    let synchronized = 0;
+    app.map.needsRender = true;
+    app.map.render = (dt) => { paintedDeltas.push(dt); app.map.needsRender = false; };
+    app.sync = () => synchronized++;
+    app.loop(16);
+    for (let frame = 2; frame <= 120; frame++) app.loop(frame * 16);
+    assert.deepEqual(paintedDeltas, [0]);
+    assert.equal(synchronized, 0);
+    app.map.needsRender = true; // Hover, resize and layer controls invalidate the renderer.
+    app.loop(1921);
+    assert.deepEqual(paintedDeltas, [0, 0]);
+  });
+
+  test(`${name}: reading news does no interpolation or DOM work, while the timeline continues`, () => {
+    const { app } = setup(AppClass, Renderer);
+    app.mapVisible = false;
+    app.dashboardVisible = false;
+    app.setPlaying(true);
+    let interpolations = 0;
+    let rendered = 0;
+    app.map.getInterpolatedState = () => { interpolations++; return null; };
+    app.map.render = () => rendered++;
+    for (let second = 1; second <= 3; second++) app.loop(second * 1000);
+    assert.equal(interpolations, 0);
+    assert.equal(rendered, 0);
+    assert.ok(app.floatStep > 0);
+  });
+
+  test(`${name}: hidden tabs freeze work and resume without catching up the hidden interval`, () => {
+    const { app, doc } = setup(AppClass, Renderer);
+    app.setPlaying(true);
+    app.loop(100);
+    const before = app.floatStep;
+    let rendered = 0;
+    app.map.render = () => rendered++;
+    doc.hidden = true;
+    app.loop(10000);
+    assert.equal(app.floatStep, before);
+    assert.equal(rendered, 0);
+    doc.hidden = false;
+    app.loop(60100);
+    assert.equal(app.floatStep, before);
+    app.loop(60150);
+    assert.ok(app.floatStep > before && app.floatStep < before + 0.02);
+    assert.equal(app.playing, true);
+    app.setPlaying(false);
+    doc.hidden = true;
+    app.loop(70000);
+    doc.hidden = false;
+    app.loop(90000);
+    assert.equal(app.playing, false);
+  });
+
+  test(`${name}: repeated identical values do not rewrite statistics or county row text`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    let writes = 0;
+    for (const [element, property] of [
+      [node('s-pressure'), 'innerHTML'],
+      [node('d-prob'), 'textContent'],
+      [app.rows.get('KEE').pct, 'textContent']
+    ]) {
+      const value = element[property];
+      Object.defineProperty(element, property, { get: () => value, set: () => writes++ });
+    }
+    app.syncPosition(true);
+    app.syncPosition(true);
+    assert.equal(writes, 0);
+  });
+
   test(`${name}: map county selection updates the detail without scrolling the page`, () => {
     const { app, node } = setup(AppClass, Renderer);
     let scrolls = 0;
