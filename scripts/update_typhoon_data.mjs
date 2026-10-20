@@ -228,8 +228,10 @@ export function parseCwaTyNewsJs(rawJsText) {
     for (const forecast of forecasts) {
       const endHour = Number(forecast[1].split('-').at(-1));
       if (!Number.isInteger(endHour) || endHour <= 0 || endHour > 240) throw new Error('Invalid CWA forecast offset');
-      const point = parsePoint(forecast[2], endHour, nameC, observedAt);
-      if (endHour <= 96) timeline.push(point);
+      // Only 0–96h feeds the map and model. Later transition forecasts can omit
+      // tropical-cyclone wind fields and must not invalidate the usable horizon.
+      if (endHour > 96) continue;
+      timeline.push(parsePoint(forecast[2], endHour, nameC, observedAt));
     }
     for (let i = 1; i < timeline.length; i++) {
       if (timeline[i].offsetHours <= timeline[i - 1].offsetHours) throw new Error('Non-increasing CWA forecast times');

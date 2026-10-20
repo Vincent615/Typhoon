@@ -47,6 +47,29 @@ test('the actual CWA concatenated-script snapshot parses without executing code'
   assert.equal(parsed.scenarios[0].timeline.at(-1).radius10km, 0);
 });
 
+test('a 120-hour transition without wind data does not block the usable 96-hour forecast', async () => {
+  const raw = await fs.readFile(path.join(ROOT_DIR, 'tests/fixtures/cwa-official-20261021-transition.js'), 'utf8');
+  const payload = await build({ cwa: raw }, { now: () => '2026-10-20T22:00:00.000Z' });
+  assert.equal(payload.officialSync.observedAt, '2026-10-20T18:00:00.000Z');
+  const timeline = payload.scenarios[0].timeline;
+  assert.deepEqual(timeline.map((point) => point.offsetHours), [0, 6, 12, 18, 24, 36, 48, 72, 96]);
+  assert.equal(timeline[0].maxWindMs, 60);
+  assert.equal(timeline.at(-1).maxWindMs, 28);
+  assert.equal(timeline.at(-1).timeDisplay, '10月25日 02:00');
+  assert.ok(timeline.every((point) => point.counties.length === 22));
+  assert.equal(timeline.some((point) => point.offsetHours === 120), false);
+});
+
+test('excluding the unused horizon does not allow missing in-range wind or invalid forecast offsets', async () => {
+  const raw = await fs.readFile(path.join(ROOT_DIR, 'tests/fixtures/cwa-official-20261021-transition.js'), 'utf8');
+  const missing96HourWind = raw.replace('<li>近中心最大風速每秒 28 公尺</li>', '<li></li>');
+  assert.notEqual(missing96HourWind, raw);
+  await assert.rejects(build({ cwa: missing96HourWind }), /CWA wind/);
+  const invalidOffset = raw.replace('預測 96-120 小時平均移向移速為', '預測 96-300 小時平均移向移速為');
+  assert.notEqual(invalidOffset, raw);
+  assert.throws(() => parseCwaTyNewsJs(invalidOffset), /CWA forecast offset/);
+});
+
 test('CWA network, HTTP, malformed and incomplete responses fail instead of publishing fallback data', async () => {
   await assert.rejects(build({ cwaFailure: true }), /CWA unavailable/);
   await assert.rejects(build({}, { fetchImpl: async () => new Response('unavailable', { status: 503 }) }), /HTTP 503/);
