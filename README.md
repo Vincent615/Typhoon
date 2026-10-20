@@ -1,6 +1,6 @@
 # 台灣颱風假機率觀測平台
 
-原生 JavaScript 靜態網站，提供極簡版與全息版兩套介面。資料管線讀取中央氣象署（CWA）公開颱風消息及人事行政總處（DGPA）公告，依本地規則估算 22 縣市的颱風影響，選用 Gemini 產生文字摘要。
+原生 JavaScript 靜態網站，預設進入極致全息版，載入後自動循環播放預報時間軸，可隨時暫停或拖曳；亦可切換至莫蘭地極簡版。資料管線讀取中央氣象署（CWA）公開颱風消息及人事行政總處（DGPA）公告，依本地規則估算 22 縣市的颱風影響，選用 Gemini 產生文字摘要。
 
 機率是未經校準的模型推估，不是官方停班停課決定；雲系、風場與雨帶是視覺模擬，不是實測雷達回波。停班停課以各縣市政府正式公告為準。
 
@@ -49,7 +49,9 @@ npm start
 ## 專案結構
 
 ```text
-index.html / ultra.html             兩套網站入口
+index.html                         極致全息版預設首頁，自動循環播放
+classic.html                       莫蘭地極簡版
+ultra.html                         舊極致版連結，導向預設首頁
 src/app.js / src/ultra-app.js       互動、時間軸與側欄
 src/map-renderer.js                 極簡版 Canvas 地圖
 src/ultra-renderer.js               全息版 Canvas 地圖

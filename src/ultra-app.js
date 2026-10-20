@@ -72,6 +72,7 @@ export class UltraApp {
     this.bindControls();
     this.bindHoloEffects();
     this.selectScenario(this.data.defaultScenarioId || this.data.scenarios[0].id);
+    this.setPlaying(true);
     requestAnimationFrame((ts) => this.loop(ts));
   }
 

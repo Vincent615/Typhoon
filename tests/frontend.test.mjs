@@ -117,6 +117,26 @@ function setup(AppClass, Renderer) {
   return { app, doc, node: (id) => doc.getElementById(id) };
 }
 
+test('ultra: playback repeats across multiple cycles and respects a manual pause', () => {
+  const { app, node } = setup(UltraApp, UltraTyphoonRenderer);
+  app.setPlaying(true);
+  let wraps = 0;
+  let previous = app.floatStep;
+  for (let frame = 1; frame <= 300; frame++) {
+    app.loop(frame * 50);
+    if (app.floatStep < previous) wraps++;
+    previous = app.floatStep;
+  }
+  assert.ok(wraps >= 2, 'playback should repeat without another play action');
+  assert.equal(app.playing, true);
+  assert.equal(node('btn-play')['aria-label'], '暫停時間軸');
+  app.setPlaying(false);
+  const paused = app.floatStep;
+  for (let frame = 301; frame <= 350; frame++) app.loop(frame * 50);
+  assert.equal(app.floatStep, paused);
+  assert.equal(node('btn-play')['aria-label'], '播放時間軸');
+});
+
 for (const [name, AppClass, Renderer] of [
   ['standard', App, TyphoonMapRenderer], ['ultra', UltraApp, UltraTyphoonRenderer]
 ]) {

@@ -4,139 +4,258 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>台灣颱風假機率觀測平台</title>
-  <meta name="description" content="台灣 22 縣市颱風假機率與颱風動態，資料來自中央氣象署，每 3 小時自動更新。" />
-  <meta name="theme-color" content="#F2EFEA" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%238A5250'/%3E%3Cpath d='M16 4a12 12 0 0 1 12 12M16 28A12 12 0 0 1 4 16' stroke='%238A5250' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <meta name="description" content="台灣 22 縣市颱風假機率與即時颱風動態觀測平台，串接中央氣象署最新路徑與 320 粒子流體風場模擬。" />
+  <meta name="theme-color" content="#03060C" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%23FF2A5F'/%3E%3Cpath d='M16 3a13 13 0 0 1 13 13M16 29A13 13 0 0 1 3 16' stroke='%2300F2FE' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/ultra.css" />
 </head>
 <body>
+  <!-- Ambient Aurora & Cyber Grid Backdrop -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="aurora aurora-cyan"></div>
+    <div class="aurora aurora-crimson"></div>
+    <div class="scanline-overlay"></div>
+  </div>
+
   <div class="shell">
-    <header class="bar">
-      <div class="brand">
-        <h1>台灣颱風假機率觀測平台</h1>
-        <label class="storm">
-          <span class="live-dot" id="live-dot" hidden></span>
-          <select id="scenario-select" aria-label="選擇颱風"></select>
+    <!-- Top Tactical Command HUD Bar -->
+    <header class="hud-bar">
+      <div class="brand-cluster">
+        <div class="core-emblem" aria-hidden="true">
+          <span class="core-ring"></span>
+          <span class="core-dot"></span>
+        </div>
+        <div class="brand-titles">
+          <h1>台灣颱風假機率觀測平台</h1>
+        </div>
+
+        <label class="storm-selector">
+          <span class="live-beacon" id="live-dot" title="中央氣象署即時連線"></span>
+          <select id="scenario-select" aria-label="選擇颱風情境"></select>
         </label>
       </div>
-      <div class="bar-right">
-        <span class="updated" id="updated-at"></span>
-        <a href="./ultra.html" class="mode-link">極致全息版 →</a>
+
+      <div class="hud-actions">
+        <div class="telemetry-stamp">
+          <span class="stamp-label">CWA SYNC</span>
+          <b id="updated-at">—</b>
+        </div>
+        <a href="./classic.html" class="edition-switch" title="切換至莫蘭地極簡版">
+          <span class="switch-dot"></span>
+          <span>莫蘭地極簡版</span>
+        </a>
       </div>
     </header>
 
+    <!-- Main Bento Grid -->
     <main class="layout">
-      <section class="card map-card">
+      <!-- Left: Multi-Pass HDR Atmospheric Canvas & Warp Scrubber -->
+      <section class="holo-card map-card" data-spotlight>
+        <div class="corner-bracket cb-tl"></div>
+        <div class="corner-bracket cb-tr"></div>
+        <div class="corner-bracket cb-bl"></div>
+        <div class="corner-bracket cb-br"></div>
+
         <div class="map-wrap">
-          <canvas id="typhoon-canvas" aria-label="颱風動態與各縣市機率地圖"></canvas>
+          <canvas id="typhoon-canvas" aria-label="台灣 22 縣市全息颱風動態與暴風圈雷達圖"></canvas>
 
-          <div class="stats" id="stats">
-            <div class="stat"><span>中心氣壓</span><b id="s-pressure">—</b></div>
-            <div class="stat"><span>最大風速</span><b id="s-wind">—</b></div>
-            <div class="stat"><span>七級半徑</span><b id="s-radius">—</b></div>
-            <div class="stat"><span>移動</span><b id="s-move">—</b></div>
+          <!-- Top-Left Telemetry Pods -->
+          <div class="telemetry-pods" id="stats">
+            <div class="pod">
+              <span class="pod-k"><em class="en-sub">PRESSURE // </em>中心氣壓</span>
+              <b class="pod-v" id="s-pressure">—</b>
+            </div>
+            <div class="pod">
+              <span class="pod-k"><em class="en-sub">MAX WIND // </em>最大風速</span>
+              <b class="pod-v" id="s-wind">—</b>
+            </div>
+            <div class="pod">
+              <span class="pod-k"><em class="en-sub">7級 RADIUS // </em>七級半徑</span>
+              <b class="pod-v" id="s-radius">—</b>
+            </div>
+            <div class="pod">
+              <span class="pod-k"><em class="en-sub">VECTOR // </em>移動向量</span>
+              <b class="pod-v" id="s-move">—</b>
+            </div>
           </div>
 
-          <div class="tools" role="group" aria-label="圖層">
-            <button type="button" class="tool on" data-layer="cloud">雲系</button>
-            <button type="button" class="tool on" data-layer="wind">風場</button>
-            <button type="button" class="tool on" data-layer="radius">暴風圈</button>
+          <!-- Top-Right Quantum Layer Matrix -->
+          <div class="layer-matrix" role="group" aria-label="視覺圖層控制">
+            <button type="button" class="q-chip on" data-layer="cloud">
+              <i class="q-led"></i><span>渦旋雲系</span>
+            </button>
+            <button type="button" class="q-chip on" data-layer="wind">
+              <i class="q-led"></i><span>流體風場</span>
+            </button>
+            <button type="button" class="q-chip on" data-layer="radius">
+              <i class="q-led"></i><span>暴風半徑</span>
+            </button>
+            <button type="button" class="q-chip on" data-layer="radar">
+              <i class="q-led"></i><span>雷達掃描</span>
+            </button>
           </div>
 
-          <div class="legend" aria-hidden="true">
-            <div class="legend-bar"></div>
-            <div class="legend-scale">
-              <span style="left:0">0</span>
-              <span style="left:40%">40</span>
-              <span style="left:65%">65</span>
-              <span style="left:85%">85</span>
-              <span style="left:100%">%</span>
+          <!-- Bottom-Left Bioluminescent Spectrum Scale -->
+          <div class="spectrum-legend" aria-hidden="true">
+            <div class="spectrum-head">
+              <span>PROBABILITY // 停班課機率光譜</span>
+              <b id="peak-alert">MAX —%</b>
+            </div>
+            <div class="spectrum-bar"></div>
+            <div class="spectrum-scale">
+              <span style="left:0%">0%</span>
+              <span style="left:38%">40%</span>
+              <span style="left:62%">65%</span>
+              <span style="left:82%">85%</span>
+              <span style="left:100%">100%</span>
             </div>
           </div>
         </div>
 
-        <div class="timeline">
-          <button type="button" class="play" id="btn-play" aria-label="播放">
-            <svg id="icon-play" viewBox="0 0 16 16" width="14" height="14"><path d="M4.5 2.8v10.4L13 8z" fill="currentColor"/></svg>
-            <svg id="icon-pause" viewBox="0 0 16 16" width="14" height="14" hidden><rect x="3.5" y="2.8" width="3" height="10.4" rx="1" fill="currentColor"/><rect x="9.5" y="2.8" width="3" height="10.4" rx="1" fill="currentColor"/></svg>
-          </button>
-          <div class="track">
-            <input type="range" id="timeline-slider" min="0" max="1" step="0.001" value="0" aria-label="時間軸" />
-            <div class="ticks" id="timeline-ticks"></div>
+        <!-- Bottom Warp-Speed Timeline Scrubber Dock -->
+        <div class="warp-timeline">
+          <div class="transport-cluster">
+            <button type="button" class="warp-play" id="btn-play" aria-label="播放時間軸">
+              <svg id="icon-play" viewBox="0 0 16 16" width="15" height="15"><path d="M4.5 2.6v10.8L13.4 8z" fill="currentColor"/></svg>
+              <svg id="icon-pause" viewBox="0 0 16 16" width="15" height="15" hidden><rect x="3.5" y="2.6" width="3.2" height="10.8" rx="1" fill="currentColor"/><rect x="9.3" y="2.6" width="3.2" height="10.8" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button type="button" class="speed-pill" id="btn-speed" title="切換播放推進速率">1×</button>
           </div>
-          <div class="readout">
-            <span id="time-offset">—</span>
-            <b id="time-display">—</b>
+
+          <div class="warp-track">
+            <input type="range" id="timeline-slider" min="0" max="1" step="0.001" value="0" aria-label="預報時間軸推進器" />
+            <div class="warp-ticks" id="timeline-ticks"></div>
+          </div>
+
+          <div class="chrono-readout">
+            <span class="chrono-offset" id="time-offset">—</span>
+            <b class="chrono-clock" id="time-display">—</b>
           </div>
         </div>
       </section>
 
-      <aside class="side">
-        <section class="card detail">
+      <!-- Right: 3D-Tilt County Inspector & Ranking Matrix -->
+      <aside class="side-stack">
+        <!-- Selected County Target Inspector -->
+        <section class="holo-card detail-card" data-spotlight data-tilt>
+          <div class="corner-bracket cb-tl"></div>
+          <div class="corner-bracket cb-tr"></div>
+
           <div class="detail-head">
-            <div>
-              <span class="zone" id="d-zone">—</span>
+            <div class="target-meta">
+              <div class="zone-pill">
+                <span class="target-tag">TARGET LOCK</span>
+                <span id="d-zone">—</span>
+              </div>
               <label class="county-picker" title="點擊快速切換縣市">
                 <h2 id="d-name">—</h2>
                 <span class="picker-caret" aria-hidden="true">▾</span>
                 <select id="county-select" aria-label="快速切換縣市"></select>
               </label>
-              <div class="status"><i id="d-dot"></i><span id="d-status">—</span></div>
+              <div class="status-badge" id="d-status-wrap">
+                <i class="status-led" id="d-dot"></i>
+                <span id="d-status">—</span>
+              </div>
             </div>
-            <div class="ring">
-              <svg viewBox="0 0 88 88" width="88" height="88">
-                <circle class="bg" cx="44" cy="44" r="38" />
-                <circle class="fg" id="d-ring" cx="44" cy="44" r="38" />
+
+            <!-- Dual-Arc Plasma SVG Gauge -->
+            <div class="plasma-gauge">
+              <svg viewBox="0 0 108 108" width="104" height="104">
+                <defs>
+                  <filter id="plasma-glow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3.2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- Outer rotating dashed reticle ring -->
+                <circle class="gauge-reticle" cx="54" cy="54" r="49" />
+                <!-- Inner track -->
+                <circle class="gauge-bg" cx="54" cy="54" r="41" />
+                <!-- Active plasma arc -->
+                <circle class="gauge-fg" id="d-ring" cx="54" cy="54" r="41" filter="url(#plasma-glow)" />
               </svg>
-              <div class="val"><span id="d-prob">—</span><small>%</small></div>
+              <div class="gauge-val">
+                <span id="d-prob">0</span><small>%</small>
+              </div>
             </div>
           </div>
 
-          <div class="meters">
-            <div class="meter">
-              <div class="meter-top"><span>風力</span><b id="m-wind">—</b></div>
-              <div class="meter-bar"><i id="m-wind-bar"></i><em id="m-wind-mark"></em></div>
-              <div class="meter-foot">標準：平均 7 級或陣風 10 級</div>
+          <!-- Dual Neon Spectrum Threshold Meters -->
+          <div class="neon-meters">
+            <div class="n-meter">
+              <div class="n-meter-top">
+                <span>WIND FORCE // 風力觀測與預測</span>
+                <b id="m-wind">—</b>
+              </div>
+              <div class="n-meter-bar">
+                <i id="m-wind-bar"></i>
+                <em id="m-wind-mark" title="停班停課風力門檻"></em>
+              </div>
+              <div class="n-meter-foot">
+                <span>DGPA 停班課門檻：平均風 7 級 或 陣風 10 級</span>
+                <b id="m-wind-tag">—</b>
+              </div>
             </div>
-            <div class="meter">
-              <div class="meter-top"><span>24 小時雨量</span><b id="m-rain">—</b></div>
-              <div class="meter-bar"><i id="m-rain-bar"></i><em id="m-rain-mark"></em></div>
-              <div class="meter-foot" id="m-rain-foot">—</div>
+
+            <div class="n-meter">
+              <div class="n-meter-top">
+                <span>24H RAINFALL // 累積雨量</span>
+                <b id="m-rain">—</b>
+              </div>
+              <div class="n-meter-bar">
+                <i id="m-rain-bar"></i>
+                <em id="m-rain-mark" title="停班停課雨量門檻"></em>
+              </div>
+              <div class="n-meter-foot">
+                <span id="m-rain-foot">—</span>
+                <b id="m-rain-tag">—</b>
+              </div>
             </div>
           </div>
 
-          <p class="note" id="d-note" hidden></p>
+          <p class="hazard-alert" id="d-note" hidden></p>
         </section>
 
-        <section class="card list-card">
-          <div class="list-head">
-            <div class="seg" id="region-tabs">
-              <button type="button" class="on" data-region="ALL">全部</button>
+        <!-- 22-County Live Ranking Matrix -->
+        <section class="holo-card matrix-card" data-spotlight>
+          <div class="matrix-head">
+            <div class="region-seg" id="region-tabs">
+              <button type="button" class="on" data-region="ALL">全區</button>
               <button type="button" data-region="北部">北</button>
               <button type="button" data-region="中部">中</button>
               <button type="button" data-region="南部">南</button>
               <button type="button" data-region="東部">東</button>
               <button type="button" data-region="外島">離島</button>
             </div>
-            <button type="button" class="sort" id="btn-sort">依機率</button>
+            <button type="button" class="sort-chip" id="btn-sort">⚡ 依機率</button>
           </div>
-          <ol class="county-list" id="county-list"></ol>
+
+          <ol class="county-matrix" id="county-list"></ol>
         </section>
 
-        <section class="card brief" id="brief" hidden>
-          <h3>概況</h3>
+        <!-- AI Tactical Meteorological Brief -->
+        <section class="holo-card brief-card" id="brief" data-spotlight hidden>
+          <div class="brief-head">
+            <span class="brief-tag">AI TELEMETRY BRIEF // 氣象決策摘要</span>
+            <button type="button" id="brief-toggle">展開</button>
+          </div>
           <p id="brief-text"></p>
-          <button type="button" id="brief-toggle">展開</button>
         </section>
       </aside>
     </main>
 
-    <footer>資料來源：中央氣象署、行政院人事行政總處。機率為模型推估，實際請以各縣市政府公告為準。</footer>
+    <footer class="hud-footer">
+      <span>DATA FEED: 中央氣象署 (CWA) 颱風消息 · 行政院人事行政總處停班停課標準</span>
+      <span>機率為流體風場與雨量模型推估，實際停班停課請以各縣市政府正式公告為準</span>
+    </footer>
   </div>
 
-  <script type="module" src="./src/app.js"></script>
+  <script type="module" src="./src/ultra-app.js"></script>
 </body>
 </html>
