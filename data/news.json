@@ -1,10 +1,40 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-21T14:13:47.357Z",
-  "lastSuccessfulAt": "2026-10-21T14:13:47.357Z",
+  "lastCheckedAt": "2026-10-21T19:01:44.036Z",
+  "lastSuccessfulAt": "2026-10-21T19:01:44.036Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "51e7be67a29577778f8f",
+      "title": "颱風薔琵海上警報發布 最快22日中午前後發陸警",
+      "url": "https://www.cna.com.tw/news/ahel/202610220004.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T16:22:14.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "b67f1311e6821a28aa3e",
+      "title": "颱風薔琵逼近 氣象署晚間11時30分發海警",
+      "url": "https://www.cna.com.tw/news/ahel/202610210346.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T13:31:02.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "32b82080bfb426a3e0bd",
+      "title": "颱風薔琵來襲 外交部：23日可領護照提前至22日下午發放",
+      "url": "https://www.cna.com.tw/news/ahel/202610210344.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T13:19:57.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "f4cf57092244c7da4a3c",
       "title": "薔琵颱風最快今晚發海警 氣象署估週五、六影響最劇烈",
@@ -84,16 +114,6 @@
       "publishedAt": "2026-10-21T09:17:09.000Z",
       "dateKind": "published",
       "cached": false
-    },
-    {
-      "id": "17eb6ee66d9cab9e558d",
-      "title": "颱風薔琵逼近 宜蘭太平山22日午後起預警性休園",
-      "url": "https://www.cna.com.tw/news/ahel/202610210193.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T08:10:31.000Z",
-      "dateKind": "published",
-      "cached": false
     }
   ],
   "sources": [
@@ -103,9 +123,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T14:13:47.357Z",
-      "lastSuccessfulAt": "2026-10-21T14:13:47.357Z",
-      "articleCount": 8
+      "lastCheckedAt": "2026-10-21T19:01:44.036Z",
+      "lastSuccessfulAt": "2026-10-21T19:01:44.036Z",
+      "articleCount": 10
     },
     {
       "id": "pts",
@@ -113,8 +133,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T14:13:47.357Z",
-      "lastSuccessfulAt": "2026-10-21T14:13:47.357Z",
+      "lastCheckedAt": "2026-10-21T19:01:44.036Z",
+      "lastSuccessfulAt": "2026-10-21T19:01:44.036Z",
       "articleCount": 1
     }
   ]
