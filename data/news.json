@@ -1,10 +1,20 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-20T23:39:16.775Z",
-  "lastSuccessfulAt": "2026-10-20T23:39:16.775Z",
+  "lastCheckedAt": "2026-10-21T02:26:00.728Z",
+  "lastSuccessfulAt": "2026-10-21T02:26:00.728Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "4617f9d8c58186909a0c",
+      "title": "吳德榮：強烈颱風薔琵並列115年風王 登陸台灣機會降低",
+      "url": "https://www.cna.com.tw/news/ahel/202610210023.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T00:38:21.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "e9123efb9f3b55ed9b42",
       "title": "薔琵颱風北轉角度成關鍵 氣象署：最快週三晚發布海警",
@@ -34,16 +44,6 @@
       "publishedAt": "2026-10-20T09:48:13.000Z",
       "dateKind": "published",
       "cached": false
-    },
-    {
-      "id": "d0d409c1640d8ce3a86e",
-      "title": "颱風薔琵最快明深夜海警 週五、六最接近台灣",
-      "url": "https://news.pts.org.tw/article/832118",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-20T06:39:24.000Z",
-      "dateKind": "updated",
-      "cached": false
     }
   ],
   "sources": [
@@ -53,9 +53,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-20T23:39:16.775Z",
-      "lastSuccessfulAt": "2026-10-20T23:39:16.775Z",
-      "articleCount": 2
+      "lastCheckedAt": "2026-10-21T02:26:00.728Z",
+      "lastSuccessfulAt": "2026-10-21T02:26:00.728Z",
+      "articleCount": 3
     },
     {
       "id": "pts",
@@ -63,9 +63,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-20T23:39:16.775Z",
-      "lastSuccessfulAt": "2026-10-20T23:39:16.775Z",
-      "articleCount": 2
+      "lastCheckedAt": "2026-10-21T02:26:00.728Z",
+      "lastSuccessfulAt": "2026-10-21T02:26:00.728Z",
+      "articleCount": 1
     }
   ]
 }
