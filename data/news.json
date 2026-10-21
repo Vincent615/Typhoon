@@ -1,10 +1,40 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-21T02:26:00.728Z",
-  "lastSuccessfulAt": "2026-10-21T02:26:00.728Z",
+  "lastCheckedAt": "2026-10-21T08:06:03.163Z",
+  "lastSuccessfulAt": "2026-10-21T08:06:03.163Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "f4cf57092244c7da4a3c",
+      "title": "薔琵颱風最快今晚發海警 氣象署估週五、六影響最劇烈",
+      "url": "https://news.pts.org.tw/article/832290",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-21T05:59:26.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "131a62cb345afa0a4785",
+      "title": "強颱薔琵最快明日發布陸上警報 北台灣雨勢週五最明顯",
+      "url": "https://news.pts.org.tw/article/832261",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-21T03:23:25.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "2d0bbd43a40716aa06a4",
+      "title": "颱風薔琵最快深夜海警 北部山區10/23防大豪雨",
+      "url": "https://www.cna.com.tw/news/ahel/202610210057.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T03:11:35.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "4617f9d8c58186909a0c",
       "title": "吳德榮：強烈颱風薔琵並列115年風王 登陸台灣機會降低",
@@ -12,36 +42,6 @@
       "sourceId": "cna",
       "sourceName": "中央通訊社",
       "publishedAt": "2026-10-21T00:38:21.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "e9123efb9f3b55ed9b42",
-      "title": "薔琵颱風北轉角度成關鍵 氣象署：最快週三晚發布海警",
-      "url": "https://news.pts.org.tw/article/832221",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-20T12:27:05.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "0ac980fcba4bf42b0c22",
-      "title": "颱風薔琵靠近 海運基隆馬祖等航線21日停航",
-      "url": "https://www.cna.com.tw/news/ahel/202610200282.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-20T10:04:33.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "789cdc05b33667f4b996",
-      "title": "颱風薔琵持續增強長胖 估最快21日深夜發海警",
-      "url": "https://www.cna.com.tw/news/ahel/202610200273.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-20T09:48:13.000Z",
       "dateKind": "published",
       "cached": false
     }
@@ -53,9 +53,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T02:26:00.728Z",
-      "lastSuccessfulAt": "2026-10-21T02:26:00.728Z",
-      "articleCount": 3
+      "lastCheckedAt": "2026-10-21T08:06:03.163Z",
+      "lastSuccessfulAt": "2026-10-21T08:06:03.163Z",
+      "articleCount": 2
     },
     {
       "id": "pts",
@@ -63,9 +63,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T02:26:00.728Z",
-      "lastSuccessfulAt": "2026-10-21T02:26:00.728Z",
-      "articleCount": 1
+      "lastCheckedAt": "2026-10-21T08:06:03.163Z",
+      "lastSuccessfulAt": "2026-10-21T08:06:03.163Z",
+      "articleCount": 2
     }
   ]
 }
