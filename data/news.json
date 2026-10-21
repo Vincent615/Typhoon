@@ -1,10 +1,90 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-21T08:33:02.268Z",
-  "lastSuccessfulAt": "2026-10-21T08:33:02.268Z",
+  "lastCheckedAt": "2026-10-21T14:13:47.357Z",
+  "lastSuccessfulAt": "2026-10-21T14:13:47.357Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "f4cf57092244c7da4a3c",
+      "title": "薔琵颱風最快今晚發海警 氣象署估週五、六影響最劇烈",
+      "url": "https://news.pts.org.tw/article/832290",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-21T12:23:00.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "cbe7f1bc389ef1fe7f44",
+      "title": "颱風薔琵來襲 武陵、福壽山農場22日中午起預警休園",
+      "url": "https://www.cna.com.tw/news/ahel/202610210294.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T10:37:08.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "7fb680531d98b476dde9",
+      "title": "颱風薔琵逼近 航班異動一次看",
+      "url": "https://www.cna.com.tw/news/ahel/202610210289.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T10:32:58.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "151a2570806b90143664",
+      "title": "颱風薔琵進逼 水利署展開防汛整備示警雙北等地加強警戒",
+      "url": "https://www.cna.com.tw/news/ahel/202610210285.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T10:26:49.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "f17f9b628578a514a3d4",
+      "title": "東北季風與颱風影響 國家公園署籲暫緩山區海域活動",
+      "url": "https://www.cna.com.tw/news/ahel/202610210278.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T10:06:34.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "4ca590c69c3ca328336d",
+      "title": "肯亞、奈及利亞現伊波拉 疾管署評估對台風險仍低",
+      "url": "https://www.cna.com.tw/news/ahel/202610210272.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T09:53:21.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "6d4db73097a1d2b0736a",
+      "title": "颱風薔琵路徑略西修 最快深夜發海警22日午後陸警",
+      "url": "https://www.cna.com.tw/news/ahel/202610210258.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T09:34:51.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "7caaaee54e8f3908731e",
+      "title": "颱風薔琵影響 金門小三通10/22部分停航",
+      "url": "https://www.cna.com.tw/news/ahel/202610210238.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-21T09:17:09.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "17eb6ee66d9cab9e558d",
       "title": "颱風薔琵逼近 宜蘭太平山22日午後起預警性休園",
@@ -13,26 +93,6 @@
       "sourceName": "中央通訊社",
       "publishedAt": "2026-10-21T08:10:31.000Z",
       "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "f4cf57092244c7da4a3c",
-      "title": "薔琵颱風最快今晚發海警 氣象署估週五、六影響最劇烈",
-      "url": "https://news.pts.org.tw/article/832290",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-21T05:59:26.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "131a62cb345afa0a4785",
-      "title": "強颱薔琵最快明日發布陸上警報 北台灣雨勢週五最明顯",
-      "url": "https://news.pts.org.tw/article/832261",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-21T03:23:25.000Z",
-      "dateKind": "updated",
       "cached": false
     }
   ],
@@ -43,9 +103,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T08:33:02.268Z",
-      "lastSuccessfulAt": "2026-10-21T08:33:02.268Z",
-      "articleCount": 1
+      "lastCheckedAt": "2026-10-21T14:13:47.357Z",
+      "lastSuccessfulAt": "2026-10-21T14:13:47.357Z",
+      "articleCount": 8
     },
     {
       "id": "pts",
@@ -53,9 +113,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T08:33:02.268Z",
-      "lastSuccessfulAt": "2026-10-21T08:33:02.268Z",
-      "articleCount": 2
+      "lastCheckedAt": "2026-10-21T14:13:47.357Z",
+      "lastSuccessfulAt": "2026-10-21T14:13:47.357Z",
+      "articleCount": 1
     }
   ]
 }
