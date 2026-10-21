@@ -150,6 +150,54 @@ test('ultra: playback repeats across multiple cycles and respects a manual pause
 for (const [name, AppClass, Renderer] of [
   ['standard', App, TyphoonMapRenderer], ['ultra', UltraApp, UltraTyphoonRenderer]
 ]) {
+  test(`${name}: forecast coverage stays literal and independent of AI summaries`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    const note = '【預報範圍】氣象署預測96小時內變性為溫帶氣旋；本站估算至+72小時，不代表之後沒有風雨。';
+    app.scenario.forecastCoverage = { note };
+    app.scenario.aiMetadata.executiveBrief = '【AI】風雨摘要';
+    app.renderSourceMeta();
+    assert.equal(node('forecast-coverage').textContent, note);
+    assert.equal(node('forecast-coverage').hidden, false);
+    assert.equal(node('brief-text').textContent, '風雨摘要');
+    app.scenario.aiMetadata.executiveBrief = '另一份風雨摘要';
+    app.renderSourceMeta();
+    assert.equal(node('forecast-coverage').textContent, note);
+    app.scenario.aiMetadata.executiveBrief = '';
+    app.scenario.summary = '';
+    app.renderSourceMeta();
+    assert.equal(node('brief').hidden, true);
+    assert.equal(node('forecast-coverage').hidden, false);
+    assert.equal(node('forecast-coverage').textContent, note);
+  });
+
+  test(`${name}: switching to complete forecasts or no typhoon clears coverage notes`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    app.scenario.forecastCoverage = { note: '本站估算至+72小時，不代表之後沒有風雨。' };
+    app.renderSourceMeta();
+    assert.equal(node('forecast-coverage').hidden, false);
+    app.data.scenarios[1].forecastCoverage = { note: '' };
+    app.selectScenario('second');
+    assert.equal(node('forecast-coverage').hidden, true);
+    assert.equal(node('forecast-coverage').textContent, '');
+    app.selectScenario('first');
+    assert.equal(node('forecast-coverage').hidden, false);
+    app.selectScenario('calm');
+    assert.equal(node('forecast-coverage').hidden, true);
+    assert.equal(node('forecast-coverage').textContent, '');
+  });
+
+  test(`${name}: a single-point forecast disables playback while preserving its coverage note`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    const note = '目前僅提供觀測資料，不代表之後沒有風雨。';
+    app.scenario.timeline = app.scenario.timeline.slice(0, 1);
+    app.scenario.forecastCoverage = { note };
+    app.selectScenario('first');
+    assert.equal(node('timeline-slider').disabled, true);
+    assert.equal(node('btn-play').disabled, true);
+    assert.equal(node('forecast-coverage').hidden, false);
+    assert.equal(node('forecast-coverage').textContent, note);
+  });
+
   test(`${name}: resuming a long pause does not advance effects by the idle interval`, () => {
     const { app } = setup(AppClass, Renderer);
     app.setPlaying(true);

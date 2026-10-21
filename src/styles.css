@@ -156,6 +156,7 @@ canvas { display: block; }
 
 /* Timeline */
 .timeline { display: flex; align-items: center; gap: 18px; padding: 14px 20px 12px; border-top: 1px solid var(--line); }
+.forecast-coverage { min-width: 0; margin: 0; padding: 0 20px 14px; font-size: 14px; line-height: 1.7; color: var(--ink-2); overflow-wrap: anywhere; }
 .play {
   flex-shrink: 0;
   width: 36px;
@@ -434,6 +435,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; }
   .stat b small { display: block; margin: 2px 0 0; font-size: 11px; }
   .legend { position: static; width: auto; margin: 0; padding: 10px 12px; border: 0; border-top: 1px solid var(--line); border-radius: 0; }
   .timeline { order: 2; display: grid; grid-template-columns: 1fr auto; gap: 0 8px; padding: 10px 10px 6px; }
+  .forecast-coverage { order: 2; padding: 0 12px 12px; }
   .play { order: 1; justify-self: start; }
   .readout { order: 2; min-width: 0; }
   .readout span { color: var(--ink-2); font-size: 12px; }

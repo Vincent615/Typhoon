@@ -98,6 +98,9 @@ export class UltraApp {
     $('updated-at').textContent = status.text;
     $('live-dot').hidden = !status.live;
     $('live-dot').title = status.live ? '中央氣象署資料，觀測時刻見右側' : '';
+    const coverageNote = this.scenario?.forecastCoverage?.note || '';
+    $('forecast-coverage').textContent = coverageNote;
+    $('forecast-coverage').hidden = !coverageNote;
     const brief = cleanBrief(this.scenario?.aiMetadata?.executiveBrief || this.scenario?.summary || '');
     $('brief-text').textContent = brief;
     $('brief').hidden = !brief;

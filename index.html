@@ -138,7 +138,7 @@
           </div>
 
           <div class="warp-track">
-            <input type="range" id="timeline-slider" min="0" max="1" step="0.001" value="0" aria-label="預報時間軸推進器" />
+            <input type="range" id="timeline-slider" min="0" max="1" step="0.001" value="0" aria-label="預報時間軸推進器" aria-describedby="forecast-coverage" />
             <div class="warp-ticks" id="timeline-ticks" role="group" aria-label="選擇預報時次"></div>
           </div>
 
@@ -147,6 +147,7 @@
             <b class="chrono-clock" id="time-display">—</b>
           </div>
         </div>
+        <p id="forecast-coverage" class="forecast-coverage" hidden></p>
       </section>
 
       <!-- Right: 3D-Tilt County Inspector & Ranking Matrix -->

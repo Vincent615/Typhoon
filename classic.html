@@ -79,7 +79,7 @@
             <span id="play-label">播放</span>
           </button>
           <div class="track">
-            <input type="range" id="timeline-slider" min="0" max="1" step="0.001" value="0" aria-label="時間軸" />
+            <input type="range" id="timeline-slider" min="0" max="1" step="0.001" value="0" aria-label="時間軸" aria-describedby="forecast-coverage" />
             <div class="ticks" id="timeline-ticks" role="group" aria-label="選擇預報時次"></div>
           </div>
           <div class="readout">
@@ -87,6 +87,7 @@
             <b id="time-display">—</b>
           </div>
         </div>
+        <p id="forecast-coverage" class="forecast-coverage" hidden></p>
       </section>
 
       <aside class="side">

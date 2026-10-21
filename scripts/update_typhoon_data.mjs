@@ -141,20 +141,7 @@ function requiredNumber(text, pattern, label, min, max) {
   return number;
 }
 
-function parsePoint(html, offsetHours, nameC, observedAt) {
-  const text = plainText(html);
-  const latMatch = text.match(/([南北])緯\s*([\d.]+)\s*度/);
-  const lonMatch = text.match(/([東西])經\s*([\d.]+)\s*度/);
-  const lat = requiredNumber(text, /[南北]緯\s*([\d.]+)\s*度/, 'latitude', 0, 90) * (latMatch?.[1] === '南' ? -1 : 1);
-  const lon = requiredNumber(text, /[東西]經\s*([\d.]+)\s*度/, 'longitude', 0, 180) * (lonMatch?.[1] === '西' ? -1 : 1);
-  const pressureHpa = requiredNumber(text, /中心氣壓\s*(\d+)\s*百帕/, 'pressure', 800, 1100);
-  const maxWindMs = requiredNumber(text, /近中心最大風速每秒\s*([\d.]+)\s*公尺/, 'wind', 0, 150);
-  const maxGustMs = requiredNumber(text, /瞬間最大陣風每秒\s*([\d.]+)\s*公尺/, 'gust', maxWindMs, 200);
-  const radius7km = requiredNumber(text, /七級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius7', 0, 1500);
-  const radius10km = /十級風/.test(text)
-    ? requiredNumber(text, /十級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius10', 0, radius7km) : 0;
-  const probRadius70km = offsetHours === 0 ? 0
-    : requiredNumber(text, /70%\s*機率半徑\s*(\d+)\s*公里/, 'probability radius', 0, 3000);
+function parsePointTime(text, offsetHours, observedAt) {
   const date = offsetHours === 0
     ? text.match(/(\d{4}年\d{1,2}月\d{1,2}日\d{1,2}時)/)?.[1]
     : text.match(/預測\s*(\d{1,2}月\d{1,2}日\d{1,2}時)/)?.[1];
@@ -168,10 +155,27 @@ function parsePoint(html, offsetHours, nameC, observedAt) {
       Number(parts[2]) !== taiwanTime.getUTCMonth() + 1 ||
       Number(parts[3]) !== taiwanTime.getUTCDate() || Number(parts[4]) !== taiwanTime.getUTCHours() ||
       taiwanTime.getUTCMinutes() !== 0) throw new Error('CWA point time does not match observation time and forecast offset');
+  return date.replace(/^\d{4}年/, '').replace(/(\d+月\d+日)(\d+)時/, '$1 $2:00');
+}
+
+function parsePoint(html, offsetHours, nameC, observedAt) {
+  const text = plainText(html);
+  const timeDisplay = parsePointTime(text, offsetHours, observedAt);
+  const latMatch = text.match(/([南北])緯\s*([\d.]+)\s*度/);
+  const lonMatch = text.match(/([東西])經\s*([\d.]+)\s*度/);
+  const lat = requiredNumber(text, /[南北]緯\s*([\d.]+)\s*度/, 'latitude', 0, 90) * (latMatch?.[1] === '南' ? -1 : 1);
+  const lon = requiredNumber(text, /[東西]經\s*([\d.]+)\s*度/, 'longitude', 0, 180) * (lonMatch?.[1] === '西' ? -1 : 1);
+  const pressureHpa = requiredNumber(text, /中心氣壓\s*(\d+)\s*百帕/, 'pressure', 800, 1100);
+  const maxWindMs = requiredNumber(text, /近中心最大風速每秒\s*([\d.]+)\s*公尺/, 'wind', 0, 150);
+  const maxGustMs = requiredNumber(text, /瞬間最大陣風每秒\s*([\d.]+)\s*公尺/, 'gust', maxWindMs, 200);
+  const radius7km = requiredNumber(text, /七級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius7', 0, 1500);
+  const radius10km = /十級風/.test(text)
+    ? requiredNumber(text, /十級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius10', 0, radius7km) : 0;
+  const probRadius70km = offsetHours === 0 ? 0
+    : requiredNumber(text, /70%\s*機率半徑\s*(\d+)\s*公里/, 'probability radius', 0, 3000);
   const movement = text.match(offsetHours === 0 ? /過去移動方向\s*([^\s]+)/ : /([^\s]+)\s*時速\s*[\d.]+\s*公里/);
   const moveSpeedKmh = requiredNumber(text, offsetHours === 0 ? /過去移動時速\s*([\d.]+)\s*公里/ : /時速\s*([\d.]+)\s*公里/, 'movement speed', 0, 300);
   if (!movement) throw new Error('Invalid or missing CWA movement direction');
-  const timeDisplay = date.replace(/^\d{4}年/, '').replace(/(\d+月\d+日)(\d+)時/, '$1 $2:00');
   const offsetLabel = offsetHours === 0 ? '現況 (+0h)' : `+${offsetHours}h`;
   return {
     offsetLabel, offsetHours, timeDisplay, lat, lon, pressureHpa, maxWindMs, maxGustMs,
@@ -179,6 +183,32 @@ function parsePoint(html, offsetHours, nameC, observedAt) {
     // Rain is a model estimate, not an observed CWA rainfall field.
     baseRainPotential: Math.round(maxWindMs * 6), intensityScale: 1,
     phaseNote: `${nameC} ${offsetLabel}（${timeDisplay}）：中心位於 ${lat}°、${lon}°，中心氣壓 ${pressureHpa} hPa，近中心最大風速 ${maxWindMs} m/s，七級風暴風半徑 ${radius7km} 公里${radius10km ? `、十級風暴風半徑 ${radius10km} 公里` : '；來源未列十級風暴風圈'}。`
+  };
+}
+
+// A transition is source-provided lifecycle information, not a model point with
+// zero or guessed wind. Only recognize the explicit wording captured in fixtures.
+function parseForecastTermination(html, offsetHours, observedAt) {
+  const items = [...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((match) => plainText(match[1]));
+  const candidates = items.filter((text) => text.replace(/\s+/g, '').includes('變性為溫帶氣旋'));
+  if (candidates.length === 0) return null;
+  const match = candidates[0].replace(/\s+/g, '').match(/^預測(\d+)小時內變性為溫帶氣旋[。.]?$/);
+  if (candidates.length !== 1 || !match || Number(match[1]) !== offsetHours) {
+    throw new Error('Invalid CWA forecast termination or mismatched transition offset');
+  }
+  return {
+    kind: 'extratropical', offsetHours, sourceText: candidates[0],
+    timeDisplay: parsePointTime(plainText(html), offsetHours, observedAt)
+  };
+}
+
+function forecastCoverage(timeline, termination) {
+  if (!termination) return null;
+  const last = timeline.at(-1);
+  const through = last.offsetHours === 0 ? '現況' : `+${last.offsetHours} 小時`;
+  return {
+    modelThroughHours: last.offsetHours, modelThroughTimeDisplay: last.timeDisplay, termination,
+    note: `氣象署預測 ${termination.offsetHours} 小時內變性為溫帶氣旋。本模型僅適用颱風階段，估算顯示至 ${through}（${last.timeDisplay}）；之後不延伸估算，不代表沒有風雨風險。`
   };
 }
 
@@ -222,16 +252,34 @@ export function parseCwaTyNewsJs(rawJsText) {
     if (!cwaClass || !tyNum) throw new Error('Invalid CWA typhoon heading');
     const current = panel.match(/<span\b[^>]*class=["']now["'][^>]*>現況<\/span>([\s\S]*?)<\/ul>/i);
     if (!current) throw new Error('Missing CWA current observation');
-    const timeline = [parsePoint(current[1], 0, nameC, observedAt)];
+    const modelPoint = (html, hours) => {
+      try { return parsePoint(html, hours, nameC, observedAt); }
+      catch (error) { throw new Error(`CWA ${intlKey} +${hours}h: ${error.message}`, { cause: error }); }
+    };
+    const timeline = [modelPoint(current[1], 0)];
     const forecasts = [...panel.matchAll(/<p[^>]*>預測\s*([\d-]+)\s*小時平均移向移速為<\/p>\s*<ul[^>]*>([\s\S]*?)<\/ul>/g)];
     if (forecasts.length !== (panel.match(/<p[^>]*>預測/g) || []).length) throw new Error('Incomplete CWA forecast blocks');
+    let lastForecastHour = 0;
+    let termination = null;
     for (const forecast of forecasts) {
-      const endHour = Number(forecast[1].split('-').at(-1));
+      const range = forecast[1].match(/^(?:(\d+)-)?(\d+)$/);
+      const endHour = range ? Number(range[2]) : NaN;
       if (!Number.isInteger(endHour) || endHour <= 0 || endHour > 240) throw new Error('Invalid CWA forecast offset');
-      // Only 0–96h feeds the map and model. Later transition forecasts can omit
-      // tropical-cyclone wind fields and must not invalidate the usable horizon.
+      if (endHour <= lastForecastHour || (range[1] !== undefined && Number(range[1]) !== lastForecastHour)) {
+        throw new Error('Non-increasing or inconsistent CWA forecast times');
+      }
+      lastForecastHour = endHour;
+      let end;
+      try { end = parseForecastTermination(forecast[2], endHour, observedAt); }
+      catch (error) { throw new Error(`CWA ${intlKey} +${endHour}h: ${error.message}`, { cause: error }); }
+      if (end) {
+        termination ??= end;
+        continue;
+      }
+      if (termination) throw new Error(`CWA ${intlKey} +${endHour}h: ordinary forecast follows a terminal transition`);
+      // Non-terminal points outside the displayed horizon do not feed the model.
       if (endHour > 96) continue;
-      timeline.push(parsePoint(forecast[2], endHour, nameC, observedAt));
+      timeline.push(modelPoint(forecast[2], endHour));
     }
     for (let i = 1; i < timeline.length; i++) {
       if (timeline[i].offsetHours <= timeline[i - 1].offsetHours) throw new Error('Non-increasing CWA forecast times');
@@ -241,12 +289,14 @@ export function parseCwaTyNewsJs(rawJsText) {
       if (haversineKm(24.2, 121.6, pt.lat, pt.lon) < haversineKm(24.2, 121.6, timeline[defaultStepIndex].lat, timeline[defaultStepIndex].lon)) defaultStepIndex = i;
     });
     const now = timeline[0];
+    const coverage = forecastCoverage(timeline, termination);
     return {
       id: `live_${intlKey.toLowerCase()}`, name: `${cwaClass} ${nameC} (${nameE})`,
       badge: `CWA 預報・編號第 ${tyNum} 號`, cwaClassification: `${cwaClass} (編號第 ${tyNum} 號)`,
       typhoonNumber: `編號第 ${tyNum} 號 (國際命名 ${nameE})`, observedAt,
       warningStatus: '中央氣象署颱風消息；海陸警報狀態請查閱氣象署警報頁面',
       hasTyphoon: true, isLiveOfficial: true,
+      ...(coverage ? { forecastCoverage: coverage } : {}),
       summary: `中央氣象署 ${now.timeDisplay} 資料：第 ${tyNum} 號${cwaClass}「${nameC}」(${nameE}) 中心位於 ${now.lat}°、${now.lon}°，中心氣壓 ${now.pressureHpa} 百帕，近中心最大風速每秒 ${now.maxWindMs} 公尺，七級風平均暴風半徑 ${now.radius7km} 公里。以下縣市風雨與機率為本站模型估算，並非官方停班課預報。`,
       defaultStepIndex, timeline
     };
@@ -757,6 +807,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
     .then(async (data) => {
       await writeTyphoonDatasetAtomic(data);
       console.log(`[OK] Generated data/typhoon-data.json at ${data.updatedAt} (Primary: ${data.scenarios[0].name}, ${data.scenarios[0].timeline.length} steps)`);
+      for (const scenario of data.scenarios) {
+        if (scenario.forecastCoverage) console.log(`[INFO] ${scenario.id}: ${scenario.forecastCoverage.note}`);
+      }
     })
     .catch((error) => {
       // Do not include request URLs or API keys in CI logs.

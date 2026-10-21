@@ -58,6 +58,105 @@ test('a 120-hour transition without wind data does not block the usable 96-hour 
   assert.equal(timeline.at(-1).timeDisplay, '10月25日 02:00');
   assert.ok(timeline.every((point) => point.counties.length === 22));
   assert.equal(timeline.some((point) => point.offsetHours === 120), false);
+  assert.equal(payload.scenarios[0].forecastCoverage.termination.offsetHours, 120);
+  assert.equal(payload.scenarios[0].forecastCoverage.modelThroughHours, 96);
+});
+
+test('the actual 96-hour transition preserves the latest observation and valid tropical forecast', async () => {
+  const raw = await fs.readFile(path.join(ROOT_DIR, 'tests/fixtures/cwa-official-20261021-96h-transition.js'), 'utf8');
+  const payload = await build({ cwa: raw }, { now: () => '2026-10-21T08:00:00.000Z' });
+  assert.equal(payload.officialSync.observedAt, '2026-10-21T06:00:00.000Z');
+  const storm = payload.scenarios[0];
+  assert.deepEqual(storm.timeline.map((point) => point.offsetHours), [0, 6, 12, 18, 24, 36, 48, 72]);
+  assert.equal(storm.timeline[0].maxWindMs, 58);
+  assert.equal(storm.timeline.at(-1).maxWindMs, 35);
+  assert.equal(storm.hasTyphoon, true);
+  assert.equal(storm.forecastCoverage.modelThroughHours, 72);
+  assert.equal(storm.forecastCoverage.termination.offsetHours, 96);
+  assert.equal(storm.forecastCoverage.termination.kind, 'extratropical');
+  assert.equal(storm.forecastCoverage.termination.timeDisplay, '10月25日 14:00');
+  assert.match(storm.forecastCoverage.note, /96 小時內變性為溫帶氣旋/);
+  assert.match(storm.forecastCoverage.note, /\+72 小時/);
+  assert.ok(storm.timeline.every((point) => point.counties.length === 22));
+});
+
+const transitionStorm = { key: 'ALPHA', chineseName: '甲颱', lat: 21, lon: 128,
+  forecastOffsets: [6, 12, 24, 48, 72, 96, 120] };
+
+for (const terminationAt of transitionStorm.forecastOffsets) {
+  test(`a transition within ${terminationAt} hours retains exactly the validated tropical prefix`, async () => {
+    const complete = await build({ cwa: makeCwaFeed([transitionStorm]) });
+    const payload = await build({ cwa: makeCwaFeed([{ ...transitionStorm, terminationAt }]) });
+    const storm = payload.scenarios[0];
+    assert.deepEqual(storm.timeline, complete.scenarios[0].timeline.filter((point) => point.offsetHours < terminationAt));
+    assert.equal(storm.forecastCoverage.termination.offsetHours, terminationAt);
+    assert.equal(storm.forecastCoverage.modelThroughHours, storm.timeline.at(-1).offsetHours);
+    assert.match(storm.forecastCoverage.note, /不代表沒有風雨風險/);
+    assert.equal(storm.hasTyphoon, true);
+    assert.equal(storm.isLiveOfficial, true);
+    assert.equal(payload.officialSync.cwaStatus, 'active');
+    assert.ok(storm.defaultStepIndex < storm.timeline.length);
+    if (terminationAt === 6) {
+      assert.equal(storm.timeline.length, 1);
+      assert.match(storm.forecastCoverage.note, /顯示至 現況/);
+    }
+  });
+}
+
+test('one cyclone ending its tropical forecast does not remove another cyclone or waive its validation', async () => {
+  const alpha = { ...transitionStorm, terminationAt: 24 };
+  const beta = { key: 'BETA', chineseName: '乙颱', lat: 10, lon: 145 };
+  const feed = makeCwaFeed([alpha, beta]);
+  const payload = await build({ cwa: feed });
+  assert.equal(payload.scenarios.length, 2);
+  assert.equal(payload.scenarios[0].timeline.at(-1).offsetHours, 12);
+  assert.equal(payload.scenarios[1].timeline.at(-1).offsetHours, 96);
+  assert.equal(payload.scenarios[1].forecastCoverage, undefined);
+  const betaOnly = await build({ cwa: makeCwaFeed([beta]) });
+  assert.deepEqual(payload.scenarios[1].timeline, betaOnly.scenarios[0].timeline);
+  await assert.rejects(build({ cwa: feed.replace('北緯 10 度', '北緯 缺值 度') }), /BETA \+0h:.*latitude/);
+});
+
+test('termination requires an unambiguous local marker with a matching calendar time and ordered offsets', () => {
+  const feed = makeCwaFeed([{ ...transitionStorm, terminationAt: 48 }]);
+  for (const changed of [
+    feed.replace('預測 48 小時內變性為溫帶氣旋', '預測 24 小時內變性為溫帶氣旋'),
+    feed.replace('預測 48 小時內變性為溫帶氣旋', '預測 48 小時內不會變性為溫帶氣旋'),
+    feed.replace('預測 48 小時內變性為溫帶氣旋', '預測 未知 小時內變性為溫帶氣旋'),
+    feed.replace('預測 48 小時內變性為溫帶氣旋', '預測 48 小時內變性為溫帶氣旋</li><li>預測 48 小時內變性為溫帶氣旋'),
+    feed.replace('預測 6月10日08時', '預測 6月11日08時'),
+    feed.replace('預測 48 小時平均移向移速為', '預測 24 小時平均移向移速為'),
+    feed.replace('預測 72 小時平均移向移速為', '預測 24 小時平均移向移速為'),
+    feed.replace('預測 48 小時平均移向移速為', '預測 12-48 小時平均移向移速為'),
+    feed.replace('預測 48 小時平均移向移速為', '預測 24--48 小時平均移向移速為'),
+    feed.replace('預測 48 小時內變性為溫帶氣旋', '預測 48 小時內減弱'),
+    feed.replace('預測 72 小時內變性為溫帶氣旋', '未提供終止狀態')
+  ]) {
+    assert.notEqual(changed, feed);
+    assert.throws(() => parseCwaTyNewsJs(changed), /CWA/);
+  }
+  // A terminal forecast marker cannot excuse missing fields in the current observation.
+  assert.throws(() => parseCwaTyNewsJs(feed.replace('近中心最大風速每秒 38 公尺', '近中心最大風速未提供')), /ALPHA \+0h:.*wind/);
+});
+
+test('ordinary forecasts still reject missing wind, gust and radius before a later transition', () => {
+  const feed = makeCwaFeed([{ ...transitionStorm, terminationAt: 96 }]);
+  for (const field of ['近中心最大風速每秒 38 公尺', '瞬間最大陣風每秒 48 公尺', '七級風暴風半徑 250 公里']) {
+    // Change the first forecast instance, leaving the observation valid.
+    const currentEnd = feed.indexOf('<span class=\\"prediction\\">');
+    assert.ok(currentEnd > 0);
+    const changed = feed.slice(0, currentEnd) + feed.slice(currentEnd).replace(field, '未提供');
+    assert.notEqual(changed, feed);
+    assert.throws(() => parseCwaTyNewsJs(changed), /ALPHA \+6h:.*CWA (wind|gust|radius7)/);
+  }
+});
+
+test('cosmetic HTML and whitespace in the same explicit transition wording preserve its meaning', () => {
+  const feed = makeCwaFeed([{ ...transitionStorm, terminationAt: 48 }]);
+  const marked = feed.replace('預測 48 小時內變性為溫帶氣旋', '<span>預測</span> 48 小時內 <b>變性為</b> 溫帶氣旋。');
+  const storm = parseCwaTyNewsJs(marked).scenarios[0];
+  assert.equal(storm.forecastCoverage.termination.offsetHours, 48);
+  assert.equal(storm.timeline.at(-1).offsetHours, 24);
 });
 
 test('excluding the unused horizon does not allow missing in-range wind or invalid forecast offsets', async () => {
