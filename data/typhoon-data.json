@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-22T14:12:27.236Z",
+  "updatedAt": "2026-10-22T18:57:04.334Z",
   "updateIntervalHours": 3,
   "officialSync": {
-    "cwaCheckedAt": "2026-10-22T14:12:24.475Z",
+    "cwaCheckedAt": "2026-10-22T18:57:01.789Z",
     "cwaSourceMode": "中央氣象署公開颱風消息 (TY_NEWS-Data.js)",
     "cwaStatus": "active",
     "observedAt": "2026-10-22T12:00:00.000Z",
@@ -14,133 +14,133 @@
         "countyId": "KEE",
         "countyName": "基隆市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "TPE",
         "countyName": "臺北市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "NTP",
         "countyName": "新北市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "TYN",
         "countyName": "桃園市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "HSZ",
         "countyName": "新竹市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "HSQ",
         "countyName": "新竹縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "MIA",
         "countyName": "苗栗縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "TXG",
         "countyName": "臺中市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "CHA",
         "countyName": "彰化縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "YUN",
         "countyName": "雲林縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "NAN",
         "countyName": "南投縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "CYI",
         "countyName": "嘉義市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "CYQ",
         "countyName": "嘉義縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "TNN",
         "countyName": "臺南市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "KHH",
         "countyName": "高雄市",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "PIF",
         "countyName": "屏東縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "ILA",
         "countyName": "宜蘭縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "HUA",
         "countyName": "花蓮縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "TTT",
         "countyName": "臺東縣",
         "status": "suspended",
-        "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+        "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
       },
       {
         "countyId": "PEN",
         "countyName": "澎湖縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "LIE",
         "countyName": "連江縣",
         "status": "suspended",
-        "text": "明天停止上班、停止上課。"
+        "text": "今天停止上班、停止上課。"
       },
       {
         "countyId": "KIN",
         "countyName": "金門縣",
         "status": "normal",
-        "text": "明天照常上班、照常上課。"
+        "text": "今天照常上班、照常上課。"
       }
     ],
     "dgpaAnnouncementText": "人事行政總處：基隆市、臺北市、新北市、桃園市、新竹市、新竹縣、苗栗縣、臺中市、彰化縣、雲林縣、南投縣、嘉義市、嘉義縣、臺南市、高雄市、屏東縣、宜蘭縣、花蓮縣、臺東縣、澎湖縣、連江縣有停止上班或上課公告，適用日期及區域請查閱公告全文。"
@@ -216,7 +216,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -237,7 +237,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -252,7 +252,7 @@
               "inRadius10": false,
               "probability": 34,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -273,7 +273,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -288,7 +288,7 @@
               "inRadius10": false,
               "probability": 34,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -309,7 +309,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -324,7 +324,7 @@
               "inRadius10": false,
               "probability": 37,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -345,7 +345,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -360,7 +360,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -381,7 +381,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -396,7 +396,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -417,7 +417,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -432,7 +432,7 @@
               "inRadius10": false,
               "probability": 28,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -453,7 +453,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -468,7 +468,7 @@
               "inRadius10": false,
               "probability": 28,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -489,7 +489,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -504,7 +504,7 @@
               "inRadius10": false,
               "probability": 26,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -525,7 +525,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -540,7 +540,7 @@
               "inRadius10": false,
               "probability": 29,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -561,7 +561,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -576,7 +576,7 @@
               "inRadius10": false,
               "probability": 29,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -597,7 +597,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -612,7 +612,7 @@
               "inRadius10": false,
               "probability": 26,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -633,7 +633,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -648,7 +648,7 @@
               "inRadius10": false,
               "probability": 29,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -669,7 +669,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -684,7 +684,7 @@
               "inRadius10": false,
               "probability": 27,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -705,7 +705,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -720,7 +720,7 @@
               "inRadius10": false,
               "probability": 29,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -741,7 +741,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -756,7 +756,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -777,7 +777,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -792,7 +792,7 @@
               "inRadius10": false,
               "probability": 44,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -813,7 +813,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -828,7 +828,7 @@
               "inRadius10": false,
               "probability": 44,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -849,7 +849,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -864,7 +864,7 @@
               "inRadius10": false,
               "probability": 44,
               "riskLevel": "moderate",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -885,7 +885,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -900,7 +900,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -921,7 +921,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -936,7 +936,7 @@
               "inRadius10": false,
               "probability": 30,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -957,7 +957,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -972,7 +972,7 @@
               "inRadius10": false,
               "probability": 30,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -993,7 +993,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],
@@ -1033,7 +1033,7 @@
               "inRadius10": false,
               "probability": 38,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -1054,7 +1054,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1069,7 +1069,7 @@
               "inRadius10": false,
               "probability": 40,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -1090,7 +1090,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1105,7 +1105,7 @@
               "inRadius10": false,
               "probability": 40,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -1126,7 +1126,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1141,7 +1141,7 @@
               "inRadius10": false,
               "probability": 44,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -1162,7 +1162,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1177,7 +1177,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1198,7 +1198,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1213,7 +1213,7 @@
               "inRadius10": false,
               "probability": 43,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -1234,7 +1234,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1249,7 +1249,7 @@
               "inRadius10": false,
               "probability": 34,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1270,7 +1270,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1285,7 +1285,7 @@
               "inRadius10": false,
               "probability": 34,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1306,7 +1306,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1321,7 +1321,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1342,7 +1342,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1357,7 +1357,7 @@
               "inRadius10": false,
               "probability": 35,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1378,7 +1378,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1393,7 +1393,7 @@
               "inRadius10": false,
               "probability": 34,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1414,7 +1414,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1429,7 +1429,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1450,7 +1450,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1465,7 +1465,7 @@
               "inRadius10": false,
               "probability": 35,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1486,7 +1486,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1501,7 +1501,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1522,7 +1522,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1537,7 +1537,7 @@
               "inRadius10": false,
               "probability": 35,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1558,7 +1558,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1573,7 +1573,7 @@
               "inRadius10": false,
               "probability": 33,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1594,7 +1594,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1609,7 +1609,7 @@
               "inRadius10": false,
               "probability": 54,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -1630,7 +1630,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1645,7 +1645,7 @@
               "inRadius10": false,
               "probability": 54,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -1666,7 +1666,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1681,7 +1681,7 @@
               "inRadius10": false,
               "probability": 51,
               "riskLevel": "moderate",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -1702,7 +1702,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -1717,7 +1717,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1738,7 +1738,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1753,7 +1753,7 @@
               "inRadius10": false,
               "probability": 30,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1774,7 +1774,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -1789,7 +1789,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -1810,7 +1810,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],
@@ -1850,7 +1850,7 @@
               "inRadius10": false,
               "probability": 45,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -1871,7 +1871,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1886,7 +1886,7 @@
               "inRadius10": false,
               "probability": 47,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -1907,7 +1907,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1922,7 +1922,7 @@
               "inRadius10": false,
               "probability": 47,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -1943,7 +1943,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1958,7 +1958,7 @@
               "inRadius10": false,
               "probability": 55,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -1979,7 +1979,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -1994,7 +1994,7 @@
               "inRadius10": false,
               "probability": 38,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -2015,7 +2015,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2030,7 +2030,7 @@
               "inRadius10": false,
               "probability": 51,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -2051,7 +2051,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2066,7 +2066,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2087,7 +2087,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2102,7 +2102,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2123,7 +2123,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2138,7 +2138,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2159,7 +2159,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2174,7 +2174,7 @@
               "inRadius10": false,
               "probability": 41,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -2195,7 +2195,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2210,7 +2210,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2231,7 +2231,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2246,7 +2246,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2267,7 +2267,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2282,7 +2282,7 @@
               "inRadius10": false,
               "probability": 41,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -2303,7 +2303,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2318,7 +2318,7 @@
               "inRadius10": false,
               "probability": 33,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2339,7 +2339,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2354,7 +2354,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2375,7 +2375,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2390,7 +2390,7 @@
               "inRadius10": false,
               "probability": 38,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -2411,7 +2411,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2426,7 +2426,7 @@
               "inRadius10": false,
               "probability": 82,
               "riskLevel": "high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 7,
@@ -2447,7 +2447,7 @@
               "modelDecisionNote": "高機率停班停課（暴風侵襲警戒區）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2462,7 +2462,7 @@
               "inRadius10": false,
               "probability": 87,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 8,
@@ -2483,7 +2483,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2498,7 +2498,7 @@
               "inRadius10": false,
               "probability": 82,
               "riskLevel": "high",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 7,
@@ -2519,7 +2519,7 @@
               "modelDecisionNote": "高機率停班停課（暴風侵襲警戒區）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -2534,7 +2534,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -2555,7 +2555,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2570,7 +2570,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2591,7 +2591,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -2606,7 +2606,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -2627,7 +2627,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],
@@ -2667,7 +2667,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 9,
@@ -2688,7 +2688,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2703,7 +2703,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 8,
@@ -2724,7 +2724,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2739,7 +2739,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 8,
@@ -2760,7 +2760,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2775,7 +2775,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 8,
@@ -2796,7 +2796,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2811,7 +2811,7 @@
               "inRadius10": false,
               "probability": 82,
               "riskLevel": "high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 7,
@@ -2832,7 +2832,7 @@
               "modelDecisionNote": "高機率停班停課（暴風侵襲警戒區）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2847,7 +2847,7 @@
               "inRadius10": false,
               "probability": 86,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 8,
@@ -2868,7 +2868,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2883,7 +2883,7 @@
               "inRadius10": false,
               "probability": 61,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 6,
@@ -2904,7 +2904,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2919,7 +2919,7 @@
               "inRadius10": false,
               "probability": 48,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -2940,7 +2940,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2955,7 +2955,7 @@
               "inRadius10": false,
               "probability": 37,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -2976,7 +2976,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -2991,7 +2991,7 @@
               "inRadius10": false,
               "probability": 48,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -3012,7 +3012,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3027,7 +3027,7 @@
               "inRadius10": false,
               "probability": 42,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -3048,7 +3048,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3063,7 +3063,7 @@
               "inRadius10": false,
               "probability": 37,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -3084,7 +3084,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3099,7 +3099,7 @@
               "inRadius10": false,
               "probability": 47,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -3120,7 +3120,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3135,7 +3135,7 @@
               "inRadius10": false,
               "probability": 38,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -3156,7 +3156,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3171,7 +3171,7 @@
               "inRadius10": false,
               "probability": 41,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -3192,7 +3192,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3207,7 +3207,7 @@
               "inRadius10": false,
               "probability": 38,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -3228,7 +3228,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3243,7 +3243,7 @@
               "inRadius10": false,
               "probability": 94,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 10,
@@ -3264,7 +3264,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3279,7 +3279,7 @@
               "inRadius10": false,
               "probability": 94,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 9,
@@ -3300,7 +3300,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3315,7 +3315,7 @@
               "inRadius10": false,
               "probability": 87,
               "riskLevel": "very_high",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 8,
@@ -3336,7 +3336,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -3351,7 +3351,7 @@
               "inRadius10": false,
               "probability": 42,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -3372,7 +3372,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3387,7 +3387,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -3408,7 +3408,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -3423,7 +3423,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -3444,7 +3444,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],
@@ -3484,7 +3484,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 11,
@@ -3505,7 +3505,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3520,7 +3520,7 @@
               "inRadius10": false,
               "probability": 90,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 10,
@@ -3541,7 +3541,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3556,7 +3556,7 @@
               "inRadius10": false,
               "probability": 90,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 10,
@@ -3577,7 +3577,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3592,7 +3592,7 @@
               "inRadius10": false,
               "probability": 94,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 9,
@@ -3613,7 +3613,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3628,7 +3628,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 8,
@@ -3649,7 +3649,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3664,7 +3664,7 @@
               "inRadius10": false,
               "probability": 92,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 9,
@@ -3685,7 +3685,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3700,7 +3700,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 7,
@@ -3721,7 +3721,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3736,7 +3736,7 @@
               "inRadius10": false,
               "probability": 57,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 6,
@@ -3757,7 +3757,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3772,7 +3772,7 @@
               "inRadius10": false,
               "probability": 43,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -3793,7 +3793,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3808,7 +3808,7 @@
               "inRadius10": false,
               "probability": 82,
               "riskLevel": "high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 7,
@@ -3829,7 +3829,7 @@
               "modelDecisionNote": "高機率停班停課（暴風侵襲警戒區）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3844,7 +3844,7 @@
               "inRadius10": false,
               "probability": 48,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -3865,7 +3865,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3880,7 +3880,7 @@
               "inRadius10": false,
               "probability": 42,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -3901,7 +3901,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3916,7 +3916,7 @@
               "inRadius10": false,
               "probability": 48,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -3937,7 +3937,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3952,7 +3952,7 @@
               "inRadius10": false,
               "probability": 38,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -3973,7 +3973,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -3988,7 +3988,7 @@
               "inRadius10": false,
               "probability": 41,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -4009,7 +4009,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4024,7 +4024,7 @@
               "inRadius10": false,
               "probability": 38,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -4045,7 +4045,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4060,7 +4060,7 @@
               "inRadius10": true,
               "probability": 94,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 11,
@@ -4081,7 +4081,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4096,7 +4096,7 @@
               "inRadius10": false,
               "probability": 94,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 10,
@@ -4117,7 +4117,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4132,7 +4132,7 @@
               "inRadius10": false,
               "probability": 82,
               "riskLevel": "high",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 7,
@@ -4153,7 +4153,7 @@
               "modelDecisionNote": "高機率停班停課（暴風侵襲警戒區）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -4168,7 +4168,7 @@
               "inRadius10": false,
               "probability": 42,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -4189,7 +4189,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4204,7 +4204,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -4225,7 +4225,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -4240,7 +4240,7 @@
               "inRadius10": false,
               "probability": 42,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -4261,7 +4261,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],
@@ -4301,7 +4301,7 @@
               "inRadius10": false,
               "probability": 88,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 10,
@@ -4322,7 +4322,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4337,7 +4337,7 @@
               "inRadius10": false,
               "probability": 89,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 9,
@@ -4358,7 +4358,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4373,7 +4373,7 @@
               "inRadius10": false,
               "probability": 89,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 9,
@@ -4394,7 +4394,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4409,7 +4409,7 @@
               "inRadius10": false,
               "probability": 93,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 9,
@@ -4430,7 +4430,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4445,7 +4445,7 @@
               "inRadius10": false,
               "probability": 82,
               "riskLevel": "high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 7,
@@ -4466,7 +4466,7 @@
               "modelDecisionNote": "高機率停班停課（暴風侵襲警戒區）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4481,7 +4481,7 @@
               "inRadius10": false,
               "probability": 86,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 8,
@@ -4502,7 +4502,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4517,7 +4517,7 @@
               "inRadius10": false,
               "probability": 61,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": true,
               "wind": {
                 "avgBeaufort": 6,
@@ -4538,7 +4538,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4553,7 +4553,7 @@
               "inRadius10": false,
               "probability": 41,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -4574,7 +4574,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4589,7 +4589,7 @@
               "inRadius10": false,
               "probability": 37,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -4610,7 +4610,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4625,7 +4625,7 @@
               "inRadius10": false,
               "probability": 41,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -4646,7 +4646,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4661,7 +4661,7 @@
               "inRadius10": false,
               "probability": 35,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -4682,7 +4682,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4697,7 +4697,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -4718,7 +4718,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4733,7 +4733,7 @@
               "inRadius10": false,
               "probability": 35,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -4754,7 +4754,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4769,7 +4769,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -4790,7 +4790,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4805,7 +4805,7 @@
               "inRadius10": false,
               "probability": 29,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -4826,7 +4826,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4841,7 +4841,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -4862,7 +4862,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4877,7 +4877,7 @@
               "inRadius10": false,
               "probability": 94,
               "riskLevel": "very_high",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 9,
@@ -4898,7 +4898,7 @@
               "modelDecisionNote": "極高機率停班停課（達風雨基準）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4913,7 +4913,7 @@
               "inRadius10": false,
               "probability": 82,
               "riskLevel": "high",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 7,
@@ -4934,7 +4934,7 @@
               "modelDecisionNote": "高機率停班停課（暴風侵襲警戒區）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -4949,7 +4949,7 @@
               "inRadius10": false,
               "probability": 44,
               "riskLevel": "moderate",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -4970,7 +4970,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -4985,7 +4985,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -5006,7 +5006,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5021,7 +5021,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5042,7 +5042,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -5057,7 +5057,7 @@
               "inRadius10": false,
               "probability": 42,
               "riskLevel": "moderate",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 6,
@@ -5078,7 +5078,7 @@
               "modelDecisionNote": "模型估算中等風險（請留意官方風雨預報）",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],
@@ -5118,7 +5118,7 @@
               "inRadius10": false,
               "probability": 37,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 5,
@@ -5139,7 +5139,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5154,7 +5154,7 @@
               "inRadius10": false,
               "probability": 34,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5175,7 +5175,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5190,7 +5190,7 @@
               "inRadius10": false,
               "probability": 34,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5211,7 +5211,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5226,7 +5226,7 @@
               "inRadius10": false,
               "probability": 37,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5247,7 +5247,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5262,7 +5262,7 @@
               "inRadius10": false,
               "probability": 32,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5283,7 +5283,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5298,7 +5298,7 @@
               "inRadius10": false,
               "probability": 36,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5319,7 +5319,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5334,7 +5334,7 @@
               "inRadius10": false,
               "probability": 28,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5355,7 +5355,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5370,7 +5370,7 @@
               "inRadius10": false,
               "probability": 28,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5391,7 +5391,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5406,7 +5406,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5427,7 +5427,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5442,7 +5442,7 @@
               "inRadius10": false,
               "probability": 28,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5463,7 +5463,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5478,7 +5478,7 @@
               "inRadius10": false,
               "probability": 27,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5499,7 +5499,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5514,7 +5514,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5535,7 +5535,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5550,7 +5550,7 @@
               "inRadius10": false,
               "probability": 27,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5571,7 +5571,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5586,7 +5586,7 @@
               "inRadius10": false,
               "probability": 26,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5607,7 +5607,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5622,7 +5622,7 @@
               "inRadius10": false,
               "probability": 27,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5643,7 +5643,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5658,7 +5658,7 @@
               "inRadius10": false,
               "probability": 26,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5679,7 +5679,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5694,7 +5694,7 @@
               "inRadius10": false,
               "probability": 37,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5715,7 +5715,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5730,7 +5730,7 @@
               "inRadius10": false,
               "probability": 35,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5751,7 +5751,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5766,7 +5766,7 @@
               "inRadius10": false,
               "probability": 29,
               "riskLevel": "low",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5787,7 +5787,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -5802,7 +5802,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5823,7 +5823,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5838,7 +5838,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5859,7 +5859,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -5874,7 +5874,7 @@
               "inRadius10": false,
               "probability": 31,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 4,
@@ -5895,7 +5895,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],
@@ -5935,7 +5935,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5956,7 +5956,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -5971,7 +5971,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -5992,7 +5992,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6007,7 +6007,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6028,7 +6028,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6043,7 +6043,7 @@
               "inRadius10": false,
               "probability": 26,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6064,7 +6064,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 桃園市復興區巴崚國民小學、三光國民小學、光華國民小學、高義國民小學:今天下午01:00起停止上班、停止上課。 復興區立幼兒園華陵分班:今天中午12:00起照常上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6079,7 +6079,7 @@
               "inRadius10": false,
               "probability": 13,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6100,7 +6100,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6115,7 +6115,7 @@
               "inRadius10": false,
               "probability": 13,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6136,7 +6136,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 尖石鄉玉峰國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉石磊國民小學:今天下午04:00起停止上班、停止上課。 尖石鄉秀巒國民小學（含田埔分校）:今天下午04:00起停止上班、停止上課。 尖石鄉新光國民小學:今天下午04:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6151,7 +6151,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6172,7 +6172,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6187,7 +6187,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6208,7 +6208,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6223,7 +6223,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6244,7 +6244,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6259,7 +6259,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6280,7 +6280,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6295,7 +6295,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6316,7 +6316,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6331,7 +6331,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6352,7 +6352,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6367,7 +6367,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6388,7 +6388,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6403,7 +6403,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6424,7 +6424,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6439,7 +6439,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6460,7 +6460,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6475,7 +6475,7 @@
               "inRadius10": false,
               "probability": 9,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6496,7 +6496,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6511,7 +6511,7 @@
               "inRadius10": false,
               "probability": 26,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6532,7 +6532,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6547,7 +6547,7 @@
               "inRadius10": false,
               "probability": 13,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6568,7 +6568,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。 豐濱鄉:今天下午01:00起停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6583,7 +6583,7 @@
               "inRadius10": false,
               "probability": 13,
               "riskLevel": "low",
-              "dgpaStatus": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。",
+              "dgpaStatus": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6604,7 +6604,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "綠島鄉:今天下午停止上班、停止上課。 綠島鄉:明天停止上班、停止上課。 蘭嶼鄉:今天下午停止上班、停止上課。 蘭嶼鄉:明天停止上班、停止上課。"
+                "text": "綠島鄉:今天停止上班、停止上課。 蘭嶼鄉:今天停止上班、停止上課。"
               }
             },
             {
@@ -6619,7 +6619,7 @@
               "inRadius10": false,
               "probability": 14,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6640,7 +6640,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             },
             {
@@ -6655,7 +6655,7 @@
               "inRadius10": false,
               "probability": 14,
               "riskLevel": "low",
-              "dgpaStatus": "明天照常上班、照常上課。",
+              "dgpaStatus": "今天照常上班、照常上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6676,7 +6676,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "normal",
-                "text": "明天照常上班、照常上課。"
+                "text": "今天照常上班、照常上課。"
               }
             },
             {
@@ -6691,7 +6691,7 @@
               "inRadius10": false,
               "probability": 25,
               "riskLevel": "low",
-              "dgpaStatus": "明天停止上班、停止上課。",
+              "dgpaStatus": "今天停止上班、停止上課。",
               "commuterSyncApplied": false,
               "wind": {
                 "avgBeaufort": 3,
@@ -6712,7 +6712,7 @@
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": {
                 "status": "suspended",
-                "text": "明天停止上班、停止上課。"
+                "text": "今天停止上班、停止上課。"
               }
             }
           ],

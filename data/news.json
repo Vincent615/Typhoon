@@ -1,10 +1,40 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-22T14:12:27.401Z",
-  "lastSuccessfulAt": "2026-10-22T14:12:27.401Z",
+  "lastCheckedAt": "2026-10-22T18:57:04.537Z",
+  "lastSuccessfulAt": "2026-10-22T18:57:04.537Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "3d7a0eafc613b267abec",
+      "title": "颱風薔琵強度再減弱 23日晚間至24日清晨降雨明顯",
+      "url": "https://www.cna.com.tw/news/ahel/202610230002.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-22T16:24:18.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "3f71e6f84295e7a5124f",
+      "title": "颱風薔琵逼近 省道10路段陸續預警性封閉",
+      "url": "https://www.cna.com.tw/news/ahel/202610220433.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-22T15:04:59.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "0fccda37521eb570711d",
+      "title": "颱風薔琵逼近 桃園機場23日共414架次航班取消",
+      "url": "https://www.cna.com.tw/news/ahel/202610220416.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-22T13:37:15.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "7a5a2416ff4af99b2d6e",
       "title": "颱風薔琵再減弱 十級風暴風半徑縮小至140公里[影]",
@@ -56,56 +86,6 @@
       "cached": false
     },
     {
-      "id": "e4a29498219f8414c6b0",
-      "title": "颱風及外圍環流影響 宜蘭縣山區防超大豪雨",
-      "url": "https://www.cna.com.tw/news/ahel/202610220379.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T12:08:54.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "908c73a950f2f944ac72",
-      "title": "颱風薔琵來襲高鐵加開5班全車自由座 估23日上午正常行駛",
-      "url": "https://www.cna.com.tw/news/ahel/202610220350.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T11:19:52.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "c09d69d63b28558ec84f",
-      "title": "颱風薔琵來襲 新竹市23日停止上班上課",
-      "url": "https://www.cna.com.tw/news/ahel/202610220337.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T11:08:25.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "da5ed99fe688ab782d42",
-      "title": "颱風薔琵擾海上交通 9航線54航次停航",
-      "url": "https://www.cna.com.tw/news/ahel/202610220335.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T11:07:20.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "a15751cedfd9cee69d45",
-      "title": "颱風薔琵襲台 國內線23日全日取消、國際線異動多",
-      "url": "https://www.cna.com.tw/news/ahel/202610220330.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T10:58:10.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
       "id": "9cb9ae6219fcd5858f25",
       "title": "颱風薔琵海陸警報齊發 今晚起迎風面越晚風雨越大",
       "url": "https://news.pts.org.tw/article/832467",
@@ -123,9 +103,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-22T14:12:27.401Z",
-      "lastSuccessfulAt": "2026-10-22T14:12:27.401Z",
-      "articleCount": 8
+      "lastCheckedAt": "2026-10-22T18:57:04.537Z",
+      "lastSuccessfulAt": "2026-10-22T18:57:04.537Z",
+      "articleCount": 6
     },
     {
       "id": "pts",
@@ -133,8 +113,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-22T14:12:27.401Z",
-      "lastSuccessfulAt": "2026-10-22T14:12:27.401Z",
+      "lastCheckedAt": "2026-10-22T18:57:04.537Z",
+      "lastSuccessfulAt": "2026-10-22T18:57:04.537Z",
       "articleCount": 3
     }
   ]
