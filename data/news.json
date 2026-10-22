@@ -1,127 +1,127 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-22T02:21:32.814Z",
-  "lastSuccessfulAt": "2026-10-22T02:21:32.814Z",
+  "lastCheckedAt": "2026-10-22T08:05:25.680Z",
+  "lastSuccessfulAt": "2026-10-22T08:05:25.680Z",
   "windowDays": 7,
   "articles": [
     {
-      "id": "d4767a9a61fb6f6bd55b",
-      "title": "颱風薔琵海警發布 最快今中午前後陸警",
-      "url": "https://news.pts.org.tw/article/832432",
+      "id": "ad414e20b7b01031aea1",
+      "title": "颱風薔琵來襲 23日阿里山森林遊樂區關閉、林鐵停駛",
+      "url": "https://www.cna.com.tw/news/ahel/202610220200.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-22T07:00:27.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "17bfa60f6af8a2aaf444",
+      "title": "颱風薔琵來襲 公路局：淡江大橋等路段可能實施管制",
+      "url": "https://www.cna.com.tw/news/ahel/202610220199.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-22T06:59:25.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "9cb9ae6219fcd5858f25",
+      "title": "颱風薔琵海陸警報齊發 今晚起迎風面越晚風雨越大",
+      "url": "https://news.pts.org.tw/article/832467",
       "sourceId": "pts",
       "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-22T01:32:07.000Z",
+      "publishedAt": "2026-10-22T06:54:24.000Z",
       "dateKind": "updated",
       "cached": false
     },
     {
-      "id": "1b1d48813e7fd47cab70",
-      "title": "颱風薔琵10/23距台最近 北部、宜蘭防豪雨以上降雨",
-      "url": "https://www.cna.com.tw/news/ahel/202610220032.aspx",
+      "id": "a668e941f45938332b8d",
+      "title": "東北季風及颱風外圍環流影響 北北基桃宜防大雨",
+      "url": "https://www.cna.com.tw/news/ahel/202610220178.aspx",
       "sourceId": "cna",
       "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T01:09:24.000Z",
+      "publishedAt": "2026-10-22T06:21:39.000Z",
       "dateKind": "published",
       "cached": false
     },
     {
-      "id": "51e7be67a29577778f8f",
-      "title": "颱風薔琵海上警報發布 最快22日中午前後發陸警",
-      "url": "https://www.cna.com.tw/news/ahel/202610220004.aspx",
+      "id": "4af43a7c6dc33398ca2d",
+      "title": "沈伯洋拋颱風假與台股脫鉤 蔣萬安：未來可與中央協調",
+      "url": "https://news.pts.org.tw/article/832466",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-22T06:04:27.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "98b13136625271c78397",
+      "title": "薔琵颱風逼近 綠島、蘭嶼下午起停班課",
+      "url": "https://news.pts.org.tw/article/832465",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-22T06:03:51.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "04193e5fce88170484a6",
+      "title": "薔琵颱風撲台今發布陸警 各縣市停班課狀況一次看【不斷更新】",
+      "url": "https://news.pts.org.tw/article/832437",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-22T05:51:45.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "a33116ada6624a8a4fb2",
+      "title": "氣象署追風計畫掌握颱風薔琵 1.3萬公尺高空投下探空儀",
+      "url": "https://www.cna.com.tw/news/ahel/202610220138.aspx",
       "sourceId": "cna",
       "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T16:22:14.000Z",
+      "publishedAt": "2026-10-22T05:22:13.000Z",
       "dateKind": "published",
       "cached": false
     },
     {
-      "id": "b67f1311e6821a28aa3e",
-      "title": "颱風薔琵逼近 氣象署晚間11時30分發海警",
-      "url": "https://www.cna.com.tw/news/ahel/202610210346.aspx",
+      "id": "0b702b56fb67ba6fe066",
+      "title": "颱風薔琵陸警發布 宜花東等4地區納首波警戒範圍",
+      "url": "https://news.pts.org.tw/article/832438",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-22T04:22:50.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "788987743d42847a07d6",
+      "title": "颱風薔琵逼近 台鐵午後東線、南迴線EMU3000型開放站票",
+      "url": "https://www.cna.com.tw/news/ahel/202610220110.aspx",
       "sourceId": "cna",
       "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T13:31:02.000Z",
+      "publishedAt": "2026-10-22T04:22:11.000Z",
       "dateKind": "published",
       "cached": false
     },
     {
-      "id": "32b82080bfb426a3e0bd",
-      "title": "颱風薔琵來襲 外交部：23日可領護照提前至22日下午發放",
-      "url": "https://www.cna.com.tw/news/ahel/202610210344.aspx",
+      "id": "2b3a299669f775f7a492",
+      "title": "颱風薔琵陸警範圍估將涵蓋全台 不排除登陸可能、北部防豪雨",
+      "url": "https://www.cna.com.tw/news/ahel/202610220102.aspx",
       "sourceId": "cna",
       "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T13:19:57.000Z",
+      "publishedAt": "2026-10-22T04:13:54.000Z",
       "dateKind": "published",
       "cached": false
     },
     {
-      "id": "cbe7f1bc389ef1fe7f44",
-      "title": "颱風薔琵來襲 武陵、福壽山農場22日中午起預警休園",
-      "url": "https://www.cna.com.tw/news/ahel/202610210294.aspx",
+      "id": "2d55a47f6870ed1478fe",
+      "title": "颱風薔琵逼近 勞動部：雇主應擔通勤協助責任",
+      "url": "https://www.cna.com.tw/news/ahel/202610220097.aspx",
       "sourceId": "cna",
       "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T10:37:08.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "7fb680531d98b476dde9",
-      "title": "颱風薔琵逼近 航班異動一次看",
-      "url": "https://www.cna.com.tw/news/ahel/202610210289.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T10:32:58.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "151a2570806b90143664",
-      "title": "颱風薔琵進逼 水利署展開防汛整備示警雙北等地加強警戒",
-      "url": "https://www.cna.com.tw/news/ahel/202610210285.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T10:26:49.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "f17f9b628578a514a3d4",
-      "title": "東北季風與颱風影響 國家公園署籲暫緩山區海域活動",
-      "url": "https://www.cna.com.tw/news/ahel/202610210278.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T10:06:34.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "4ca590c69c3ca328336d",
-      "title": "肯亞、奈及利亞現伊波拉 疾管署評估對台風險仍低",
-      "url": "https://www.cna.com.tw/news/ahel/202610210272.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T09:53:21.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "6d4db73097a1d2b0736a",
-      "title": "颱風薔琵路徑略西修 最快深夜發海警22日午後陸警",
-      "url": "https://www.cna.com.tw/news/ahel/202610210258.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T09:34:51.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "7caaaee54e8f3908731e",
-      "title": "颱風薔琵影響 金門小三通10/22部分停航",
-      "url": "https://www.cna.com.tw/news/ahel/202610210238.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-21T09:17:09.000Z",
+      "publishedAt": "2026-10-22T04:01:43.000Z",
       "dateKind": "published",
       "cached": false
     }
@@ -133,9 +133,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-22T02:21:32.814Z",
-      "lastSuccessfulAt": "2026-10-22T02:21:32.814Z",
-      "articleCount": 11
+      "lastCheckedAt": "2026-10-22T08:05:25.680Z",
+      "lastSuccessfulAt": "2026-10-22T08:05:25.680Z",
+      "articleCount": 7
     },
     {
       "id": "pts",
@@ -143,9 +143,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-22T02:21:32.814Z",
-      "lastSuccessfulAt": "2026-10-22T02:21:32.814Z",
-      "articleCount": 1
+      "lastCheckedAt": "2026-10-22T08:05:25.680Z",
+      "lastSuccessfulAt": "2026-10-22T08:05:25.680Z",
+      "articleCount": 5
     }
   ]
 }
