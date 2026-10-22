@@ -1,10 +1,30 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-21T23:47:23.512Z",
-  "lastSuccessfulAt": "2026-10-21T23:47:23.512Z",
+  "lastCheckedAt": "2026-10-22T02:21:32.814Z",
+  "lastSuccessfulAt": "2026-10-22T02:21:32.814Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "d4767a9a61fb6f6bd55b",
+      "title": "颱風薔琵海警發布 最快今中午前後陸警",
+      "url": "https://news.pts.org.tw/article/832432",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-22T01:32:07.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "1b1d48813e7fd47cab70",
+      "title": "颱風薔琵10/23距台最近 北部、宜蘭防豪雨以上降雨",
+      "url": "https://www.cna.com.tw/news/ahel/202610220032.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-22T01:09:24.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "51e7be67a29577778f8f",
       "title": "颱風薔琵海上警報發布 最快22日中午前後發陸警",
@@ -33,16 +53,6 @@
       "sourceName": "中央通訊社",
       "publishedAt": "2026-10-21T13:19:57.000Z",
       "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "f4cf57092244c7da4a3c",
-      "title": "薔琵颱風最快今晚發海警 氣象署估週五、六影響最劇烈",
-      "url": "https://news.pts.org.tw/article/832290",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-21T12:23:00.000Z",
-      "dateKind": "updated",
       "cached": false
     },
     {
@@ -123,9 +133,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T23:47:23.512Z",
-      "lastSuccessfulAt": "2026-10-21T23:47:23.512Z",
-      "articleCount": 10
+      "lastCheckedAt": "2026-10-22T02:21:32.814Z",
+      "lastSuccessfulAt": "2026-10-22T02:21:32.814Z",
+      "articleCount": 11
     },
     {
       "id": "pts",
@@ -133,8 +143,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-21T23:47:23.512Z",
-      "lastSuccessfulAt": "2026-10-21T23:47:23.512Z",
+      "lastCheckedAt": "2026-10-22T02:21:32.814Z",
+      "lastSuccessfulAt": "2026-10-22T02:21:32.814Z",
       "articleCount": 1
     }
   ]
