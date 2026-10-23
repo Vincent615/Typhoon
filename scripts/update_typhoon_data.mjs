@@ -158,7 +158,27 @@ function parsePointTime(text, offsetHours, observedAt) {
   return date.replace(/^\d{4}年/, '').replace(/(\d+月\d+日)(\d+)時/, '$1 $2:00');
 }
 
-function parsePoint(html, offsetHours, nameC, observedAt) {
+function parseMovement(html, offsetHours, isDepression) {
+  const items = [...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((match) => plainText(match[1]));
+  const directions = '(?:北北西|北北東|東北東|東南東|南南東|南南西|西南西|西北西|東北|東南|西南|西北|北|東|南|西)';
+  if (offsetHours === 0) {
+    const direction = items.find((item) => item.startsWith('過去移動方向'));
+    const speed = items.find((item) => item.startsWith('過去移動時速'));
+    if (isDepression && direction === '過去移動方向 -' && /^過去移動時速\s*-\s*公里$/.test(speed || '')) {
+      return { moveDir: '—', moveSpeedKmh: null, moveSpeedText: '未提供' };
+    }
+    const moveDir = direction?.match(new RegExp(`^過去移動方向\\s*(${directions})$`))?.[1];
+    if (!moveDir) throw new Error('Invalid or missing CWA movement direction');
+    return { moveDir, moveSpeedKmh: requiredNumber(speed || '', /^過去移動時速\s*([\d.]+)\s*公里$/, 'movement speed', 0, 300) };
+  }
+  const movement = items.map((item) => item.match(new RegExp(`^(${directions})\\s+(?:時速\\s*([\\d.]+)\\s*公里|(緩慢移動|近似滯留))$`))).filter(Boolean);
+  if (movement.length !== 1) throw new Error('Invalid or missing CWA movement direction or speed');
+  const [, moveDir, numeric, qualitative] = movement[0];
+  if (qualitative) return { moveDir, moveSpeedKmh: null, moveSpeedText: qualitative };
+  return { moveDir, moveSpeedKmh: requiredNumber(numeric, /^([\d.]+)$/, 'movement speed', 0, 300) };
+}
+
+function parsePoint(html, offsetHours, nameC, observedAt, isDepression) {
   const text = plainText(html);
   const timeDisplay = parsePointTime(text, offsetHours, observedAt);
   const latMatch = text.match(/([南北])緯\s*([\d.]+)\s*度/);
@@ -168,21 +188,23 @@ function parsePoint(html, offsetHours, nameC, observedAt) {
   const pressureHpa = requiredNumber(text, /中心氣壓\s*(\d+)\s*百帕/, 'pressure', 800, 1100);
   const maxWindMs = requiredNumber(text, /近中心最大風速每秒\s*([\d.]+)\s*公尺/, 'wind', 0, 150);
   const maxGustMs = requiredNumber(text, /瞬間最大陣風每秒\s*([\d.]+)\s*公尺/, 'gust', maxWindMs, 200);
-  const radius7km = requiredNumber(text, /七級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius7', 0, 1500);
+  // The captured TD feed omits radii below tropical-storm strength. Preserve
+  // unknown, never invent a zero radius or waive malformed/strong-wind data.
+  const radius7km = isDepression && maxWindMs < 17.2 && !/七級風/.test(text)
+    ? null : requiredNumber(text, /七級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius7', 0, 1500);
   const radius10km = /十級風/.test(text)
-    ? requiredNumber(text, /十級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius10', 0, radius7km) : 0;
+    ? requiredNumber(text, /十級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius10', 0, radius7km ?? -1) : (radius7km === null ? null : 0);
   const probRadius70km = offsetHours === 0 ? 0
     : requiredNumber(text, /70%\s*機率半徑\s*(\d+)\s*公里/, 'probability radius', 0, 3000);
-  const movement = text.match(offsetHours === 0 ? /過去移動方向\s*([^\s]+)/ : /([^\s]+)\s*時速\s*[\d.]+\s*公里/);
-  const moveSpeedKmh = requiredNumber(text, offsetHours === 0 ? /過去移動時速\s*([\d.]+)\s*公里/ : /時速\s*([\d.]+)\s*公里/, 'movement speed', 0, 300);
-  if (!movement) throw new Error('Invalid or missing CWA movement direction');
+  const movement = parseMovement(html, offsetHours, isDepression);
   const offsetLabel = offsetHours === 0 ? '現況 (+0h)' : `+${offsetHours}h`;
   return {
     offsetLabel, offsetHours, timeDisplay, lat, lon, pressureHpa, maxWindMs, maxGustMs,
-    radius7km, radius10km, probRadius70km, moveSpeedKmh, moveDir: movement[1],
+    radius7km, radius10km, probRadius70km, ...movement,
+    ...(radius7km === null ? { modelAvailable: false, modelUnavailableReason: '氣象署此時次未提供七級風暴風半徑；本站不估算縣市風雨與停班課機率。' } : {}),
     // Rain is a model estimate, not an observed CWA rainfall field.
     baseRainPotential: Math.round(maxWindMs * 6), intensityScale: 1,
-    phaseNote: `${nameC} ${offsetLabel}（${timeDisplay}）：中心位於 ${lat}°、${lon}°，中心氣壓 ${pressureHpa} hPa，近中心最大風速 ${maxWindMs} m/s，七級風暴風半徑 ${radius7km} 公里${radius10km ? `、十級風暴風半徑 ${radius10km} 公里` : '；來源未列十級風暴風圈'}。`
+    phaseNote: `${nameC} ${offsetLabel}（${timeDisplay}）：中心位於 ${lat}°、${lon}°，中心氣壓 ${pressureHpa} hPa，近中心最大風速 ${maxWindMs} m/s，${radius7km === null ? '來源未列七級風暴風半徑，此時次不提供縣市模型估算' : `七級風暴風半徑 ${radius7km} 公里${radius10km ? `、十級風暴風半徑 ${radius10km} 公里` : '；來源未列十級風暴風圈'}`}。`
   };
 }
 
@@ -240,20 +262,25 @@ export function parseCwaTyNewsJs(rawJsText) {
     const panel = html.slice(start.index, starts[index + 1]?.index ?? html.length);
     const header = panel.split(/<div\b[^>]*class=["']panel-body["']/i)[0];
     const headerText = plainText(header);
-    const intlKey = headerText.match(/國際命名\s*([A-Z0-9_-]+)/)?.[1];
+    const cwaClass = plainText(header.match(/<span\b[^>]*class=["']fa-red["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] || '');
+    const panelName = plainText(header.match(/<span\b[^>]*class=["']fa-blue["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] || '');
+    const isDepression = cwaClass === '熱帶性低氣壓';
+    const intlKey = isDepression && /^TD\d{2}$/.test(panelName)
+      ? panelName : headerText.match(/國際命名\s*([A-Z0-9_-]+)/)?.[1];
     if (!intlKey || !Object.hasOwn(typhoons, intlKey) || seen.has(intlKey)) throw new Error('Invalid or duplicate CWA panel identity');
     seen.add(intlKey);
     const names = typhoons[intlKey]?.Name;
     if (!names || typeof names.C !== 'string' || !names.C.trim() || typeof names.E !== 'string' || !names.E.trim()) throw new Error('Invalid CWA typhoon name');
     const nameC = names.C.trim();
     const nameE = names.E.trim();
-    const cwaClass = plainText(header.match(/<span\b[^>]*class=["']fa-red["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] || '');
     const tyNum = headerText.match(/編號第\s*(\d+)\s*號/)?.[1];
-    if (!cwaClass || !tyNum) throw new Error('Invalid CWA typhoon heading');
+    if (panelName !== nameC || nameE !== intlKey || (isDepression
+      ? !/^TD\d{2}$/.test(intlKey) || nameC !== intlKey || /編號第|國際命名/.test(headerText)
+      : !cwaClass || !tyNum || /^TD\d+$/.test(intlKey))) throw new Error('Invalid CWA typhoon heading');
     const current = panel.match(/<span\b[^>]*class=["']now["'][^>]*>現況<\/span>([\s\S]*?)<\/ul>/i);
     if (!current) throw new Error('Missing CWA current observation');
     const modelPoint = (html, hours) => {
-      try { return parsePoint(html, hours, nameC, observedAt); }
+      try { return parsePoint(html, hours, nameC, observedAt, isDepression); }
       catch (error) { throw new Error(`CWA ${intlKey} +${hours}h: ${error.message}`, { cause: error }); }
     };
     const timeline = [modelPoint(current[1], 0)];
@@ -290,14 +317,19 @@ export function parseCwaTyNewsJs(rawJsText) {
     });
     const now = timeline[0];
     const coverage = forecastCoverage(timeline, termination);
+    const modelAvailabilityNote = timeline.some((point) => point.modelAvailable === false)
+      ? '熱帶性低氣壓部分時次未提供七級風暴風半徑；該時次僅顯示官方位置與強度，縣市風雨及機率保持未知。後續資料完整時才提供模型估算。' : null;
     return {
-      id: `live_${intlKey.toLowerCase()}`, name: `${cwaClass} ${nameC} (${nameE})`,
-      badge: `CWA 預報・編號第 ${tyNum} 號`, cwaClassification: `${cwaClass} (編號第 ${tyNum} 號)`,
-      typhoonNumber: `編號第 ${tyNum} 號 (國際命名 ${nameE})`, observedAt,
+      id: `live_${intlKey.toLowerCase()}`, name: isDepression ? `${cwaClass} ${nameC}` : `${cwaClass} ${nameC} (${nameE})`,
+      cycloneKind: isDepression ? 'tropical_depression' : 'typhoon',
+      badge: isDepression ? `CWA 預報・${intlKey}` : `CWA 預報・編號第 ${tyNum} 號`,
+      cwaClassification: isDepression ? cwaClass : `${cwaClass} (編號第 ${tyNum} 號)`,
+      typhoonNumber: isDepression ? `${intlKey}（尚未編號命名）` : `編號第 ${tyNum} 號 (國際命名 ${nameE})`, observedAt,
       warningStatus: '中央氣象署颱風消息；海陸警報狀態請查閱氣象署警報頁面',
       hasTyphoon: true, isLiveOfficial: true,
       ...(coverage ? { forecastCoverage: coverage } : {}),
-      summary: `中央氣象署 ${now.timeDisplay} 資料：第 ${tyNum} 號${cwaClass}「${nameC}」(${nameE}) 中心位於 ${now.lat}°、${now.lon}°，中心氣壓 ${now.pressureHpa} 百帕，近中心最大風速每秒 ${now.maxWindMs} 公尺，七級風平均暴風半徑 ${now.radius7km} 公里。以下縣市風雨與機率為本站模型估算，並非官方停班課預報。`,
+      ...(modelAvailabilityNote ? { modelAvailabilityNote } : {}),
+      summary: `中央氣象署 ${now.timeDisplay} 資料：${isDepression ? `${cwaClass} ${intlKey}` : `第 ${tyNum} 號${cwaClass}「${nameC}」(${nameE})`} 中心位於 ${now.lat}°、${now.lon}°，中心氣壓 ${now.pressureHpa} 百帕，近中心最大風速每秒 ${now.maxWindMs} 公尺，${now.radius7km === null ? '來源未提供七級風平均暴風半徑' : `七級風平均暴風半徑 ${now.radius7km} 公里`}。${modelAvailabilityNote || ''}以下縣市風雨與機率為本站模型估算，並非官方停班課預報。`,
       defaultStepIndex, timeline
     };
   });
@@ -376,15 +408,17 @@ function getTerrainFactor(county, eyeLat, eyeLon, circulationStrength = 1.0) {
  * Evaluate all 22 counties for a given typhoon track point (time slice)
  */
 export function evaluateCountiesAtPoint(counties, point, scenarioMeta) {
-  if (!scenarioMeta.hasTyphoon) {
+  if (!scenarioMeta.hasTyphoon || point.modelAvailable === false) {
     return counties.map((c) => ({
       id: c.id, name: c.name, region: c.region, commuterZone: c.commuterZone,
-      lat: c.lat, lon: c.lon, distanceKm: null, inRadius7: false, inRadius10: false,
+      lat: c.lat, lon: c.lon,
+      distanceKm: scenarioMeta.hasTyphoon ? Math.round(haversineKm(c.lat, c.lon, point.lat, point.lon)) : null,
+      inRadius7: false, inRadius10: false,
       probability: null, riskLevel: 'unknown', dgpaStatus: '尚未查得公告狀態',
       wind: { avgBeaufort: null, gustBeaufort: null, thresholdAvg: 7, thresholdGust: 10, meetsCriteria: null },
       rain: { flatland24h: null, mountain24h: null, flatlandThreshold: c.rainThreshold.flatland, mountainThreshold: c.rainThreshold.mountain, meetsCriteria: null },
       mountainAlert: null,
-      aiReasoning: '中央氣象署此份颱風消息未列活躍颱風；本站不據此推估一般天氣或停班課機率。請查閱各縣市官方公告。'
+      aiReasoning: point.modelUnavailableReason || '中央氣象署此份颱風消息未列活躍颱風；本站不據此推估一般天氣或停班課機率。請查閱各縣市官方公告。'
     }));
   }
   for (const field of ['lat', 'lon', 'maxWindMs', 'maxGustMs', 'radius7km', 'radius10km', 'probRadius70km']) {
@@ -714,6 +748,7 @@ export async function fetchOfficialSources({ fetchImpl = globalThis.fetch, now =
 
 function deterministicBrief(scenario, slice, officialStatus) {
   if (!scenario.hasTyphoon) return `${scenario.summary} ${officialStatus.dgpaAnnouncementText}`;
+  if (slice.modelAvailable === false) return `${scenario.name}：${slice.phaseNote} ${slice.modelUnavailableReason} ${officialStatus.dgpaAnnouncementText}`;
   const highest = [...slice.counties].sort((a, b) => b.probability - a.probability).slice(0, 3);
   const ranked = highest.map((county) => `${county.name} ${county.probability}%`).join('、');
   return `${scenario.name}：${slice.offsetLabel}（${slice.timeDisplay}）本站模型估算較高的縣市為${ranked}。風雨與機率是模型估算，未經實測校準，不代表官方停班課決定。${officialStatus.dgpaAnnouncementText}`;
@@ -724,7 +759,7 @@ export async function enrichWithGeminiAI(scenario, slice, officialStatus, { fetc
     aiProvider: 'CWA 公開資料 + 本站規則模型', providerStatus: apiKey ? 'fallback' : 'not_configured',
     executiveBrief: deterministicBrief(scenario, slice, officialStatus)
   };
-  if (!apiKey || !scenario.hasTyphoon) return fallback;
+  if (!apiKey || !scenario.hasTyphoon || slice.modelAvailable === false) return fallback;
   const topCounties = [...slice.counties].sort((a, b) => b.probability - a.probability).slice(0, 8)
     .map((c) => `${c.name}(${c.probability}%, 模型陣風${c.wind.gustBeaufort}級, 模型山區雨${c.rain.mountain24h}mm)`).join('、');
   const prompt = `請依下列提供的資料，用繁體中文寫約90至130字的風險摘要。必須明確寫出風雨與機率是本站模型估算，並非官方停班課決定。不得推測或新增海上警報、陸上警報、停班課公告、發布時間、日期、路徑轉向或天氣現象。公告未知時應保留未知。\n颱風資料：${scenario.summary}\n本時次：${slice.offsetLabel} ${slice.timeDisplay}\n模型縣市資料：${topCounties}\n官方公告讀取結果：${officialStatus.dgpaAnnouncementText}`;
@@ -765,7 +800,7 @@ export async function buildTyphoonDataset({ fetchImpl = globalThis.fetch, now = 
       });
       return {
         ...step, counties: countyResults,
-        stats: scenario.hasTyphoon ? {
+        stats: scenario.hasTyphoon && step.modelAvailable !== false ? {
           highRiskCount: countyResults.filter((county) => county.probability >= 65).length,
           maxProb: Math.max(...countyResults.map((county) => county.probability)),
           islandAvgProb: Math.round(countyResults.reduce((sum, county) => sum + county.probability, 0) / countyResults.length)

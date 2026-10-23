@@ -329,6 +329,7 @@ export class UltraTyphoonRenderer {
       radius10km: roundNullable(lerp(s0.radius10km, s1.radius10km)),
       probRadius70km: roundNullable(lerp(s0.probRadius70km || 0, s1.probRadius70km || 0)),
       moveSpeedKmh: roundNullable(lerp(s0.moveSpeedKmh, s1.moveSpeedKmh)),
+      moveSpeedText: near.moveSpeedText,
       moveDir: near.moveDir,
       offsetLabel: near.offsetLabel,
       timeDisplay: near.timeDisplay,

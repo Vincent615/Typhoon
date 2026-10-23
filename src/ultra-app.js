@@ -98,7 +98,8 @@ export class UltraApp {
     $('updated-at').textContent = status.text;
     $('live-dot').hidden = !status.live;
     $('live-dot').title = status.live ? '中央氣象署資料，觀測時刻見右側' : '';
-    const coverageNote = this.scenario?.forecastCoverage?.note || '';
+    const coverageNote = [this.scenario?.forecastCoverage?.note, this.scenario?.modelAvailabilityNote]
+      .filter(Boolean).join(' ');
     $('forecast-coverage').textContent = coverageNote;
     $('forecast-coverage').hidden = !coverageNote;
     const brief = cleanBrief(this.scenario?.aiMetadata?.executiveBrief || this.scenario?.summary || '');
@@ -343,7 +344,8 @@ export class UltraApp {
     setHTML($('s-pressure'), hasTy && Number.isFinite(s.pressureHpa) ? `${s.pressureHpa}<small>hPa</small>` : '—');
     setHTML($('s-wind'), hasTy && Number.isFinite(s.maxWindMs) ? `${s.maxWindMs}<small>m/s</small>` : '—');
     setHTML($('s-radius'), hasTy && s.radius7km ? `${s.radius7km}<small>km</small>` : '—');
-    setHTML($('s-move'), hasTy ? `${DIR[s.moveDir] || s.moveDir}<small>${s.moveSpeedKmh} km/h</small>` : '—');
+    const movement = Number.isFinite(s.moveSpeedKmh) ? `${s.moveSpeedKmh} km/h` : (s.moveSpeedText || '未提供');
+    setHTML($('s-move'), hasTy ? `${DIR[s.moveDir] || s.moveDir}<small>${movement}</small>` : '—');
 
     setText($('time-offset'), shortOffset(s.offsetLabel));
     setText($('time-display'), fmtTime(s.timeDisplay));
@@ -385,7 +387,7 @@ export class UltraApp {
     const col = getUltraProbColor(c.probability, 1);
 
     setText($('d-name'), c.name);
-    setText($('d-zone'), hasTy ? `${c.commuterZone} · 距颱風眼 ${c.distanceKm} KM` : c.commuterZone);
+    setText($('d-zone'), hasTy ? `${c.commuterZone} · 距中心 ${c.distanceKm} KM` : c.commuterZone);
     setText($('d-status'), statusOf(c.probability));
     setStyle($('d-dot'), 'backgroundColor', col);
     setStyle($('d-dot'), 'color', col);
@@ -396,7 +398,7 @@ export class UltraApp {
       setStyle($('m-wind-bar'), 'width', '0%');
       setStyle($('m-rain-bar'), 'width', '0%');
       setText($('m-rain-foot'), '此資料未提供縣市風雨估算');
-      setText($('d-note'), '目前無颱風機率估算；天氣及停班停課情形請查官方公告。');
+      setText($('d-note'), (c.riskLevel === 'unknown' && c.aiReasoning) || '目前無颱風機率估算；天氣及停班停課情形請查官方公告。');
       setProperty($('d-note'), 'hidden', false);
       setText($('m-wind-tag'), '未估算');
       setText($('m-rain-tag'), '未估算');
