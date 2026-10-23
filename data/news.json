@@ -1,10 +1,40 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-23T13:55:35.419Z",
-  "lastSuccessfulAt": "2026-10-23T13:55:35.419Z",
+  "lastCheckedAt": "2026-10-23T18:47:38.347Z",
+  "lastSuccessfulAt": "2026-10-23T18:47:38.347Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "d53cbaa296f6d661849f",
+      "title": "颱風薔琵路徑偏西 大屯山三貂角測出17級陣風",
+      "url": "https://www.cna.com.tw/news/ahel/202610230284.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T15:57:51.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "332542dd9a1dadd5e231",
+      "title": "颱風漸遠離航班陸續恢復 桃機24日下午疏運尖峰",
+      "url": "https://www.cna.com.tw/news/ahel/202610230279.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T14:44:37.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "c5c68dc805b8762e52c1",
+      "title": "颱風近陸地將降速打轉 今夜至明早影響最劇烈",
+      "url": "https://news.pts.org.tw/article/832746",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T14:10:36.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
     {
       "id": "1b11c5928a6fafbf80ee",
       "title": "日保安廳船隻駛入台海避颱風 遭中國海警船貼身監控",
@@ -16,6 +46,26 @@
       "cached": false
     },
     {
+      "id": "80c09b03fe97603ac186",
+      "title": "台北續放颱風假 部分醫院開設特別門診",
+      "url": "https://www.cna.com.tw/news/ahel/202610230258.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T13:16:47.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "7f7d35f21d0689b84e0d",
+      "title": "颱風薔琵路徑將偏折打轉 三貂角觀測到14級陣風",
+      "url": "https://www.cna.com.tw/news/ahel/202610230257.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T13:15:44.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
       "id": "99bcf9a4be4d93e22260",
       "title": "颱風薔琵來襲 新北部分醫院24日上午開特別門診",
       "url": "https://www.cna.com.tw/news/ahel/202610230246.aspx",
@@ -23,16 +73,6 @@
       "sourceName": "中央通訊社",
       "publishedAt": "2026-10-23T12:40:20.000Z",
       "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "c5c68dc805b8762e52c1",
-      "title": "颱風近陸地將降速打轉 今夜至明早影響最劇烈",
-      "url": "https://news.pts.org.tw/article/832746",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-23T12:38:46.000Z",
-      "dateKind": "updated",
       "cached": false
     },
     {
@@ -84,46 +124,6 @@
       "publishedAt": "2026-10-23T10:28:01.000Z",
       "dateKind": "published",
       "cached": false
-    },
-    {
-      "id": "e59ea971d543a613ef62",
-      "title": "颱風薔琵估移動速度減慢或打轉 蘭嶼浪高10.6公尺破紀錄",
-      "url": "https://www.cna.com.tw/news/ahel/202610230207.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T10:25:57.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "573801cde8f8d2d9c4d8",
-      "title": "颱風薔琵影響 桃園機場563架次航班取消",
-      "url": "https://www.cna.com.tw/news/ahel/202610230202.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T10:15:46.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "e874a6fa1585e74a11bc",
-      "title": "颱風薔琵全台逾10萬戶曾停電 2.5萬戶仍待復電",
-      "url": "https://www.cna.com.tw/news/ahel/202610230195.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T09:52:31.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "d596008414226f4a0de7",
-      "title": "颱風薔琵影響 24日留意航班異動",
-      "url": "https://www.cna.com.tw/news/ahel/202610230191.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T09:30:22.000Z",
-      "dateKind": "published",
-      "cached": false
     }
   ],
   "sources": [
@@ -133,8 +133,8 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T13:55:35.419Z",
-      "lastSuccessfulAt": "2026-10-23T13:55:35.419Z",
+      "lastCheckedAt": "2026-10-23T18:47:38.347Z",
+      "lastSuccessfulAt": "2026-10-23T18:47:38.347Z",
       "articleCount": 9
     },
     {
@@ -143,8 +143,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T13:55:35.419Z",
-      "lastSuccessfulAt": "2026-10-23T13:55:35.419Z",
+      "lastCheckedAt": "2026-10-23T18:47:38.347Z",
+      "lastSuccessfulAt": "2026-10-23T18:47:38.347Z",
       "articleCount": 3
     }
   ]
