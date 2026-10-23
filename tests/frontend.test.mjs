@@ -150,6 +150,91 @@ test('ultra: playback repeats across multiple cycles and respects a manual pause
 for (const [name, AppClass, Renderer] of [
   ['standard', App, TyphoonMapRenderer], ['ultra', UltraApp, UltraTyphoonRenderer]
 ]) {
+  test(`${name}: tropical-depression observations preserve qualitative movement and unknown estimates`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    const note = '部分時次未提供七級風半徑，不計算縣市風雨及機率。';
+    const reason = '此時次來源未提供七級風半徑，縣市風雨與機率維持未知。';
+    const counties = ['KEE', 'ILA'].map((id) => ({
+      ...county(id, null), distanceKm: 4600, riskLevel: 'unknown', aiReasoning: reason
+    }));
+    Object.assign(app.scenario, { cycloneKind: 'tropical_depression', modelAvailabilityNote: note });
+    app.scenario.timeline = ['未提供', '緩慢移動', '近似滯留'].map((moveSpeedText, i) => ({
+      ...step(counties, null), radius7km: null, moveSpeedKmh: null, moveSpeedText,
+      moveDir: i === 0 ? '—' : '西南', pressureHpa: 1004, maxWindMs: 15,
+      offsetLabel: `+${i * 6}h`, modelAvailable: false
+    }));
+    app.selectScenario('first');
+    assert.equal(node('forecast-coverage').textContent, note);
+    assert.equal(node('forecast-coverage').hidden, false);
+    for (let i = 0; i < 3; i++) {
+      app.floatStep = i;
+      app.syncPosition(true);
+      assert.match(node('s-move').innerHTML, new RegExp(app.scenario.timeline[i].moveSpeedText));
+      assert.doesNotMatch(node('s-move').innerHTML, /null|undefined|km\/h/);
+      assert.equal(node('s-pressure').innerHTML, '1004<small>hPa</small>');
+      assert.equal(node('s-wind').innerHTML, '15<small>m/s</small>');
+      assert.equal(node('s-radius').innerHTML, '—');
+      assert.equal(node('d-prob').textContent, '—');
+      assert.equal(node('d-note').textContent, reason);
+      assert.match(node('d-zone').textContent, /4600/);
+    }
+    app.scenario.forecastCoverage = { note: '另有官方轉性時限。' };
+    app.renderSourceMeta();
+    assert.equal(node('forecast-coverage').textContent, `另有官方轉性時限。 ${note}`);
+    app.selectScenario('second');
+    assert.equal(node('forecast-coverage').hidden, true);
+    assert.match(node('s-move').innerHTML, /10 km\/h/);
+  });
+
+  test(`${name}: missing depression radii and model estimates never interpolate into invented values`, () => {
+    const { app, node } = setup(AppClass, Renderer);
+    const unknown = {
+      ...step([county('KEE', null), county('ILA', null)], null),
+      radius7km: null, moveSpeedKmh: null, moveSpeedText: '緩慢移動'
+    };
+    app.scenario.timeline = [unknown, step([county('KEE', 25), county('ILA', 30)])];
+    app.selectScenario('first');
+    for (const fraction of [0, 0.25, 0.75]) {
+      app.floatStep = fraction;
+      app.syncPosition(true);
+      const state = app.map.getInterpolatedState();
+      assert.equal(state.radius7km, null);
+      assert.equal(state.moveSpeedKmh, null);
+      assert.ok(state.counties.every((c) => c.probability === null));
+      assert.equal(node('s-radius').innerHTML, '—');
+      assert.equal(node('d-prob').textContent, '—');
+      assert.doesNotMatch(node('s-move').innerHTML, /null|undefined|km\/h/);
+    }
+    app.floatStep = 1;
+    app.syncPosition(true);
+    assert.equal(app.map.getInterpolatedState().radius7km, 200);
+    assert.equal(node('s-radius').innerHTML, '200<small>km</small>');
+    assert.equal(node('d-prob').textContent, '25');
+  });
+
+  test(`${name}: missing radii draw no labeled storm circles and unknown tooltips stay readable`, () => {
+    const renderer = rendererStub(Renderer);
+    const labels = [];
+    let arcs = 0;
+    const ctx = new Proxy({
+      fillText: (text) => labels.push(text),
+      arc: () => arcs++,
+      measureText: (text) => ({ width: text.length * 6 })
+    }, { get: (target, key) => target[key] ?? (() => {}) });
+    Object.assign(renderer, { pxPerKm: 1, width: 400, height: 400,
+      latLonToXY: () => ({ x: 200, y: 200 }), mouse: { x: 100, y: 100 }, hoveredCountyId: 'KEE' });
+    const state = { ...step([county('KEE', null)], null), radius7km: null };
+    const drawRadii = renderer._drawRadii || renderer._drawTacticalStormRadii;
+    drawRadii.call(renderer, ctx, state);
+    assert.equal(arcs, 0);
+    assert.deepEqual(labels, []);
+    const drawTooltip = renderer._drawTooltip || renderer._drawTooltipHUD;
+    drawTooltip.call(renderer, ctx, state);
+    assert.match(labels.join(' '), /機率 —/);
+    assert.match(labels.join(' '), /陣風 — 級/);
+    assert.doesNotMatch(labels.join(' '), /null|undefined/);
+  });
+
   test(`${name}: forecast coverage stays literal and independent of AI summaries`, () => {
     const { app, node } = setup(AppClass, Renderer);
     const note = '【預報範圍】氣象署預測96小時內變性為溫帶氣旋；本站估算至+72小時，不代表之後沒有風雨。';
