@@ -1,10 +1,120 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-23T04:21:16.049Z",
-  "lastSuccessfulAt": "2026-10-23T04:21:16.049Z",
+  "lastCheckedAt": "2026-10-23T08:03:36.190Z",
+  "lastSuccessfulAt": "2026-10-23T08:03:36.190Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "164711fced451c52d41d",
+      "title": "薔琵暴風圈籠罩全台 雙北、中部以北山區嚴防豪雨",
+      "url": "https://news.pts.org.tw/article/832646",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T06:47:17.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "258fd58f10ec5c474ca2",
+      "title": "受颱風薔琵與連假影響 台鐵、高鐵加開班次疏運",
+      "url": "https://news.pts.org.tw/article/832645",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T06:46:48.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "9a6c24a475c5d225e2bc",
+      "title": "薔琵颱風逼近風浪漸增 外澳沙灘關閉、僅巡邏人員",
+      "url": "https://news.pts.org.tw/article/832642",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T06:45:18.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "4b36518b66d1744d13d8",
+      "title": "野柳漁民防薔琵颱風 將漁船拉回陸地固定",
+      "url": "https://news.pts.org.tw/article/832641",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T06:44:44.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "d0f959327d23212e8fe9",
+      "title": "薔琵颱風強風襲中部 商場帆布掉落、郵筒倒地",
+      "url": "https://news.pts.org.tw/article/832631",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T06:36:51.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "c7c9793709aae345beb5",
+      "title": "氣象署高空投放儀器觀測颱風 掌握環流、大氣環境助預測",
+      "url": "https://news.pts.org.tw/article/832634",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T06:20:22.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "2802a01ef78e2daf15c3",
+      "title": "颱風後慢病藥泡水、健保卡不見 例外就醫補救",
+      "url": "https://www.cna.com.tw/news/ahel/202610230102.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T04:56:04.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "bfd49292e96124c7d495",
+      "title": "颱風薔琵暴風圈正籠罩全台 估登陸機會不高、明晚減至輕颱",
+      "url": "https://www.cna.com.tw/news/ahel/202610230100.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T04:53:00.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "c09efbddaffd2cb4f200",
+      "title": "薔琵暴風圈壟罩全台多數地區 氣象署發巨浪與強風告警",
+      "url": "https://news.pts.org.tw/article/832617",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-23T04:22:07.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "bc802f57261e11c2957a",
+      "title": "颱風薔琵影響 桃機截至23日9時共596架次航班取消",
+      "url": "https://www.cna.com.tw/news/ahel/202610230079.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T03:54:15.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "20782b14513165ef83c5",
+      "title": "颱風薔琵 雙北宜桃竹苗山區24小時降雨上看400毫米",
+      "url": "https://www.cna.com.tw/news/ahel/202610230054.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T03:06:21.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "94515c087de03314e371",
       "title": "颱風薔琵影響 航空取消977架次、航運取消96航次",
@@ -12,116 +122,6 @@
       "sourceId": "cna",
       "sourceName": "中央通訊社",
       "publishedAt": "2026-10-23T02:48:14.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "4d528a85591d3ec349fc",
-      "title": "颱風薔琵風雨達標是否提早宣布放假 蔣萬安：維持晚間8時宣布",
-      "url": "https://www.cna.com.tw/news/ahel/202610230050.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T02:48:12.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "0129eee35749ee09f35b",
-      "title": "iPhone Duo開賣遇颱風 好市多內湖店首批到貨售罄",
-      "url": "https://www.cna.com.tw/news/ahel/202610230043.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T02:20:57.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "45afce57770bc72f8e09",
-      "title": "颱風薔琵來襲 全台新光三越及SOGO暫時停業、好市多萬家福正常營業",
-      "url": "https://www.cna.com.tw/news/ahel/202610230037.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T01:55:44.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "c09efbddaffd2cb4f200",
-      "title": "薔琵暴風圈觸陸 氣象署發強風告警",
-      "url": "https://news.pts.org.tw/article/832617",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-23T01:51:41.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "e48bbf8374dc953b6052",
-      "title": "颱風薔琵暴風圈下午籠罩台灣本島 颱風中心今晚到明上午最靠近",
-      "url": "https://www.cna.com.tw/news/ahel/202610230035.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T01:42:39.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "24081c146dc6931ca2c2",
-      "title": "颱風薔琵仍不排除登陸 吳德榮：須慎防強風豪雨",
-      "url": "https://www.cna.com.tw/news/ahel/202610230023.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T00:04:12.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "57c060c96c62588f1eb3",
-      "title": "颱風薔琵逼近配合雙鐵聯防 台鐵加開2列次",
-      "url": "https://www.cna.com.tw/news/ahel/202610230020.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T23:44:05.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "2cfce4142ae54a22e576",
-      "title": "颱風薔琵暴風圈已觸台灣東半部 23日至24日晨降雨最明顯",
-      "url": "https://www.cna.com.tw/news/ahel/202610230018.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T23:30:01.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "3d7a0eafc613b267abec",
-      "title": "颱風薔琵強度再減弱 23日晚間至24日清晨降雨明顯",
-      "url": "https://www.cna.com.tw/news/ahel/202610230002.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T16:24:18.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "3f71e6f84295e7a5124f",
-      "title": "颱風薔琵逼近 省道10路段陸續預警性封閉",
-      "url": "https://www.cna.com.tw/news/ahel/202610220433.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T15:04:59.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "0fccda37521eb570711d",
-      "title": "颱風薔琵逼近 桃園機場23日共414架次航班取消",
-      "url": "https://www.cna.com.tw/news/ahel/202610220416.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-22T13:37:15.000Z",
       "dateKind": "published",
       "cached": false
     }
@@ -133,9 +133,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T04:21:16.049Z",
-      "lastSuccessfulAt": "2026-10-23T04:21:16.049Z",
-      "articleCount": 11
+      "lastCheckedAt": "2026-10-23T08:03:36.190Z",
+      "lastSuccessfulAt": "2026-10-23T08:03:36.190Z",
+      "articleCount": 5
     },
     {
       "id": "pts",
@@ -143,9 +143,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T04:21:16.049Z",
-      "lastSuccessfulAt": "2026-10-23T04:21:16.049Z",
-      "articleCount": 1
+      "lastCheckedAt": "2026-10-23T08:03:36.190Z",
+      "lastSuccessfulAt": "2026-10-23T08:03:36.190Z",
+      "articleCount": 7
     }
   ]
 }
