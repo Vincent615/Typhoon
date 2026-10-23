@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-23T18:47:38.347Z",
-  "lastSuccessfulAt": "2026-10-23T18:47:38.347Z",
+  "lastCheckedAt": "2026-10-23T23:38:45.490Z",
+  "lastSuccessfulAt": "2026-10-23T23:38:45.490Z",
   "windowDays": 7,
   "articles": [
     {
@@ -84,46 +84,6 @@
       "publishedAt": "2026-10-23T12:21:26.000Z",
       "dateKind": "updated",
       "cached": false
-    },
-    {
-      "id": "af9294e0daee382bbcd9",
-      "title": "颱風薔琵影響 24日6航線84航次船班停航",
-      "url": "https://www.cna.com.tw/news/ahel/202610230220.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T11:06:24.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "020dc023cece8c616740",
-      "title": "光復連假首日國道交通需求因颱風下降 部分匝道封閉措施取消",
-      "url": "https://www.cna.com.tw/news/ahel/202610230212.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T10:47:08.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "75f2d6ab2beb4499f7f0",
-      "title": "颱風薔琵致農損 農業部：落花生受害最嚴重",
-      "url": "https://www.cna.com.tw/news/ahel/202610230210.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T10:29:03.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "a61d948d63872bdb8878",
-      "title": "颱風薔琵來襲 北捷文湖線、高架路段晚間6時起停駛",
-      "url": "https://www.cna.com.tw/news/ahel/202610230209.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T10:28:01.000Z",
-      "dateKind": "published",
-      "cached": false
     }
   ],
   "sources": [
@@ -133,9 +93,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T18:47:38.347Z",
-      "lastSuccessfulAt": "2026-10-23T18:47:38.347Z",
-      "articleCount": 9
+      "lastCheckedAt": "2026-10-23T23:38:45.490Z",
+      "lastSuccessfulAt": "2026-10-23T23:38:45.490Z",
+      "articleCount": 5
     },
     {
       "id": "pts",
@@ -143,8 +103,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T18:47:38.347Z",
-      "lastSuccessfulAt": "2026-10-23T18:47:38.347Z",
+      "lastCheckedAt": "2026-10-23T23:38:45.490Z",
+      "lastSuccessfulAt": "2026-10-23T23:38:45.490Z",
       "articleCount": 3
     }
   ]
