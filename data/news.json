@@ -1,10 +1,50 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-23T23:38:45.490Z",
-  "lastSuccessfulAt": "2026-10-23T23:38:45.490Z",
+  "lastCheckedAt": "2026-10-24T02:24:47.182Z",
+  "lastSuccessfulAt": "2026-10-24T02:24:47.182Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "ceb80ea82169aa82baf6",
+      "title": "颱風薔琵減弱 北部百貨陸續恢復營業",
+      "url": "https://www.cna.com.tw/news/ahel/202610240027.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T01:16:03.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "1dfa79dbed15abae0df4",
+      "title": "颱風薔琵影響交通需求下降 國1國5取消匝道封閉",
+      "url": "https://www.cna.com.tw/news/ahel/202610240026.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T01:05:00.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "0c9ac315d108d189325d",
+      "title": "颱風薔琵強度減弱暴風圈縮小 雨勢逐漸緩和",
+      "url": "https://www.cna.com.tw/news/ahel/202610240019.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T23:49:44.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "f35cedb6d1e4c70f8bda",
+      "title": "颱風煙花生成 對台灣無直接影響",
+      "url": "https://www.cna.com.tw/news/ahel/202610240017.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-23T22:42:37.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "d53cbaa296f6d661849f",
       "title": "颱風薔琵路徑偏西 大屯山三貂角測出17級陣風",
@@ -66,16 +106,6 @@
       "cached": false
     },
     {
-      "id": "99bcf9a4be4d93e22260",
-      "title": "颱風薔琵來襲 新北部分醫院24日上午開特別門診",
-      "url": "https://www.cna.com.tw/news/ahel/202610230246.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-23T12:40:20.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
       "id": "d0e57619dbdad58ee8ac",
       "title": "薔琵颱風移動減緩 10/24各縣市停班課狀況一次看",
       "url": "https://news.pts.org.tw/article/832698",
@@ -93,9 +123,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T23:38:45.490Z",
-      "lastSuccessfulAt": "2026-10-23T23:38:45.490Z",
-      "articleCount": 5
+      "lastCheckedAt": "2026-10-24T02:24:47.182Z",
+      "lastSuccessfulAt": "2026-10-24T02:24:47.182Z",
+      "articleCount": 8
     },
     {
       "id": "pts",
@@ -103,8 +133,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-23T23:38:45.490Z",
-      "lastSuccessfulAt": "2026-10-23T23:38:45.490Z",
+      "lastCheckedAt": "2026-10-24T02:24:47.182Z",
+      "lastSuccessfulAt": "2026-10-24T02:24:47.182Z",
       "articleCount": 3
     }
   ]
