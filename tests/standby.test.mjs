@@ -1,13 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { canResumeTracking, startStandbyRefresh } from '../src/standby.js';
+import { canResumeTracking, canEnterStandby, startMonitoringRefresh } from '../src/standby.js';
 import { isStandbyDataset, sourcePresentation } from '../src/ui-state.js';
 
 const NOW = Date.parse('2026-10-24T08:00:00Z');
 const iso = (n) => new Date(n).toISOString();
 const standby = () => ({
   updatedAt: iso(NOW - 3600000), monitoring: { mode: 'standby', standbySince: iso(NOW - 3600000), discoveryIntervalHours: 3 },
-  officialSync: { cwaStatus: 'no_active' }, scenarios: [{ id: 'no_active_typhoon', hasTyphoon: false }]
+  officialSync: { cwaStatus: 'no_active', liveCycloneDetected: false }, defaultScenarioId: 'no_active_typhoon',
+  scenarios: [{ id: 'no_active_typhoon', hasTyphoon: false, timeline: [{
+    counties: Array.from({ length: 22 }, (_, index) => ({ id: String(index), probability: null }))
+  }] }]
 });
 const active = () => ({
   updatedAt: iso(NOW), monitoring: { mode: 'active' },
@@ -36,11 +39,11 @@ function clock() {
   };
 }
 const flush = async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); };
-function setup(fetchImpl, { hidden = false } = {}) {
+function setup(fetchImpl, { hidden = false, initialData = standby() } = {}) {
   const doc = new Target(), win = new Target(), timers = clock();
   doc.hidden = hidden;
   let reloads = 0;
-  const stop = startStandbyRefresh(standby(), {
+  const stop = startMonitoringRefresh(initialData, {
     documentImpl: doc, windowImpl: win, fetchImpl, now: () => NOW,
     reload: () => { reloads++; }, ...timers
   });
@@ -99,6 +102,69 @@ test('resuming applies the declared update interval and falls back to six hours 
   assert.equal(canResumeTracking({ ...active(), updateIntervalHours: 0.5, officialSync: {
     ...active().officialSync, observedAt: iso(NOW - 2 * 3600000)
   } }, previous, NOW), false);
+});
+
+test('entering standby requires a newer consistent publication, without expiring a still-valid standby state', () => {
+  const previous = iso(NOW - 30 * 86400000);
+  assert.equal(canEnterStandby(standby(), previous, NOW), true);
+  const weekOld = { ...standby(), updatedAt: iso(NOW - 7 * 86400000), monitoring: {
+    ...standby().monitoring, standbySince: iso(NOW - 7 * 86400000)
+  } };
+  assert.equal(canEnterStandby(weekOld, previous, NOW), true);
+  for (const payload of [
+    null, active(), { ...standby(), updatedAt: previous },
+    { ...standby(), updatedAt: iso(NOW + 3600000) },
+    { ...standby(), monitoring: { ...standby().monitoring, standbySince: iso(NOW) } },
+    { ...standby(), officialSync: { cwaStatus: 'no_active', liveCycloneDetected: true } },
+    { ...standby(), defaultScenarioId: 'missing' },
+    { ...standby(), scenarios: [{ id: 'no_active_typhoon', hasTyphoon: false, timeline: [] }] },
+    { ...standby(), scenarios: [{ id: 'no_active_typhoon', hasTyphoon: false, timeline: [{ counties: [] }] }] },
+    { ...standby(), scenarios: [{ id: 'no_active_typhoon', hasTyphoon: false,
+      timeline: [{ counties: Array.from({ length: 22 }, () => ({ id: 'same', probability: null })) }] }] },
+    { ...standby(), scenarios: [{ id: 'no_active_typhoon', hasTyphoon: false,
+      timeline: [{ counties: Array.from({ length: 22 }, (_, index) => ({ id: String(index), probability: 50 })) }] }] }
+  ]) assert.equal(canEnterStandby(payload, previous, NOW), false);
+});
+
+test('active pages, including legacy data, enter newer standby and then dispose their single watcher', async () => {
+  for (const monitoring of [{ mode: 'active' }, undefined]) {
+    const initialData = { ...active(), monitoring, updatedAt: iso(NOW - 2 * 3600000) };
+    let calls = 0;
+    const s = setup(async () => { calls++; return { ok: true, json: async () => standby() }; }, { initialData });
+    assert.equal(calls, 0);
+    assert.equal(s.timers.intervals.size, 1);
+    await s.timers.fire();
+    assert.equal(calls, 1);
+    assert.equal(s.reloads(), 1);
+    assert.equal(s.timers.intervals.size, 0);
+    assert.equal(s.doc.listeners.size, 0);
+    assert.equal(s.win.listeners.size, 0);
+    await s.timers.fire();assert.equal(s.reloads(), 1);
+  }
+});
+
+test('active-to-active updates preserve the page and prevent a later stale standby cache from taking over', async () => {
+  const initialData = { ...active(), updatedAt: iso(NOW - 2 * 3600000) };
+  const newestStandby = { ...standby(), updatedAt: iso(NOW + 60000), monitoring: {
+    ...standby().monitoring, standbySince: iso(NOW + 60000)
+  } };
+  const replies = [active(), standby(), newestStandby];
+  const s = setup(async () => ({ ok: true, json: async () => replies.shift() }), { initialData });
+  await s.timers.fire();assert.equal(s.reloads(), 0);assert.equal(s.timers.intervals.size, 1);
+  await s.timers.fire();assert.equal(s.reloads(), 0);
+  await s.timers.fire();assert.equal(s.reloads(), 1);
+});
+
+test('failed, repeated and inconsistent publications cannot interrupt an active page', async () => {
+  const initialData = { ...active(), updatedAt: iso(NOW - 2 * 3600000) };
+  const replies = [new Error('offline'), { ...standby(), updatedAt: initialData.updatedAt },
+    { ...standby(), officialSync: { cwaStatus: 'active', liveCycloneDetected: true } }, standby()];
+  const s = setup(async () => {
+    const result = replies.shift();if (result instanceof Error) throw result;
+    return { ok: true, json: async () => result };
+  }, { initialData });
+  for (let i = 0; i < 3; i++) { await s.timers.fire();assert.equal(s.reloads(), 0); }
+  await s.timers.fire();assert.equal(s.reloads(), 1);
 });
 
 test('standby polls only after five minutes and reloads once on a valid new active publication', async () => {

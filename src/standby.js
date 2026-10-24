@@ -40,16 +40,36 @@ export function canResumeTracking(data, previousUpdatedAt, now = Date.now()) {
       scenario.timeline.every((point) => Array.isArray(point?.counties) && point.counties.length === 22));
 }
 
+export function canEnterStandby(data, previousUpdatedAt, now = Date.now()) {
+  const updated = Date.parse(data?.updatedAt);
+  const previous = Date.parse(previousUpdatedAt);
+  const since = Date.parse(data?.monitoring?.standbySince);
+  return isStandbyDataset(data) && data.officialSync.liveCycloneDetected === false &&
+    Number.isFinite(previous) && updated > previous &&
+    updated <= now + 300000 && since <= updated &&
+    data.scenarios.some((scenario) => scenario?.id === data.defaultScenarioId) &&
+    data.scenarios.every((scenario) => typeof scenario?.id === 'string' && scenario.id &&
+      Array.isArray(scenario.timeline) && scenario.timeline.length === 1 &&
+      scenario.timeline.every((point) => Array.isArray(point?.counties) && point.counties.length === 22 &&
+        point.counties.every((county) => typeof county?.id === 'string' && county.id && county.probability === null) &&
+        new Set(point.counties.map((county) => county.id)).size === 22));
+}
+
 // This checks the already-published JSON, never calls CWA from the browser.
-// Reload is safe here because the standby page has no forecast interaction state.
-export function startStandbyRefresh(data, {
+// Only a tracking-mode transition reloads; ordinary active updates preserve controls.
+export function startMonitoringRefresh(data, {
   fetchImpl = globalThis.fetch, now = () => Date.now(),
   documentImpl = globalThis.document, windowImpl = globalThis.window,
   reload = () => windowImpl.location.reload(),
   setIntervalImpl = globalThis.setInterval, clearIntervalImpl = globalThis.clearInterval,
   setTimeoutImpl = globalThis.setTimeout, clearTimeoutImpl = globalThis.clearTimeout
 } = {}) {
-  if (!isStandbyDataset(data)) return () => {};
+  const wasStandby = isStandbyDataset(data);
+  const wasActive = data?.officialSync?.cwaStatus === 'active' &&
+    (data.monitoring === undefined || data.monitoring?.mode === 'active') &&
+    Array.isArray(data.scenarios) && data.scenarios.some((scenario) => scenario?.hasTyphoon === true);
+  if ((!wasStandby && !wasActive) || !Number.isFinite(Date.parse(data.updatedAt))) return () => {};
+  let latestUpdatedAt = data.updatedAt;
   let timer = null;
   let pending = null;
   let disposed = false;
@@ -79,12 +99,18 @@ export function startStandbyRefresh(data, {
       const next = await response.json();
       if (pending !== ticket || ticket.controller.signal.aborted || disposed ||
           pageHidden || documentImpl.hidden) return;
-      if (canResumeTracking(next, data.updatedAt, now())) {
+      const nextActive = canResumeTracking(next, latestUpdatedAt, now());
+      const nextStandby = canEnterStandby(next, latestUpdatedAt, now());
+      if ((wasStandby && nextActive) || (wasActive && nextStandby)) {
         dispose();
         reload();
+      } else if (nextActive || nextStandby) {
+        // Remember a newer same-mode publication so a later stale cache cannot
+        // incorrectly switch this tab back to an older monitoring state.
+        latestUpdatedAt = next.updatedAt;
       }
     } catch {
-      // A failed check does not change the last published standby state.
+      // A failed check does not change the last published monitoring state.
     } finally {
       clearTimeoutImpl(ticket.timeout);
       if (pending === ticket) pending = null;

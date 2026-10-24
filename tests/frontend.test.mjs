@@ -182,7 +182,7 @@ for (const [name, AppClass, Renderer] of [
     }
     assert.match(doc.getElementById('updated-at').textContent, /待命開始/);
     assert.doesNotMatch(doc.getElementById('updated-at').textContent, /目前無|資料過期|官方觀測/);
-    app.stopStandbyRefresh();
+    app.stopMonitoringRefresh();
   });
 
   test(`${name}: tropical-depression observations preserve qualitative movement and unknown estimates`, () => {

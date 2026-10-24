@@ -1,4 +1,4 @@
-import { renderStandby, startStandbyRefresh } from './standby.js';
+import { renderStandby, startMonitoringRefresh } from './standby.js';
 import { mountNews } from './news.js';
 import { initializeAnimation, observeAnimation, requestFrame, runAnimationFrame, updateTimeline, setText, setHTML, setStyle, setAttribute, setProperty, setClass } from './animation-clock.js';
 import { ownsKeyboardInput, compareCounties, sourcePresentation, probabilityText, isStandbyDataset } from './ui-state.js';
@@ -66,12 +66,12 @@ export class UltraApp {
     const res = await fetch(`./data/typhoon-data.json?t=${Date.now()}`);
     if (!res.ok) throw new Error(`資料載入失敗 (${res.status})`);
     this.data = await res.json();
+    this.stopMonitoringRefresh = startMonitoringRefresh(this.data);
 
     const initialScenario = this.data.scenarios?.find((item) => item.id === this.data.defaultScenarioId) || this.data.scenarios?.[0];
     if (isStandbyDataset(this.data, initialScenario)) {
       this.scenario = initialScenario;
       this.renderSourceMeta();
-      this.stopStandbyRefresh = startStandbyRefresh(this.data);
       return;
     }
     void mountNews($('latest-news'));
