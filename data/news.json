@@ -1,10 +1,30 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-24T12:59:36.905Z",
-  "lastSuccessfulAt": "2026-10-24T12:59:36.905Z",
+  "lastCheckedAt": "2026-10-24T17:42:41.008Z",
+  "lastSuccessfulAt": "2026-10-24T17:42:41.008Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "5b31351be295df5c1d51",
+      "title": "颱風薔琵海警解除 25日清晨起降雨漸緩",
+      "url": "https://www.cna.com.tw/news/ahel/202610240199.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T13:19:25.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "b591ebbf65aa44d964fb",
+      "title": "颱風擾國內線航班 民航局：協調放大機型、請軍機支援",
+      "url": "https://www.cna.com.tw/news/ahel/202610240194.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T12:10:13.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "ecd93b2e7ee4d42aa49e",
       "title": "高雄昕愛月子中心颱風夜趕人 衛生局：違法業者已開罰9次",
@@ -23,6 +43,16 @@
       "sourceName": "公視新聞網",
       "publishedAt": "2026-10-24T11:58:55.000Z",
       "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "d6b85222b08702e1b53e",
+      "title": "颱風外圍環流影響 北北桃竹苗山區防豪雨",
+      "url": "https://www.cna.com.tw/news/ahel/202610240188.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T11:40:00.000Z",
+      "dateKind": "published",
       "cached": false
     },
     {
@@ -56,46 +86,6 @@
       "cached": false
     },
     {
-      "id": "4d380b2d9c48f7792cb5",
-      "title": "颱風薔琵嚴重侵襲 龜山島暫停開放登島",
-      "url": "https://www.cna.com.tw/news/ahel/202610240132.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T08:21:54.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "f275698532567fa6b70c",
-      "title": "綜合電達及地面風場觀測 颱風薔琵中心僅掠過南方澳未登陸",
-      "url": "https://www.cna.com.tw/news/ahel/202610240130.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T08:10:50.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "b9dd42a25d2c64c87413",
-      "title": "氣象署估傍晚至晚間解除颱風薔琵海警 北部雨勢入夜可望趨緩",
-      "url": "https://www.cna.com.tw/news/ahel/202610240127.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T07:52:43.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "c41256f7a8fd256b0756",
-      "title": "颱風薔琵陸警解除 疾管署籲清理家園落實防疫3招",
-      "url": "https://www.cna.com.tw/news/ahel/202610240125.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T07:43:39.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
       "id": "42bc3676b9e38363de8a",
       "title": "估薔琵下午減弱為輕颱 傍晚前後可望解除陸警",
       "url": "https://news.pts.org.tw/article/832802",
@@ -123,9 +113,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-24T12:59:36.905Z",
-      "lastSuccessfulAt": "2026-10-24T12:59:36.905Z",
-      "articleCount": 7
+      "lastCheckedAt": "2026-10-24T17:42:41.008Z",
+      "lastSuccessfulAt": "2026-10-24T17:42:41.008Z",
+      "articleCount": 6
     },
     {
       "id": "pts",
@@ -133,8 +123,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-24T12:59:36.905Z",
-      "lastSuccessfulAt": "2026-10-24T12:59:36.905Z",
+      "lastCheckedAt": "2026-10-24T17:42:41.008Z",
+      "lastSuccessfulAt": "2026-10-24T17:42:41.008Z",
       "articleCount": 4
     }
   ]
