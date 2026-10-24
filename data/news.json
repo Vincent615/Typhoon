@@ -1,10 +1,100 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-24T07:42:48.015Z",
-  "lastSuccessfulAt": "2026-10-24T07:42:48.015Z",
+  "lastCheckedAt": "2026-10-24T11:37:15.660Z",
+  "lastSuccessfulAt": "2026-10-24T11:37:15.660Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "244a27ef41aee3b79de1",
+      "title": "颱風期間傳AI假災情圖 6嫌涉災防法最重可處有期徒刑",
+      "url": "https://news.pts.org.tw/article/832806",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-24T11:25:43.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "ecd93b2e7ee4d42aa49e",
+      "title": "高雄昕愛月子中心颱風夜趕人 衛生局：違法業者已開罰9次",
+      "url": "https://news.pts.org.tw/article/832807",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-24T11:23:46.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "befbf2aa3d213fbd6f54",
+      "title": "颱風薔琵致農損逾1.3億元 雲林占8成、蒜頭最傷",
+      "url": "https://www.cna.com.tw/news/ahel/202610240174.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T10:23:29.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "3524d6c88dd2e16f6ba5",
+      "title": "颱風薔琵逐漸遠離 苗栗以北仍有斷續降雨",
+      "url": "https://www.cna.com.tw/news/ahel/202610240171.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T10:09:22.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "1a75088b28d5b8d4d78a",
+      "title": "颱風薔琵逐漸遠離 估晚間8時30分解除海警",
+      "url": "https://www.cna.com.tw/news/ahel/202610240161.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T09:29:58.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "4d380b2d9c48f7792cb5",
+      "title": "颱風薔琵嚴重侵襲 龜山島暫停開放登島",
+      "url": "https://www.cna.com.tw/news/ahel/202610240132.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T08:21:54.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "f275698532567fa6b70c",
+      "title": "綜合電達及地面風場觀測 颱風薔琵中心僅掠過南方澳未登陸",
+      "url": "https://www.cna.com.tw/news/ahel/202610240130.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T08:10:50.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "b9dd42a25d2c64c87413",
+      "title": "氣象署估傍晚至晚間解除颱風薔琵海警 北部雨勢入夜可望趨緩",
+      "url": "https://www.cna.com.tw/news/ahel/202610240127.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T07:52:43.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "c41256f7a8fd256b0756",
+      "title": "颱風薔琵陸警解除 疾管署籲清理家園落實防疫3招",
+      "url": "https://www.cna.com.tw/news/ahel/202610240125.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-24T07:43:39.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "89efef7f5b78864be2d1",
       "title": "颱風薔琵減弱為輕颱 氣象署下午2時30分解除陸警",
@@ -16,26 +106,6 @@
       "cached": false
     },
     {
-      "id": "c4e7c88cb92b635c4987",
-      "title": "颱風致304座基地台受損 台灣大搶修、中華電用戶無影響",
-      "url": "https://www.cna.com.tw/news/ahel/202610240091.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T05:50:24.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "eed7e5c9b8c78d84f644",
-      "title": "颱風薔琵影響淡江大橋預警性封閉 擬下午5時解除",
-      "url": "https://www.cna.com.tw/news/ahel/202610240084.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T05:21:07.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
       "id": "42bc3676b9e38363de8a",
       "title": "估薔琵下午減弱為輕颱 傍晚前後可望解除陸警",
       "url": "https://news.pts.org.tw/article/832802",
@@ -43,76 +113,6 @@
       "sourceName": "公視新聞網",
       "publishedAt": "2026-10-24T05:20:49.000Z",
       "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "fd8ca9f3709b4fb0c7bf",
-      "title": "颱風薔琵遠離 高公局估下午國道部分路段現出遊車潮",
-      "url": "https://www.cna.com.tw/news/ahel/202610240082.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T05:16:03.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "c9213aa79aa2351c2aa9",
-      "title": "颱風薔琵衝擊 台鐵搶修北迴線、宜蘭線估下午3時復駛",
-      "url": "https://www.cna.com.tw/news/ahel/202610240077.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T04:55:52.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "6b957c29cb1217b45189",
-      "title": "台東焚風凌晨飆39.3度 颱風薔琵陸警範圍剩桃園以北、宜蘭",
-      "url": "https://www.cna.com.tw/news/ahel/202610240076.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T04:45:50.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "de9490710ed949be7225",
-      "title": "颱風薔琵漸遠離 蘇花路廊、中橫公路恢復通行",
-      "url": "https://www.cna.com.tw/news/ahel/202610240063.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T03:28:21.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "cc9bab7ffe4c15ac12d5",
-      "title": "颱風薔琵使宿舍受損 文大：留宿生平安、物資完善",
-      "url": "https://www.cna.com.tw/news/ahel/202610240051.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T03:11:55.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "d80a1ede059b2b24a08a",
-      "title": "光復節連假 桃機受颱風影響取消航班、旅運人次降低",
-      "url": "https://www.cna.com.tw/news/ahel/202610240042.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T02:38:36.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "4013532e8f588cba3629",
-      "title": "颱風薔琵影響 海運6航線84航次停航",
-      "url": "https://www.cna.com.tw/news/ahel/202610240040.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T02:30:32.000Z",
-      "dateKind": "published",
       "cached": false
     },
     {
@@ -133,9 +133,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-24T07:42:48.015Z",
-      "lastSuccessfulAt": "2026-10-24T07:42:48.015Z",
-      "articleCount": 10
+      "lastCheckedAt": "2026-10-24T11:37:15.660Z",
+      "lastSuccessfulAt": "2026-10-24T11:37:15.660Z",
+      "articleCount": 8
     },
     {
       "id": "pts",
@@ -143,9 +143,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-24T07:42:48.015Z",
-      "lastSuccessfulAt": "2026-10-24T07:42:48.015Z",
-      "articleCount": 2
+      "lastCheckedAt": "2026-10-24T11:37:15.660Z",
+      "lastSuccessfulAt": "2026-10-24T11:37:15.660Z",
+      "articleCount": 4
     }
   ]
 }
