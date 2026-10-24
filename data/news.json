@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-24T11:37:15.660Z",
-  "lastSuccessfulAt": "2026-10-24T11:37:15.660Z",
+  "lastCheckedAt": "2026-10-24T12:59:36.905Z",
+  "lastSuccessfulAt": "2026-10-24T12:59:36.905Z",
   "windowDays": 7,
   "articles": [
-    {
-      "id": "244a27ef41aee3b79de1",
-      "title": "颱風期間傳AI假災情圖 6嫌涉災防法最重可處有期徒刑",
-      "url": "https://news.pts.org.tw/article/832806",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-24T11:25:43.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
     {
       "id": "ecd93b2e7ee4d42aa49e",
       "title": "高雄昕愛月子中心颱風夜趕人 衛生局：違法業者已開罰9次",
       "url": "https://news.pts.org.tw/article/832807",
       "sourceId": "pts",
       "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-24T11:23:46.000Z",
+      "publishedAt": "2026-10-24T11:59:23.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "244a27ef41aee3b79de1",
+      "title": "颱風期間傳AI假災情圖 6嫌涉災防法最重可處有期徒刑",
+      "url": "https://news.pts.org.tw/article/832806",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-24T11:58:55.000Z",
       "dateKind": "updated",
       "cached": false
     },
@@ -96,16 +96,6 @@
       "cached": false
     },
     {
-      "id": "89efef7f5b78864be2d1",
-      "title": "颱風薔琵減弱為輕颱 氣象署下午2時30分解除陸警",
-      "url": "https://www.cna.com.tw/news/ahel/202610240104.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T06:39:53.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
       "id": "42bc3676b9e38363de8a",
       "title": "估薔琵下午減弱為輕颱 傍晚前後可望解除陸警",
       "url": "https://news.pts.org.tw/article/832802",
@@ -133,9 +123,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-24T11:37:15.660Z",
-      "lastSuccessfulAt": "2026-10-24T11:37:15.660Z",
-      "articleCount": 8
+      "lastCheckedAt": "2026-10-24T12:59:36.905Z",
+      "lastSuccessfulAt": "2026-10-24T12:59:36.905Z",
+      "articleCount": 7
     },
     {
       "id": "pts",
@@ -143,8 +133,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-24T11:37:15.660Z",
-      "lastSuccessfulAt": "2026-10-24T11:37:15.660Z",
+      "lastCheckedAt": "2026-10-24T12:59:36.905Z",
+      "lastSuccessfulAt": "2026-10-24T12:59:36.905Z",
       "articleCount": 4
     }
   ]
