@@ -1318,3 +1318,13 @@ button:disabled { cursor: default; }
 @media (max-width: 1024px) and (pointer: coarse) and (orientation: landscape) {
   .map-wrap { height: 300px; }
 }
+
+.standby-panel { align-self: center; justify-self: center; width: min(760px, 100%); min-width: 0; padding: clamp(24px, 5vw, 56px); border: 1px solid var(--border-bright); border-radius: 18px; background: rgba(4, 10, 22, .92); }
+.standby-label { color: var(--neon-cyan); font-size: 13px; font-weight: 600; letter-spacing: .08em; }
+.standby-panel h2 { margin: 18px 0; color: var(--text-hi); font-size: clamp(25px, 4vw, 38px); line-height: 1.5; font-weight: 600; }
+.standby-panel p { margin: 14px 0; color: var(--text-md); font-size: 16px; line-height: 1.8; overflow-wrap: anywhere; }
+.standby-panel .standby-since, .standby-panel .standby-note { font-size: 14px; }
+.standby-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.standby-links a { display: flex; align-items: center; min-height: 44px; padding: 10px 14px; border: 1px solid var(--border-bright); border-radius: 9px; color: var(--text-hi); font-size: 14px; line-height: 1.6; text-decoration: none; }
+.standby-links a:hover { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+[data-monitoring="standby"] .shell { min-height: 100dvh; }

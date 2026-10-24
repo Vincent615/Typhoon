@@ -192,7 +192,11 @@ function parsePoint(html, offsetHours, nameC, observedAt, isDepression) {
   // unknown, never invent a zero radius or waive malformed/strong-wind data.
   const radius7km = isDepression && maxWindMs < 17.2 && !/七級風/.test(text)
     ? null : requiredNumber(text, /七級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius7', 0, 1500);
-  const radius10km = /十級風/.test(text)
+  // CWA explicitly uses '-' for a storm whose sustained maximum is below
+  // force 10. This is the same absent-ring case as an omitted ten-force row.
+  const belowForce10Placeholder = maxWindMs < 24.5 && radius7km !== null &&
+    /十級風(?:平均)?暴風半徑\s*-\s*公里/.test(text);
+  const radius10km = belowForce10Placeholder ? 0 : /十級風/.test(text)
     ? requiredNumber(text, /十級風(?:平均)?暴風半徑\s*(\d+)\s*公里/, 'radius10', 0, radius7km ?? -1) : (radius7km === null ? null : 0);
   const probRadius70km = offsetHours === 0 ? 0
     : requiredNumber(text, /70%\s*機率半徑\s*(\d+)\s*公里/, 'probability radius', 0, 3000);
@@ -691,7 +695,9 @@ export function parseDgpaAnnouncements(html, counties) {
     } else continue;
     if (!text) continue;
     let status = 'unknown';
-    if (/停止上班|停止上課/.test(text)) status = 'suspended';
+    // Meeting (or not meeting) a weather criterion is not a suspension order.
+    const decisions = text.replace(/(?:已達|未達|達到|未達到)[^。；;]*停止上班[^。；;]*標準/g, '');
+    if (/停止上班|停止上課/.test(decisions)) status = 'suspended';
     else if (/照常上班|照常上課|正常上班|正常上課/.test(text)) status = 'normal';
     else if (/尚未列入警戒區|尚未宣布|無停班停課訊息/.test(text)) status = 'not_announced';
     announcements.push({ countyId: county.id, countyName: county.name, status, text });
@@ -730,7 +736,9 @@ export async function fetchOfficialSources({ fetchImpl = globalThis.fetch, now =
   const parsed = parseCwaTyNewsJs(raw);
   let dgpa = { status: 'unknown', announcements: [], text: '人事行政總處公告暫時無法取得，請直接查閱官方網站。' };
   let dgpaChecked = false;
-  try {
+  if (parsed.status === 'no_active') {
+    dgpa = { status: 'not_checked', announcements: [], text: '本輪追蹤已結束；待命期間不查詢停班停課公告，請直接查閱官方網站。' };
+  } else try {
     const html = await fetchWithTimeout(fetchImpl, 'https://www.dgpa.gov.tw/typh/daily/nds.html', {}, 5000);
     dgpa = parseDgpaAnnouncements(html, counties);
     dgpaChecked = dgpa.status !== 'unknown' || dgpa.announcements.length > 0;
@@ -779,11 +787,19 @@ export async function enrichWithGeminiAI(scenario, slice, officialStatus, { fetc
 }
 
 /** Read-only builder: inject networking, time and thresholds for deterministic offline tests. */
-export async function buildTyphoonDataset({ fetchImpl = globalThis.fetch, now = () => new Date(), apiKey = process.env.GEMINI_API_KEY || '', thresholdsData } = {}) {
+export async function buildTyphoonDataset({ fetchImpl = globalThis.fetch, now = () => new Date(), apiKey = process.env.GEMINI_API_KEY || '', thresholdsData, previousData } = {}) {
   const thresholds = thresholdsData ?? JSON.parse(await fs.readFile(THRESHOLDS_PATH, 'utf8'));
   const counties = thresholds.counties;
   if (!Array.isArray(counties) || counties.length === 0) throw new Error('Missing county thresholds');
   const officialStatus = await fetchOfficialSources({ fetchImpl, now, counties });
+  const standby = officialStatus.cwaStatus === 'no_active';
+  if (standby && previousData?.monitoring?.mode === 'standby' &&
+      Number.isFinite(Date.parse(previousData.monitoring.standbySince)) &&
+      previousData.officialSync?.cwaStatus === 'no_active' &&
+      previousData.scenarios?.length === 1 && previousData.scenarios[0].hasTyphoon === false) {
+    // Do not make the published standby-start time look like a new forecast.
+    return previousData;
+  }
   const builtScenarios = [];
   for (const scenario of getScenarioDefinitions(officialStatus.parsed)) {
     const timeline = scenario.timeline.map((step) => {
@@ -812,8 +828,11 @@ export async function buildTyphoonDataset({ fetchImpl = globalThis.fetch, now = 
     builtScenarios.push(built);
   }
   const { parsed, ...officialSync } = officialStatus;
+  const updatedAt = new Date(now()).toISOString();
   return {
-    updatedAt: new Date(now()).toISOString(), updateIntervalHours: 3, officialSync,
+    updatedAt, updateIntervalHours: 3, officialSync,
+    monitoring: { mode: standby ? 'standby' : 'active', discoveryIntervalHours: 3,
+      ...(standby ? { standbySince: updatedAt } : {}) },
     aiMetadata: builtScenarios[0].aiMetadata, regulationReference: thresholds.metadata,
     defaultScenarioId: builtScenarios[0].id, scenarios: builtScenarios
   };
@@ -837,11 +856,26 @@ export async function writeTyphoonDatasetAtomic(payload, outputPath = OUTPUT_PAT
   }
 }
 
+/** Run one update cycle; repeated confirmed standby checks never rewrite files. */
+export async function updateTyphoonDataset({ outputPath = OUTPUT_PATH, ...buildOptions } = {}) {
+  let previous = null;
+  try { previous = await fs.readFile(outputPath, 'utf8'); }
+  catch (error) { if (error.code !== 'ENOENT') throw error; }
+  const data = await buildTyphoonDataset({ ...buildOptions, previousData: previous === null ? null : JSON.parse(previous) });
+  const changed = previous !== JSON.stringify(data, null, 2) + '\n';
+  if (changed) await writeTyphoonDatasetAtomic(data, outputPath);
+  return { data, mode: data.monitoring.mode, changed };
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
-  buildTyphoonDataset()
-    .then(async (data) => {
-      await writeTyphoonDatasetAtomic(data);
-      console.log(`[OK] Generated data/typhoon-data.json at ${data.updatedAt} (Primary: ${data.scenarios[0].name}, ${data.scenarios[0].timeline.length} steps)`);
+  updateTyphoonDataset()
+    .then(async ({ data, mode, changed }) => {
+      if (process.env.GITHUB_OUTPUT) await fs.appendFile(process.env.GITHUB_OUTPUT, `mode=${mode}\nchanged=${changed}\n`);
+      if (!changed) {
+        console.log(`[OK] ${mode}: CWA checked; published data unchanged, no file written.`);
+        return;
+      }
+      console.log(`[OK] Generated data/typhoon-data.json at ${data.updatedAt} (Mode: ${mode}, Primary: ${data.scenarios[0].name}, ${data.scenarios[0].timeline.length} steps)`);
       for (const scenario of data.scenarios) {
         if (scenario.forecastCoverage) console.log(`[INFO] ${scenario.id}: ${scenario.forecastCoverage.note}`);
       }

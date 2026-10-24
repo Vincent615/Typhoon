@@ -33,7 +33,7 @@
           <h1>台灣颱風假機率觀測平台</h1>
         </div>
 
-        <label class="storm-selector">
+        <label id="storm-picker" class="storm-selector">
           <span class="live-beacon" id="live-dot" title="中央氣象署即時連線"></span>
           <select id="scenario-select" aria-label="選擇颱風情境"></select>
         </label>
@@ -52,13 +52,25 @@
     </header>
 
     <!-- Main Bento Grid -->
-    <nav class="page-nav" aria-label="頁面導覽">
+    <nav id="page-navigation" class="page-nav" aria-label="頁面導覽">
       <a href="#storm-map">颱風地圖</a>
       <a href="#county-weather">縣市風雨</a>
       <a href="#latest-news">最新消息</a>
     </nav>
 
-    <main class="layout">
+    <main class="standby-panel" id="standby-panel" aria-labelledby="standby-title" hidden>
+      <span class="standby-label">颱風追蹤待命中</span>
+      <h2 id="standby-title">本輪追蹤已結束，<br>等待下一個颱風</h2>
+      <p id="standby-cadence">系統約每 3 小時檢查官方來源；有新的颱風系統時，會自動恢復預報與新聞更新。</p>
+      <p class="standby-since" id="standby-since"></p>
+      <p class="standby-note">待命不代表沒有其他天氣風險。最新天氣與停班停課情形，請以官方公告為準。</p>
+      <div class="standby-links">
+        <a href="https://www.cwa.gov.tw/V8/C/P/Typhoon/TY_NEWS.html" target="_blank" rel="noopener noreferrer">中央氣象署颱風消息 ↗</a>
+        <a href="https://www.dgpa.gov.tw/typh/daily/nds.html" target="_blank" rel="noopener noreferrer">官方停班停課公告 ↗</a>
+      </div>
+    </main>
+
+    <main id="forecast-dashboard" class="layout">
       <!-- Left: Multi-Pass HDR Atmospheric Canvas & Warp Scrubber -->
       <section class="holo-card map-card" id="storm-map" aria-label="颱風地圖與預報時間軸" data-spotlight>
         <div class="corner-bracket cb-tl"></div>
@@ -285,6 +297,5 @@
   </div>
 
   <script type="module" src="./src/ultra-app.js"></script>
-  <script type="module" src="./src/news.js"></script>
 </body>
 </html>

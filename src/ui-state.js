@@ -40,7 +40,19 @@ function displayTime(value) {
   });
 }
 
+export function isStandbyDataset(data, scenario = data?.scenarios?.[0]) {
+  return data?.monitoring?.mode === 'standby' && data?.officialSync?.cwaStatus === 'no_active' &&
+    Number.isFinite(Date.parse(data.monitoring.standbySince)) && Number.isFinite(Date.parse(data.updatedAt)) &&
+    scenario?.hasTyphoon === false && Array.isArray(data.scenarios) && data.scenarios.length > 0 &&
+    data.scenarios.every((item) => item?.hasTyphoon === false);
+}
+
 export function sourcePresentation(data, scenario, now = Date.now()) {
+  if (isStandbyDataset(data, scenario)) {
+    return { stale: false, live: false, standby: true,
+      standbySinceText: `待命開始 ${displayTime(data.monitoring.standbySince)}`,
+      text: `待命開始 ${displayTime(data.monitoring.standbySince)} · 本輪追蹤已結束，等待下一個颱風` };
+  }
   const generatedAt = Date.parse(data.updatedAt);
   const observedAt = scenario?.observedAt || data.officialSync?.observedAt;
   const observedTime = Date.parse(observedAt);

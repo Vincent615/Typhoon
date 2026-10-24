@@ -22,6 +22,8 @@ jobs:
       data-ref: ${{ steps.commit.outputs.ref }}
       forecast-result: ${{ steps.forecast.outcome }}
       news-result: ${{ steps.news.outcome }}
+      monitoring-mode: ${{ steps.monitoring.outputs.mode }}
+      data-changed: ${{ steps.commit.outputs.changed }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -41,13 +43,32 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/update_typhoon_data.mjs
 
+      - name: Read Saved Monitoring Mode
+        id: monitoring
+        run: |
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs/promises';
+          const data = JSON.parse(await fs.readFile('data/typhoon-data.json', 'utf8'));
+          const mode = data.monitoring?.mode ?? 'active';
+          if (!['active', 'standby'].includes(mode)) throw new Error('Invalid saved monitoring mode');
+          if (mode === 'standby' && (data.officialSync?.cwaStatus !== 'no_active' ||
+              !Array.isArray(data.scenarios) || data.scenarios.length === 0 ||
+              data.scenarios.some((scenario) => scenario.hasTyphoon !== false))) {
+            throw new Error('Saved standby state is inconsistent with forecast data');
+          }
+          await fs.appendFile(process.env.GITHUB_OUTPUT, `mode=${mode}\n`);
+          NODE
+
       - name: Fetch Recent Typhoon News
         id: news
+        if: ${{ steps.monitoring.outputs.mode == 'active' }}
         continue-on-error: true
         run: npm run update-news
 
       - name: Commit and Push Updated Data
         id: commit
+        env:
+          MONITORING_MODE: ${{ steps.monitoring.outputs.mode }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -57,14 +78,25 @@ jobs:
           fi
           if git diff --staged --quiet; then
             echo "No data changes"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            if [ "$MONITORING_MODE" = "standby" ]; then
+              last_commit=$(git log -1 --format=%ct)
+              current_time=$(date +%s)
+              if (( current_time - last_commit >= 28 * 24 * 60 * 60 )); then
+                git commit --allow-empty -m "chore: keep scheduled typhoon discovery active"
+                git push
+              fi
+            fi
           else
             git commit -m "chore(data): update typhoon forecast and news"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
           echo "ref=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
   deploy:
     needs: update-forecast
+    if: ${{ needs.update-forecast.outputs.data-changed == 'true' }}
     uses: ./.github/workflows/deploy-pages.yml
     with:
       ref: ${{ needs.update-forecast.outputs.data-ref }}
@@ -74,13 +106,30 @@ jobs:
     if: ${{ always() && needs.update-forecast.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Report source update results
+      - name: Report update and deployment results
         env:
           FORECAST_RESULT: ${{ needs.update-forecast.outputs.forecast-result }}
           NEWS_RESULT: ${{ needs.update-forecast.outputs.news-result }}
+          MONITORING_MODE: ${{ needs.update-forecast.outputs.monitoring-mode }}
+          DATA_CHANGED: ${{ needs.update-forecast.outputs.data-changed }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
         run: |
-          if [ "$FORECAST_RESULT" != "success" ] || [ "$NEWS_RESULT" != "success" ]; then
-            echo "::error::Source update failed (forecast=$FORECAST_RESULT, news=$NEWS_RESULT). Available data and source status were retained for deployment."
+          if [ "$FORECAST_RESULT" != "success" ]; then
+            echo "::error::Forecast update failed; the previous forecast was retained (mode=$MONITORING_MODE, news=$NEWS_RESULT)."
             exit 1
           fi
-          echo "Forecast and news update commands completed."
+          if { [ "$MONITORING_MODE" = "active" ] && [ "$NEWS_RESULT" = "success" ]; } ||
+             { [ "$MONITORING_MODE" = "standby" ] && [ "$NEWS_RESULT" = "skipped" ]; }; then
+            :
+          else
+            echo "::error::Unexpected news result for monitoring mode (mode=$MONITORING_MODE, news=$NEWS_RESULT)."
+            exit 1
+          fi
+          if { [ "$DATA_CHANGED" = "true" ] && [ "$DEPLOY_RESULT" = "success" ]; } ||
+             { [ "$DATA_CHANGED" = "false" ] && [ "$DEPLOY_RESULT" = "skipped" ]; }; then
+            :
+          else
+            echo "::error::Deployment did not match the data change result (changed=$DATA_CHANGED, deployment=$DEPLOY_RESULT)."
+            exit 1
+          fi
+          echo "Update cycle completed (mode=$MONITORING_MODE, changed=$DATA_CHANGED, news=$NEWS_RESULT, deployment=$DEPLOY_RESULT)."

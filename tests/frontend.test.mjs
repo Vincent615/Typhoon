@@ -150,6 +150,41 @@ test('ultra: playback repeats across multiple cycles and respects a manual pause
 for (const [name, AppClass, Renderer] of [
   ['standard', App, TyphoonMapRenderer], ['ultra', UltraApp, UltraTyphoonRenderer]
 ]) {
+  test(`${name}: standby initialization skips map, animation and news setup`, async (t) => {
+    const doc = documentStub();
+    const previousDocument = globalThis.document;
+    globalThis.document = doc;
+    t.after(() => { globalThis.document = previousDocument; });
+    const payload = {
+      updatedAt: '2026-10-24T00:00:00Z', defaultScenarioId: 'calm',
+      monitoring: { mode: 'standby', standbySince: '2026-10-24T00:00:00Z', discoveryIntervalHours: 3 },
+      officialSync: { cwaStatus: 'no_active' }, scenarios: [scenario('calm', true)]
+    };
+    const urls = [];
+    t.mock.method(globalThis, 'fetch', async (url) => {
+      urls.push(url);
+      return { ok: true, json: async () => payload };
+    });
+    const intervals = [];
+    t.mock.method(globalThis, 'setInterval', (_callback, delay) => { intervals.push(delay); return 1; });
+    t.mock.method(globalThis, 'clearInterval', () => {});
+    const app = new AppClass();
+    await app.init();
+    assert.equal(urls.length, 1);
+    assert.match(urls[0], /typhoon-data\.json/);
+    assert.equal(app.map, undefined);
+    assert.notEqual(app.animationStarted, true);
+    assert.equal(app.playing, false);
+    assert.deepEqual(intervals, [300000]);
+    assert.equal(doc.getElementById('standby-panel').hidden, false);
+    for (const id of ['forecast-dashboard', 'latest-news', 'page-navigation', 'storm-picker']) {
+      assert.equal(doc.getElementById(id).hidden, true);
+    }
+    assert.match(doc.getElementById('updated-at').textContent, /待命開始/);
+    assert.doesNotMatch(doc.getElementById('updated-at').textContent, /目前無|資料過期|官方觀測/);
+    app.stopStandbyRefresh();
+  });
+
   test(`${name}: tropical-depression observations preserve qualitative movement and unknown estimates`, () => {
     const { app, node } = setup(AppClass, Renderer);
     const note = '部分時次未提供七級風半徑，不計算縣市風雨及機率。';

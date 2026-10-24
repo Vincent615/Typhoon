@@ -169,7 +169,3 @@ export async function mountNews(root, {
   ] : [];
   return () => timers.forEach(timer => clearIntervalImpl(timer));
 }
-
-if (typeof window !== 'undefined') {
-  window.addEventListener('DOMContentLoaded', () => mountNews(document.getElementById('latest-news')));
-}

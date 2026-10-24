@@ -1,5 +1,7 @@
+import { renderStandby, startStandbyRefresh } from './standby.js';
+import { mountNews } from './news.js';
 import { initializeAnimation, observeAnimation, requestFrame, runAnimationFrame, updateTimeline, setText, setHTML, setStyle, setAttribute, setProperty, setClass } from './animation-clock.js';
-import { ownsKeyboardInput, compareCounties, sourcePresentation, probabilityText } from './ui-state.js';
+import { ownsKeyboardInput, compareCounties, sourcePresentation, probabilityText, isStandbyDataset } from './ui-state.js';
 import { TyphoonMapRenderer, getProbabilityColor } from './map-renderer.js';
 
 const $ = (id) => document.getElementById(id);
@@ -63,6 +65,15 @@ export class App {
     if (!res.ok) throw new Error(`資料載入失敗 (${res.status})`);
     this.data = await res.json();
 
+    const initialScenario = this.data.scenarios?.find((item) => item.id === this.data.defaultScenarioId) || this.data.scenarios?.[0];
+    if (isStandbyDataset(this.data, initialScenario)) {
+      this.scenario = initialScenario;
+      this.renderSourceMeta();
+      this.stopStandbyRefresh = startStandbyRefresh(this.data);
+      return;
+    }
+    void mountNews($('latest-news'));
+
     this.map = new TyphoonMapRenderer($('typhoon-canvas'), {
       onSelectCounty: (id) => this.selectCounty(id),
       onSelectStep: (i) => this.goToStep(i),
@@ -91,6 +102,7 @@ export class App {
   }
 
   renderSourceMeta() {
+    renderStandby(this.data, this.scenario);
     const status = sourcePresentation(this.data, this.scenario);
     $('updated-at').textContent = status.text;
     $('live-dot').hidden = !status.live;
