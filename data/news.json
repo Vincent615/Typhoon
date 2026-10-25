@@ -1,10 +1,30 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-25T02:11:44.578Z",
-  "lastSuccessfulAt": "2026-10-25T02:11:44.578Z",
+  "lastCheckedAt": "2026-10-25T07:54:39.814Z",
+  "lastSuccessfulAt": "2026-10-25T07:54:39.814Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "8a9694315cc27c8f079b",
+      "title": "北市颱風災情2680件多為樹倒 蔣萬安裁示今完成復原工作",
+      "url": "https://news.pts.org.tw/article/832864",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-25T06:01:42.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "6dc7094d8a2cb8c8894f",
+      "title": "颱風薔琵遠離 桃園動員清潔人力復原清運1428噸垃圾",
+      "url": "https://www.cna.com.tw/news/ahel/202610250072.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-25T05:16:50.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "33e03b47142afc6863cb",
       "title": "颱風薔琵遠離花東防較大雨勢 27日迎東北季風轉涼",
@@ -66,52 +86,12 @@
       "cached": false
     },
     {
-      "id": "befbf2aa3d213fbd6f54",
-      "title": "颱風薔琵致農損逾1.3億元 雲林占8成、蒜頭最傷",
-      "url": "https://www.cna.com.tw/news/ahel/202610240174.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T10:23:29.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "3524d6c88dd2e16f6ba5",
-      "title": "颱風薔琵逐漸遠離 苗栗以北仍有斷續降雨",
-      "url": "https://www.cna.com.tw/news/ahel/202610240171.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T10:09:22.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "1a75088b28d5b8d4d78a",
-      "title": "颱風薔琵逐漸遠離 估晚間8時30分解除海警",
-      "url": "https://www.cna.com.tw/news/ahel/202610240161.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T09:29:58.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
       "id": "42bc3676b9e38363de8a",
       "title": "估薔琵下午減弱為輕颱 傍晚前後可望解除陸警",
       "url": "https://news.pts.org.tw/article/832802",
       "sourceId": "pts",
       "sourceName": "公視新聞網",
       "publishedAt": "2026-10-24T05:20:49.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "2708838ecacaec54eab7",
-      "title": "颱風薔琵北上遠離台灣 最快今日下午解除陸警",
-      "url": "https://news.pts.org.tw/article/832786",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-24T02:21:06.000Z",
       "dateKind": "updated",
       "cached": false
     }
@@ -123,9 +103,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-25T02:11:44.578Z",
-      "lastSuccessfulAt": "2026-10-25T02:11:44.578Z",
-      "articleCount": 7
+      "lastCheckedAt": "2026-10-25T07:54:39.814Z",
+      "lastSuccessfulAt": "2026-10-25T07:54:39.814Z",
+      "articleCount": 5
     },
     {
       "id": "pts",
@@ -133,8 +113,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-25T02:11:44.578Z",
-      "lastSuccessfulAt": "2026-10-25T02:11:44.578Z",
+      "lastCheckedAt": "2026-10-25T07:54:39.814Z",
+      "lastSuccessfulAt": "2026-10-25T07:54:39.814Z",
       "articleCount": 4
     }
   ]
