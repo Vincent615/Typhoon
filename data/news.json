@@ -1,18 +1,68 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-25T07:54:39.814Z",
-  "lastSuccessfulAt": "2026-10-25T07:54:39.814Z",
+  "lastCheckedAt": "2026-10-25T13:26:37.505Z",
+  "lastSuccessfulAt": "2026-10-25T13:26:37.505Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "84888feeed92147fbd0b",
+      "title": "薔琵颱風農損逾1.93億 卓榮泰促收件3日內核發補助",
+      "url": "https://news.pts.org.tw/article/832868",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-25T12:11:25.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
     {
       "id": "8a9694315cc27c8f079b",
       "title": "北市颱風災情2680件多為樹倒 蔣萬安裁示今完成復原工作",
       "url": "https://news.pts.org.tw/article/832864",
       "sourceId": "pts",
       "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-25T06:01:42.000Z",
+      "publishedAt": "2026-10-25T12:09:04.000Z",
       "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "ef1764dc9c42c2ed83e7",
+      "title": "一週大事／薔琵颱風侵台、PHP資安漏洞（2026.10.19-10.25）",
+      "url": "https://news.pts.org.tw/article/832867",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-25T09:43:13.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "f830aeeca3ba5e59c04a",
+      "title": "颱風薔琵釀137校受災損失逾2千萬元 宜花最嚴重",
+      "url": "https://www.cna.com.tw/news/ahel/202610250101.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-25T07:25:54.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "c29301edfb5aea89775d",
+      "title": "颱風影響金門仍逾千人滯留 軍機6架次助疏運",
+      "url": "https://www.cna.com.tw/news/ahel/202610250090.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-25T06:45:30.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "b45e00814d8a10efacb2",
+      "title": "颱風薔琵致農損逾1.5億元 宜蘭將全品項救助",
+      "url": "https://www.cna.com.tw/news/ahel/202610250079.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-25T06:07:06.000Z",
+      "dateKind": "published",
       "cached": false
     },
     {
@@ -54,46 +104,6 @@
       "publishedAt": "2026-10-24T12:10:13.000Z",
       "dateKind": "published",
       "cached": false
-    },
-    {
-      "id": "ecd93b2e7ee4d42aa49e",
-      "title": "高雄昕愛月子中心颱風夜趕人 衛生局：違法業者已開罰9次",
-      "url": "https://news.pts.org.tw/article/832807",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-24T11:59:23.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "244a27ef41aee3b79de1",
-      "title": "颱風期間傳AI假災情圖 6嫌涉災防法最重可處有期徒刑",
-      "url": "https://news.pts.org.tw/article/832806",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-24T11:58:55.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "d6b85222b08702e1b53e",
-      "title": "颱風外圍環流影響 北北桃竹苗山區防豪雨",
-      "url": "https://www.cna.com.tw/news/ahel/202610240188.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-24T11:40:00.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "42bc3676b9e38363de8a",
-      "title": "估薔琵下午減弱為輕颱 傍晚前後可望解除陸警",
-      "url": "https://news.pts.org.tw/article/832802",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-24T05:20:49.000Z",
-      "dateKind": "updated",
-      "cached": false
     }
   ],
   "sources": [
@@ -103,9 +113,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-25T07:54:39.814Z",
-      "lastSuccessfulAt": "2026-10-25T07:54:39.814Z",
-      "articleCount": 5
+      "lastCheckedAt": "2026-10-25T13:26:37.505Z",
+      "lastSuccessfulAt": "2026-10-25T13:26:37.505Z",
+      "articleCount": 7
     },
     {
       "id": "pts",
@@ -113,9 +123,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-25T07:54:39.814Z",
-      "lastSuccessfulAt": "2026-10-25T07:54:39.814Z",
-      "articleCount": 4
+      "lastCheckedAt": "2026-10-25T13:26:37.505Z",
+      "lastSuccessfulAt": "2026-10-25T13:26:37.505Z",
+      "articleCount": 3
     }
   ]
 }
