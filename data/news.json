@@ -1,10 +1,40 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-26T08:15:08.032Z",
-  "lastSuccessfulAt": "2026-10-26T08:15:08.032Z",
+  "lastCheckedAt": "2026-10-26T15:36:07.515Z",
+  "lastSuccessfulAt": "2026-10-26T15:36:07.515Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "c2a82d850cfe0c0c04c7",
+      "title": "雲林颱風農損逾1.2億 大蒜、落花生受損逾400公頃",
+      "url": "https://news.pts.org.tw/article/832951",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-26T13:10:04.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "455eac358a6c823857c7",
+      "title": "颱風離台海巡加強警戒防潛逃 高雄永新漁港查獲洗錢通緝犯",
+      "url": "https://news.pts.org.tw/article/833038",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-26T13:01:25.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
+    {
+      "id": "74b794182927398e823f",
+      "title": "薔琵颱風釀全台農損逾2億 雲林雜糧蔬菜等可直接申報救助",
+      "url": "https://news.pts.org.tw/article/833029",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-26T12:48:45.000Z",
+      "dateKind": "updated",
+      "cached": false
+    },
     {
       "id": "492d919f73f86b13e9f8",
       "title": "颱風停課團膳食材報廢損失 業者盼建天災風險分攤機制",
@@ -12,16 +42,6 @@
       "sourceId": "pts",
       "sourceName": "公視新聞網",
       "publishedAt": "2026-10-26T06:38:06.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "c2a82d850cfe0c0c04c7",
-      "title": "雲林颱風農損逾1.2億 大蒜、落花生受損逾400公頃",
-      "url": "https://news.pts.org.tw/article/832951",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-26T06:16:07.000Z",
       "dateKind": "updated",
       "cached": false
     },
@@ -34,26 +54,6 @@
       "publishedAt": "2026-10-26T05:15:44.000Z",
       "dateKind": "published",
       "cached": false
-    },
-    {
-      "id": "84888feeed92147fbd0b",
-      "title": "薔琵颱風農損逾1.93億 卓榮泰促收件3日內核發補助",
-      "url": "https://news.pts.org.tw/article/832868",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-25T12:11:25.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "ef1764dc9c42c2ed83e7",
-      "title": "一週大事／薔琵颱風侵台、PHP資安漏洞（2026.10.19-10.25）",
-      "url": "https://news.pts.org.tw/article/832867",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-25T09:43:13.000Z",
-      "dateKind": "updated",
-      "cached": false
     }
   ],
   "sources": [
@@ -63,8 +63,8 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-26T08:15:08.032Z",
-      "lastSuccessfulAt": "2026-10-26T08:15:08.032Z",
+      "lastCheckedAt": "2026-10-26T15:36:07.515Z",
+      "lastSuccessfulAt": "2026-10-26T15:36:07.515Z",
       "articleCount": 1
     },
     {
@@ -73,8 +73,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-26T08:15:08.032Z",
-      "lastSuccessfulAt": "2026-10-26T08:15:08.032Z",
+      "lastCheckedAt": "2026-10-26T15:36:07.515Z",
+      "lastSuccessfulAt": "2026-10-26T15:36:07.515Z",
       "articleCount": 4
     }
   ]
