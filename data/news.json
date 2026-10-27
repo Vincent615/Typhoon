@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-27T15:00:35.290Z",
-  "lastSuccessfulAt": "2026-10-27T15:00:35.290Z",
+  "lastCheckedAt": "2026-10-27T21:34:26.319Z",
+  "lastSuccessfulAt": "2026-10-27T21:34:26.319Z",
   "windowDays": 7,
   "articles": [
     {
@@ -24,16 +24,6 @@
       "publishedAt": "2026-10-27T09:07:49.000Z",
       "dateKind": "published",
       "cached": false
-    },
-    {
-      "id": "c771974e175257270c49",
-      "title": "颱風薔琵致災 中華郵政寬延保費、受災房貸戶1年寬限期",
-      "url": "https://www.cna.com.tw/news/ahel/202610270158.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-27T06:57:40.000Z",
-      "dateKind": "published",
-      "cached": false
     }
   ],
   "sources": [
@@ -43,9 +33,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-27T15:00:35.290Z",
-      "lastSuccessfulAt": "2026-10-27T15:00:35.290Z",
-      "articleCount": 3
+      "lastCheckedAt": "2026-10-27T21:34:26.319Z",
+      "lastSuccessfulAt": "2026-10-27T21:34:26.319Z",
+      "articleCount": 2
     },
     {
       "id": "pts",
@@ -53,8 +43,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "empty",
-      "lastCheckedAt": "2026-10-27T15:00:35.290Z",
-      "lastSuccessfulAt": "2026-10-27T15:00:35.290Z",
+      "lastCheckedAt": "2026-10-27T21:34:26.319Z",
+      "lastSuccessfulAt": "2026-10-27T21:34:26.319Z",
       "articleCount": 0
     }
   ]
