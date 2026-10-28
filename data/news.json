@@ -1,18 +1,28 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-28T09:12:13.930Z",
-  "lastSuccessfulAt": "2026-10-28T09:12:13.930Z",
+  "lastCheckedAt": "2026-10-28T17:35:55.016Z",
+  "lastSuccessfulAt": "2026-10-28T17:35:55.016Z",
   "windowDays": 7,
   "articles": [
     {
-      "id": "a0f965fc3f32845f1dde",
-      "title": "遭颱風大浪打落港嘴 富岡漁港吊臂車今有望打撈上岸",
-      "url": "https://news.pts.org.tw/article/833254",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-28T07:37:16.000Z",
-      "dateKind": "updated",
+      "id": "eb0bf0ef06813b2b9fcc",
+      "title": "颱風薔琵農損增至4.4億元 蒜頭受害最嚴重",
+      "url": "https://www.cna.com.tw/news/ahel/202610280285.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-28T10:33:14.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
+    {
+      "id": "360c9bd1663a4dc920aa",
+      "title": "颱風薔琵帶來雨量 全台水庫進帳豐明年春耕可望無虞",
+      "url": "https://www.cna.com.tw/news/ahel/202610280270.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-28T09:53:41.000Z",
+      "dateKind": "published",
       "cached": false
     }
   ],
@@ -22,20 +32,20 @@
       "name": "中央通訊社",
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
-      "status": "empty",
-      "lastCheckedAt": "2026-10-28T09:12:13.930Z",
-      "lastSuccessfulAt": "2026-10-28T09:12:13.930Z",
-      "articleCount": 0
+      "status": "ok",
+      "lastCheckedAt": "2026-10-28T17:35:55.016Z",
+      "lastSuccessfulAt": "2026-10-28T17:35:55.016Z",
+      "articleCount": 2
     },
     {
       "id": "pts",
       "name": "公視新聞網",
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
-      "status": "ok",
-      "lastCheckedAt": "2026-10-28T09:12:13.930Z",
-      "lastSuccessfulAt": "2026-10-28T09:12:13.930Z",
-      "articleCount": 1
+      "status": "empty",
+      "lastCheckedAt": "2026-10-28T17:35:55.016Z",
+      "lastSuccessfulAt": "2026-10-28T17:35:55.016Z",
+      "articleCount": 0
     }
   ]
 }
