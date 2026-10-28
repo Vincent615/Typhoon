@@ -1,28 +1,18 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-28T02:56:39.183Z",
-  "lastSuccessfulAt": "2026-10-28T02:56:39.183Z",
+  "lastCheckedAt": "2026-10-28T09:12:13.930Z",
+  "lastSuccessfulAt": "2026-10-28T09:12:13.930Z",
   "windowDays": 7,
   "articles": [
     {
-      "id": "9cc5896d7e9618f0ee29",
-      "title": "颱風薔琵農損增至3.4億元 農作物被害5978公頃",
-      "url": "https://www.cna.com.tw/news/ahel/202610270278.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-27T11:24:01.000Z",
-      "dateKind": "published",
-      "cached": false
-    },
-    {
-      "id": "5c55e3e9ec6c6d563bfa",
-      "title": "颱風薔琵影響 光復節連假國道日均交通量減16%",
-      "url": "https://www.cna.com.tw/news/ahel/202610270218.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-10-27T09:07:49.000Z",
-      "dateKind": "published",
+      "id": "a0f965fc3f32845f1dde",
+      "title": "遭颱風大浪打落港嘴 富岡漁港吊臂車今有望打撈上岸",
+      "url": "https://news.pts.org.tw/article/833254",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-10-28T07:37:16.000Z",
+      "dateKind": "updated",
       "cached": false
     }
   ],
@@ -32,20 +22,20 @@
       "name": "中央通訊社",
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
-      "status": "ok",
-      "lastCheckedAt": "2026-10-28T02:56:39.183Z",
-      "lastSuccessfulAt": "2026-10-28T02:56:39.183Z",
-      "articleCount": 2
+      "status": "empty",
+      "lastCheckedAt": "2026-10-28T09:12:13.930Z",
+      "lastSuccessfulAt": "2026-10-28T09:12:13.930Z",
+      "articleCount": 0
     },
     {
       "id": "pts",
       "name": "公視新聞網",
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
-      "status": "empty",
-      "lastCheckedAt": "2026-10-28T02:56:39.183Z",
-      "lastSuccessfulAt": "2026-10-28T02:56:39.183Z",
-      "articleCount": 0
+      "status": "ok",
+      "lastCheckedAt": "2026-10-28T09:12:13.930Z",
+      "lastSuccessfulAt": "2026-10-28T09:12:13.930Z",
+      "articleCount": 1
     }
   ]
 }
