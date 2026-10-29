@@ -1,27 +1,17 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-29T11:56:11.074Z",
-  "lastSuccessfulAt": "2026-10-29T11:56:11.074Z",
+  "lastCheckedAt": "2026-10-29T17:49:58.327Z",
+  "lastSuccessfulAt": "2026-10-29T17:49:58.327Z",
   "windowDays": 7,
   "articles": [
     {
-      "id": "2353b05188368765a9d4",
-      "title": "立委質疑颱風農損救助標準 陳駿季：根據風速雨量指標評估",
-      "url": "https://news.pts.org.tw/article/833420",
+      "id": "9adc0da7ee17333c3617",
+      "title": "薔琵颱風釀全台農損約4.4億元 立委質疑中央救助標準",
+      "url": "https://news.pts.org.tw/article/833505",
       "sourceId": "pts",
       "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-29T06:45:46.000Z",
-      "dateKind": "updated",
-      "cached": false
-    },
-    {
-      "id": "d274698ab8ef393d0107",
-      "title": "雲林花生復耕又遭颱風 農業部：可再申報認定救助資格",
-      "url": "https://news.pts.org.tw/article/833419",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-10-29T06:45:11.000Z",
+      "publishedAt": "2026-10-29T12:58:05.000Z",
       "dateKind": "updated",
       "cached": false
     }
@@ -33,8 +23,8 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "empty",
-      "lastCheckedAt": "2026-10-29T11:56:11.074Z",
-      "lastSuccessfulAt": "2026-10-29T11:56:11.074Z",
+      "lastCheckedAt": "2026-10-29T17:49:58.327Z",
+      "lastSuccessfulAt": "2026-10-29T17:49:58.327Z",
       "articleCount": 0
     },
     {
@@ -43,9 +33,9 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-29T11:56:11.074Z",
-      "lastSuccessfulAt": "2026-10-29T11:56:11.074Z",
-      "articleCount": 2
+      "lastCheckedAt": "2026-10-29T17:49:58.327Z",
+      "lastSuccessfulAt": "2026-10-29T17:49:58.327Z",
+      "articleCount": 1
     }
   ]
 }
