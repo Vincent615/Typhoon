@@ -1,10 +1,20 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-10-29T22:11:21.821Z",
-  "lastSuccessfulAt": "2026-10-29T22:11:21.821Z",
+  "lastCheckedAt": "2026-10-30T03:24:49.760Z",
+  "lastSuccessfulAt": "2026-10-30T03:24:49.760Z",
   "windowDays": 7,
   "articles": [
+    {
+      "id": "b8f6c096f5c64cde9821",
+      "title": "颱風煙花轉強颱 吳德榮：東部有雨、中南部晴朗上看34度",
+      "url": "https://www.cna.com.tw/news/ahel/202610300021.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-10-30T00:07:55.000Z",
+      "dateKind": "published",
+      "cached": false
+    },
     {
       "id": "9adc0da7ee17333c3617",
       "title": "薔琵颱風釀全台農損約4.4億元 立委質疑中央救助標準",
@@ -22,10 +32,10 @@
       "name": "中央通訊社",
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
-      "status": "empty",
-      "lastCheckedAt": "2026-10-29T22:11:21.821Z",
-      "lastSuccessfulAt": "2026-10-29T22:11:21.821Z",
-      "articleCount": 0
+      "status": "ok",
+      "lastCheckedAt": "2026-10-30T03:24:49.760Z",
+      "lastSuccessfulAt": "2026-10-30T03:24:49.760Z",
+      "articleCount": 1
     },
     {
       "id": "pts",
@@ -33,8 +43,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-10-29T22:11:21.821Z",
-      "lastSuccessfulAt": "2026-10-29T22:11:21.821Z",
+      "lastCheckedAt": "2026-10-30T03:24:49.760Z",
+      "lastSuccessfulAt": "2026-10-30T03:24:49.760Z",
       "articleCount": 1
     }
   ]
