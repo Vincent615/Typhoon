@@ -1,31 +1,20 @@
 {
   "schemaVersion": 1,
-  "status": "ok",
-  "lastCheckedAt": "2026-11-02T00:01:54.984Z",
-  "lastSuccessfulAt": "2026-11-02T00:01:54.984Z",
+  "status": "empty",
+  "lastCheckedAt": "2026-11-02T10:15:00.080Z",
+  "lastSuccessfulAt": "2026-11-02T10:15:00.080Z",
   "windowDays": 7,
-  "articles": [
-    {
-      "id": "39aca04cfa0c0069f219",
-      "title": "東北季風11/2晚南下 吳德榮：颱風煙花打轉再迴轉",
-      "url": "https://www.cna.com.tw/news/ahel/202611010014.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-11-01T00:45:27.000Z",
-      "dateKind": "published",
-      "cached": false
-    }
-  ],
+  "articles": [],
   "sources": [
     {
       "id": "cna",
       "name": "中央通訊社",
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
-      "status": "ok",
-      "lastCheckedAt": "2026-11-02T00:01:54.984Z",
-      "lastSuccessfulAt": "2026-11-02T00:01:54.984Z",
-      "articleCount": 1
+      "status": "empty",
+      "lastCheckedAt": "2026-11-02T10:15:00.080Z",
+      "lastSuccessfulAt": "2026-11-02T10:15:00.080Z",
+      "articleCount": 0
     },
     {
       "id": "pts",
@@ -33,8 +22,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "empty",
-      "lastCheckedAt": "2026-11-02T00:01:54.984Z",
-      "lastSuccessfulAt": "2026-11-02T00:01:54.984Z",
+      "lastCheckedAt": "2026-11-02T10:15:00.080Z",
+      "lastSuccessfulAt": "2026-11-02T10:15:00.080Z",
       "articleCount": 0
     }
   ]
