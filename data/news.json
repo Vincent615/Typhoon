@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-11-06T10:04:41.656Z",
-  "lastSuccessfulAt": "2026-11-06T10:04:41.656Z",
+  "lastCheckedAt": "2026-11-06T18:39:28.338Z",
+  "lastSuccessfulAt": "2026-11-06T18:39:28.338Z",
   "windowDays": 7,
   "articles": [
     {
-      "id": "ffc48dcc2ab3c680d93e",
-      "title": "2期稻作估受颱風影響減產2成 雲林農民盼納薔琵救助範圍",
-      "url": "https://news.pts.org.tw/article/834570",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-11-06T07:15:31.000Z",
-      "dateKind": "updated",
+      "id": "25d6a9b45b78806f2152",
+      "title": "2波東北季風接力 熱帶性低氣壓最快7日成颱",
+      "url": "https://www.cna.com.tw/news/ahel/202611060257.aspx",
+      "sourceId": "cna",
+      "sourceName": "中央通訊社",
+      "publishedAt": "2026-11-06T09:44:34.000Z",
+      "dateKind": "published",
       "cached": false
     }
   ],
@@ -22,20 +22,20 @@
       "name": "中央通訊社",
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
-      "status": "empty",
-      "lastCheckedAt": "2026-11-06T10:04:41.656Z",
-      "lastSuccessfulAt": "2026-11-06T10:04:41.656Z",
-      "articleCount": 0
+      "status": "ok",
+      "lastCheckedAt": "2026-11-06T18:39:28.338Z",
+      "lastSuccessfulAt": "2026-11-06T18:39:28.338Z",
+      "articleCount": 1
     },
     {
       "id": "pts",
       "name": "公視新聞網",
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
-      "status": "ok",
-      "lastCheckedAt": "2026-11-06T10:04:41.656Z",
-      "lastSuccessfulAt": "2026-11-06T10:04:41.656Z",
-      "articleCount": 1
+      "status": "empty",
+      "lastCheckedAt": "2026-11-06T18:39:28.338Z",
+      "lastSuccessfulAt": "2026-11-06T18:39:28.338Z",
+      "articleCount": 0
     }
   ]
 }
