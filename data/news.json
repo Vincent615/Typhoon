@@ -1,10 +1,21 @@
 {
   "schemaVersion": 1,
-  "status": "empty",
-  "lastCheckedAt": "2026-11-06T01:16:48.009Z",
-  "lastSuccessfulAt": "2026-11-06T01:16:48.009Z",
+  "status": "ok",
+  "lastCheckedAt": "2026-11-06T10:04:41.656Z",
+  "lastSuccessfulAt": "2026-11-06T10:04:41.656Z",
   "windowDays": 7,
-  "articles": [],
+  "articles": [
+    {
+      "id": "ffc48dcc2ab3c680d93e",
+      "title": "2期稻作估受颱風影響減產2成 雲林農民盼納薔琵救助範圍",
+      "url": "https://news.pts.org.tw/article/834570",
+      "sourceId": "pts",
+      "sourceName": "公視新聞網",
+      "publishedAt": "2026-11-06T07:15:31.000Z",
+      "dateKind": "updated",
+      "cached": false
+    }
+  ],
   "sources": [
     {
       "id": "cna",
@@ -12,8 +23,8 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "empty",
-      "lastCheckedAt": "2026-11-06T01:16:48.009Z",
-      "lastSuccessfulAt": "2026-11-06T01:16:48.009Z",
+      "lastCheckedAt": "2026-11-06T10:04:41.656Z",
+      "lastSuccessfulAt": "2026-11-06T10:04:41.656Z",
       "articleCount": 0
     },
     {
@@ -21,10 +32,10 @@
       "name": "公視新聞網",
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
-      "status": "empty",
-      "lastCheckedAt": "2026-11-06T01:16:48.009Z",
-      "lastSuccessfulAt": "2026-11-06T01:16:48.009Z",
-      "articleCount": 0
+      "status": "ok",
+      "lastCheckedAt": "2026-11-06T10:04:41.656Z",
+      "lastSuccessfulAt": "2026-11-06T10:04:41.656Z",
+      "articleCount": 1
     }
   ]
 }
