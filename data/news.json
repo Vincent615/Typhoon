@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "lastCheckedAt": "2026-11-07T09:23:58.206Z",
-  "lastSuccessfulAt": "2026-11-07T09:23:58.206Z",
+  "lastCheckedAt": "2026-11-07T17:08:28.929Z",
+  "lastSuccessfulAt": "2026-11-07T17:08:28.929Z",
   "windowDays": 7,
   "articles": [
     {
@@ -14,16 +14,6 @@
       "publishedAt": "2026-11-07T06:49:02.000Z",
       "dateKind": "published",
       "cached": false
-    },
-    {
-      "id": "a061de7054351f0c4739",
-      "title": "颱風查帕卡最快今生成對台無影響 吳德榮：下週冷空氣低溫探16度",
-      "url": "https://www.cna.com.tw/news/ahel/202611070017.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-11-07T00:27:17.000Z",
-      "dateKind": "published",
-      "cached": false
     }
   ],
   "sources": [
@@ -33,9 +23,9 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "ok",
-      "lastCheckedAt": "2026-11-07T09:23:58.206Z",
-      "lastSuccessfulAt": "2026-11-07T09:23:58.206Z",
-      "articleCount": 2
+      "lastCheckedAt": "2026-11-07T17:08:28.929Z",
+      "lastSuccessfulAt": "2026-11-07T17:08:28.929Z",
+      "articleCount": 1
     },
     {
       "id": "pts",
@@ -43,8 +33,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "empty",
-      "lastCheckedAt": "2026-11-07T09:23:58.206Z",
-      "lastSuccessfulAt": "2026-11-07T09:23:58.206Z",
+      "lastCheckedAt": "2026-11-07T17:08:28.929Z",
+      "lastSuccessfulAt": "2026-11-07T17:08:28.929Z",
       "articleCount": 0
     }
   ]
