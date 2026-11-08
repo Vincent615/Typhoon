@@ -1,31 +1,20 @@
 {
   "schemaVersion": 1,
-  "status": "ok",
-  "lastCheckedAt": "2026-11-07T21:13:24.324Z",
-  "lastSuccessfulAt": "2026-11-07T21:13:24.324Z",
+  "status": "empty",
+  "lastCheckedAt": "2026-11-08T03:13:00.009Z",
+  "lastSuccessfulAt": "2026-11-08T03:13:00.009Z",
   "windowDays": 7,
-  "articles": [
-    {
-      "id": "8efd47c99c2f22e2e3e5",
-      "title": "颱風查帕卡生成 氣象署：對台灣無直接影響",
-      "url": "https://www.cna.com.tw/news/ahel/202611070090.aspx",
-      "sourceId": "cna",
-      "sourceName": "中央通訊社",
-      "publishedAt": "2026-11-07T06:49:02.000Z",
-      "dateKind": "published",
-      "cached": false
-    }
-  ],
+  "articles": [],
   "sources": [
     {
       "id": "cna",
       "name": "中央通訊社",
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
-      "status": "ok",
-      "lastCheckedAt": "2026-11-07T21:13:24.324Z",
-      "lastSuccessfulAt": "2026-11-07T21:13:24.324Z",
-      "articleCount": 1
+      "status": "empty",
+      "lastCheckedAt": "2026-11-08T03:13:00.009Z",
+      "lastSuccessfulAt": "2026-11-08T03:13:00.009Z",
+      "articleCount": 0
     },
     {
       "id": "pts",
@@ -33,8 +22,8 @@
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
       "status": "empty",
-      "lastCheckedAt": "2026-11-07T21:13:24.324Z",
-      "lastSuccessfulAt": "2026-11-07T21:13:24.324Z",
+      "lastCheckedAt": "2026-11-08T03:13:00.009Z",
+      "lastSuccessfulAt": "2026-11-08T03:13:00.009Z",
       "articleCount": 0
     }
   ]
