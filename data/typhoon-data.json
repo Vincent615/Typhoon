@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-09T21:43:38.972Z",
+  "updatedAt": "2026-11-10T05:06:35.278Z",
   "updateIntervalHours": 3,
   "officialSync": {
-    "cwaCheckedAt": "2026-11-09T21:43:35.590Z",
+    "cwaCheckedAt": "2026-11-10T05:06:31.944Z",
     "cwaSourceMode": "中央氣象署公開颱風消息 (TY_NEWS-Data.js)",
     "cwaStatus": "active",
-    "observedAt": "2026-11-09T18:00:00.000Z",
+    "observedAt": "2026-11-10T00:00:00.000Z",
     "liveCycloneDetected": true,
     "dgpaChecked": true,
     "dgpaStatus": "no_announcements",
@@ -19,7 +19,7 @@
   "aiMetadata": {
     "aiProvider": "CWA 公開資料 + 本站規則模型",
     "providerStatus": "not_configured",
-    "executiveBrief": "中度颱風 查帕卡 (CEMPAKA)：現況 (+0h)（11月10日 02:00）本站模型估算較高的縣市為基隆市 15%、宜蘭縣 15%、臺北市 14%。風雨與機率是模型估算，未經實測校準，不代表官方停班課決定。人事行政總處公告表：無停班停課訊息。"
+    "executiveBrief": "中度颱風 查帕卡 (CEMPAKA)：現況 (+0h)（11月10日 08:00）本站模型估算較高的縣市為基隆市 15%、宜蘭縣 15%、臺北市 14%。風雨與機率是模型估算，未經實測校準，不代表官方停班課決定。人事行政總處公告表：無停班停課訊息。"
   },
   "regulationReference": {
     "regulationName": "天然災害停止上班及上課作業辦法",
@@ -40,30 +40,41 @@
       "badge": "CWA 預報・編號第 31 號",
       "cwaClassification": "中度颱風 (編號第 31 號)",
       "typhoonNumber": "編號第 31 號 (國際命名 CEMPAKA)",
-      "observedAt": "2026-11-09T18:00:00.000Z",
+      "observedAt": "2026-11-10T00:00:00.000Z",
       "warningStatus": "中央氣象署颱風消息；海陸警報狀態請查閱氣象署警報頁面",
       "hasTyphoon": true,
       "isLiveOfficial": true,
-      "summary": "中央氣象署 11月10日 02:00 資料：第 31 號中度颱風「查帕卡」(CEMPAKA) 中心位於 24.7°、136.6°，中心氣壓 955 百帕，近中心最大風速每秒 40 公尺，七級風平均暴風半徑 180 公里。以下縣市風雨與機率為本站模型估算，並非官方停班課預報。",
+      "forecastCoverage": {
+        "modelThroughHours": 24,
+        "modelThroughTimeDisplay": "11月11日 08:00",
+        "termination": {
+          "kind": "extratropical",
+          "offsetHours": 36,
+          "sourceText": "預測 36 小時內變性為溫帶氣旋",
+          "timeDisplay": "11月11日 20:00"
+        },
+        "note": "氣象署預測 36 小時內變性為溫帶氣旋。本模型僅適用颱風階段，估算顯示至 +24 小時（11月11日 08:00）；之後不延伸估算，不代表沒有風雨風險。"
+      },
+      "summary": "中央氣象署 11月10日 08:00 資料：第 31 號中度颱風「查帕卡」(CEMPAKA) 中心位於 25°、138°，中心氣壓 955 百帕，近中心最大風速每秒 40 公尺，七級風平均暴風半徑 150 公里。以下縣市風雨與機率為本站模型估算，並非官方停班課預報。",
       "defaultStepIndex": 0,
       "timeline": [
         {
           "offsetLabel": "現況 (+0h)",
           "offsetHours": 0,
-          "timeDisplay": "11月10日 02:00",
-          "lat": 24.7,
-          "lon": 136.6,
+          "timeDisplay": "11月10日 08:00",
+          "lat": 25,
+          "lon": 138,
           "pressureHpa": 955,
           "maxWindMs": 40,
           "maxGustMs": 50,
-          "radius7km": 180,
-          "radius10km": 60,
+          "radius7km": 150,
+          "radius10km": 50,
           "probRadius70km": 0,
           "moveDir": "東北東",
-          "moveSpeedKmh": 22,
+          "moveSpeedKmh": 24,
           "baseRainPotential": 240,
           "intensityScale": 1,
-          "phaseNote": "查帕卡 現況 (+0h)（11月10日 02:00）：中心位於 24.7°、136.6°，中心氣壓 955 hPa，近中心最大風速 40 m/s，七級風暴風半徑 180 公里、十級風暴風半徑 60 公里。",
+          "phaseNote": "查帕卡 現況 (+0h)（11月10日 08:00）：中心位於 25°、138°，中心氣壓 955 hPa，近中心最大風速 40 m/s，七級風暴風半徑 150 公里、十級風暴風半徑 50 公里。",
           "counties": [
             {
               "id": "KEE",
@@ -72,7 +83,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.1276,
               "lon": 121.7392,
-              "distanceKm": 1499,
+              "distanceKm": 1637,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 15,
@@ -94,7 +105,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1499 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
+              "aiReasoning": "距颱風中心約 1637 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -105,7 +116,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.033,
               "lon": 121.5654,
-              "distanceKm": 1516,
+              "distanceKm": 1655,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -127,7 +138,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1516 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1655 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -138,7 +149,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.012,
               "lon": 121.4657,
-              "distanceKm": 1527,
+              "distanceKm": 1665,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -160,7 +171,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1527 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1665 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -171,7 +182,7 @@
               "commuterZone": "北北基桃",
               "lat": 24.9936,
               "lon": 121.301,
-              "distanceKm": 1543,
+              "distanceKm": 1682,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -193,7 +204,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1543 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1682 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -204,7 +215,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.8138,
               "lon": 120.9675,
-              "distanceKm": 1578,
+              "distanceKm": 1717,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -226,7 +237,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1578 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 1717 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -237,7 +248,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.7032,
               "lon": 121.1252,
-              "distanceKm": 1562,
+              "distanceKm": 1702,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -259,7 +270,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1562 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 1702 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -270,7 +281,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.5602,
               "lon": 120.8214,
-              "distanceKm": 1594,
+              "distanceKm": 1734,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -292,7 +303,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1594 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1734 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -303,7 +314,7 @@
               "commuterZone": "中彰投",
               "lat": 24.1477,
               "lon": 120.6736,
-              "distanceKm": 1613,
+              "distanceKm": 1753,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -325,7 +336,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1613 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1753 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -336,7 +347,7 @@
               "commuterZone": "中彰投",
               "lat": 24.0518,
               "lon": 120.5161,
-              "distanceKm": 1630,
+              "distanceKm": 1771,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -358,7 +369,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1630 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1771 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -369,7 +380,7 @@
               "commuterZone": "中彰投",
               "lat": 23.9157,
               "lon": 120.9605,
-              "distanceKm": 1586,
+              "distanceKm": 1728,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -391,7 +402,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1586 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1728 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -402,7 +413,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.7092,
               "lon": 120.4313,
-              "distanceKm": 1643,
+              "distanceKm": 1784,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -424,7 +435,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1643 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1784 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -435,7 +446,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.4801,
               "lon": 120.4491,
-              "distanceKm": 1644,
+              "distanceKm": 1786,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -457,7 +468,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1644 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1786 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -468,592 +479,6 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.4518,
               "lon": 120.574,
-              "distanceKm": 1632,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1632 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TNN",
-              "name": "臺南市",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.9997,
-              "lon": 120.227,
-              "distanceKm": 1675,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1675 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "KHH",
-              "name": "高雄市",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.6273,
-              "lon": 120.3014,
-              "distanceKm": 1675,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1675 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "PIF",
-              "name": "屏東縣",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.5519,
-              "lon": 120.5487,
-              "distanceKm": 1652,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1652 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "ILA",
-              "name": "宜蘭縣",
-              "region": "東部",
-              "commuterZone": "宜花東",
-              "lat": 24.7021,
-              "lon": 121.7378,
-              "distanceKm": 1501,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 15,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1501 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "HUA",
-              "name": "花蓮縣",
-              "region": "東部",
-              "commuterZone": "宜花東",
-              "lat": 23.831,
-              "lon": 121.4514,
-              "distanceKm": 1538,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1538 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TTT",
-              "name": "臺東縣",
-              "region": "東部",
-              "commuterZone": "宜花東",
-              "lat": 22.7972,
-              "lon": 121.0714,
-              "distanceKm": 1594,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1594 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "PEN",
-              "name": "澎湖縣",
-              "region": "外島",
-              "commuterZone": "離島地區",
-              "lat": 23.5711,
-              "lon": 119.5793,
-              "distanceKm": 1731,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1731 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "KIN",
-              "name": "金門縣",
-              "region": "外島",
-              "commuterZone": "離島地區",
-              "lat": 24.4493,
-              "lon": 118.3767,
-              "distanceKm": 1842,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1842 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "LIE",
-              "name": "連江縣",
-              "region": "外島",
-              "commuterZone": "離島地區",
-              "lat": 26.1505,
-              "lon": 119.9265,
-              "distanceKm": 1681,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1681 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            }
-          ],
-          "stats": {
-            "highRiskCount": 0,
-            "maxProb": 15,
-            "islandAvgProb": 12
-          }
-        },
-        {
-          "offsetLabel": "+6h",
-          "offsetHours": 6,
-          "timeDisplay": "11月10日 08:00",
-          "lat": 25.1,
-          "lon": 138.2,
-          "pressureHpa": 955,
-          "maxWindMs": 40,
-          "maxGustMs": 50,
-          "radius7km": 180,
-          "radius10km": 60,
-          "probRadius70km": 40,
-          "moveDir": "東北東",
-          "moveSpeedKmh": 28,
-          "baseRainPotential": 240,
-          "intensityScale": 1,
-          "phaseNote": "查帕卡 +6h（11月10日 08:00）：中心位於 25.1°、138.2°，中心氣壓 955 hPa，近中心最大風速 40 m/s，七級風暴風半徑 180 公里、十級風暴風半徑 60 公里。",
-          "counties": [
-            {
-              "id": "KEE",
-              "name": "基隆市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 25.1276,
-              "lon": 121.7392,
-              "distanceKm": 1656,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 15,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1656 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TPE",
-              "name": "臺北市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 25.033,
-              "lon": 121.5654,
-              "distanceKm": 1674,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1674 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "NTP",
-              "name": "新北市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 25.012,
-              "lon": 121.4657,
-              "distanceKm": 1685,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1685 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TYN",
-              "name": "桃園市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 24.9936,
-              "lon": 121.301,
-              "distanceKm": 1701,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1701 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "HSZ",
-              "name": "新竹市",
-              "region": "北部",
-              "commuterZone": "竹竹苗",
-              "lat": 24.8138,
-              "lon": 120.9675,
-              "distanceKm": 1736,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1736 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "HSQ",
-              "name": "新竹縣",
-              "region": "北部",
-              "commuterZone": "竹竹苗",
-              "lat": 24.7032,
-              "lon": 121.1252,
-              "distanceKm": 1722,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1722 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "MIA",
-              "name": "苗栗縣",
-              "region": "中部",
-              "commuterZone": "竹竹苗",
-              "lat": 24.5602,
-              "lon": 120.8214,
-              "distanceKm": 1754,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1754 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TXG",
-              "name": "臺中市",
-              "region": "中部",
-              "commuterZone": "中彰投",
-              "lat": 24.1477,
-              "lon": 120.6736,
               "distanceKm": 1774,
               "inRadius7": false,
               "inRadius10": false,
@@ -1076,18 +501,18 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1774 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1774 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
             {
-              "id": "CHA",
-              "name": "彰化縣",
-              "region": "中部",
-              "commuterZone": "中彰投",
-              "lat": 24.0518,
-              "lon": 120.5161,
-              "distanceKm": 1791,
+              "id": "TNN",
+              "name": "臺南市",
+              "region": "南部",
+              "commuterZone": "南高屏",
+              "lat": 22.9997,
+              "lon": 120.227,
+              "distanceKm": 1818,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -1103,24 +528,24 @@
               },
               "rain": {
                 "flatland24h": 15,
-                "mountain24h": 15,
+                "mountain24h": 22,
                 "flatlandThreshold": 350,
                 "mountainThreshold": 350,
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1791 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1818 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
             {
-              "id": "NAN",
-              "name": "南投縣",
-              "region": "中部",
-              "commuterZone": "中彰投",
-              "lat": 23.9157,
-              "lon": 120.9605,
-              "distanceKm": 1748,
+              "id": "KHH",
+              "name": "高雄市",
+              "region": "南部",
+              "commuterZone": "南高屏",
+              "lat": 22.6273,
+              "lon": 120.3014,
+              "distanceKm": 1818,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -1142,83 +567,17 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1748 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1818 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
             {
-              "id": "YUN",
-              "name": "雲林縣",
-              "region": "中部",
-              "commuterZone": "雲嘉嘉",
-              "lat": 23.7092,
-              "lon": 120.4313,
-              "distanceKm": 1805,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1805 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "CYI",
-              "name": "嘉義市",
+              "id": "PIF",
+              "name": "屏東縣",
               "region": "南部",
-              "commuterZone": "雲嘉嘉",
-              "lat": 23.4801,
-              "lon": 120.4491,
-              "distanceKm": 1807,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1807 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "CYQ",
-              "name": "嘉義縣",
-              "region": "南部",
-              "commuterZone": "雲嘉嘉",
-              "lat": 23.4518,
-              "lon": 120.574,
+              "commuterZone": "南高屏",
+              "lat": 22.5519,
+              "lon": 120.5487,
               "distanceKm": 1795,
               "inRadius7": false,
               "inRadius10": false,
@@ -1237,110 +596,11 @@
                 "flatland24h": 15,
                 "mountain24h": 22,
                 "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1795 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TNN",
-              "name": "臺南市",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.9997,
-              "lon": 120.227,
-              "distanceKm": 1838,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
                 "mountainThreshold": 350,
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1838 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "KHH",
-              "name": "高雄市",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.6273,
-              "lon": 120.3014,
-              "distanceKm": 1839,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1839 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "PIF",
-              "name": "屏東縣",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.5519,
-              "lon": 120.5487,
-              "distanceKm": 1816,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1816 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 1795 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1351,7 +611,7 @@
               "commuterZone": "宜花東",
               "lat": 24.7021,
               "lon": 121.7378,
-              "distanceKm": 1660,
+              "distanceKm": 1640,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 15,
@@ -1373,7 +633,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1660 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
+              "aiReasoning": "距颱風中心約 1640 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1384,7 +644,7 @@
               "commuterZone": "宜花東",
               "lat": 23.831,
               "lon": 121.4514,
-              "distanceKm": 1700,
+              "distanceKm": 1680,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -1406,7 +666,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1700 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1680 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1417,7 +677,7 @@
               "commuterZone": "宜花東",
               "lat": 22.7972,
               "lon": 121.0714,
-              "distanceKm": 1758,
+              "distanceKm": 1737,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -1439,7 +699,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1758 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
+              "aiReasoning": "距颱風中心約 1737 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1450,7 +710,7 @@
               "commuterZone": "離島地區",
               "lat": 23.5711,
               "lon": 119.5793,
-              "distanceKm": 1893,
+              "distanceKm": 1872,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -1472,7 +732,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1893 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 1872 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1483,7 +743,7 @@
               "commuterZone": "離島地區",
               "lat": 24.4493,
               "lon": 118.3767,
-              "distanceKm": 2001,
+              "distanceKm": 1981,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -1505,7 +765,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2001 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 1981 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1516,7 +776,7 @@
               "commuterZone": "離島地區",
               "lat": 26.1505,
               "lon": 119.9265,
-              "distanceKm": 1834,
+              "distanceKm": 1816,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -1538,7 +798,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1834 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 1816 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             }
@@ -1550,22 +810,22 @@
           }
         },
         {
-          "offsetLabel": "+12h",
-          "offsetHours": 12,
+          "offsetLabel": "+6h",
+          "offsetHours": 6,
           "timeDisplay": "11月10日 14:00",
-          "lat": 25.6,
+          "lat": 25.7,
           "lon": 140,
           "pressureHpa": 960,
           "maxWindMs": 38,
           "maxGustMs": 48,
-          "radius7km": 180,
-          "radius10km": 60,
-          "probRadius70km": 50,
+          "radius7km": 150,
+          "radius10km": 50,
+          "probRadius70km": 40,
           "moveDir": "東北東",
-          "moveSpeedKmh": 32,
+          "moveSpeedKmh": 36,
           "baseRainPotential": 228,
           "intensityScale": 1,
-          "phaseNote": "查帕卡 +12h（11月10日 14:00）：中心位於 25.6°、140°，中心氣壓 960 hPa，近中心最大風速 38 m/s，七級風暴風半徑 180 公里、十級風暴風半徑 60 公里。",
+          "phaseNote": "查帕卡 +6h（11月10日 14:00）：中心位於 25.7°、140°，中心氣壓 960 hPa，近中心最大風速 38 m/s，七級風暴風半徑 150 公里、十級風暴風半徑 50 公里。",
           "counties": [
             {
               "id": "KEE",
@@ -1607,7 +867,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.033,
               "lon": 121.5654,
-              "distanceKm": 1853,
+              "distanceKm": 1852,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -1629,7 +889,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1853 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1852 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1640,7 +900,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.012,
               "lon": 121.4657,
-              "distanceKm": 1863,
+              "distanceKm": 1862,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -1662,7 +922,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1863 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1862 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -1673,7 +933,7 @@
               "commuterZone": "北北基桃",
               "lat": 24.9936,
               "lon": 121.301,
-              "distanceKm": 1880,
+              "distanceKm": 1879,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -1695,7 +955,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1880 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1879 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2036,7 +1296,7 @@
               "commuterZone": "南高屏",
               "lat": 22.6273,
               "lon": 120.3014,
-              "distanceKm": 2024,
+              "distanceKm": 2025,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2058,7 +1318,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2024 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2025 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2069,7 +1329,7 @@
               "commuterZone": "南高屏",
               "lat": 22.5519,
               "lon": 120.5487,
-              "distanceKm": 2002,
+              "distanceKm": 2003,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2091,7 +1351,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2002 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2003 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2135,7 +1395,7 @@
               "commuterZone": "宜花東",
               "lat": 23.831,
               "lon": 121.4514,
-              "distanceKm": 1882,
+              "distanceKm": 1883,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -2157,7 +1417,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1882 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 1883 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2168,7 +1428,7 @@
               "commuterZone": "宜花東",
               "lat": 22.7972,
               "lon": 121.0714,
-              "distanceKm": 1943,
+              "distanceKm": 1944,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -2190,7 +1450,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 1943 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
+              "aiReasoning": "距颱風中心約 1944 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2267,7 +1527,7 @@
               "commuterZone": "離島地區",
               "lat": 26.1505,
               "lon": 119.9265,
-              "distanceKm": 2007,
+              "distanceKm": 2006,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -2289,7 +1549,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2007 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2006 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             }
@@ -2301,22 +1561,22 @@
           }
         },
         {
-          "offsetLabel": "+18h",
-          "offsetHours": 18,
+          "offsetLabel": "+12h",
+          "offsetHours": 12,
           "timeDisplay": "11月10日 20:00",
           "lat": 26.1,
-          "lon": 142.3,
+          "lon": 142.2,
           "pressureHpa": 965,
           "maxWindMs": 35,
           "maxGustMs": 45,
           "radius7km": 180,
           "radius10km": 60,
-          "probRadius70km": 80,
+          "probRadius70km": 60,
           "moveDir": "東北東",
-          "moveSpeedKmh": 40,
+          "moveSpeedKmh": 37,
           "baseRainPotential": 210,
           "intensityScale": 1,
-          "phaseNote": "查帕卡 +18h（11月10日 20:00）：中心位於 26.1°、142.3°，中心氣壓 965 hPa，近中心最大風速 35 m/s，七級風暴風半徑 180 公里、十級風暴風半徑 60 公里。",
+          "phaseNote": "查帕卡 +12h（11月10日 20:00）：中心位於 26.1°、142.2°，中心氣壓 965 hPa，近中心最大風速 35 m/s，七級風暴風半徑 180 公里、十級風暴風半徑 60 公里。",
           "counties": [
             {
               "id": "KEE",
@@ -2325,7 +1585,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.1276,
               "lon": 121.7392,
-              "distanceKm": 2062,
+              "distanceKm": 2052,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 15,
@@ -2347,7 +1607,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2062 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
+              "aiReasoning": "距颱風中心約 2052 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2358,6 +1618,39 @@
               "commuterZone": "北北基桃",
               "lat": 25.033,
               "lon": 121.5654,
+              "distanceKm": 2071,
+              "inRadius7": false,
+              "inRadius10": false,
+              "probability": 14,
+              "riskLevel": "low",
+              "dgpaStatus": "官方公告表目前無停班停課訊息",
+              "commuterSyncApplied": false,
+              "wind": {
+                "avgBeaufort": 3,
+                "gustBeaufort": 5,
+                "thresholdAvg": 7,
+                "thresholdGust": 10,
+                "meetsCriteria": false
+              },
+              "rain": {
+                "flatland24h": 15,
+                "mountain24h": 22,
+                "flatlandThreshold": 350,
+                "mountainThreshold": 350,
+                "meetsCriteria": false
+              },
+              "mountainAlert": null,
+              "aiReasoning": "距颱風中心約 2071 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "modelDecisionNote": "尚未達停班課標準",
+              "officialAnnouncement": null
+            },
+            {
+              "id": "NTP",
+              "name": "新北市",
+              "region": "北部",
+              "commuterZone": "北北基桃",
+              "lat": 25.012,
+              "lon": 121.4657,
               "distanceKm": 2081,
               "inRadius7": false,
               "inRadius10": false,
@@ -2385,46 +1678,13 @@
               "officialAnnouncement": null
             },
             {
-              "id": "NTP",
-              "name": "新北市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 25.012,
-              "lon": 121.4657,
-              "distanceKm": 2091,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2091 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
               "id": "TYN",
               "name": "桃園市",
               "region": "北部",
               "commuterZone": "北北基桃",
               "lat": 24.9936,
               "lon": 121.301,
-              "distanceKm": 2108,
+              "distanceKm": 2098,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -2446,7 +1706,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2108 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 2098 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2457,7 +1717,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.8138,
               "lon": 120.9675,
-              "distanceKm": 2144,
+              "distanceKm": 2134,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -2479,7 +1739,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2144 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2134 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2490,7 +1750,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.7032,
               "lon": 121.1252,
-              "distanceKm": 2130,
+              "distanceKm": 2120,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -2512,7 +1772,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2130 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2120 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2523,7 +1783,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.5602,
               "lon": 120.8214,
-              "distanceKm": 2163,
+              "distanceKm": 2153,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2545,7 +1805,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2163 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2153 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2556,7 +1816,7 @@
               "commuterZone": "中彰投",
               "lat": 24.1477,
               "lon": 120.6736,
-              "distanceKm": 2186,
+              "distanceKm": 2176,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2578,7 +1838,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2186 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2176 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2589,7 +1849,7 @@
               "commuterZone": "中彰投",
               "lat": 24.0518,
               "lon": 120.5161,
-              "distanceKm": 2203,
+              "distanceKm": 2193,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2611,7 +1871,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2203 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2193 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2622,7 +1882,7 @@
               "commuterZone": "中彰投",
               "lat": 23.9157,
               "lon": 120.9605,
-              "distanceKm": 2162,
+              "distanceKm": 2152,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2644,7 +1904,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2162 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2152 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2655,7 +1915,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.7092,
               "lon": 120.4313,
-              "distanceKm": 2219,
+              "distanceKm": 2209,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2677,7 +1937,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2219 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2209 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2688,7 +1948,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.4801,
               "lon": 120.4491,
-              "distanceKm": 2222,
+              "distanceKm": 2212,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2710,7 +1970,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2222 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2212 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2721,7 +1981,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.4518,
               "lon": 120.574,
-              "distanceKm": 2210,
+              "distanceKm": 2201,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2743,7 +2003,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2210 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2201 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2754,7 +2014,7 @@
               "commuterZone": "南高屏",
               "lat": 22.9997,
               "lon": 120.227,
-              "distanceKm": 2256,
+              "distanceKm": 2246,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2776,7 +2036,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2256 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2246 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2787,7 +2047,7 @@
               "commuterZone": "南高屏",
               "lat": 22.6273,
               "lon": 120.3014,
-              "distanceKm": 2259,
+              "distanceKm": 2249,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2809,7 +2069,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2259 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2249 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2820,7 +2080,7 @@
               "commuterZone": "南高屏",
               "lat": 22.5519,
               "lon": 120.5487,
-              "distanceKm": 2236,
+              "distanceKm": 2226,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -2842,7 +2102,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2236 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2226 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2853,7 +2113,7 @@
               "commuterZone": "宜花東",
               "lat": 24.7021,
               "lon": 121.7378,
-              "distanceKm": 2069,
+              "distanceKm": 2059,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 15,
@@ -2875,7 +2135,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2069 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
+              "aiReasoning": "距颱風中心約 2059 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量東北部迎風面與地形放大效應；實際共伴效應仍須參照官方天氣預報。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2886,7 +2146,7 @@
               "commuterZone": "宜花東",
               "lat": 23.831,
               "lon": 121.4514,
-              "distanceKm": 2114,
+              "distanceKm": 2104,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -2908,7 +2168,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2114 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
+              "aiReasoning": "距颱風中心約 2104 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，模型依中心方位考量北部及東部迎風面的地形放大效應。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2919,7 +2179,7 @@
               "commuterZone": "宜花東",
               "lat": 22.7972,
               "lon": 121.0714,
-              "distanceKm": 2177,
+              "distanceKm": 2167,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -2941,7 +2201,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2177 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
+              "aiReasoning": "距颱風中心約 2167 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2952,7 +2212,7 @@
               "commuterZone": "離島地區",
               "lat": 23.5711,
               "lon": 119.5793,
-              "distanceKm": 2307,
+              "distanceKm": 2297,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -2974,7 +2234,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2307 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2297 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -2985,7 +2245,7 @@
               "commuterZone": "離島地區",
               "lat": 24.4493,
               "lon": 118.3767,
-              "distanceKm": 2409,
+              "distanceKm": 2399,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -3007,7 +2267,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2409 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2399 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3018,7 +2278,7 @@
               "commuterZone": "離島地區",
               "lat": 26.1505,
               "lon": 119.9265,
-              "distanceKm": 2231,
+              "distanceKm": 2221,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -3040,7 +2300,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2231 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2221 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             }
@@ -3052,22 +2312,22 @@
           }
         },
         {
-          "offsetLabel": "+24h",
-          "offsetHours": 24,
+          "offsetLabel": "+18h",
+          "offsetHours": 18,
           "timeDisplay": "11月11日 02:00",
-          "lat": 27,
+          "lat": 27.1,
           "lon": 144.5,
-          "pressureHpa": 970,
-          "maxWindMs": 33,
-          "maxGustMs": 43,
-          "radius7km": 150,
-          "radius10km": 50,
-          "probRadius70km": 90,
+          "pressureHpa": 975,
+          "maxWindMs": 30,
+          "maxGustMs": 38,
+          "radius7km": 180,
+          "radius10km": 60,
+          "probRadius70km": 80,
           "moveDir": "東北東",
-          "moveSpeedKmh": 40,
-          "baseRainPotential": 198,
+          "moveSpeedKmh": 42,
+          "baseRainPotential": 180,
           "intensityScale": 1,
-          "phaseNote": "查帕卡 +24h（11月11日 02:00）：中心位於 27°、144.5°，中心氣壓 970 hPa，近中心最大風速 33 m/s，七級風暴風半徑 150 公里、十級風暴風半徑 50 公里。",
+          "phaseNote": "查帕卡 +18h（11月11日 02:00）：中心位於 27.1°、144.5°，中心氣壓 975 hPa，近中心最大風速 30 m/s，七級風暴風半徑 180 公里、十級風暴風半徑 60 公里。",
           "counties": [
             {
               "id": "KEE",
@@ -3307,7 +2567,7 @@
               "commuterZone": "中彰投",
               "lat": 24.1477,
               "lon": 120.6736,
-              "distanceKm": 2407,
+              "distanceKm": 2408,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -3329,7 +2589,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2407 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2408 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3340,7 +2600,7 @@
               "commuterZone": "中彰投",
               "lat": 24.0518,
               "lon": 120.5161,
-              "distanceKm": 2425,
+              "distanceKm": 2426,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -3362,7 +2622,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2425 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2426 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3406,7 +2666,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.7092,
               "lon": 120.4313,
-              "distanceKm": 2442,
+              "distanceKm": 2443,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -3428,7 +2688,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2442 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2443 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3472,7 +2732,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.4518,
               "lon": 120.574,
-              "distanceKm": 2435,
+              "distanceKm": 2436,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -3494,7 +2754,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2435 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2436 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3505,7 +2765,7 @@
               "commuterZone": "南高屏",
               "lat": 22.9997,
               "lon": 120.227,
-              "distanceKm": 2482,
+              "distanceKm": 2483,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -3527,7 +2787,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2482 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2483 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3538,7 +2798,7 @@
               "commuterZone": "南高屏",
               "lat": 22.6273,
               "lon": 120.3014,
-              "distanceKm": 2486,
+              "distanceKm": 2487,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -3560,7 +2820,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2486 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2487 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3571,7 +2831,7 @@
               "commuterZone": "南高屏",
               "lat": 22.5519,
               "lon": 120.5487,
-              "distanceKm": 2464,
+              "distanceKm": 2465,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -3593,7 +2853,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2464 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2465 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3637,7 +2897,7 @@
               "commuterZone": "宜花東",
               "lat": 23.831,
               "lon": 121.4514,
-              "distanceKm": 2338,
+              "distanceKm": 2339,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -3659,7 +2919,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2338 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
+              "aiReasoning": "距颱風中心約 2339 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3670,7 +2930,7 @@
               "commuterZone": "宜花東",
               "lat": 22.7972,
               "lon": 121.0714,
-              "distanceKm": 2405,
+              "distanceKm": 2406,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -3692,7 +2952,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2405 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
+              "aiReasoning": "距颱風中心約 2406 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3703,7 +2963,7 @@
               "commuterZone": "離島地區",
               "lat": 23.5711,
               "lon": 119.5793,
-              "distanceKm": 2530,
+              "distanceKm": 2531,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -3725,7 +2985,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2530 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2531 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -3769,7 +3029,7 @@
               "commuterZone": "離島地區",
               "lat": 26.1505,
               "lon": 119.9265,
-              "distanceKm": 2442,
+              "distanceKm": 2441,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -3791,7 +3051,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2442 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2441 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             }
@@ -3803,773 +3063,22 @@
           }
         },
         {
-          "offsetLabel": "+36h",
-          "offsetHours": 36,
-          "timeDisplay": "11月11日 14:00",
-          "lat": 28.8,
-          "lon": 149.8,
-          "pressureHpa": 975,
-          "maxWindMs": 30,
-          "maxGustMs": 38,
-          "radius7km": 120,
-          "radius10km": 40,
-          "probRadius70km": 120,
-          "moveDir": "東北東",
-          "moveSpeedKmh": 47,
-          "baseRainPotential": 180,
-          "intensityScale": 1,
-          "phaseNote": "查帕卡 +36h（11月11日 14:00）：中心位於 28.8°、149.8°，中心氣壓 975 hPa，近中心最大風速 30 m/s，七級風暴風半徑 120 公里、十級風暴風半徑 40 公里。",
-          "counties": [
-            {
-              "id": "KEE",
-              "name": "基隆市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 25.1276,
-              "lon": 121.7392,
-              "distanceKm": 2804,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2804 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TPE",
-              "name": "臺北市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 25.033,
-              "lon": 121.5654,
-              "distanceKm": 2824,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2824 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "NTP",
-              "name": "新北市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 25.012,
-              "lon": 121.4657,
-              "distanceKm": 2834,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2834 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TYN",
-              "name": "桃園市",
-              "region": "北部",
-              "commuterZone": "北北基桃",
-              "lat": 24.9936,
-              "lon": 121.301,
-              "distanceKm": 2851,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2851 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "HSZ",
-              "name": "新竹市",
-              "region": "北部",
-              "commuterZone": "竹竹苗",
-              "lat": 24.8138,
-              "lon": 120.9675,
-              "distanceKm": 2888,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2888 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "HSQ",
-              "name": "新竹縣",
-              "region": "北部",
-              "commuterZone": "竹竹苗",
-              "lat": 24.7032,
-              "lon": 121.1252,
-              "distanceKm": 2876,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2876 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "MIA",
-              "name": "苗栗縣",
-              "region": "中部",
-              "commuterZone": "竹竹苗",
-              "lat": 24.5602,
-              "lon": 120.8214,
-              "distanceKm": 2910,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2910 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TXG",
-              "name": "臺中市",
-              "region": "中部",
-              "commuterZone": "中彰投",
-              "lat": 24.1477,
-              "lon": 120.6736,
-              "distanceKm": 2937,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2937 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "CHA",
-              "name": "彰化縣",
-              "region": "中部",
-              "commuterZone": "中彰投",
-              "lat": 24.0518,
-              "lon": 120.5161,
-              "distanceKm": 2956,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2956 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "NAN",
-              "name": "南投縣",
-              "region": "中部",
-              "commuterZone": "中彰投",
-              "lat": 23.9157,
-              "lon": 120.9605,
-              "distanceKm": 2917,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2917 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "YUN",
-              "name": "雲林縣",
-              "region": "中部",
-              "commuterZone": "雲嘉嘉",
-              "lat": 23.7092,
-              "lon": 120.4313,
-              "distanceKm": 2975,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2975 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "CYI",
-              "name": "嘉義市",
-              "region": "南部",
-              "commuterZone": "雲嘉嘉",
-              "lat": 23.4801,
-              "lon": 120.4491,
-              "distanceKm": 2981,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2981 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "CYQ",
-              "name": "嘉義縣",
-              "region": "南部",
-              "commuterZone": "雲嘉嘉",
-              "lat": 23.4518,
-              "lon": 120.574,
-              "distanceKm": 2970,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2970 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TNN",
-              "name": "臺南市",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.9997,
-              "lon": 120.227,
-              "distanceKm": 3019,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3019 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "KHH",
-              "name": "高雄市",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.6273,
-              "lon": 120.3014,
-              "distanceKm": 3025,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3025 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "PIF",
-              "name": "屏東縣",
-              "region": "南部",
-              "commuterZone": "南高屏",
-              "lat": 22.5519,
-              "lon": 120.5487,
-              "distanceKm": 3004,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 9,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3004 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "ILA",
-              "name": "宜蘭縣",
-              "region": "東部",
-              "commuterZone": "宜花東",
-              "lat": 24.7021,
-              "lon": 121.7378,
-              "distanceKm": 2817,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2817 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "HUA",
-              "name": "花蓮縣",
-              "region": "東部",
-              "commuterZone": "宜花東",
-              "lat": 23.831,
-              "lon": 121.4514,
-              "distanceKm": 2872,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2872 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "TTT",
-              "name": "臺東縣",
-              "region": "東部",
-              "commuterZone": "宜花東",
-              "lat": 22.7972,
-              "lon": 121.0714,
-              "distanceKm": 2945,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 13,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 22,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 200,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2945 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "PEN",
-              "name": "澎湖縣",
-              "region": "外島",
-              "commuterZone": "離島地區",
-              "lat": 23.5711,
-              "lon": 119.5793,
-              "distanceKm": 3062,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3062 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "KIN",
-              "name": "金門縣",
-              "region": "外島",
-              "commuterZone": "離島地區",
-              "lat": 24.4493,
-              "lon": 118.3767,
-              "distanceKm": 3152,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3152 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            },
-            {
-              "id": "LIE",
-              "name": "連江縣",
-              "region": "外島",
-              "commuterZone": "離島地區",
-              "lat": 26.1505,
-              "lon": 119.9265,
-              "distanceKm": 2954,
-              "inRadius7": false,
-              "inRadius10": false,
-              "probability": 14,
-              "riskLevel": "low",
-              "dgpaStatus": "官方公告表目前無停班停課訊息",
-              "commuterSyncApplied": false,
-              "wind": {
-                "avgBeaufort": 3,
-                "gustBeaufort": 5,
-                "thresholdAvg": 7,
-                "thresholdGust": 10,
-                "meetsCriteria": false
-              },
-              "rain": {
-                "flatland24h": 15,
-                "mountain24h": 15,
-                "flatlandThreshold": 350,
-                "mountainThreshold": 350,
-                "meetsCriteria": false
-              },
-              "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 2954 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
-              "modelDecisionNote": "尚未達停班課標準",
-              "officialAnnouncement": null
-            }
-          ],
-          "stats": {
-            "highRiskCount": 0,
-            "maxProb": 14,
-            "islandAvgProb": 11
-          }
-        },
-        {
-          "offsetLabel": "+48h",
-          "offsetHours": 48,
-          "timeDisplay": "11月12日 02:00",
-          "lat": 29.6,
-          "lon": 155,
-          "pressureHpa": 985,
-          "maxWindMs": 25,
-          "maxGustMs": 33,
-          "radius7km": 100,
+          "offsetLabel": "+24h",
+          "offsetHours": 24,
+          "timeDisplay": "11月11日 08:00",
+          "lat": 28,
+          "lon": 147.1,
+          "pressureHpa": 980,
+          "maxWindMs": 28,
+          "maxGustMs": 35,
+          "radius7km": 180,
           "radius10km": 0,
-          "probRadius70km": 140,
+          "probRadius70km": 90,
           "moveDir": "東北東",
-          "moveSpeedKmh": 43,
-          "baseRainPotential": 150,
+          "moveSpeedKmh": 46,
+          "baseRainPotential": 168,
           "intensityScale": 1,
-          "phaseNote": "查帕卡 +48h（11月12日 02:00）：中心位於 29.6°、155°，中心氣壓 985 hPa，近中心最大風速 25 m/s，七級風暴風半徑 100 公里；來源未列十級風暴風圈。",
+          "phaseNote": "查帕卡 +24h（11月11日 08:00）：中心位於 28°、147.1°，中心氣壓 980 hPa，近中心最大風速 28 m/s，七級風暴風半徑 180 公里；來源未列十級風暴風圈。",
           "counties": [
             {
               "id": "KEE",
@@ -4578,7 +3087,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.1276,
               "lon": 121.7392,
-              "distanceKm": 3311,
+              "distanceKm": 2538,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -4600,7 +3109,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3311 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2538 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4611,7 +3120,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.033,
               "lon": 121.5654,
-              "distanceKm": 3330,
+              "distanceKm": 2557,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -4633,7 +3142,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3330 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2557 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4644,7 +3153,7 @@
               "commuterZone": "北北基桃",
               "lat": 25.012,
               "lon": 121.4657,
-              "distanceKm": 3341,
+              "distanceKm": 2568,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -4666,7 +3175,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3341 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2568 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4677,7 +3186,7 @@
               "commuterZone": "北北基桃",
               "lat": 24.9936,
               "lon": 121.301,
-              "distanceKm": 3357,
+              "distanceKm": 2584,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -4699,7 +3208,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3357 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2584 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「北北基桃」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4710,7 +3219,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.8138,
               "lon": 120.9675,
-              "distanceKm": 3395,
+              "distanceKm": 2622,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -4732,7 +3241,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3395 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2622 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4743,7 +3252,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.7032,
               "lon": 121.1252,
-              "distanceKm": 3383,
+              "distanceKm": 2609,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -4765,7 +3274,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3383 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
+              "aiReasoning": "距颱風中心約 2609 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受東北季風增強與外圍環流角隅效應影響，沿海及山區陣風雨勢偏強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4776,7 +3285,7 @@
               "commuterZone": "竹竹苗",
               "lat": 24.5602,
               "lon": 120.8214,
-              "distanceKm": 3417,
+              "distanceKm": 2643,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -4798,7 +3307,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3417 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2643 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「竹竹苗」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4809,7 +3318,7 @@
               "commuterZone": "中彰投",
               "lat": 24.1477,
               "lon": 120.6736,
-              "distanceKm": 3445,
+              "distanceKm": 2669,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -4831,7 +3340,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3445 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2669 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4842,7 +3351,7 @@
               "commuterZone": "中彰投",
               "lat": 24.0518,
               "lon": 120.5161,
-              "distanceKm": 3464,
+              "distanceKm": 2687,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -4864,7 +3373,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3464 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2687 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4875,7 +3384,7 @@
               "commuterZone": "中彰投",
               "lat": 23.9157,
               "lon": 120.9605,
-              "distanceKm": 3426,
+              "distanceKm": 2647,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -4897,7 +3406,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3426 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2647 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「中彰投」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4908,7 +3417,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.7092,
               "lon": 120.4313,
-              "distanceKm": 3484,
+              "distanceKm": 2705,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -4930,7 +3439,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3484 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2705 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4941,7 +3450,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.4801,
               "lon": 120.4491,
-              "distanceKm": 3490,
+              "distanceKm": 2711,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -4963,7 +3472,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3490 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2711 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -4974,7 +3483,7 @@
               "commuterZone": "雲嘉嘉",
               "lat": 23.4518,
               "lon": 120.574,
-              "distanceKm": 3479,
+              "distanceKm": 2699,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -4996,7 +3505,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3479 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2699 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「雲嘉嘉」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5007,7 +3516,7 @@
               "commuterZone": "南高屏",
               "lat": 22.9997,
               "lon": 120.227,
-              "distanceKm": 3529,
+              "distanceKm": 2748,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -5029,7 +3538,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3529 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2748 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5040,7 +3549,7 @@
               "commuterZone": "南高屏",
               "lat": 22.6273,
               "lon": 120.3014,
-              "distanceKm": 3536,
+              "distanceKm": 2753,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -5062,7 +3571,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3536 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2753 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5073,7 +3582,7 @@
               "commuterZone": "南高屏",
               "lat": 22.5519,
               "lon": 120.5487,
-              "distanceKm": 3515,
+              "distanceKm": 2732,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 9,
@@ -5095,7 +3604,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3515 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
+              "aiReasoning": "距颱風中心約 2732 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「南高屏」生活圈，受中央山脈高聳地形屏障影響，平地風雨相對緩和，惟山區及沿海仍須留意陣風與長浪。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5106,7 +3615,7 @@
               "commuterZone": "宜花東",
               "lat": 24.7021,
               "lon": 121.7378,
-              "distanceKm": 3324,
+              "distanceKm": 2549,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -5128,7 +3637,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3324 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
+              "aiReasoning": "距颱風中心約 2549 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5139,7 +3648,7 @@
               "commuterZone": "宜花東",
               "lat": 23.831,
               "lon": 121.4514,
-              "distanceKm": 3381,
+              "distanceKm": 2602,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -5161,7 +3670,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3381 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
+              "aiReasoning": "距颱風中心約 2602 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於東部迎風面，受中央山脈地形阻擋抬升，降雨與沿海長浪強陣風明顯增強。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5172,7 +3681,7 @@
               "commuterZone": "宜花東",
               "lat": 22.7972,
               "lon": 121.0714,
-              "distanceKm": 3456,
+              "distanceKm": 2672,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 13,
@@ -5194,7 +3703,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3456 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
+              "aiReasoning": "距颱風中心約 2672 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 22mm。屬「宜花東」生活圈，位於背風側沉降區，需留意局部焚風及東半部沿海長浪與強陣風。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5205,7 +3714,7 @@
               "commuterZone": "離島地區",
               "lat": 23.5711,
               "lon": 119.5793,
-              "distanceKm": 3571,
+              "distanceKm": 2793,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -5227,7 +3736,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3571 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2793 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5238,7 +3747,7 @@
               "commuterZone": "離島地區",
               "lat": 24.4493,
               "lon": 118.3767,
-              "distanceKm": 3657,
+              "distanceKm": 2885,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -5260,7 +3769,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3657 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2885 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             },
@@ -5271,7 +3780,7 @@
               "commuterZone": "離島地區",
               "lat": 26.1505,
               "lon": 119.9265,
-              "distanceKm": 3456,
+              "distanceKm": 2693,
               "inRadius7": false,
               "inRadius10": false,
               "probability": 14,
@@ -5293,7 +3802,7 @@
                 "meetsCriteria": false
               },
               "mountainAlert": null,
-              "aiReasoning": "距颱風中心約 3456 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
+              "aiReasoning": "距颱風中心約 2693 公里；預估平均風 3 級、陣風 5 級（未達 7/10 級基準）；24h 累積雨量預估平地 15mm／山區 15mm。屬「離島地區」生活圈，受颱風外圍環流與東北季風疊加引發之海峽狹管效應影響，沿海及海面風浪極大。",
               "modelDecisionNote": "尚未達停班課標準",
               "officialAnnouncement": null
             }
@@ -5308,7 +3817,7 @@
       "aiMetadata": {
         "aiProvider": "CWA 公開資料 + 本站規則模型",
         "providerStatus": "not_configured",
-        "executiveBrief": "中度颱風 查帕卡 (CEMPAKA)：現況 (+0h)（11月10日 02:00）本站模型估算較高的縣市為基隆市 15%、宜蘭縣 15%、臺北市 14%。風雨與機率是模型估算，未經實測校準，不代表官方停班課決定。人事行政總處公告表：無停班停課訊息。"
+        "executiveBrief": "中度颱風 查帕卡 (CEMPAKA)：現況 (+0h)（11月10日 08:00）本站模型估算較高的縣市為基隆市 15%、宜蘭縣 15%、臺北市 14%。風雨與機率是模型估算，未經實測校準，不代表官方停班課決定。人事行政總處公告表：無停班停課訊息。"
       }
     }
   ]
