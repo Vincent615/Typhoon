@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-14T03:57:32.959Z",
+  "updatedAt": "2026-11-14T12:41:02.891Z",
   "updateIntervalHours": 3,
   "officialSync": {
-    "cwaCheckedAt": "2026-11-14T03:57:29.314Z",
+    "cwaCheckedAt": "2026-11-14T12:41:00.320Z",
     "cwaSourceMode": "中央氣象署公開颱風消息 (TY_NEWS-Data.js)",
     "cwaStatus": "active",
     "observedAt": "2026-11-11T06:00:00.000Z",
