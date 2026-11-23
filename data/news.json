@@ -1,21 +1,10 @@
 {
   "schemaVersion": 1,
-  "status": "ok",
-  "lastCheckedAt": "2026-11-23T11:28:33.896Z",
-  "lastSuccessfulAt": "2026-11-23T11:28:33.896Z",
+  "status": "empty",
+  "lastCheckedAt": "2026-11-23T23:01:55.590Z",
+  "lastSuccessfulAt": "2026-11-23T23:01:55.590Z",
   "windowDays": 7,
-  "articles": [
-    {
-      "id": "af246deb2597f86136c9",
-      "title": "薔琵颱風重創吉安米 2期稻作現空包彈收成率減半",
-      "url": "https://news.pts.org.tw/article/836883",
-      "sourceId": "pts",
-      "sourceName": "公視新聞網",
-      "publishedAt": "2026-11-23T07:10:50.000Z",
-      "dateKind": "updated",
-      "cached": false
-    }
-  ],
+  "articles": [],
   "sources": [
     {
       "id": "cna",
@@ -23,8 +12,8 @@
       "url": "https://feeds.feedburner.com/rsscna/lifehealth",
       "siteUrl": "https://www.cna.com.tw/",
       "status": "empty",
-      "lastCheckedAt": "2026-11-23T11:28:33.896Z",
-      "lastSuccessfulAt": "2026-11-23T11:28:33.896Z",
+      "lastCheckedAt": "2026-11-23T23:01:55.590Z",
+      "lastSuccessfulAt": "2026-11-23T23:01:55.590Z",
       "articleCount": 0
     },
     {
@@ -32,10 +21,10 @@
       "name": "公視新聞網",
       "url": "https://news.pts.org.tw/xml/newsfeed.xml",
       "siteUrl": "https://news.pts.org.tw/",
-      "status": "ok",
-      "lastCheckedAt": "2026-11-23T11:28:33.896Z",
-      "lastSuccessfulAt": "2026-11-23T11:28:33.896Z",
-      "articleCount": 1
+      "status": "empty",
+      "lastCheckedAt": "2026-11-23T23:01:55.590Z",
+      "lastSuccessfulAt": "2026-11-23T23:01:55.590Z",
+      "articleCount": 0
     }
   ]
 }
